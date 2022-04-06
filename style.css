@@ -1,0 +1,63 @@
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  header div.info{
+    width: 100%;
+    position: relative;
+    right: 70px;
+    margin-left: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+  }
+  header p.logo{
+    color: rgb(23, 6, 175);
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    font: bolder;
+    justify-content: left;
+    margin: 20px 0 20px 50px;
+  }
+  header div.title{
+    border-bottom: black solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  header div.info p.home-button{
+    margin: 20px 20px 0 20px;
+  }
+  header div.info p.business{
+    margin: 20px 10px 0 10px;
+  }
+  header div.info p.candidates{
+    margin: 20px 10px 0 10px;
+  }
+  header div.info p.faqs{
+    margin: 20px 10px 0 10px;
+  }
+  header div.info .select{
+    margin-top: 30px;
+    margin: 20px 10px 0 10px;
+  }
+  header div.info select{
+    border: none;
+  }
+  header button.contact-button{
+    height: 40px;
+    width: 140px;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 129, 0.603);
+    color: white;
+    border: none;
+  }
+   header div.button{
+     border: none;
+     margin-top: 5px;
+     display: flex;
+     align-items: center;
+   }

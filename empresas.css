@@ -1,0 +1,525 @@
+*{
+    margin: 0px;
+    padding: 0px;    
+    box-sizing: border-box;
+    overflow-x: hidden;
+} 
+
+  body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  #sideNav{
+    display: none;
+  }
+  header.top-header{
+      width: 85%;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+  }
+  header div.info{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+  header .menu-wrapper{
+    display: flex;
+    align-items: center;
+  }
+  header p.logo{
+    color: black;
+    background-color: transparent;
+    display: flex;
+    font: bolder;
+    justify-content: center;
+    align-content: center;
+    font-weight: bold;
+  }
+  header p.logo span{
+    color: #63799E;
+    font-weight: bold;
+  }
+  header div.title{
+    padding: 0.6rem;
+    border-bottom: black solid 1px;
+    display: flex;
+    justify-content: space-between;    
+    width: 100%;
+  }
+  header .info p{
+    margin: 0;
+  }
+  header div.info p.home-button{
+    margin: 0.8rem 20px 0 20px;
+  }
+  header div.info p.business{
+    margin: 0.8rem 10px 0 10px;
+  }
+  header div.info a.empresas-button{
+     text-decoration:none;
+     color: black;
+  }
+  header div.info a.candidates-button{
+    text-decoration:none;
+    color: black;
+ }
+  header div.info p.candidates{
+    margin:  0.8rem 10px 0 10px;
+  }
+  header div.info p.faqs{
+    margin:  0.8rem 10px 0 10px;
+  }
+  header div.info .select{
+    margin-top: 30px;
+    margin:  0.8rem 10px 0 10px;
+  }
+  header div.info select{
+    border: none;
+  }
+  header button.contact-button{
+    height: 40px;
+    width: 140px;
+    border-radius: 7px;
+    background-color:#63799E ;
+    color: white;
+    border: none;
+    transition: 300ms;
+  }
+  header button.contact-button:hover{
+    background-color:transparent;
+    color: black;
+    border:#63799E solid 1px ;
+  }
+   header div.button{
+     border: none;
+     margin-top: 5px;
+     display: flex;
+     align-items: center;
+   }
+   #idioma{
+     outline: none;
+   }
+   .menu-wrapper .menu-hmb{
+    display: none;
+   }
+
+   .search{
+    display: flex;
+    justify-content: center;
+    margin: 4% 5rem 0 0;
+    color: #63799E;
+    font-size: 13px;
+  }
+
+   h1{
+       width: 30%;
+       display: flex;
+       justify-content: center;
+       text-align: center;
+       margin-left: 33%;
+       
+   }
+   h2{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 33%;
+    margin-top: 2%;
+    margin-top: 50px;
+}
+div.buttons{
+  width: 47%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 30px;
+}
+
+div.buttons button{
+  margin: 8px;
+  width: 100%;
+  background-color: transparent;
+  border: #63799E solid 1px;
+  border-radius: 10px;
+  transition: 300ms;
+}
+div.buttons button:hover{
+  background-color:#63799E ;
+  color:white;
+  transition: 300ms;
+}
+div.buttons2 button{
+    margin: 8px;
+    width: 100%;
+    background-color: transparent;
+    border: #63799E solid 1px;
+    border-radius: 10px;
+    transition: 300ms;
+}
+div.buttons2 button:hover{
+  background-color:#63799E ;
+  color:white;
+  transition: 300ms;
+}
+
+div.buttons3 button{
+  margin: 8px;
+  width: 100%;
+  background-color: transparent;
+  border: #63799E solid 1px;
+  border-radius: 10px;
+  transition:300ms ;
+}
+div.buttons3 button:hover{
+  background-color:#63799E ;
+  color:white;
+  transition: 300ms;
+}
+div.buttons button p,
+ div.buttons2 button p,
+  div.buttons3 button p{
+    padding: 13px 0px;
+    background-color: transparent;
+}
+div.buttons2{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 33%;
+    border: black;
+}
+  div.buttons3{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 38%;
+    border-radius: 30%;
+}
+div.buttons-mobile{
+  display: none;
+  
+}
+main div.images{
+  display: flex;
+  margin: 40px 0 30px 18%;
+}
+main div.images div.logo{
+  margin: 0 0.7rem;
+}
+#contacto{
+  margin: 0 auto;
+}
+main form{
+  border: rgb(110, 110, 110) solid 2px;
+  display: flex;
+  box-shadow: 0px 20px 40px #EAEAEA;
+  justify-content: space-around;
+  width: 60%;
+  height: 30%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 4rem;
+  border-radius: 14px;
+}
+main form div.inputs{
+  width: 100%;
+  margin: 2rem;
+}
+main form div.inputs input{
+  width: 100%;
+  padding: 7px 7px;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+
+main form div.details{
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2rem;
+}
+main form div.details select{
+  width: 100%;
+  padding: 7px 7px;
+  margin: 0.8rem 0;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+main form div.details h3.mensaje{
+  margin-bottom: 15px;
+}
+main form div.details textarea{
+  width: 100%;
+  height: 15%;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+main form .condition{
+  width: 100%;
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+main form .acept-conditions{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+main form div.condition h3{
+  font-size: 15px;
+}
+main form div.condition input{
+  margin: 5px 5px 0 0;
+}
+main form div.condition button.send-button{
+  width: 20%;
+  border: #63799E solid 1px;
+  background-color: #63799E;
+  padding: 0.4rem 0.5rem;
+  color: white;
+  border-radius: 6px;
+  transition: 300ms;
+  outline: none;
+}
+main form div.condition button.send-button:hover{
+  background-color: transparent;
+  color:black ;
+  transition: 300ms;
+}
+footer{
+  border-top: gray solid 2px;
+  margin: 2.2rem auto;
+  width: 62%;
+  margin-top: 0;
+}
+.footer{
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+footer div.social-media{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer div.social-media a.wpp{
+  margin: 5px;
+}
+footer div.social-media a.linkedin{
+  margin: 5px;
+}
+footer div.social-media a.gmail{
+  margin: 5px;
+}
+footer div.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-left: 35px;
+  } 
+
+  footer div.title{
+    border-bottom: black solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  footer div.info p.home-button{
+    margin: 20px 30px 0 30px;
+  }
+  footer div.info p.business{
+    margin: 20px 10px 0 10px;
+  }
+  footer div.info a.empresas-button{
+     text-decoration:none;
+     color: black;
+  }
+  footer div.info p.candidates{
+    margin: 20px 30px 0 30px;
+  }
+  footer div.info p.faqs{
+    margin: 20px 30px 0 30px;
+  }
+  footer div.info .select{
+    margin-top: 30px;
+    margin: 20px 30px 0 30px;
+  }
+  footer div.info select{
+    border: none;
+  }
+  footer div.rights{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  footer div.rights p{
+    margin: 15px;
+  }
+  footer h4{
+    color: black;
+  }
+  footer span{
+      color: #63799E;
+      font-weight: bold;
+    }
+  @media(max-width:768px){
+    
+    .top-header{
+      margin-left: 0;
+    }
+
+    #sideNav{
+      display: block;
+      width: 35%;
+      height: 100vh;
+      position: fixed;
+      right: -250px;
+      top: 0;
+      background: rgb(110, 107, 107);
+      z-index: 2;
+      transition: 0.5s;
+    }
+    .search{
+      margin: 4% 0.5rem 0 0;
+    }
+    .side-menu{
+      list-style: none;
+    }
+    .side-menu{
+      width: 100%;
+      margin-left: 10%;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .side-menu a{
+      text-decoration: none;
+      color: white;
+    }
+    header div.info{
+      display: none;
+    }
+
+    .menu-wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      width: 100%;
+      top: 0%;
+    }
+    .menu-wrapper .menu-hmb{
+      display: block;
+      font-size: 1.6rem;
+      margin: 0.7rem 0.8rem;
+      cursor: pointer;
+    }
+
+    main h1{
+      width: 90%;
+      margin-left: 15px;
+    }
+
+    div.buttons-desktop{
+      display: none;
+    }
+    .button-wrapper{
+      width: 100%;
+      margin-top: 6%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .scrollbox{
+      width: 70%;
+      padding: 1rem;
+      height: 15.8rem;
+    }
+    div.buttons-mobile{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      margin: 0;
+    }
+    div.buttons-mobile button{
+      width: 100%;
+      background-color: transparent;
+      border: #63799E solid 1px;
+      border-radius: 10px
+    }
+
+    div.buttons-mobile p{
+      padding: 13px 0px;
+      background-color: transparent;
+    }
+    h2{
+      width: 90%;
+      margin-left: 6%;
+    }
+    main div.images{
+      display: flex;
+      flex-direction: row;
+      margin: 40px 0 30px 0%;
+    }
+    .hide-img{
+      display: none;
+    }
+    main form{
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      padding: 0 0.7rem;
+    }
+
+    .condition{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+    }
+
+    footer div.info{
+      display: none;
+    }
+    footer div.social-media a.wpp{
+      margin: 8px;
+    }
+    footer div.social-media a.linkedin{
+      margin: 8px;
+    }
+    footer div.social-media a.gmail{
+      margin: 8px;
+    }
+    .linea{
+      display: none;
+    }
+    .rights{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .rights p{
+      text-align: center;
+      margin: 0; 
+    }
+  }
