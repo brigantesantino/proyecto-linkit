@@ -272,7 +272,7 @@ footer span{
       padding: 0 0.7rem;
     }
     main form{
-        border: rgb(110, 110, 110) solid 2px;
+      border: 2px solid #63799E;
         display: flex;
         justify-content: space-around;
         width: 85%;
@@ -280,6 +280,21 @@ footer span{
         margin: 0 auto;
         margin-top: 30px;
         border-radius: 10px;
+      }
+      .file input{
+        display: none;
+      }
+      .file label{
+        text-align: center;
+        font-weight: bolder;
+        font-size: 20px;
+        color: gray;
+        display: block;
+        padding: -5px 0 6px 0;
+        border: 2px solid #63799E;
+        margin: 1rem 0;
+        width: 5rem;
+        border-radius: 14px;
       }
       main form div.inputs{
         width: 100%;
@@ -291,7 +306,7 @@ footer span{
         padding: 7px 7px;
         margin: 1rem 0;
         border-radius: 10px;
-        border: rgb(110, 110, 110) solid 2px;
+        border: 2px solid #63799E;
         outline: none;
       }
       main form div.inputs select{
@@ -299,8 +314,8 @@ footer span{
         padding: 7px 7px;
         margin: 0.8rem 0;
         border-radius: 10px;
-        border: rgb(110, 110, 110) solid 2px;
         outline: none;
+        border: 2px solid #63799E;
       }
       main form div.details{
         box-sizing: border-box;
@@ -313,7 +328,7 @@ footer span{
         padding: 7px 7px;
         margin: 0.8rem 0;
         border-radius: 10px;
-        border: rgb(110, 110, 110) solid 2px;
+        border: 2px solid #63799E;
         outline: none;
       }
       main form div.details h3.mensaje{
@@ -323,7 +338,7 @@ footer span{
         width: 100%;
         height: 15%;
         border-radius: 10px;
-        border: rgb(110, 110, 110) solid 2px;
+        border: 2px solid #63799E;
         outline: none;
       }
       main form div.details input{
@@ -469,7 +484,7 @@ footer span{
               display: flex;
               justify-content: space-around;
               width: 60%;
-              height: 30%;
+              height: 34%;
               margin: 0 auto;
               margin-top: 30px;
               border-radius: 10px;
@@ -508,9 +523,9 @@ footer span{
               display: block;
               padding: -5px 0 6px 0;
               border: 2px solid #63799E;
-              margin: 1rem 0;
+              margin: 1.1rem 0;
               width: 5rem;
-              border-radius: 14px;
+              border-radius: 10px;
             }
             main form div.details{
               box-sizing: border-box;
@@ -520,7 +535,7 @@ footer span{
             main form div.details select{
               width: 100%;
               padding: 7px 7px;
-              margin: 0.8rem 0;
+              margin: 0.9rem 0;
               border-radius: 10px;
               border: 2px solid #63799E;
               outline: none;
@@ -537,7 +552,7 @@ footer span{
             }
             main form .condition{
               width: 100%;
-              margin-top: 0.6rem;
+              margin: 0.6rem 0 1rem 0;
               display: flex;
               justify-content: space-between;
               align-content: center;
@@ -642,5 +657,9 @@ footer span{
               }
               footer div.rights p{
                 margin: 15px;
+                width: 25%;
               }  
+              footer div.linea p{
+                width: 100%;
+              }
     }
