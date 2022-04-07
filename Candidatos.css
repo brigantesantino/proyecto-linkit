@@ -100,20 +100,23 @@
      display: flex;
      align-items: center;
    }
+   .question{
+     margin: 0 auto;
+   }
+   .puestos{
+    text-align: center;
+    color: #63799E;
+    font-size: 13px;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 3.2rem;
+   }
    #idioma{
      outline: none;
    }
    .menu-wrapper .menu-hmb{
     display: none;
    }
-
-   .puestos{
-    text-align: center;
-    
-    color: #63799E;
-    font-size: 13px;
-    margin: 4%  2rem 0 0;
-  }
 
    h1{
        width: 30%;
@@ -134,8 +137,46 @@
 }
 .buttons .candidate-buttons button{
     width: 100%;
-    
 }
+
+main div.images{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main div.images div.logo{
+  object-fit: cover;
+  display: inline-block;
+  margin: 0 0.6rem;
+}
+
+.images-wrapper{
+  width: 100%;
+  overflow:auto;
+  white-space: nowrap;
+}
+
+.google-img{
+  overflow: hidden;
+  object-fit: cover;
+  width: fit-content;
+  height: 4.4rem;
+}
+#offers{
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+#technologies{
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+#contacto{
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
 footer h4{
   color: black;
 }
@@ -197,9 +238,7 @@ footer span{
       width: 90%;
       margin-left: 15px;
     }
-    .puestos{
-      margin: 4% 0 0 0.8rem;
-    }
+
     div.buttons-desktop button {
       background-color: transparent;
       border: #63799E solid 1px;
@@ -249,10 +288,12 @@ footer span{
       width: 100%;
   }
   .buttons span.date{
-      width: 37%;
-      
+      width: 37%;   
   }
-    
+  .scrollbox{
+    width: 100%;
+    height: 32rem;
+  }
     h2{
       width: 90%;
       margin-left: 6%;
@@ -262,9 +303,7 @@ footer span{
       flex-direction: row;
       margin: 40px 0 30px 0%;
     }
-    .hide-img{
-      display: none;
-    }
+
     main form{
       flex-direction: column;
       align-items: center;
@@ -438,7 +477,15 @@ footer span{
                 justify-content: center;
                 margin: 1rem 0;
             }
-
+            .scrollbox{
+              width: 100%;
+              height: 30rem;
+            }
+            .images-wrapper{
+              width: 50%;
+              overflow:auto;
+              white-space: nowrap;
+            }
             .buttons button .designer{
                 width: 40%;
                 font-size:14px;
@@ -467,18 +514,8 @@ footer span{
             }
             .buttons span.date{
                 width: 37%;
-                
             }
-            main div.images{
-              display: flex;
-              margin: 40px 0 30px 18%;
-            }
-            main div.images div.logo{
-              margin: 15px;
-            }
-            #contacto{
-              margin: 0 auto;
-            }
+
             main form{
               border: 2px solid #63799E;;
               display: flex;
