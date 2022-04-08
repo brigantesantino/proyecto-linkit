@@ -81,6 +81,7 @@
     border: none;
   }
   header button.contact-button{
+    cursor: pointer;
     height: 40px;
     width: 140px;
     border-radius: 7px;
@@ -113,6 +114,7 @@
    }
    #idioma{
      outline: none;
+     cursor: pointer;
    }
    .menu-wrapper .menu-hmb{
     display: none;
@@ -137,8 +139,8 @@
 }
 .buttons .candidate-buttons button{
     width: 100%;
+    cursor: pointer;
 }
-
 main div.images{
   width: 100%;
   display: flex;
@@ -553,6 +555,7 @@ footer span{
               display: none;
             }
             .file label{
+              cursor: pointer;
               text-align: center;
               font-weight: bolder;
               font-size: 20px;
@@ -605,8 +608,10 @@ footer span{
             }
             main form div.condition input{
               margin: 5px 5px 0 0;
+              cursor: pointer;
             }
             main form div.condition button.send-button{
+              cursor: pointer;
               width: 20%;
               border: #63799E solid 1px;
               background-color: #63799E;
