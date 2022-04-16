@@ -9,7 +9,7 @@ import Candidatos from "./components/Candidatos";
 import Empresas from "./components/Empresas";
 import Popup from "./components/Popup";
 import FAQs from "./components/FAQs";
-
+import Header from "./components/Header"
 //Empresas HECHO
 //Popup HECHO
 //Candidatos 
@@ -23,6 +23,7 @@ ReactDOM.render(
         <Route exact path="/empresas" element={<Empresas/>}/> 
         <Route exact path="/popup" element={<Popup/>}/>
         <Route exact path="/faqs" element={<FAQs/>}/>
+        <Route exact path="/header" element={<Header/>}/>
       </Routes>
     </Fragment>
   </Router>,

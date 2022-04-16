@@ -1,59 +1,27 @@
 import React from "react";
 import "../componentStyles/empresas.css";
-import image17 from '../images/image 17.svg'
-import image18 from '../images/image 18.png';
-import image20 from '../images/image 20.svg';
-import image8 from '../images/image 8.svg';
-import image9 from '../images/image 9.svg';
-import image10 from '../images/image 10.svg';
-import image12 from '../images/image 12.svg';
-import image13 from '../images/image 13.svg';
-import image14 from '../images/image 14.svg';
-import image15 from '../images/image 15.png';
-import image21 from '../images/image 21.png';
+import image17 from "../images/image 17.svg";
+import image18 from "../images/image 18.png";
+import image20 from "../images/image 20.svg";
+import image8 from "../images/image 8.svg";
+import image9 from "../images/image 9.svg";
+import image10 from "../images/image 10.svg";
+import image12 from "../images/image 12.svg";
+import image13 from "../images/image 13.svg";
+import image14 from "../images/image 14.svg";
+import image15 from "../images/image 15.png";
+import image21 from "../images/image 21.png";
 
-import vector from '../images/Vector.svg';
-import vector1 from '../images/Vector-1.svg';
-import whatsApp from '../images/WhatsApp.svg';
+import vector from "../images/Vector.svg";
+import vector1 from "../images/Vector-1.svg";
+import whatsApp from "../images/WhatsApp.svg";
+
+import Header from "./Header";
 
 export default function Empresas() {
   return (
     <div className="empresas">
-      <header className="top-header">
-        <div className="title">
-          <div className="menu-wrapper">
-            <p className="logo">
-              Link <span>IT</span>
-            </p>
-            <i className="fas fa-bars menu-hmb" aria-hidden="true"></i>
-          </div>
-          <div className="info">
-            <p className="home-button">INICIO</p>
-            <a className="empresas-button" href="/empresas.html">
-              <p className="business">EMPRESAS</p>
-            </a>
-            <a className="candidates-button" href="/Candidatos.html">
-              <p className="candidates">CANDIDATOS</p>
-            </a>
-            <p className="faqs">FAQS</p>
-            <div className="select">
-              <a href="/eng/empresas.html">
-                <select name="language" id="idioma">
-                  IDIOMA
-                  <option value="1">INGLÉS</option>
-                  <option value="2">ESPAÑOL</option>
-                </select>
-              </a>
-            </div>
-            <div className="button">
-              <button type="submit" className="contact-button">
-                CONTACTO
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <Header />
       <nav id="sideNav">
         <ul className="side-menu">
           <li>

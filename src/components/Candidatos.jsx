@@ -1,48 +1,34 @@
 import React from "react";
 import "../componentStyles/candidatos.css";
 
+import image17 from "../images/image 17.svg";
+import image18 from "../images/image 18.png";
+import image20 from "../images/image 20.svg";
+import image8 from "../images/image 8.svg";
+import image9 from "../images/image 9.svg";
+import image10 from "../images/image 10.svg";
+import image12 from "../images/image 12.svg";
+import image13 from "../images/image 13.svg";
+import image14 from "../images/image 14.svg";
+import image15 from "../images/image 15.png";
+import image21 from "../images/image 21.png";
+
+import vector from "../images/Vector.svg";
+import vector1 from "../images/Vector-1.svg";
+import whatsApp from "../images/WhatsApp.svg";
+
+import Header from "./Header";
 export default function Candidatos() {
   return (
     <div className="candidatos">
-        <div className="title">
-          <div className="menu-wrapper">
-            <p className="logo">
-              Link <span>IT</span>
-            </p>
-            <i className="fas fa-bars menu-hmb" aria-hidden="true"></i>
-          </div>
-          <div className="info">
-            <p className="home-button">INICIO</p>
-            <a className="empresas-button" href="/empresas.html">
-              <p className="business">EMPRESAS</p>
-            </a>
-            <a className="candidates-button" href="/Candidatos.html">
-              <p className="candidates">CANDIDATOS</p>
-            </a>
-            <p className="faqs">FAQS</p>
-            <div className="select">
-              <a href="/eng/Candidates.html">
-                <select name="language" id="idioma">
-                  IDIOMA
-                </select>
-              </a>
-              <option value="1">INGLÉS</option>
-              <option value="2">ESPAÑOL</option>
-            </div>
-            <div className="button">
-              <button type="submit" className="contact-button">
-                CONTACTO
-              </button>
-            </div>
-          </div>
-        </div>
+      <Header />
       <nav id="sideNav">
         <ul className="side-menu">
           <li>
             <a href="index.html">INICIO</a>
           </li>
           <li>
-            <a href="empresas.html">EMPRESAS</a>
+            |<a href="empresas.html">EMPRESAS</a>
           </li>
           <li>
             <a href="Candidatos.html">CANDIDATOS</a>
@@ -184,37 +170,37 @@ export default function Candidatos() {
         <div className="images">
           <div className="images-wrapper">
             <div className="logo google-img">
-              <img alt="" src="/views/image 18.png" />
+              <img alt="" src={image18} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 17.svg" />
+              <img alt="" src={image17} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 20.svg" />
+              <img alt="" src={image20} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 8.svg" />
+              <img alt="" src={image8} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 9.svg" />
+              <img alt="" src={image9} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 10.svg" />
+              <img alt="" src={image10} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 12.svg" />
+              <img alt="" src={image12} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 13.svg" />
+              <img alt="" src={image13} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 14.svg" />
+              <img alt="" src={image14} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 15.png" />
+              <img alt="" src={image15} />
             </div>
             <div className="logo">
-              <img alt="" src="/views/image 21.png" />
+              <img alt="" src={image21} />
             </div>
           </div>
         </div>
@@ -303,16 +289,16 @@ export default function Candidatos() {
               className="linkedin"
               href="https://r.search.yahoo.com/_ylt=AwrCmnoYc0NiNFIAUBDX9wt.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1648616345/RO=10/RU=https%3a%2f%2far.linkedin.com%2f/RK=2/RS=NOL2bRj1EEkj6dfnPKWAHekJg74-"
             >
-              <img alt="" src="/views/Vector.svg" />
+              <img alt="" src={vector} />
             </a>
             <a
               className="gmail"
               href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
             >
-              <img alt="" src="/views/Vector-1.svg" />
+              <img alt="" src={vector1} />
             </a>
             <a className="wpp" href="https://web.whatsapp.com/">
-              <img alt="" src="/views/WhatsApp.svg" />
+              <img alt="" src={whatsApp} />
             </a>
           </div>
         </div>

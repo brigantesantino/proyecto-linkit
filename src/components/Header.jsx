@@ -1,0 +1,43 @@
+import React from "react";
+import "../componentStyles/header.css";
+
+export default function Header() {
+  return (
+    <div className="header">
+      <header className="top-header">
+        <div className="title">
+          <div className="menu-wrapper">
+            <p className="logo">
+              Link <span>IT</span>
+            </p>
+            <i className="fas fa-bars menu-hmb" aria-hidden="true"></i>
+          </div>
+          <div className="info">
+            <p className="home-button">INICIO</p>
+            <a className="empresas-button" href="/empresas.html">
+              <p className="business">EMPRESAS</p>
+            </a>
+            <a className="candidates-button" href="/Candidatos.html">
+              <p className="candidates">CANDIDATOS</p>
+            </a>
+            <p className="faqs">FAQS</p>
+            <div className="select">
+              <a href="/eng/empresas.html">
+                <select name="language" id="idioma">
+                  IDIOMA
+                  <option value="1">INGLÉS</option>
+                  <option value="2">ESPAÑOL</option>
+                </select>
+              </a>
+            </div>
+            <div className="button">
+              <button type="submit" className="contact-button">
+                CONTACTO
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  );
+}
