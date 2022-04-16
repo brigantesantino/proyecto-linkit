@@ -5,7 +5,7 @@
   overflow-x: hidden;
 }
 
-.popup body {
+.popup {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -23,7 +23,6 @@
 
 .popup .designer {
   width: 100%;
-
   display: flex;
   justify-content: left;
   color: #000f25;
@@ -215,7 +214,7 @@
   gap: 14px;
 }
 @media screen and (min-width: 768px) {
-  .popup body {
+  .popup {
     width: 768px;
     margin: 1rem auto;
   }

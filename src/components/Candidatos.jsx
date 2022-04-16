@@ -1,9 +1,9 @@
 import React from "react";
-//import "../componentStyles/candidatos.css";
+import "../componentStyles/candidatos.css";
 
 export default function Candidatos() {
   return (
-    <div>
+    <div className="candidatos">
         <div className="title">
           <div className="menu-wrapper">
             <p className="logo">

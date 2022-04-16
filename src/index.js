@@ -10,13 +10,17 @@ import Empresas from "./components/Empresas";
 import Popup from "./components/Popup";
 import FAQs from "./components/FAQs";
 
+//Empresas HECHO
+//Popup HECHO
+//Candidatos 
+
 ReactDOM.render(
   <Router>
     <Fragment>
       <Routes>
         <Route exact path="/" element={<Candidatos/>}/>
         <Route exact path="/candidatos" element={<Candidatos/>}/>
-        <Route exact path="/empresas" element={<Empresas/>}/>
+        <Route exact path="/empresas" element={<Empresas/>}/> 
         <Route exact path="/popup" element={<Popup/>}/>
         <Route exact path="/faqs" element={<FAQs/>}/>
       </Routes>
