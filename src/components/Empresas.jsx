@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "../componentStyles/empresas.css";
+import { postFormAirtable } from "../actions/formActions";
+
 import image17 from "../images/image 17.svg";
 import image18 from "../images/image 18.png";
 import image20 from "../images/image 20.svg";
@@ -19,6 +21,42 @@ import whatsApp from "../images/WhatsApp.svg";
 import Header from "./Header";
 
 export default function Empresas() {
+
+  const [form, setForm] = useState({
+    nombre: "",
+    email: "",
+    linkedin: "",
+    motivoDeContacto: "",
+    interesadoEnRoles: "",
+    comoNosConociste: "",
+    mensaje: "",
+  });
+
+  function handleChange(params) {
+    setForm({
+      ...form,
+      [params.target.name]: params.target.value,
+    });
+  }
+
+  function handleSubmit(params) {
+    postFormAirtable(params);
+  }
+
+  function handleChangeCheckbox(params) {
+    setForm({
+      ...form,
+      [params.target.name]: params.target.checked,
+    });
+  }
+
+  function handleChangeSelect(params) {
+    setForm({
+      ...form,
+      [params.target.name]: params.target.value,
+    });
+  }
+
   return (
     <div className="empresas">
       <Header />
@@ -160,71 +198,71 @@ export default function Empresas() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form>
+        <form  onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
             <h3>Nombre</h3>
-            <input type="text" />
+            <input type="text" value={form.nombre} onChange={(e)=> handleChange(e)}/>
             <h3>Email</h3>
-            <input type="email" />
+            <input type="email" value={form.email} onChange={(e)=> handleChange(e)}/>
             <h3>LinkedIn*</h3>
-            <input type="text" />
+            <input type="text" value={form.linkedin} onChange={(e)=> handleChange(e)}/>
             <h3>Motivo de contacto</h3>
-            <input type="text" />
+            <input type="text" value={form.motivoDeContacto} onChange={(e)=> handleChange(e)} />
           </div>
           <div className="details">
             <h3>Interesado en roles</h3>
             <div className="checkboxes">
               <div className="checkbox-1">
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Software Developers</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)} />
                   <p>QA</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)} />
                   <p>UX/UI Designers</p>
                 </div>
               </div>
               <div className="checkbox-2">
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Project Managers</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Team Lead</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Big Data</p>
                 </div>
               </div>
               <div className="checkbox-3">
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Machine learning</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Web 3.0</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" />
+                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
                   <p>Blockchain</p>
                 </div>
               </div>
             </div>
             <input className="inp" type="textarea" placeholder="Otros..." />
             <h3>Cómo nos conociste</h3>
-            <select name="info">
-              <option value="0"></option>
-              <option value="1">xxxxxx</option>
-              <option value="2">xxxxxx</option>
-              <option value="3">xxxxxx</option>
-              <option value="4">xxxxxx</option>
+            <select name="info" onChange={handleChangeSelect}>
+              <option value={form.comoNosConociste}>xxxxxx</option>
+              <option value={form.comoNosConociste}>xxxxxx</option>
+              <option value={form.comoNosConociste}>xxxxxx</option>
+              <option value={form.comoNosConociste}>xxxxxx</option>
+              <option value={form.comoNosConociste}>xxxxxx</option>
             </select>
             <h3 className="mensaje">Mensaje</h3>
             <textarea name="message"></textarea>
@@ -233,7 +271,7 @@ export default function Empresas() {
                 <input type="checkbox" className="terms" />
                 <h3>Aceptar condiciones legales</h3>
               </div>
-              <button type="submit" className="send-button">
+              <button className="send-button">
                 Enviar
               </button>
             </div>

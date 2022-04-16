@@ -1,3 +1,6 @@
+.header #sideNav {
+  display: none;
+}
 .header header.top-header {
   width: 85%;
   display: flex;

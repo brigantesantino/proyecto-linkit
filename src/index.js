@@ -3,16 +3,12 @@ import ReactDOM from "react-dom";
 
 import * as serviceWorker from "./serviceWorker";
 
-//import components
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Candidatos from "./components/Candidatos";
 import Empresas from "./components/Empresas";
 import Popup from "./components/Popup";
 import FAQs from "./components/FAQs";
 import Header from "./components/Header"
-//Empresas HECHO
-//Popup HECHO
-//Candidatos 
 
 ReactDOM.render(
   <Router>

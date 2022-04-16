@@ -18,7 +18,9 @@ import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
 
 import Header from "./Header";
+
 export default function Candidatos() {
+
   return (
     <div className="candidatos">
       <Header />
@@ -326,6 +328,9 @@ export default function Candidatos() {
           </div>
           <p>Developed by IT-TECHGROUP</p>
         </div>
+        <button /* onClick={postFormAirtable} */>
+          Enviar
+        </button>
       </footer>
       {/* <script>
             const $btn = document.querySelector(".menu-hmb");
