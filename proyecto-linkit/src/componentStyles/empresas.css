@@ -1,0 +1,606 @@
+.empresas * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.empresas body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+}
+.empresas #sideNav {
+  display: none;
+}
+.empresas header.top-header {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.empresas header div.info {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.empresas header .menu-wrapper {
+  display: flex;
+  align-items: center;
+}
+.empresas header p.logo {
+  color: black;
+  background-color: transparent;
+  display: flex;
+  font: bolder;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+}
+.empresas header p.logo span {
+  color: #63799e;
+  font-weight: bold;
+}
+.empresas header div.title {
+  padding: 0.6rem;
+  border-bottom: black solid 1px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.empresas header .info p {
+  margin: 0;
+}
+.empresas header div.info p.home-button {
+  margin: 0.8rem 20px 0 20px;
+}
+.empresas header div.info p.business {
+  margin: 0.8rem 10px 0 10px;
+}
+.empresas header div.info a.empresas-button {
+  text-decoration: none;
+  color: black;
+}
+.empresas header div.info a.candidates-button {
+  text-decoration: none;
+  color: black;
+}
+.empresas header div.info p.candidates {
+  margin: 0.8rem 10px 0 10px;
+}
+.empresas header div.info p.faqs {
+  margin: 0.8rem 10px 0 10px;
+}
+.empresas header div.info .select {
+  margin-top: 30px;
+  margin: 0.8rem 10px 0 10px;
+}
+.empresas header div.info select {
+  border: none;
+}
+.empresas header button.contact-button {
+  cursor: pointer;
+  height: 40px;
+  width: 140px;
+  border-radius: 7px;
+  background-color: #63799e;
+  color: white;
+  border: none;
+  transition: 300ms;
+}
+.empresas header button.contact-button:hover {
+  background-color: transparent;
+  color: black;
+  border: #63799e solid 1px;
+}
+.empresas header div.button {
+  border: none;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+.empresas #idioma {
+  outline: none;
+}
+.empresas .menu-wrapper .menu-hmb {
+  display: none;
+}
+
+.empresas .question {
+  margin: 0 auto;
+}
+.search {
+  text-align: center;
+  color: #63799e;
+  font-size: 13px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 3.2rem;
+}
+.empresas h1 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 33%;
+}
+.empresas h2 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 33%;
+  margin-top: 2%;
+  margin-top: 50px;
+}
+ div.buttons {
+  width: 47%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.buttons-desktop {
+  margin: 0 auto;
+}
+div.buttons button {
+  outline: none;
+  margin: 8px;
+  width: 100%;
+  background-color: transparent;
+  border: #63799e solid 1px;
+  border-radius: 10px;
+  transition: 300ms;
+}
+div.buttons2 button {
+  outline: none;
+  margin: 8px;
+  width: 100%;
+  background-color: transparent;
+  border: #63799e solid 1px;
+  border-radius: 10px;
+  transition: 300ms;
+}
+
+div.buttons3 button {
+  outline: none;
+  margin: 8px;
+  width: 100%;
+  background-color: transparent;
+  border: #63799e solid 1px;
+  border-radius: 10px;
+  transition: 300ms;
+}
+
+div.buttons button p,
+div.buttons2 button p,
+div.buttons3 button p {
+  padding: 13px 0px;
+  background-color: transparent;
+}
+div.buttons2 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: black;
+  margin: 0 auto;
+}
+div.buttons3 {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 30%;
+  margin: 0 auto;
+}
+
+div.buttons-mobile {
+  display: none;
+}
+
+main div.images {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*margin: 40px 0 30px 18%;*/
+}
+
+main div.images div.logo {
+  object-fit: cover;
+  display: inline-block;
+  margin: 0 0.6rem;
+}
+
+.images-wrapper {
+  width: 50%;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.empresas .google-img {
+  overflow: hidden;
+  object-fit: cover;
+  width: fit-content;
+  height: 4.4rem;
+}
+
+.empresas #rubros {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.empresas #contacto {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.empresas #technologies {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.empresas main form {
+  border: rgb(110, 110, 110) solid 2px;
+  display: flex;
+  box-shadow: 0px 20px 40px #eaeaea;
+  justify-content: space-around;
+  width: 60%;
+  height: 30%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 4rem;
+  border-radius: 14px;
+}
+.empresas main form div.inputs {
+  width: 100%;
+  margin: 2rem 0 6rem 2rem;
+}
+.empresas main form div.inputs input {
+  width: 100%;
+  padding: 7px 7px;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+
+.empresas main form div.details {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2.1rem 2rem 2rem 2rem;
+}
+.empresas main form div.details div.checkboxes {
+  display: flex;
+  margin: 1.5rem 0 -1.5rem 0;
+}
+.empresas main form div.details div.checkboxes p {
+  font-size: 0.7rem;
+  font-weight: bolder;
+}
+.empresas main form div.details div.checkbox-1 {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+.empresas main form div.details div.checkbox-2 {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+.empresas main form div.details div.checkbox-3 {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+.empresas main form div.details div.checkboxes input {
+  margin: 2px 4px 2px 0;
+  cursor: pointer;
+}
+.empresas main form div.details input.inp {
+  width: 100%;
+  padding: 7px 7px;
+  margin: 3.4rem 0 1.2rem 0;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+.empresas main form div.details select {
+  width: 100%;
+  padding: 7px 7px;
+  margin: 0.8rem 0 1rem 0;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+.empresas main form div.details h3.mensaje {
+  margin-bottom: 15px;
+}
+.empresas main form div.details textarea {
+  width: 100%;
+  height: 15%;
+  border-radius: 10px;
+  border: rgb(110, 110, 110) solid 2px;
+  outline: none;
+}
+.empresas main form .condition {
+  width: 100%;
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.empresas main form .acept-conditions {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.empresas main form div.condition h3 {
+  font-size: 15px;
+}
+.empresas main form div.condition input {
+  cursor: pointer;
+  margin: 5px 5px 0 0;
+}
+.empresas main form div.condition button.send-button {
+  cursor: pointer;
+  width: 20%;
+  border: #63799e solid 1px;
+  background-color: #63799e;
+  padding: 0.4rem 0.5rem;
+  color: white;
+  border-radius: 6px;
+  transition: 300ms;
+  outline: none;
+}
+.empresas main form div.condition button.send-button:hover {
+  background-color: transparent;
+  color: black;
+  transition: 300ms;
+}
+.empresas footer {
+  border-top: gray solid 2px;
+  margin: 2.2rem auto;
+  width: 62%;
+  margin-top: 0;
+}
+.empresas .footer {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.empresas footer div.social-media {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empresas footer div.social-media a.wpp {
+  margin: 5px;
+}
+.empresas footer div.social-media a.linkedin {
+  margin: 5px;
+}
+.empresas footer div.social-media a.gmail {
+  margin: 5px;
+}
+.empresas footer div.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 35px;
+}
+
+.empresas footer div.title {
+  border-bottom: black solid 1px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.empresas footer div.info p.home-button {
+  margin: 20px 30px 0 30px;
+}
+.empresas footer div.info p.business {
+  margin: 20px 10px 0 10px;
+}
+.empresas footer div.info a.empresas-button {
+  text-decoration: none;
+  color: black;
+}
+.empresas footer div.info p.candidates {
+  margin: 20px 30px 0 30px;
+}
+.empresas footer div.info p.faqs {
+  margin: 20px 30px 0 30px;
+}
+.empresas footer div.info .select {
+  margin-top: 30px;
+  margin: 20px 30px 0 30px;
+}
+.empresas footer div.info select {
+  border: none;
+}
+.empresas footer div.rights {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.empresas footer div.rights p {
+  margin: 15px;
+}
+.empresas footer h4 {
+  color: black;
+}
+.empresas footer span {
+  color: #63799e;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .empresas .top-header {
+    margin-left: 0;
+  }
+
+  .empresas #sideNav {
+    display: block;
+    width: 35%;
+    height: 100vh;
+    position: fixed;
+    right: -250px;
+    top: 0;
+    background: rgb(110, 107, 107);
+    z-index: 2;
+    transition: 0.5s;
+  }
+
+  .empresas .side-menu {
+    list-style: none;
+  }
+  .empresas .side-menu {
+    width: 100%;
+    margin-left: 10%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .empresas .side-menu a {
+    text-decoration: none;
+    color: white;
+  }
+  .empresas header div.info {
+    display: none;
+  }
+
+  .empresas .menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    top: 0%;
+  }
+  .empresas .menu-wrapper .menu-hmb {
+    display: block;
+    font-size: 1.6rem;
+    margin: 0.7rem 0.8rem;
+    cursor: pointer;
+  }
+
+  .empresas main h1 {
+    width: 90%;
+    margin-left: 15px;
+  }
+
+  .empresas div.buttons-desktop {
+    display: none;
+  }
+
+  .empresas .button-wrapper {
+    width: 100%;
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .empresas .scrollbox {
+    width: 70%;
+    padding: 1rem;
+    height: 15.8rem;
+  }
+
+  .empresas div.buttons-mobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .empresas div.buttons-mobile button {
+    width: 100%;
+    background-color: transparent;
+    border: #63799e solid 1px;
+    border-radius: 10px;
+  }
+
+  .empresas div.buttons-mobile p {
+    padding: 13px 0px;
+    background-color: transparent;
+  }
+
+  .empresas h2 {
+    width: 90%;
+    margin-left: 6%;
+  }
+
+  .empresas main div.images {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 0 30px 0%;
+  }
+
+  .empresas .images-wrapper {
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  .empresas .images {
+    display: flex;
+  }
+
+  .empresas main form {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 0 0.7rem;
+  }
+  .empresas main form div.inputs {
+    width: 100%;
+    margin: 2rem 2rem 0 2rem;
+  }
+  .empresas main form div.details {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 2rem 2rem 2rem;
+  }
+  .empresas .condition {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .empresas footer div.info {
+    display: none;
+  }
+  .empresas footer div.social-media a.wpp {
+    margin: 8px;
+  }
+  .empresas footer div.social-media a.linkedin {
+    margin: 8px;
+  }
+  .empresas footer div.social-media a.gmail {
+    margin: 8px;
+  }
+  .empresas .linea {
+    display: none;
+  }
+  .empresas .rights {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .empresas .rights p {
+    text-align: center;
+    margin: 0;
+  }
+}
