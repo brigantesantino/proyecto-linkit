@@ -21,8 +21,15 @@ import whatsApp from "../images/WhatsApp.svg";
 import Header from "./Header";
 
 export default function Empresas() {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [motivoDeContacto, setMotivoDeContacto] = useState("");
+  const [interesadoEnRoles, setInteresadoEnRoles] = useState("");
+  const [comoNosConociste, setComoNosConociste] = useState("");
+  const [mensaje, setMensaje] = useState("");
 
-  const [form, setForm] = useState({
+  /* const [form, setForm] = useState({
     nombre: "",
     email: "",
     linkedin: "",
@@ -40,7 +47,8 @@ export default function Empresas() {
   }
 
   function handleSubmit(params) {
-    postFormAirtable(params);
+    const { nombre , email , linkedin , motivoDeContacto, interesadoEnRoles, comoNosConociste , mensaje } = form
+    postFormAirtable(nombre , email , linkedin , motivoDeContacto, interesadoEnRoles, comoNosConociste , mensaje );
   }
 
   function handleChangeCheckbox(params) {
@@ -55,6 +63,20 @@ export default function Empresas() {
       ...form,
       [params.target.name]: params.target.value,
     });
+  }
+ */
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    postFormAirtable(
+      nombre,
+      email,
+      linkedin,
+      motivoDeContacto,
+      interesadoEnRoles,
+      comoNosConociste,
+      mensaje
+    );
   }
 
   return (
@@ -198,80 +220,133 @@ export default function Empresas() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form  onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <div className="inputs">
             <h3>Nombre</h3>
-            <input type="text" value={form.nombre} onChange={(e)=> handleChange(e)}/>
+            <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             <h3>Email</h3>
-            <input type="email" value={form.email} onChange={(e)=> handleChange(e)}/>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <h3>LinkedIn*</h3>
-            <input type="text" value={form.linkedin} onChange={(e)=> handleChange(e)}/>
+            <input
+              type="text"
+              value={linkedin}
+              onChange={(e) => setLinkedin(e.target.value)}
+            />
             <h3>Motivo de contacto</h3>
-            <input type="text" value={form.motivoDeContacto} onChange={(e)=> handleChange(e)} />
+            <input
+              type="text"
+              value={motivoDeContacto}
+              onChange={(e) => setMotivoDeContacto(e.target.value)}
+            />
           </div>
           <div className="details">
             <h3>Interesado en roles</h3>
             <div className="checkboxes">
               <div className="checkbox-1">
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Software Developers</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)} />
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>QA</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)} />
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>UX/UI Designers</p>
                 </div>
               </div>
               <div className="checkbox-2">
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Project Managers</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Team Lead</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Big Data</p>
                 </div>
               </div>
               <div className="checkbox-3">
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Machine learning</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Web 3.0</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <input type="checkbox" value={form.interesadoEnRoles} onChange={(e)=> handleChangeCheckbox(e)}/>
+                  <input
+                    type="checkbox"
+                    value={interesadoEnRoles}
+                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                  />
                   <p>Blockchain</p>
                 </div>
               </div>
             </div>
-            <input className="inp" type="textarea" placeholder="Otros..." />
+            <input
+              className="inp"
+              type="textarea"
+              placeholder="Otros..."
+              onChange={(e) => setComoNosConociste(e.target.value)}
+            />
             <h3>Cómo nos conociste</h3>
-            <select name="info" onChange={handleChangeSelect}>
-              <option value={form.comoNosConociste}>xxxxxx</option>
-              <option value={form.comoNosConociste}>xxxxxx</option>
-              <option value={form.comoNosConociste}>xxxxxx</option>
-              <option value={form.comoNosConociste}>xxxxxx</option>
-              <option value={form.comoNosConociste}>xxxxxx</option>
+            <select name="info">
+              <option value={comoNosConociste}>xxxxxx</option>
+              <option value={comoNosConociste}>xxxxxx</option>
+              <option value={comoNosConociste}>xxxxxx</option>
+              <option value={comoNosConociste}>xxxxxx</option>
+              <option value={comoNosConociste}>xxxxxx</option>
             </select>
             <h3 className="mensaje">Mensaje</h3>
-            <textarea name="message"></textarea>
+            <textarea
+              name="message"
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
+            ></textarea>
             <div className="condition">
               <div className="acept-conditions">
                 <input type="checkbox" className="terms" />
                 <h3>Aceptar condiciones legales</h3>
               </div>
-              <button className="send-button">
+              <button className="send-button" type="submit">
                 Enviar
               </button>
             </div>
