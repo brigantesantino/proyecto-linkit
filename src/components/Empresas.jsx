@@ -25,46 +25,9 @@ export default function Empresas() {
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [motivoDeContacto, setMotivoDeContacto] = useState("");
-  const [interesadoEnRoles, setInteresadoEnRoles] = useState("");
+  const [interesadoEnRoles, setInteresadoEnRoles] = useState([""]);
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [mensaje, setMensaje] = useState("");
-
-  /* const [form, setForm] = useState({
-    nombre: "",
-    email: "",
-    linkedin: "",
-    motivoDeContacto: "",
-    interesadoEnRoles: "",
-    comoNosConociste: "",
-    mensaje: "",
-  });
-
-  function handleChange(params) {
-    setForm({
-      ...form,
-      [params.target.name]: params.target.value,
-    });
-  }
-
-  function handleSubmit(params) {
-    const { nombre , email , linkedin , motivoDeContacto, interesadoEnRoles, comoNosConociste , mensaje } = form
-    postFormAirtable(nombre , email , linkedin , motivoDeContacto, interesadoEnRoles, comoNosConociste , mensaje );
-  }
-
-  function handleChangeCheckbox(params) {
-    setForm({
-      ...form,
-      [params.target.name]: params.target.checked,
-    });
-  }
-
-  function handleChangeSelect(params) {
-    setForm({
-      ...form,
-      [params.target.name]: params.target.value,
-    });
-  }
- */
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -77,6 +40,13 @@ export default function Empresas() {
       comoNosConociste,
       mensaje
     );
+  }
+  function appendInteresadoEnRoles(event) {
+    if (interesadoEnRoles[0] === "") {
+      interesadoEnRoles[0] = event;
+    } else {
+      setInteresadoEnRoles([...interesadoEnRoles, event]);
+    }
   }
 
   return (
@@ -223,9 +193,17 @@ export default function Empresas() {
         <form onSubmit={handleSubmit}>
           <div className="inputs">
             <h3>Nombre</h3>
-            <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+            <input
+              type="text"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
             <h3>Email</h3>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <h3>LinkedIn*</h3>
             <input
               type="text"
@@ -246,24 +224,24 @@ export default function Empresas() {
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Software Developers"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Software Developers</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="QA"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>QA</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="UX/UI Designers"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>UX/UI Designers</p>
                 </div>
@@ -272,24 +250,24 @@ export default function Empresas() {
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Project Managers"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Project Managers</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Team Lead"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Team Lead</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Big Data"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Big Data</p>
                 </div>
@@ -298,24 +276,24 @@ export default function Empresas() {
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Machine Learning"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Machine learning</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Web 3.0"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Web 3.0</p>
                 </div>
                 <div style={{ display: "flex" }}>
                   <input
                     type="checkbox"
-                    value={interesadoEnRoles}
-                    onChange={(e) => setInteresadoEnRoles(e.target.value)}
+                    value="Blockchain"
+                    onChange={(e) => appendInteresadoEnRoles(e.target.value)}
                   />
                   <p>Blockchain</p>
                 </div>
@@ -328,12 +306,12 @@ export default function Empresas() {
               onChange={(e) => setComoNosConociste(e.target.value)}
             />
             <h3>Cómo nos conociste</h3>
-            <select name="info">
-              <option value={comoNosConociste}>xxxxxx</option>
-              <option value={comoNosConociste}>xxxxxx</option>
-              <option value={comoNosConociste}>xxxxxx</option>
-              <option value={comoNosConociste}>xxxxxx</option>
-              <option value={comoNosConociste}>xxxxxx</option>
+            <select name="info" onChange={(e) => setComoNosConociste(e.target.value)}>
+              <option value="opcion1">opcion1</option>
+              <option value="opcion2">opcion2</option>
+              <option value="opcion3">opcion3</option>
+              <option value="opcion4">opcion4</option>
+              <option value="opcion5">opcion5</option>
             </select>
             <h3 className="mensaje">Mensaje</h3>
             <textarea
