@@ -5,6 +5,11 @@
   overflow-x: hidden;
 }
 
+.alertaForm{
+  color: red;
+  font-size: 12px;
+}
+
 .empresas body {
   display: flex;
   justify-content: center;

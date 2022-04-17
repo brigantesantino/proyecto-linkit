@@ -10,6 +10,7 @@ export function postFormAirtable(
   linkedin,
   motivoDeContacto,
   interesadoEnRoles,
+  interesadoEnOtrosRoles,
   comoNosConociste,
   mensaje
 ) {
@@ -24,6 +25,7 @@ export function postFormAirtable(
           Mensaje: mensaje,
           "Interesado en Roles": interesadoEnRoles,
           "Como Nos Conociste": comoNosConociste,
+          "Interesado en Otros Roles": interesadoEnOtrosRoles,
         },
       },
     ],

@@ -26,21 +26,74 @@ export default function Empresas() {
   const [linkedin, setLinkedin] = useState("");
   const [motivoDeContacto, setMotivoDeContacto] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([""]);
+  const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [mensaje, setMensaje] = useState("");
+  const [errors, setErrors] = useState({});
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    postFormAirtable(
+  async function validate(input) {
+    let errorsObj = {};
+    let contadorErrores = 0;
+    if (input.nombre === "") {
+      errorsObj.nombre = "El nombre es requerido";
+      contadorErrores++;
+    }
+    if (input.email === "") {
+      errorsObj.email = "El email es requerido";
+      contadorErrores++;
+    }
+    if (input.linkedin === "") {
+      errorsObj.linkedin = "El linkedin es requerido";
+      contadorErrores++;
+    }
+    if (input.motivoDeContacto === "") {
+      errorsObj.motivoDeContacto = "El motivo de contacto es requerido";
+      contadorErrores++;
+    }
+    /* if (input.interesadoEnRoles === "") {
+      errorsObj.interesadoEnRoles = "El rol es requerido";
+      contadorErrores++;
+    }
+    if (input.comoNosConociste === "") {
+      errorsObj.comoNosConociste = "El como nos conociste es requerido";
+      contadorErrores++;
+    }
+    if (input.mensaje === "") {
+      errorsObj.mensaje = "El mensaje es requerido";
+      contadorErrores++;
+    } */
+    if (contadorErrores === 0) {
+      console.log("no hay errores");
+      postFormAirtable(
+        nombre,
+        email,
+        linkedin,
+        motivoDeContacto,
+        interesadoEnRoles,
+        interesadoEnOtrosRoles,
+        comoNosConociste,
+        mensaje
+      );
+    } else {
+      console.log("hay errores");
+    }
+    setErrors(errorsObj);
+  }
+
+  async function handleSubmit(event) {
+    const objetoAVerificar = {
       nombre,
       email,
       linkedin,
       motivoDeContacto,
       interesadoEnRoles,
       comoNosConociste,
-      mensaje
-    );
+      mensaje,
+    };
+    validate(objetoAVerificar);
+    event.preventDefault();
   }
+  
   function appendInteresadoEnRoles(event) {
     if (interesadoEnRoles[0] === "") {
       interesadoEnRoles[0] = event;
@@ -190,27 +243,37 @@ export default function Empresas() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
-            <h3>Nombre</h3>
+            <h3>Nombre*</h3>{" "}
+            {errors.nombre ? (
+              <p className="alertaForm">{errors.nombre}</p>
+            ) : null}
             <input
               type="text"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
             />
-            <h3>Email</h3>
+            <h3>Email*</h3>{" "}
+            {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <h3>LinkedIn*</h3>
+            <h3>LinkedIn*</h3>{" "}
+            {errors.linkedin ? (
+              <p className="alertaForm">{errors.linkedin}</p>
+            ) : null}
             <input
               type="text"
               value={linkedin}
               onChange={(e) => setLinkedin(e.target.value)}
             />
-            <h3>Motivo de contacto</h3>
+            <h3>Motivo de contacto*</h3>{" "}
+            {errors.motivoDeContacto ? (
+              <p className="alertaForm">{errors.motivoDeContacto}</p>
+            ) : null}
             <input
               type="text"
               value={motivoDeContacto}
@@ -303,10 +366,13 @@ export default function Empresas() {
               className="inp"
               type="textarea"
               placeholder="Otros..."
-              onChange={(e) => setComoNosConociste(e.target.value)}
+              onChange={(e) => setInteresadoEnOtrosRoles(e.target.value)}
             />
             <h3>Cómo nos conociste</h3>
-            <select name="info" onChange={(e) => setComoNosConociste(e.target.value)}>
+            <select
+              name="info"
+              onChange={(e) => setComoNosConociste(e.target.value)}
+            >
               <option value="opcion1">opcion1</option>
               <option value="opcion2">opcion2</option>
               <option value="opcion3">opcion3</option>
