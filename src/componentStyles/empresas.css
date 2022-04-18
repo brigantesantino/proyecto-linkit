@@ -379,6 +379,7 @@ main div.images div.logo {
   justify-content: center;
   align-content: center;
   text-align: center;
+  width: 100%;
 }
 .empresas footer div.social-media {
   padding: 10px;
@@ -589,6 +590,9 @@ main div.images div.logo {
     align-items: center;
     gap: 14px;
   }
+  .empresas footer{
+    width: 100%;
+  }
 
   .empresas footer div.info {
     display: none;
@@ -609,9 +613,16 @@ main div.images div.logo {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
   .empresas .rights p {
     text-align: center;
-    margin: 0;
+    margin: 0px;
   }
+  .empresas footer div.rights p {
+    padding: 0%;
+    margin: 10px 0px;
+    width: 100%;
+  }
+  
 }
