@@ -1,7 +1,13 @@
 import React from "react";
 import "../componentStyles/header.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/contacto`; 
+    navigate(path);
+  }
   return (
     <div className="header">
       <header className="top-header">
@@ -14,10 +20,10 @@ export default function Header() {
           </div>
           <div className="info">
             <p className="home-button">INICIO</p>
-            <a className="empresas-button" href="/empresas.html">
+            <a className="empresas-button" href="/empresas">
               <p className="business">EMPRESAS</p>
             </a>
-            <a className="candidates-button" href="/Candidatos.html">
+            <a className="candidates-button" href="/Candidatos">
               <p className="candidates">CANDIDATOS</p>
             </a>
             <p className="faqs">FAQS</p>
@@ -31,7 +37,7 @@ export default function Header() {
               </a>
             </div>
             <div className="button">
-              <button type="submit" className="contact-button">
+              <button type="submit" className="contact-button" onClick={routeChange}>
                 CONTACTO
               </button>
             </div>

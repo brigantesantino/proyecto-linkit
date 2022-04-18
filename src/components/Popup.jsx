@@ -100,9 +100,9 @@ export default function Popup() {
           <input type="text" />
           <h3>Email</h3>
           <input type="email" />
-          <h3>Adress</h3>
+          <h3>Dirección</h3>
           <input type="text" />
-          <h3>Linkedin (excluyente)</h3>
+          <h3>Linkedin*</h3>
           <input type="text" />
           <h3>Experiencia</h3>
           <select name="info" className="experience">

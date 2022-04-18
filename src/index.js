@@ -9,11 +9,13 @@ import Empresas from "./components/Empresas";
 import Popup from "./components/Popup";
 import FAQs from "./components/FAQs";
 import Header from "./components/Header"
+import Contacto from "./components/Contacto";
 
 ReactDOM.render(
   <Router>
     <Fragment>
       <Routes>
+      <Route exact path="/contacto" element={<Contacto/>}/>
         <Route exact path="/" element={<Candidatos/>}/>
         <Route exact path="/candidatos" element={<Candidatos/>}/>
         <Route exact path="/empresas" element={<Empresas/>}/> 

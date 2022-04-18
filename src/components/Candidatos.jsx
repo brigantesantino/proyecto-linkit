@@ -50,7 +50,7 @@ export default function Candidatos() {
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
           <div className="candidate-buttons">
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -63,7 +63,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -76,7 +76,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -89,7 +89,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -102,7 +102,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -115,7 +115,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -128,7 +128,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a href="/popup.html">
+            <a href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -141,7 +141,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -154,7 +154,7 @@ export default function Candidatos() {
               </button>
             </a>
 
-            <a className="link-pupup" href="/popup.html">
+            <a className="link-pupup" href="/popup">
               <button>
                 <h2 className="designer">
                   UX Designer<span className="google">123456</span>
@@ -242,7 +242,7 @@ export default function Candidatos() {
                 <option value="0"></option>
                 <option value="1">ARS</option>
                 <option value="2">USD</option>
-                <input type="number" />
+                <input type="number"/>
               </select>
             </div>
             <h3>Interesado en roles</h3>
@@ -328,9 +328,7 @@ export default function Candidatos() {
           </div>
           <p>Developed by IT-TECHGROUP</p>
         </div>
-        <button /* onClick={postFormAirtable} */>
-          Enviar
-        </button>
+        
       </footer>
       {/* <script>
             const $btn = document.querySelector(".menu-hmb");
