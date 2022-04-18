@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../componentStyles/candidatos.css";
 
 import image17 from "../images/image 17.svg";
@@ -17,28 +17,28 @@ import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
 
+import { getFormAirtable } from "../actions/getRoles";
+
 import Header from "./Header";
 
-      /* {/* <script>
-        {/* {
-          document.addEventListener('click', e => {
-            sideNav.style.right = "-250px"
-
-            if (e.target.matches('.menu-hmb')) {
-              if (sideNav.style.right == "-250px") {
-
-                sideNav.style.right = "0";
-
-              }
-            }
-          })
-     //   } */
-    //  </script> */} */
-
-
 export default function Candidatos() {
-  /* const btn = document.querySelector(".menu-hmb");
-  const sideNav = document.getElementById('sideNav'); */
+  const [ofertas, setOfertas] = React.useState({});
+  console.log(ofertas)
+  useEffect(() => {
+    fetch(
+      `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setOfertas(data.records);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(ofertas)
+
 
   return (
     <div className="candidatos">
@@ -69,122 +69,27 @@ export default function Candidatos() {
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
           <div className="candidate-buttons">
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
-
-            <a className="link-pupup" href="/popup">
-              <button>
-                <h2 className="designer">
-                  UX Designer<span className="google">123456</span>
-                </h2>
-                <h3 className="adress">
-                  Ubicacion:Buenos Aires,Argentina
-                  <span className="date">Fecha de creacion:23/02/2022</span>
-                </h3>
-                <h3 className="date-mobile">Fecha de creacion:23/02/2022</h3>
-              </button>
-            </a>
+            {ofertas.length > 0 ? (ofertas.map((oferta) => (
+              <a className="link-pupup" href="/popup" key={oferta.codigo}>
+                <button>
+                  <h2 className="designer">
+                    {oferta.fields.Nombre}
+                    <span className="google">{oferta.fields.SobreElCliente}</span>
+                  </h2>
+                  <h3 className="adress">
+                    Ubicación: {oferta.fields.Ubicacion}
+                    <span className="date">
+                      Fecha de creacion:{oferta.fields.FechaDeCreacion}
+                    </span>
+                  </h3>
+                  <h3 className="date-mobile">
+                    Fecha de creacion:{oferta.fields.fechaDeCreacion}
+                  </h3>
+                </button>
+              </a>
+             ))) : (
+              <h1>No hay ofertas disponibles</h1>
+            )}
           </div>
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
@@ -250,7 +155,7 @@ export default function Candidatos() {
           <div className="details">
             <h3>Carga tu CV</h3>
             <div className="file">
-              <label for="archive">
+              <label form="archive">
                 +
                 <input type="file" id="archive" />
               </label>
@@ -262,7 +167,7 @@ export default function Candidatos() {
                 <option value="1">ARS</option>
                 <option value="2">USD</option>
               </select>
-              <input type="number"/>
+              <input type="number" />
             </div>
             <h3>Interesado en roles</h3>
             <select name="info">
@@ -302,6 +207,13 @@ export default function Candidatos() {
       </main>
       <footer>
         <div className="footer">
+          <button
+            type="submit"
+            className="send-button"
+            onClick={getFormAirtable}
+          >
+            Enviar
+          </button>
           <h4>
             Link<span>IT</span>
           </h4>
@@ -347,7 +259,6 @@ export default function Candidatos() {
           </div>
           <p>Developed by IT-TECHGROUP</p>
         </div>
-
       </footer>
     </div>
   );

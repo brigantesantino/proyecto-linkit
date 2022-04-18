@@ -1,4 +1,3 @@
-//const base = require('airtable').base(process.env.REACT_APP_BASE_AIRTABLE)
 const Airtable = require("airtable");
 var base = new Airtable({ apiKey: process.env.REACT_APP_APIKEY_AIRTABLE }).base(
   process.env.REACT_APP_BASE_AIRTABLE
