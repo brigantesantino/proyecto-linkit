@@ -19,7 +19,26 @@ import whatsApp from "../images/WhatsApp.svg";
 
 import Header from "./Header";
 
+      /* {/* <script>
+        {/* {
+          document.addEventListener('click', e => {
+            sideNav.style.right = "-250px"
+
+            if (e.target.matches('.menu-hmb')) {
+              if (sideNav.style.right == "-250px") {
+
+                sideNav.style.right = "0";
+
+              }
+            }
+          })
+     //   } */
+    //  </script> */} */
+
+
 export default function Candidatos() {
+  /* const btn = document.querySelector(".menu-hmb");
+  const sideNav = document.getElementById('sideNav'); */
 
   return (
     <div className="candidatos">
@@ -239,11 +258,11 @@ export default function Candidatos() {
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select name="value">
-                <option value="0"></option>
+                <option value="0">Elegir</option>
                 <option value="1">ARS</option>
                 <option value="2">USD</option>
-                <input type="number"/>
               </select>
+              <input type="number"/>
             </div>
             <h3>Interesado en roles</h3>
             <select name="info">
@@ -328,24 +347,8 @@ export default function Candidatos() {
           </div>
           <p>Developed by IT-TECHGROUP</p>
         </div>
-        
+
       </footer>
-      {/* <script>
-            const $btn = document.querySelector(".menu-hmb");
-            const $sideNav  = document.getElementById('sideNav');
-
-            document.addEventListener('click', e=>{
-            $sideNav.style.right = "-250px"
-
-            if(e.target.matches('.menu-hmb')){
-            if ($sideNav.style.right == "-250px"){
-
-            $sideNav.style.right = "0";
-
-                    }
-                }
-            })
-        </script> */}
     </div>
   );
 }

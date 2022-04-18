@@ -278,7 +278,8 @@ main div.images div.logo {
 }
 .empresas main form div.details div.checkboxes {
   display: flex;
-  margin: 1.5rem 0 -1.5rem 0;
+  margin: 1.5rem 0 0rem 0;
+
 }
 .empresas main form div.details div.checkboxes p {
   font-size: 0.7rem;
@@ -306,7 +307,7 @@ main div.images div.logo {
 .empresas main form div.details input.inp {
   width: 100%;
   padding: 7px 7px;
-  margin: 3.4rem 0 1.2rem 0;
+  margin: 1.6rem 0 1.2rem 0;
   border-radius: 10px;
   border: rgb(110, 110, 110) solid 2px;
   outline: none;
@@ -438,6 +439,11 @@ main div.images div.logo {
 }
 .empresas footer div.rights p {
   margin: 15px;
+  width: 25%;
+}
+.empresas footer div.linea p{
+  width: 100%;
+
 }
 .empresas footer h4 {
   color: black;

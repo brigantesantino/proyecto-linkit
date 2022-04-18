@@ -186,6 +186,9 @@
   font-weight: bold;
 }
 @media (max-width: 1024px) {
+  .candidatos .sideNav{
+    right: -250px;
+  }
   .candidatos .top-header {
     margin-left: 0;
   }

@@ -11,6 +11,7 @@ body{
     padding: 0 0.7rem;
   }
   .contacto form {
+    box-shadow: 0px 20px 40px #EAEAEA;
     border: 2px solid #63799e;
     display: flex;
     justify-content: space-around;
@@ -85,6 +86,7 @@ body{
   .contacto form .terms{
       border: #63799e solid 3px;
       cursor: pointer ;
+      
   }
 
   .contacto form .acept-conditions {
@@ -116,6 +118,7 @@ body{
     outline: none;
     margin: 0 0 0 39%;
     cursor: pointer;
+
   }
   .contacto form div.condition button.send-button:hover {
     background-color: transparent;
@@ -194,7 +197,7 @@ body{
   }
   .contacto footer div.rights p {
     margin: 15px;
-    width: 25%;
+    width: 100%;
   }
   .contacto footer div.linea p {
     width: 100%;
@@ -202,6 +205,13 @@ body{
 
 
   @media (max-width: 768px){
+    .contacto form{
+      width: 70%;
+    }
+    .contacto form .acept-conditions{
+      width: 100%;
+      
+    }
     .contacto footer div.info {
         display: none;
       }
@@ -221,10 +231,16 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
       }
       .contacto .rights p {
         text-align: center;
         margin: 0;
       }
+      .contacto footer div.rights p {
+        margin: 15px;
+        width: 100%;
+      }
+      
     }
   
