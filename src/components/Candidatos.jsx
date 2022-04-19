@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../componentStyles/candidatos.css";
 
 import image17 from "../images/image 17.svg";
@@ -17,13 +17,27 @@ import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
 
-import { getFormAirtable } from "../actions/getRoles";
-
 import Header from "./Header";
 
 export default function Candidatos() {
-  const [ofertas, setOfertas] = React.useState({});
-  console.log(ofertas)
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [adress, setAdress] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [experiencia, setExperiencia] = useState("");
+  const [cv, setCv] = useState("");
+  const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
+  const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
+  const [interesadoEnRoles, setInteresadoEnRoles] = useState("");
+  const [comoNosConociste, setComoNosConociste] = useState("");
+  const [tecnologias, setTecnologias] = useState("");
+  
+  const [ofertas, setOfertas] = useState({});
+
+  async function handleSubmit(event) {
+    console.log('handleSubmit');
+  }
+
   useEffect(() => {
     fetch(
       `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
@@ -133,23 +147,22 @@ export default function Candidatos() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form>
+        <form onSubmit={(e)=> handleSubmit(e)}>
           <div className="inputs">
             <h3>Nombre</h3>
-            <input type="text" />
+            <input type="text" onChange={(e)=> setNombre(e.target.value)} />
             <h3>Email</h3>
-            <input type="email" />
+            <input type="email" onChange={(e)=> setEmail(e.target.value)}/>
             <h3>Dirección</h3>
-            <input type="text" />
+            <input type="text" onChange={(e)=> setAdress(e.target.value)}/>
             <h3>LinkedIn*</h3>
-            <input type="text" />
+            <input type="text" onChange={(e)=> setLinkedIn(e.target.value)}/>
             <h3>Experiencia</h3>
-            <select name="info" className="experience">
-              <option value="0"></option>
-              <option value="1">xxxxxx</option>
-              <option value="2">xxxxxx</option>
-              <option value="3">xxxxxx</option>
-              <option value="4">xxxxxx</option>
+            <select name="info" className="experience" onChange={(e) => setExperiencia(e.target.value)}>            
+              <option value="opcion1">xxxxxx</option>
+              <option value="opcion2">xxxxxx</option>
+              <option value="opcion3">xxxxxx</option>
+              <option value="opcion4">xxxxxx</option>
             </select>
           </div>
           <div className="details">
@@ -162,23 +175,23 @@ export default function Candidatos() {
             </div>
             <h3>Remuneracion pretendida</h3>
             <div className="value">
-              <select name="value">
+              <select name="value" onChange={(e) => setMonedaRemuneracion(e.target.value)}>
                 <option value="0">Elegir</option>
-                <option value="1">ARS</option>
-                <option value="2">USD</option>
+                <option value="ARS">ARS</option>
+                <option value="USD">USD</option>
               </select>
-              <input type="number" />
+              <input type="number" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
             </div>
             <h3>Interesado en roles</h3>
-            <select name="info">
+            <select name="info" onChange={(e) => setInteresadoEnRoles(e.target.value)}>
               <option value="0"></option>
-              <option value="1">xxxxxx</option>
-              <option value="2">xxxxxx</option>
-              <option value="3">xxxxxx</option>
-              <option value="4">xxxxxx</option>
+              <option value="opcion1">xxxxxx</option>
+              <option value="opcion2">xxxxxx</option>
+              <option value="opcion3">xxxxxx</option>
+              <option value="opcion4">xxxxxx</option>
             </select>
             <h3>Cómo nos conociste</h3>
-            <select name="info">
+            <select name="info" onChange={(e) => setComoNosConociste(e.target.value)}>
               <option value="0"></option>
               <option value="1">xxxxxx</option>
               <option value="2">xxxxxx</option>
@@ -186,7 +199,7 @@ export default function Candidatos() {
               <option value="4">xxxxxx</option>
             </select>
             <h3>Tecnologías</h3>
-            <select name="info">
+            <select name="info" onChange={(e) => setTecnologias(e.target.value)}>
               <option value="0"></option>
               <option value="1">xxxxxx</option>
               <option value="2">xxxxxx</option>
@@ -210,7 +223,6 @@ export default function Candidatos() {
           <button
             type="submit"
             className="send-button"
-            onClick={getFormAirtable}
           >
             Enviar
           </button>
