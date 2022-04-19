@@ -115,6 +115,7 @@
 
 .empresas .question {
   margin: 0 auto;
+  color:#06234f
 }
 .search {
   text-align: center;
@@ -130,6 +131,8 @@
   justify-content: center;
   text-align: center;
   margin-left: 33%;
+  color: #06234f;
+  
 }
 .empresas h2 {
   width: 30%;
@@ -139,6 +142,7 @@
   margin-left: 33%;
   margin-top: 2%;
   margin-top: 50px;
+  
 }
  div.buttons {
   width: 47%;
@@ -237,14 +241,17 @@ main div.images div.logo {
 .empresas #rubros {
   margin: 0 auto;
   margin-top: 4rem;
+  color: #06234f;
 }
 .empresas #contacto {
   margin: 0 auto;
   margin-top: 4rem;
+  color: #06234f;
 }
 .empresas #technologies {
   margin: 0 auto;
   margin-top: 4rem;
+  color: #06234f;
 }
 .empresas main form {
   border: rgb(110, 110, 110) solid 2px;

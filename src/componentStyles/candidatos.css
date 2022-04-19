@@ -104,6 +104,7 @@
 }
 .candidatos .question {
   margin: 0 auto;
+  color: rgb(0, 10, 98);
 }
 .candidatos .puestos {
   text-align: center;
@@ -112,6 +113,7 @@
   width: fit-content;
   margin: 0 auto;
   margin-top: 3.2rem;
+  
 }
 .candidatos #idioma {
   outline: none;
@@ -135,6 +137,7 @@
   margin-left: 33%;
   margin-top: 2%;
   margin-top: 50px;
+  color: rgb(0, 10, 98);
 }
 .candidatos .buttons .candidate-buttons button {
   width: 100%;
@@ -549,7 +552,7 @@
   .candidatos main form div.inputs input {
     width: 100%;
     padding: 7px 7px;
-    margin: 1rem 0;
+    margin: 0.9rem 0;
     border-radius: 10px;
     border: rgb(110, 110, 110) solid 2px;
     outline: none;
@@ -575,7 +578,7 @@
     display: block;
     padding: -5px 0 6px 0;
     border: 2px solid #63799e;
-    margin: 1.1rem 0;
+    margin: 1rem 0;
     width: 5rem;
     border-radius: 10px;
   }

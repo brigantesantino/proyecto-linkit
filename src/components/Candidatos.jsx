@@ -336,6 +336,7 @@ export default function Candidatos() {
       </main>
       <footer>
         <div className="footer">
+          
           <h4>
             Link<span>IT</span>
           </h4>

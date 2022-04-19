@@ -1,27 +1,31 @@
-import React, { useState } from "react";
-import "../componentStyles/empresas.css";
-import { postFormAirtable } from "../actions/formActions";
+import React from 'react'
 
-import image17 from "../images/image 17.svg";
-import image18 from "../images/image 18.png";
-import image20 from "../images/image 20.svg";
-import image8 from "../images/image 8.svg";
-import image9 from "../images/image 9.svg";
-import image10 from "../images/image 10.svg";
-import image12 from "../images/image 12.svg";
-import image13 from "../images/image 13.svg";
-import image14 from "../images/image 14.svg";
-import image15 from "../images/image 15.png";
-import image21 from "../images/image 21.png";
+import image17 from "../../images/image 17.svg";
+import image18 from "../../images/image 18.png";
+import image20 from "../../images/image 20.svg";
+import image8 from "../../images/image 8.svg";
+import image9 from "../../images/image 9.svg";
+import image10 from "../../images/image 10.svg";
+import image12 from "../../images/image 12.svg";
+import image13 from "../../images/image 13.svg";
+import image14 from "../../images/image 14.svg";
+import image15 from "../../images/image 15.png";
+import image21 from "../../images/image 21.png";
 
-import vector from "../images/Vector.svg";
-import vector1 from "../images/Vector-1.svg";
-import whatsApp from "../images/WhatsApp.svg";
+import vector from "../../images/Vector.svg";
+import vector1 from "../../images/Vector-1.svg";
+import whatsApp from "../../images/WhatsApp.svg";
 
-import Header from "./Header";
-
-export default function Empresas() {
-  const [nombre, setNombre] = useState("");
+const Empresasesp = ({setNombre,
+  setEmail,
+  setLinkedin,
+  setMotivoDeContacto,
+  appendInteresadoEnRoles,
+  setInteresadoEnOtrosRoles,
+  setComoNosConociste,
+  setMensaje,
+  handleSubmit}) => {
+    const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [motivoDeContacto, setMotivoDeContacto] = useState("");
@@ -30,6 +34,7 @@ export default function Empresas() {
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [errors, setErrors] = useState({});
+  const [language, setLanguage] = useState("1");
 
   async function validate(input) {
     let errorsObj = {};
@@ -101,10 +106,8 @@ export default function Empresas() {
       setInteresadoEnRoles([...interesadoEnRoles, event]);
     }
   }
-
-  return (<>
+  return (
     <div className="empresas">
-    <Header/>
     <nav id="sideNav">
       <ul className="side-menu">
         <li>
@@ -464,7 +467,7 @@ export default function Empresas() {
       })
   </script> */}
   </div>
-
-    </>
-  );
+  )
 }
+
+export default Empresasesp

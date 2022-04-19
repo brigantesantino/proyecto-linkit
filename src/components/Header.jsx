@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "../componentStyles/header.css";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,7 @@ export default function Header() {
     let path = `/contacto`; 
     navigate(path);
   }
+
   return (
     <div className="header">
       <header className="top-header">
@@ -29,10 +30,10 @@ export default function Header() {
             <p className="faqs">FAQS</p>
             <div className="select">
               <a href="/eng/empresas.html">
-                <select name="language" id="idioma">
+                <select className="selectLanguage" name="language" id="idioma">
                   IDIOMA
-                  <option value="1">INGLÉS</option>
-                  <option value="2">ESPAÑOL</option>
+                  <option value="1">ESPAÑOL</option>
+                  <option value="2">INGLES</option>
                 </select>
               </a>
             </div>

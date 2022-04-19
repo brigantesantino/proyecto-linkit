@@ -202,6 +202,24 @@ body{
   .contacto footer div.linea p {
     width: 100%;
   }
+  .img_back1{
+    position: relative;
+    z-index: -1;
+    top: 1000px;
+    left: 1000px;
+    animation: rotation 120s infinite linear;
+  }
+  .img_back2{
+    position: relative;
+    right: 1000px;
+    z-index: -1;
+    animation: rotation 120s infinite linear;
+  }
+.background{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+  }
 
 
   @media (max-width: 768px){
