@@ -158,11 +158,12 @@ export default function Candidatos() {
             <h3>LinkedIn*</h3>
             <input type="text" onChange={(e)=> setLinkedIn(e.target.value)}/>
             <h3>Experiencia</h3>
-            <select name="info" className="experience" onChange={(e) => setExperiencia(e.target.value)}>            
-              <option value="opcion1">xxxxxx</option>
-              <option value="opcion2">xxxxxx</option>
-              <option value="opcion3">xxxxxx</option>
-              <option value="opcion4">xxxxxx</option>
+            <select name="info" className="experience" onChange={(e) => setExperiencia(e.target.value)}>
+            <option value="0"></option>            
+              <option value="opcion1">Entre 1 y 5 años</option>
+              <option value="opcion2">Entre 5 y 10 años</option>
+              <option value="opcion3">Más de 10 años</option>
+              
             </select>
           </div>
           <div className="details">
@@ -220,12 +221,7 @@ export default function Candidatos() {
       </main>
       <footer>
         <div className="footer">
-          <button
-            type="submit"
-            className="send-button"
-          >
-            Enviar
-          </button>
+          
           <h4>
             Link<span>IT</span>
           </h4>
