@@ -10,7 +10,7 @@ import Popup from "./components/Popup";
 import FAQs from "./components/FAQs";
 import Header from "./components/Header"
 import Contacto from "./components/Contacto";
-import "./config/config"
+
 ReactDOM.render(
   <Router>
     <Fragment>
