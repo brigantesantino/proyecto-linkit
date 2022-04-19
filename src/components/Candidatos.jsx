@@ -88,7 +88,7 @@ export default function Candidatos() {
                 </button>
               </a>
              ))) : (
-              <h1>No hay ofertas disponibles</h1>
+              <h1>Cargando ofertas...</h1>
             )}
           </div>
         </div>
