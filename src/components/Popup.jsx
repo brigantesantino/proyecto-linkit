@@ -4,6 +4,7 @@ import "../componentStyles/popup.css";
 export default function Popup() {
   return (
     <div className="popup">
+      <a  className="arrow" href="/candidatos">🠔</a>
       <h2 className="designer">
         UX Designer <span className="google">en Google</span>
       </h2>

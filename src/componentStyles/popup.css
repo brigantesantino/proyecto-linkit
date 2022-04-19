@@ -15,7 +15,14 @@
   border-radius: 8px;
   margin: 0 auto;
 }
-
+.arrow{
+  font-size: 50px;
+  text-decoration: none;
+  background-color: transparent;
+ border: none;
+ color: black;
+ 
+}
 .popup span.google {
   color: #6791d9;
   margin-left: 0.5rem;

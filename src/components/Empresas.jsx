@@ -13,7 +13,7 @@ import image13 from "../images/image 13.svg";
 import image14 from "../images/image 14.svg";
 import image15 from "../images/image 15.png";
 import image21 from "../images/image 21.png";
-
+import vectorFondo from "../images/vectorFondo.svg"
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
@@ -105,6 +105,11 @@ export default function Empresas() {
   return (<>
     <div className="empresas">
     <Header/>
+    <div className="background">
+            <img className="img_back1" src={vectorFondo}/>
+            <img className="img_back2" src={vectorFondo}/>
+            <img className="img_back3" src={vectorFondo}/>
+        </div>
     <nav id="sideNav">
       <ul className="side-menu">
         <li>

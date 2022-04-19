@@ -9,7 +9,9 @@
   color: red;
   font-size: 12px;
 }
-
+.background{
+  transform: translate(0px,-1100px);
+}
 .empresas body {
   display: flex;
   justify-content: center;
@@ -115,11 +117,11 @@
 
 .empresas .question {
   margin: 0 auto;
-  color:#06234f
+  color:#233c72;
 }
 .search {
   text-align: center;
-  color: #63799e;
+  color: #233c72;
   font-size: 13px;
   width: fit-content;
   margin: 0 auto;
@@ -131,7 +133,7 @@
   justify-content: center;
   text-align: center;
   margin-left: 33%;
-  color: #06234f;
+  color: #233c72;
   
 }
 .empresas h2 {
@@ -241,17 +243,17 @@ main div.images div.logo {
 .empresas #rubros {
   margin: 0 auto;
   margin-top: 4rem;
-  color: #06234f;
+  color: #233c72  ;
 }
 .empresas #contacto {
   margin: 0 auto;
   margin-top: 4rem;
-  color: #06234f;
+  color: #233c72;
 }
 .empresas #technologies {
   margin: 0 auto;
   margin-top: 4rem;
-  color: #06234f;
+  color: #233c72;
 }
 .empresas main form {
   border: rgb(110, 110, 110) solid 2px;
@@ -264,6 +266,7 @@ main div.images div.logo {
   margin-top: 30px;
   margin-bottom: 4rem;
   border-radius: 14px;
+  background-color: white;
 }
 .empresas main form div.inputs {
   width: 100%;

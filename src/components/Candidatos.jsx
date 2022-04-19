@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../componentStyles/candidatos.css";
-
+import { useTranslation } from "react-i18next";
 import image17 from "../images/image 17.svg";
 import image18 from "../images/image 18.png";
 import image20 from "../images/image 20.svg";
@@ -12,7 +12,7 @@ import image13 from "../images/image 13.svg";
 import image14 from "../images/image 14.svg";
 import image15 from "../images/image 15.png";
 import image21 from "../images/image 21.png";
-
+import vectorFondo from "../images/vectorFondo.svg"
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
@@ -33,7 +33,7 @@ export default function Candidatos() {
   const [tecnologias, setTecnologias] = useState("");
   
   const [ofertas, setOfertas] = useState({});
-
+  const {t}=useTranslation()
   async function handleSubmit(event) {
     console.log('handleSubmit');
   }
@@ -57,6 +57,11 @@ export default function Candidatos() {
   return (
     <div className="candidatos">
       <Header />
+      <div className="background">
+            <img className="img_back1" src={vectorFondo}/>
+            <img className="img_back2" src={vectorFondo}/>
+            <img className="img_back3" src={vectorFondo}/>
+        </div>
       <nav id="sideNav">
         <ul className="side-menu">
           <li>
@@ -75,6 +80,7 @@ export default function Candidatos() {
       </nav>
       <main>
         <h4 className="puestos">ROLES ABIERTOS</h4>
+        
         <div className="h1">
           <h1 className="question">
             ¿Estás buscando un cambio en tu camino profesional?
@@ -181,7 +187,7 @@ export default function Candidatos() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input type="number" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
+              <input type="text" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
             </div>
             <h3>Interesado en roles</h3>
             <select name="info" onChange={(e) => setInteresadoEnRoles(e.target.value)}>
