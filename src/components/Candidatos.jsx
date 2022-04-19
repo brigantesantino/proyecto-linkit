@@ -19,25 +19,98 @@ import whatsApp from "../images/WhatsApp.svg";
 
 import Header from "./Header";
 
+import { postFormAirtableCandidatos } from "../actions/candidatosActions";
+
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
-  const [adress, setAdress] = useState("");
+  const [direccion, setDireccion] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [experiencia, setExperiencia] = useState("");
-  const [cv, setCv] = useState("");
+  /*   const [cv, setCv] = useState(""); */
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [tecnologias, setTecnologias] = useState("");
-  
+  const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
-  const {t}=useTranslation()
-  async function handleSubmit(event) {
-    console.log('handleSubmit');
+
+
+  const [errors, setErrors] = useState({});
+
+  function validate(input) {
+    console.log("input", input);
+    let errorsObj = {};
+    let contadorErrores = 0;
+    if (input.nombre === "") {
+      errorsObj.nombre = "El nombre es requerido";
+      contadorErrores++;
+    }
+    if (input.email === "") {
+      errorsObj.email = "El email es requerido";
+      contadorErrores++;
+    }
+    if (input.linkedIn === "") {
+      errorsObj.linkedin = "El linkedin es requerido";
+      contadorErrores++;
+    }
+    if (input.experiencia === "") {
+      errorsObj.experiencia = "La experiencia es requerida";
+      contadorErrores++;
+    }
+    if (input.condicionesLegales === "") {
+      errorsObj.condicionesLegales = "Debes aceptar las condiciones legales";
+      contadorErrores++;
+    }
+    if (input.tecnologias === "") {
+      errorsObj.tecnologias = "Las tecnologias son requeridas";
+      contadorErrores++;
+    }
+    if (input.direccion === "") {
+      errorsObj.direccion = "La direccion es requerida";
+      contadorErrores++;
+    }
+    if (contadorErrores === 0) {
+      console.log("no hay errores");
+      postFormAirtableCandidatos(
+        input.nombre,
+        input.email,
+        input.direccion,
+        input.linkedIn,
+        input.experiencia,
+        input.monedaRemuneracion,
+        input.remuneracionPretendida,
+        input.interesadoEnRoles,
+        input.comoNosConociste,
+        input.tecnologias,
+        input.condicionesLegales,
+        input.ofertas
+      );
+    } else {
+      setErrors(errorsObj);
+      console.log("hay errores no se hizo el post", errorsObj);
+    }
   }
 
+  function handleSubmit(event) {
+    console.log("handleSubmit");
+    const objetoAVerificar = {
+      nombre,
+      email,
+      direccion,
+      linkedIn,
+      experiencia,
+      condicionesLegales,
+      tecnologias,
+      comoNosConociste,
+      interesadoEnRoles,
+      remuneracionPretendida,
+      monedaRemuneracion,
+    };
+    validate(objetoAVerificar);
+    event.preventDefault();
+  }
   useEffect(() => {
     fetch(
       `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
@@ -45,14 +118,13 @@ export default function Candidatos() {
       .then((res) => res.json())
       .then((data) => {
         setOfertas(data.records);
-        console.log(data);
+        //console.log(data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  console.log(ofertas)
-
+  //console.log(ofertas)
 
   return (
     <div className="candidatos">
@@ -89,25 +161,31 @@ export default function Candidatos() {
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
           <div className="candidate-buttons">
-            {ofertas.length > 0 ? (ofertas.map((oferta) => (
-              <a className="link-pupup" href="/popup" key={oferta.codigo}>
-                <button>
-                  <h2 className="designer">
-                    {oferta.fields.Nombre}
-                    <span className="google">{oferta.fields.SobreElCliente}</span>
-                  </h2>
-                  <h3 className="adress">
-                    Ubicación: {oferta.fields.Ubicacion}
-                    <span className="date">
-                      Fecha de creacion:{oferta.fields.FechaDeCreacion}
-                    </span>
-                  </h3>
-                  <h3 className="date-mobile">
-                    Fecha de creacion:{oferta.fields.fechaDeCreacion}
-                  </h3>
-                </button>
-              </a>
-             ))) : (
+            {ofertas.length > 0 ? (
+              ofertas.map((oferta) => (
+                <a
+                  className="link-pupup"
+                  href="/popup"
+                  key={oferta.fields.Codigo}
+                >
+                  <button>
+                    <h2 className="designer">
+                      {oferta.fields.Nombre}
+                      <span className="google">{oferta.fields.Codigo}</span>
+                    </h2>
+                    <h3 className="adress">
+                      Ubicación: {oferta.fields.Ubicacion}
+                      <span className="date">
+                        Fecha de creacion:{oferta.fields.FechaDeCreacion}
+                      </span>
+                    </h3>
+                    <h3 className="date-mobile">
+                      Fecha de creacion:{oferta.fields.fechaDeCreacion}
+                    </h3>
+                  </button>
+                </a>
+              ))
+            ) : (
               <h1>Cargando ofertas...</h1>
             )}
           </div>
@@ -153,23 +231,38 @@ export default function Candidatos() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form onSubmit={(e)=> handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
-            <h3>Nombre</h3>
-            <input type="text" onChange={(e)=> setNombre(e.target.value)} />
-            <h3>Email</h3>
-            <input type="email" onChange={(e)=> setEmail(e.target.value)}/>
-            <h3>Dirección</h3>
-            <input type="text" onChange={(e)=> setAdress(e.target.value)}/>
+            <h3>Nombre*</h3>
+            {errors.nombre ? (
+              <p className="alertaForm">{errors.nombre}</p>
+            ) : null}
+            <input type="text" onChange={(e) => setNombre(e.target.value)} />
+
+            <h3>Email*</h3>
+            {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
+            <input type="email" onChange={(e) => setEmail(e.target.value)} />
+            <h3>Dirección*</h3>
+            {errors.direccion ? (
+              <p className="alertaForm">{errors.direccion}</p>
+            ) : null}
+            <input type="text" onChange={(e) => setDireccion(e.target.value)} />
             <h3>LinkedIn*</h3>
-            <input type="text" onChange={(e)=> setLinkedIn(e.target.value)}/>
+            {errors.linkedin ? (
+              <p className="alertaForm">{errors.linkedin}</p>
+            ) : null}
+            <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
             <h3>Experiencia</h3>
-            <select name="info" className="experience" onChange={(e) => setExperiencia(e.target.value)}>
-            <option value="0"></option>            
-              <option value="opcion1">Entre 1 y 5 años</option>
-              <option value="opcion2">Entre 5 y 10 años</option>
-              <option value="opcion3">Más de 10 años</option>
-              
+            <select
+              name="info"
+              className="experience"
+              onChange={(e) => setExperiencia(e.target.value)}
+            >
+              <option value="0"> </option>
+              <option value="0-1"> 0-1 año </option>
+              <option value="1-2"> 1-2 años </option>
+              <option value="2-3"> 2-3 años </option>
+              <option value="3+">3 o mas años </option>
             </select>
           </div>
           <div className="details">
@@ -182,7 +275,10 @@ export default function Candidatos() {
             </div>
             <h3>Remuneracion pretendida</h3>
             <div className="value">
-              <select name="value" onChange={(e) => setMonedaRemuneracion(e.target.value)}>
+              <select
+                name="value"
+                onChange={(e) => setMonedaRemuneracion(e.target.value)}
+              >
                 <option value="0">Elegir</option>
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
@@ -190,34 +286,51 @@ export default function Candidatos() {
               <input type="text" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
             </div>
             <h3>Interesado en roles</h3>
-            <select name="info" onChange={(e) => setInteresadoEnRoles(e.target.value)}>
+            <select
+              name="info"
+              onChange={(e) => setInteresadoEnRoles(e.target.value)}
+            >
               <option value="0"></option>
-              <option value="opcion1">xxxxxx</option>
-              <option value="opcion2">xxxxxx</option>
-              <option value="opcion3">xxxxxx</option>
-              <option value="opcion4">xxxxxx</option>
+              <option value="Rol1">Rol1</option>
+              <option value="Rol2">Rol2</option>
+              <option value="Rol3">Rol3</option>
+              <option value="Rol4">Rol4</option>
             </select>
             <h3>Cómo nos conociste</h3>
-            <select name="info" onChange={(e) => setComoNosConociste(e.target.value)}>
+            <select
+              name="info"
+              onChange={(e) => setComoNosConociste(e.target.value)}
+            >
               <option value="0"></option>
-              <option value="1">xxxxxx</option>
-              <option value="2">xxxxxx</option>
-              <option value="3">xxxxxx</option>
-              <option value="4">xxxxxx</option>
+              <option value="Recruiter">Recruiter</option>
+              <option value="Conocido">Conocido</option>
+              <option value="Google">Google</option>
+              <option value="Otros">Otros</option>
             </select>
             <h3>Tecnologías</h3>
-            <select name="info" onChange={(e) => setTecnologias(e.target.value)}>
+            <select
+              name="info"
+              onChange={(e) => setTecnologias(e.target.value)}
+            >
               <option value="0"></option>
-              <option value="1">xxxxxx</option>
-              <option value="2">xxxxxx</option>
-              <option value="3">xxxxxx</option>
-              <option value="4">xxxxxx</option>
+              <option value="Node">Node</option>
+              <option value="React">React</option>
+              <option value="Python">Python</option>
+              <option value="C#">C#</option>
             </select>
             <div className="condition">
               <div className="acept-conditions">
-                <input type="checkbox" className="terms" />
+                <input
+                  type="checkbox"
+                  className="terms"
+                  onClick={(e) => setCondicionesLegales(e.target.value)}
+                />
                 <h3>Aceptar condiciones legales</h3>
+                
               </div>
+              {errors.condicionesLegales ? (
+                  <p className="alertaForm">{errors.condicionesLegales}</p>
+                ) : null}
               <button type="submit" className="send-button">
                 Enviar
               </button>

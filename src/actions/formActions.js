@@ -17,11 +17,11 @@ export function postFormAirtable(
     [
       {
         fields: {
-          Name: nombre,
-          Email: email,
-          LinkedIn: linkedin,
+          "Name": nombre,
+          "Email": email,
+          "LinkedIn": linkedin,
           "Motivo de Contacto": motivoDeContacto,
-          Mensaje: mensaje,
+          "Mensaje": mensaje,
           "Interesado en Roles": interesadoEnRoles,
           "Como Nos Conociste": comoNosConociste,
           "Interesado en Otros Roles": interesadoEnOtrosRoles,
@@ -40,3 +40,4 @@ export function postFormAirtable(
     }
   );
 }
+
