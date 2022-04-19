@@ -2,22 +2,13 @@ import React, {useState} from "react";
 import "../componentStyles/header.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Header({setLanguage}) {
+export default function Header() {
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/contacto`; 
     navigate(path);
   }
 
-  const handleChange = (e) => {
-    if(!e.target.mathces('.selectLanguage')) return;
-    if(e.target.value === '1'){
-      setLanguage('INGLÉS')
-    }
-    if(e.target.value === '2'){
-      setLanguage('ESPAÑOL')
-    }
-  }
   return (
     <div className="header">
       <header className="top-header">
@@ -39,7 +30,7 @@ export default function Header({setLanguage}) {
             <p className="faqs">FAQS</p>
             <div className="select">
               <a href="/eng/empresas.html">
-                <select className="selectLanguage" onChange={handleChange} name="language" id="idioma">
+                <select className="selectLanguage" name="language" id="idioma">
                   IDIOMA
                   <option value="1">ESPAÑOL</option>
                   <option value="2">INGLES</option>

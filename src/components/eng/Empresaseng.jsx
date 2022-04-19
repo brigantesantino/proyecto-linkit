@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-import image17 from "../images/image 17.svg";
-import image18 from "../images/image 18.png";
-import image20 from "../images/image 20.svg";
-import image8 from "../images/image 8.svg";
-import image9 from "../images/image 9.svg";
-import image10 from "../images/image 10.svg";
-import image12 from "../images/image 12.svg";
-import image13 from "../images/image 13.svg";
-import image14 from "../images/image 14.svg";
-import image15 from "../images/image 15.png";
-import image21 from "../images/image 21.png";
+import image17 from "../../images/image 17.svg";
+import image18 from "../../images/image 18.png";
+import image20 from "../../images/image 20.svg";
+import image8 from "../../images/image 8.svg";
+import image9 from "../../images/image 9.svg";
+import image10 from "../../images/image 10.svg";
+import image12 from "../../images/image 12.svg";
+import image13 from "../../images/image 13.svg";
+import image14 from "../../images/image 14.svg";
+import image15 from "../../images/image 15.png";
+import image21 from "../../images/image 21.png";
 
-import vector from "../images/Vector.svg";
-import vector1 from "../images/Vector-1.svg";
-import whatsApp from "../images/WhatsApp.svg";
+import vector from "../../images/Vector.svg";
+import vector1 from "../../images/Vector-1.svg";
+import whatsApp from "../../images/WhatsApp.svg";
 
 import Header from "./Header";
 
