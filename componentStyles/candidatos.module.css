@@ -1,0 +1,732 @@
+.candidatos * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.candidatos body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+  
+}
+/*aca empieza el header*/
+.candidatos #sideNav {
+  display: none;
+}
+.candidatos header.top-header {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.candidatos header div.info {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.candidatos header .menu-wrapper {
+  display: flex;
+  align-items: center;
+}
+.candidatos header p.logo {
+  color: black;
+  background-color: transparent;
+  display: flex;
+  font: bolder;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+}
+.candidatos header p.logo span {
+  color: #63799e;
+  font-weight: bold;
+}
+.candidatos header div.title {
+  padding: 0.6rem;
+  border-bottom: black solid 1px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.candidatos header .info p {
+  margin: 0;
+}
+.candidatos header div.info p.home-button {
+  margin: 0px 20px 0 20px;
+}
+.candidatos header div.info p.business {
+  margin: 0px 10px 0 10px;
+}
+.candidatos header div.info a.empresas-button {
+  text-decoration: none;
+  color: black;
+}
+.candidatos header div.info a.candidates-button {
+  text-decoration: none;
+  color: black;
+}
+.candidatos header div.info p.candidates {
+  margin: 0px 10px 0 10px;
+}
+.candidatos header div.info p.faqs {
+  margin: 0px 10px 0 10px;
+}
+.candidatos header div.info .select {
+  margin-top: 30px;
+  margin: 0px 10px 0 10px;
+}
+.candidatos header div.info select {
+  border: none;
+}
+.candidatos header button.contact-button {
+  cursor: pointer;
+  height: 40px;
+  width: 140px;
+  border-radius: 7px;
+  background-color: #63799e;
+  color: white;
+  border: none;
+  transition: 300ms;
+}
+.candidatos header button.contact-button:hover {
+  background-color: transparent;
+  color: black;
+  border: #63799e solid 1px;
+}
+.candidatos header div.button {
+  border: none;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+.candidatos .question {
+  margin: 0 auto;
+}
+.candidatos .puestos {
+  text-align: center;
+  color: #63799e;
+  font-size: 13px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 3.2rem;
+}
+.candidatos #idioma {
+  outline: none;
+  cursor: pointer;
+}
+.candidatos .menu-wrapper .menu-hmb {
+  display: none;
+}
+.candidatos h1 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 33%;
+}
+.candidatos h2 {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 33%;
+  margin-top: 2%;
+  margin-top: 50px;
+}
+.candidatos .buttons .candidate-buttons button {
+  width: 100%;
+  cursor: pointer;
+}
+/*aca empieza el main*/
+.candidatos main div.images {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.candidatos main div.images div.logo {
+  object-fit: cover;
+  display: inline-block;
+  margin: 0 0.6rem;
+}
+
+.candidatos .images-wrapper {
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.candidatos .google-img {
+  overflow: hidden;
+  object-fit: cover;
+  width: fit-content;
+  height: 4.4rem;
+}
+.candidatos .candidatos #offers {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.candidatos #technologies {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.candidatos #contacto {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+.candidatos footer h4 {
+  color: black;
+}
+.candidatos footer span {
+  color: #63799e;
+  font-weight: bold;
+}
+@media (max-width: 1024px) {
+  .candidatos .top-header {
+    margin-left: 0;
+  }
+
+  .candidatos #sideNav {
+    display: block;
+    width: 35%;
+    height: 100vh;
+    position: fixed;
+    right: -250px;
+    top: 0;
+    background: rgb(110, 107, 107);
+    z-index: 2;
+    transition: 0.5s;
+  }
+  .candidatos .side-menu {
+    list-style: none;
+  }
+  .candidatos .side-menu {
+    width: 100%;
+    margin-left: 10%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .candidatos .side-menu a {
+    text-decoration: none;
+    color: white;
+  }
+  .candidatos header div.info {
+    display: none;
+  }
+  .candidatos .menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    top: 0%;
+  }
+  .candidatos .menu-wrapper .menu-hmb {
+    display: block;
+    font-size: 1.6rem;
+    margin: 0.7rem 0.8rem;
+    cursor: pointer;
+  }
+  .candidatos main h1 {
+    width: 90%;
+    margin-left: 15px;
+  }
+  .candidatos div.buttons-desktop button {
+    background-color: transparent;
+    border: #63799e solid 1px;
+    border-radius: 16px;
+    margin: 0.5rem 0;
+  }
+  .candidatos div.buttons div.candidate-buttons {
+    width: 90%;
+  }
+  .candidatos div.buttons-desktop {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  .candidatos .buttons button .designer {
+    width: 80%;
+    font-size: 14px;
+    display: flex;
+    justify-content: left;
+    margin: 1rem 0 0 2rem;
+    color: #000f25;
+  }
+  .candidatos .buttons span.google {
+    color: #adadad;
+    margin-left: 0.5rem;
+  }
+  .candidatos .buttons button .adress {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    justify-content: left;
+    margin: 1rem 0 1rem 2rem;
+    color: #000f25;
+  }
+  .candidatos .buttons span.date {
+    display: none;
+  }
+  .candidatos .buttons .date-mobile {
+    font-size: 11px;
+    display: flex;
+    justify-content: left;
+    margin: 1rem 0 1rem 2rem;
+  }
+  .candidatos .buttons h3 .adress {
+    width: 100%;
+  }
+  .candidatos .buttons span.date {
+    width: 37%;
+  }
+  .candidatos .scrollbox {
+    width: 100%;
+    height: 32rem;
+  }
+  .candidatos h2 {
+    width: 90%;
+    margin-left: 6%;
+  }
+  .candidatos main div.images {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 0 30px 0%;
+  }
+  .candidatos main form {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 0 0.7rem;
+  }
+  .candidatos main form {
+    border: 2px solid #63799e;
+    display: flex;
+    justify-content: space-around;
+    width: 85%;
+    height: 30%;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+  .candidatos main form div.details div.value {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .candidatos main form div.details div.value select {
+    width: 20%;
+    margin: 0.9rem 0.7rem 0.9rem 0;
+  }
+  .candidatos main form div.details div.value input {
+    padding: 7px 7px;
+    margin: 0.9rem 0;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+    width: 100%;
+  }
+  .candidatos .file input {
+    display: none;
+  }
+  .candidatos .file label {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    color: gray;
+    display: block;
+    padding: -5px 0 6px 0;
+    border: 2px solid #63799e;
+    margin: 1rem 0;
+    width: 5rem;
+    border-radius: 14px;
+  }
+  .candidatos main form div.inputs {
+    width: 100%;
+    margin: 2rem;
+  }
+
+  .candidatos main form div.inputs input {
+    width: 100%;
+    padding: 7px 7px;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+  }
+  .candidatos main form div.inputs select {
+    width: 100%;
+    padding: 7px 7px;
+    margin: 0.8rem 0;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid #63799e;
+  }
+  .candidatos main form div.details {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 2rem;
+    margin: -1.8rem 0 1.8rem 0;
+  }
+  .candidatos main form div.details select {
+    width: 100%;
+    padding: 7px 7px;
+    margin: 0.8rem 0;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+  }
+  .candidatos main form div.details h3.mensaje {
+    margin-bottom: 15px;
+  }
+  .candidatos main form div.details textarea {
+    width: 100%;
+    height: 15%;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+  }
+  .candidatos main form div.details input {
+    color: transparent;
+    border: none;
+  }
+  .candidatos main form .condition {
+    width: 100%;
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .candidatos main form .acept-conditions {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .candidatos main form div.condition h3 {
+    font-size: 15px;
+  }
+  .candidatos main form div.condition input {
+    margin: 5px 5px 0 0;
+  }
+  .candidatos main form div.condition button.send-button {
+    width: 20%;
+    border: #63799e solid 1px;
+    background-color: #63799e;
+    padding: 0.4rem 0.5rem;
+    color: white;
+    border-radius: 6px;
+    transition: 300ms;
+    outline: none;
+  }
+  .candidatos main form div.condition button.send-button:hover {
+    background-color: transparent;
+    color: black;
+    transition: 300ms;
+  }
+
+  .candidatos .condition {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .candidatos footer div.info {
+    display: none;
+  }
+  .candidatos footer div.social-media {
+    display: flex;
+    justify-content: center;
+  }
+  .candidatos footer div.social-media a.wpp {
+    margin: 8px;
+  }
+  .candidatos footer div.social-media a.linkedin {
+    margin: 8px;
+  }
+  .candidatos footer div.social-media a.gmail {
+    margin: 8px;
+  }
+  .candidatos div.footer h4 {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+  }
+  .candidatos .linea {
+    display: none;
+  }
+  .candidatos .rights {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .candidatos .rights p {
+    text-align: center;
+    margin: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .candidatos div.buttons-desktop button {
+    background-color: transparent;
+    border: #63799e solid 1px;
+    border-radius: 16px;
+    margin: 0.5rem 0;
+  }
+  .candidatos div.buttons div.candidate-buttons {
+    width: 40%;
+  }
+  .candidatos div.buttons-desktop {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  .candidatos .scrollbox {
+    width: 100%;
+    height: 30rem;
+  }
+  .candidatos .images-wrapper {
+    width: 50%;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  .candidatos .buttons button .designer {
+    width: 58%;
+    font-size: 14px;
+    display: flex;
+    justify-content: left;
+    margin: 1rem 0 0 2rem;
+    color: #000f25;
+  }
+  .candidatos .buttons span.google {
+    color: #adadad;
+    margin-left: 0.5rem;
+  }
+  .candidatos .buttons .date-mobile {
+    display: none;
+  }
+  .candidatos .candidate-buttons a.link-popup {
+    background-color: #000f25;
+  }
+  .candidatos .buttons button .adress {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    justify-content: left;
+    margin: 1rem 0 1rem 2rem;
+    color: #000f25;
+  }
+  .candidatos .buttons h3 .adress {
+    width: 100%;
+  }
+  .candidatos .buttons span.date {
+    width: 37%;
+  }
+  .candidatos main form {
+    border: 2px solid #63799e;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    height: 34%;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 20px 40px #eaeaea;
+    margin-bottom: 4rem;
+  }
+  .candidatos main form div.inputs {
+    width: 100%;
+    margin: 2rem;
+  }
+  .candidatos main form div.inputs input {
+    width: 100%;
+    padding: 7px 7px;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: rgb(110, 110, 110) solid 2px;
+    outline: none;
+    border: 2px solid #63799e;
+  }
+  .candidatos .experience {
+    width: 100%;
+    padding: 7px 7px;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+  }
+  .candidatos .file input {
+    display: none;
+  }
+  .candidatos .file label {
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    color: gray;
+    display: block;
+    padding: -5px 0 6px 0;
+    border: 2px solid #63799e;
+    margin: 1.1rem 0;
+    width: 5rem;
+    border-radius: 10px;
+  }
+  .candidatos main form div.details {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 2rem 2rem 0 2rem;
+  }
+  .candidatos main form div.details select {
+    width: 100%;
+    padding: 7px 7px;
+    margin: 0.9rem 0;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+  }
+  .candidatos main form div.details div.value {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .candidatos main form div.details div.value select {
+    width: 20%;
+    margin: 0.9rem 0.7rem 0.9rem 0;
+  }
+  .candidatos main form div.details div.value input {
+    padding: 7px 7px;
+    margin: 0.9rem 0;
+    border-radius: 10px;
+    border: 2px solid #63799e;
+    outline: none;
+    width: 100%;
+  }
+  .candidatos main form div.details h3.mensaje {
+    margin-bottom: 15px;
+  }
+  .candidatos main form div.details textarea {
+    width: 100%;
+    height: 15%;
+    border-radius: 10px;
+    border: rgb(110, 110, 110) solid 2px;
+    outline: none;
+  }
+  .candidatos main form .condition {
+    width: 100%;
+    margin: 0.6rem 0 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+  .candidatos main form .acept-conditions {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .candidatos main form div.condition h3 {
+    font-size: 15px;
+  }
+  .candidatos main form div.condition input {
+    margin: 5px 5px 0 0;
+    cursor: pointer;
+  }
+  .candidatos main form div.condition button.send-button {
+    cursor: pointer;
+    width: 20%;
+    border: #63799e solid 1px;
+    background-color: #63799e;
+    padding: 0.4rem 0.5rem;
+    color: white;
+    border-radius: 6px;
+    transition: 300ms;
+    outline: none;
+  }
+  .candidatos main form div.condition button.send-button:hover {
+    background-color: transparent;
+    color: black;
+    transition: 300ms;
+  }
+  .candidatos footer {
+    border-top: gray solid 2px;
+    margin: 2.2rem auto;
+    width: 62%;
+    margin-top: 0px;
+  }
+  .candidatos .footer {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+  .candidatos footer div.social-media {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .candidatos footer div.social-media a.wpp {
+    margin: 5px;
+  }
+  .candidatos footer div.social-media a.linkedin {
+    margin: 5px;
+  }
+  .candidatos footer div.social-media a.gmail {
+    margin: 5px;
+  }
+  .candidatos footer div.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-left: 35px;
+  }
+  .candidatos footer div.title {
+    border-bottom: black solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .candidatos footer div.info p.home-button {
+    margin: 20px 30px 0 30px;
+  }
+  .candidatos footer div.info p.business {
+    margin: 20px 10px 0 10px;
+  }
+  .candidatos footer div.info a.empresas-button {
+    text-decoration: none;
+    color: black;
+  }
+  .candidatos footer div.info p.candidates {
+    margin: 20px 30px 0 30px;
+  }
+  .candidatos footer div.info p.faqs {
+    margin: 20px 30px 0 30px;
+  }
+  .candidatos footer div.info .select {
+    margin-top: 30px;
+    margin: 20px 30px 0 30px;
+  }
+  .candidatos footer div.info select {
+    border: none;
+  }
+  .candidatos footer div.rights {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .candidatos footer div.rights p {
+    margin: 15px;
+    width: 25%;
+  }
+  .candidatos footer div.linea p {
+    width: 100%;
+  }
+}
