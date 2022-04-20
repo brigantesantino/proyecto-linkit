@@ -146,12 +146,15 @@
 }
 .candidatos .puestos {
   text-align: center;
-  color: #233c72;
+  color: #63799e;
   font-size: 13px;
   width: fit-content;
   margin: 0 auto;
   margin-top: 3.2rem;
   
+}
+.experience{
+  background-color: white;
 }
 .candidatos #idioma {
   outline: none;
@@ -188,8 +191,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
+}
+.fondo-blanco{
+  background-color: white;
+}
+@keyframes movimiento {
+  from{
+    transform: translate(0px, 0px);
+  }
+  to{
+    transform: translate(600px, 0px);
+  }
+}
 .candidatos main div.images div.logo {
   object-fit: cover;
   display: inline-block;
@@ -200,6 +214,7 @@
   width: 100%;
   overflow: auto;
   white-space: nowrap;
+  
 }
 
 .candidatos .google-img {
@@ -231,14 +246,40 @@
   color: #63799e;
   font-weight: bold;
 }
+.info-candidatos{
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-between;
+}
+.rights{
+  width: 200px;
+}
+.rights-candidatos{
+  width: 100%;
+  margin-top: 40px;
+
+  text-align: center;
+}
+.footer-button{
+  color: #63799e;
+  margin-top: 6px;
+}
 @media (max-width: 1024px) {
+  .info-candidatos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .candidatos .sideNav{
     right: -250px;
   }
   .candidatos .top-header {
     margin-left: 0;
   }
-
+.footer-button{
+  color: #63799e;
+}
   .candidatos #sideNav {
     display: block;
     width: 35%;
@@ -371,6 +412,7 @@
     flex-direction: column;
   }
   .candidatos main form div.details div.value select {
+    background-color: white;
     width: 30%;
     margin: 0.9rem 0.7rem 0.9rem 0;
   }
@@ -606,6 +648,7 @@
     
   }
   .candidatos .experience {
+    background-color: white;
     width: 100%;
     padding: 7px 7px;
     margin: 1rem 0;
@@ -705,7 +748,7 @@
     transition: 300ms;
   }
   .candidatos footer {
-    border-top: gray solid 2px;
+    border-top: #63799e solid 2px;
     margin: 2.2rem auto;
     width: 62%;
     margin-top: 0px;
@@ -754,7 +797,7 @@
   }
   .candidatos footer div.info a.empresas-button {
     text-decoration: none;
-    color: black;
+
   }
   .candidatos footer div.info p.candidates {
     margin: 20px 30px 0 30px;

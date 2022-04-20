@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import "../componentStyles/header.css";
 import { useNavigate } from "react-router-dom";
+import USA from "../images/banderaUsa.png"
+import ARG from "../images/banderaArg.png"
+import menuHambNegro from "../images/menuHamburguesa.svg";
+import MenuHamburguesa from "./MenuHamburguesa";
 
 export default function Header() {
   let navigate = useNavigate(); 
@@ -9,39 +13,49 @@ export default function Header() {
     navigate(path);
   }
 
+  const [menu, setMenu] = useState(false);
+
   return (
     <div className="header">
-      <header className="top-header">
+      <header className="top-header-component">
         <div className="title">
           <div className="menu-wrapper">
-            <p className="logo">
-              Link <span>IT</span>
+            <p className="logo-component">
+              Link <span> IT</span>
             </p>
-            <i className="fas fa-bars menu-hmb" aria-hidden="true"></i>
+              <div className="menuHamb" onClick={() => setMenu(true)}>
+                    <img src={menuHambNegro} className="menuHamburguesaImagen" alt="" />
+                </div>
+                {menu && <MenuHamburguesa setMenu={setMenu}/>}
           </div>
-          <div className="info">
-            <p className="home-button">INICIO</p>
-            <a className="empresas-button" href="/empresas">
-              <p className="business">EMPRESAS</p>
+          <div className="info-component">
+            <a href="/home">
+            <p className="button-component">INICIO</p>
             </a>
-            <a className="candidates-button" href="/Candidatos">
-              <p className="candidates">CANDIDATOS</p>
+
+            <a href="/empresas">
+              <p className="button-component">EMPRESAS</p>
             </a>
-            <p className="faqs">FAQS</p>
-            <div className="select">
-              <a href="/eng/empresas.html">
-                <select className="selectLanguage" name="language" id="idioma">
-                  IDIOMA
-                  <option value="1">ESPAÑOL</option>
-                  <option value="2">INGLES</option>
-                </select>
+
+            <a href="/Candidatos">
+              <p className="button-component">CANDIDATOS</p>
+            </a>
+            <a href="/faqs">
+            <p className="button-component">FAQS</p>
+            </a>
+            <div className="contenedor-idiomas">
+              <a href="" className="contenedor-bandera">
+                <img className="emojiBandera" src={USA} alt="" />
+                <div className="idioma-component">ENG</div>
+                </a>
+              <a className="contenedor-bandera" href="/home">
+                <img className="emojiBandera" src={ARG} alt="" />
+                <div className="idioma-component">ESP</div>
               </a>
             </div>
-            <div className="button">
-              <button type="submit" className="contact-button" onClick={routeChange}>
+              <button type="submit" className="contact-button-component" onClick={routeChange}>
                 CONTACTO
               </button>
-            </div>
           </div>
         </div>
       </header>

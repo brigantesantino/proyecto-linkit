@@ -16,13 +16,12 @@ import vectorFondo from "../images/vectorFondo.svg"
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-import menuHambNegro from "../images/menuHamburguesa.svg";
-import MenuHamburguesa from "./MenuHamburguesa";
+
 import Header from "./Header";
 
 import { postFormAirtableCandidatos } from "../actions/candidatosActions";
 
-export default function Candidatos() {
+export default function CandidatosIngles() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -37,7 +36,6 @@ export default function Candidatos() {
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
 
-  const [menu, setMenu] = useState(false);
 
   const [errors, setErrors] = useState({});
 
@@ -256,7 +254,6 @@ export default function Candidatos() {
             <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
             <h3>Experiencia</h3>
             <select
-            className="fondo-blanco"
               name="info"
               className="experience"
               onChange={(e) => setExperiencia(e.target.value)}
@@ -279,7 +276,6 @@ export default function Candidatos() {
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select
-              className="fondo-blanco"
                 name="value"
                 onChange={(e) => setMonedaRemuneracion(e.target.value)}
               >
@@ -290,7 +286,7 @@ export default function Candidatos() {
               <input type="text" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
             </div>
             <h3>Interesado en roles</h3>
-            <select className="fondo-blanco"
+            <select
               name="info"
               onChange={(e) => setInteresadoEnRoles(e.target.value)}
             >
@@ -302,7 +298,6 @@ export default function Candidatos() {
             </select>
             <h3>Cómo nos conociste</h3>
             <select
-              className="fondo-blanco"
               name="info"
               onChange={(e) => setComoNosConociste(e.target.value)}
             >
@@ -314,7 +309,6 @@ export default function Candidatos() {
             </select>
             <h3>Tecnologías</h3>
             <select
-            className="fondo-blanco"  
               name="info"
               onChange={(e) => setTecnologias(e.target.value)}
             >
@@ -327,7 +321,6 @@ export default function Candidatos() {
             <div className="condition">
               <div className="acept-conditions">
                 <input
-                
                   type="checkbox"
                   className="terms"
                   onClick={(e) => setCondicionesLegales(e.target.value)}
@@ -369,23 +362,29 @@ export default function Candidatos() {
             </a>
           </div>
         </div>
-        <div className="info-candidatos">
-          <a href="/home">
-          <p className="footer-button">INICIO</p>
+        <div className="info">
+          <p className="home-button">INICIO</p>
+          <a className="empresas-button" href="/empresas.html">
+            <p className="business">EMPRESAS</p>
           </a>
-          <a className="empresas-button" href="/empresas">
-            <p className="footer-button">EMPRESAS</p>
-          </a>
-          <a href="/Candidatos">
-          <p className="footer-button">CANDIDATOS</p>
-          </a>
-          <a href="/faqs">
-          <p className="footer-button">FAQS</p>
-          </a>
-
+          <p className="candidates">CANDIDATOS</p>
+          <p className="faqs">FAQS</p>
+          <div className="select">
+            <a href="/eng/Candidates.html">
+              <select name="language" id="">
+                IDIOMA
+                <option value="1">ESPAÑOL</option>
+                <option value="2">INGLÉS</option>
+              </select>
+            </a>
+          </div>
         </div>
-        <div className="rights-candidatos">
+        <div className="rights">
           <p>© 2022 LinkIT. All rights reserved.</p>
+          <div className="linea">
+            <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+          </div>
+          <p>Developed by IT-TECHGROUP</p>
         </div>
       </footer>
     </div>
