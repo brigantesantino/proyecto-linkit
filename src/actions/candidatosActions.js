@@ -65,3 +65,61 @@ export function postFormAirtableCandidatos(
     }
   );
 }
+
+export function postFormAirtableCandidatosEspecial(
+  codigo,
+  nombre,
+  email,
+  direccion,
+  linkedIn,
+  experiencia,
+  remuneracionPretendida,
+  comoNosConociste,
+  tecnologias
+) {
+  base("Candidatos").create(
+    [
+      {
+        fields: {
+          Name: nombre,
+          Codigo: codigo,
+          Email: email,
+          Direccion: direccion,
+          Linkedin: linkedIn,
+          Experiencia: [experiencia],
+          "Remuneracion pretendida": remuneracionPretendida,
+          "Como nos conociste": comoNosConociste,
+          Tecnologias: tecnologias,
+        },
+      },
+    ],
+    function (err, records) {
+      if (err) {
+        console.error(err);
+        console.log(
+          "NOMBRE: ",
+          nombre,
+          "EMAIL: ",
+          email,
+          "DIRECC: ",
+          direccion,
+          "LI: ",
+          linkedIn,
+          "EXP: ",
+          experiencia,
+          "REM. PRET.: ",
+          remuneracionPretendida,
+          "COMONOS",
+          comoNosConociste,
+          "TECNOLOGIAS: ",
+          tecnologias
+        );
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
+    }
+  );
+}
+

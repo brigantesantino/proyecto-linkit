@@ -14,17 +14,18 @@ import image13 from "../images/image 13.svg";
 import image14 from "../images/image 14.svg";
 import image15 from "../images/image 15.png";
 import image21 from "../images/image 21.png";
-import vectorFondo from "../images/vectorFondo.svg"
+import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
+import USA from "../images/banderaUsa.png";
+import ARG from "../images/banderaArg.png";
 import { postFormAirtableCandidatos } from "../actions/candidatosActions";
 import Popup from "./Popup";
+
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -39,9 +40,10 @@ export default function Candidatos() {
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
+  const [data, setData] = useState("");
 
   const [menu, setMenu] = useState(false);
-  const [popup, setPopup] = useState(false)
+  const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
   function validate(input) {
@@ -135,10 +137,10 @@ export default function Candidatos() {
     <div className="candidatos">
       <Header />
       <div className="background">
-            <img className="img_back1" src={vectorFondo}/>
-            <img className="img_back2" src={vectorFondo}/>
-            <img className="img_back3" src={vectorFondo}/>
-        </div>
+        <img className="img_back1" src={vectorFondo} />
+        <img className="img_back2" src={vectorFondo} />
+        <img className="img_back3" src={vectorFondo} />
+      </div>
       <nav id="sideNav">
         <ul className="side-menu">
           <li>
@@ -157,7 +159,7 @@ export default function Candidatos() {
       </nav>
       <main>
         <h4 className="puestos">ROLES ABIERTOS</h4>
-        
+
         <div className="h1">
           <h1 className="question">
             ¿Estás buscando un cambio en tu camino profesional?
@@ -165,17 +167,15 @@ export default function Candidatos() {
         </div>
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
-          <div className="candidate-buttons" onClick={() => setPopup(true)}>
+          <div className="candidate-buttons" >
             {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
-                
-                <Link to={{
-                  pathname: `/popup/${oferta.fields.Codigo}`,
-                  state: {
-                    codigo: oferta.fields.Codigo,
-                    nombre: oferta.fields.Nombre,
-                  }
-                }}> 
+                <a
+                  className="link-pupup"
+                  key={oferta.fields.Codigo}
+                  onClick={() => setPopup(true)}
+                >
+                <p onClick={() => setData(oferta.fields)}>
                   <button>
                     <h2 className="designer">
                       {oferta.fields.Nombre}
@@ -191,13 +191,14 @@ export default function Candidatos() {
                       Fecha de creacion:{oferta.fields.fechaDeCreacion}
                     </h3>
                   </button>
-                  </Link>
+                </p>
+                </a>
               ))
             ) : (
               <h1>Cargando ofertas...</h1>
             )}
           </div>
-          {popup && <Popup setPopup={setPopup}/>}
+          {popup && <Popup data={data}/>}
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
@@ -263,7 +264,7 @@ export default function Candidatos() {
             <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
             <h3>Experiencia</h3>
             <select
-            className="experience"
+              className="experience"
               name="info"
               onChange={(e) => setExperiencia(e.target.value)}
             >
@@ -285,7 +286,7 @@ export default function Candidatos() {
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select
-              className="fondo-blanco"
+                className="fondo-blanco"
                 name="value"
                 onChange={(e) => setMonedaRemuneracion(e.target.value)}
               >
@@ -293,10 +294,14 @@ export default function Candidatos() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input type="text" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
+              <input
+                type="text"
+                onChange={(e) => setRemuneracionPretendida(e.target.value)}
+              />
             </div>
             <h3>Interesado en roles</h3>
-            <select className="fondo-blanco"
+            <select
+              className="fondo-blanco"
               name="info"
               onChange={(e) => setInteresadoEnRoles(e.target.value)}
             >
@@ -320,7 +325,7 @@ export default function Candidatos() {
             </select>
             <h3>Tecnologías</h3>
             <select
-            className="fondo-blanco"  
+              className="fondo-blanco"
               name="info"
               onChange={(e) => setTecnologias(e.target.value)}
             >
@@ -333,17 +338,15 @@ export default function Candidatos() {
             <div className="condition">
               <div className="acept-conditions">
                 <input
-                
                   type="checkbox"
                   className="terms"
                   onClick={(e) => setCondicionesLegales(e.target.value)}
                 />
                 <h3>Aceptar condiciones legales</h3>
-                
               </div>
               {errors.condicionesLegales ? (
-                  <p className="alertaForm">{errors.condicionesLegales}</p>
-                ) : null}
+                <p className="alertaForm">{errors.condicionesLegales}</p>
+              ) : null}
               <button type="submit" className="send-button">
                 Enviar
               </button>
@@ -353,12 +356,11 @@ export default function Candidatos() {
       </main>
       <footer>
         <div className="footer">
-          
           <h4>
             Link<span>IT</span>
           </h4>
           <div className="social-media">
-          <a
+            <a
               target="_blank"
               className="linkedin"
               href="https://www.linkedin.com/company/linkit-hr/"
@@ -378,27 +380,27 @@ export default function Candidatos() {
         </div>
         <div className="info-candidatos">
           <a href="/home">
-          <p className="footer-button">INICIO</p>
+            <p className="footer-button">INICIO</p>
           </a>
           <a className="empresas-button" href="/empresas">
             <p className="footer-button">EMPRESAS</p>
           </a>
           <a href="/Candidatos">
-          <p className="footer-button">CANDIDATOS</p>
+            <p className="footer-button">CANDIDATOS</p>
           </a>
           <a href="/faqs">
-          <p className="footer-button">FAQS</p>
+            <p className="footer-button">FAQS</p>
           </a>
           <div className="contenedor-idiomas">
-              <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
-                </a>
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
-                <div className="idioma-component">ESP</div>
-              </a>
-            </div>
+            <a href="/homeENG" className="contenedor-bandera">
+              <img className="emojiBandera" src={USA} alt="" />
+              <div className="idioma-component">ENG</div>
+            </a>
+            <a className="contenedor-bandera" href="/home">
+              <img className="emojiBandera" src={ARG} alt="" />
+              <div className="idioma-component">ESP</div>
+            </a>
+          </div>
         </div>
         <div className="rights-candidatos">
           <p>© 2022 LinkIT. All rights reserved.</p>
