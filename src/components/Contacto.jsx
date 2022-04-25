@@ -75,7 +75,7 @@ export default function Contacto() {
           </div>
         </div>
         <div className="rights">
-          <p>© 2022 LinkIT. All rights reserved.</p>
+          <p>© 2022 LinkIT. All rights reserved...</p>
           <div className="linea">
             <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
           </div>
