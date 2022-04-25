@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import "../componentStyles/header.css";
+import "../../componentStyles/header.css";
 import { useNavigate } from "react-router-dom";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
-import menuHambNegro from "../images/menuHamburguesa.svg";
-import MenuHamburguesa from "./MenuHamburguesa";
+import USA from "../../images/banderaUsa.png"
+import ARG from "../../images/banderaArg.png"
+import menuHambNegro from "../../images/menuHamburguesa.svg";
+import MenuHamburguesa from "../MenuHamburguesa";
 
-export default function Header() {
+export default function HeaderENG() {
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/contacto`; 
@@ -29,22 +29,22 @@ export default function Header() {
                 {menu && <MenuHamburguesa setMenu={setMenu}/>}
           </div>
           <div className="info-component">
-            <a href="/home">
-            <p className="button-component">INICIO</p>
+            <a href="/homeENG">
+            <p className="button-component">HOME</p>
             </a>
 
-            <a href="/empresas">
-              <p className="button-component">EMPRESAS</p>
+            <a href="/empresasENG">
+              <p className="button-component">BUSINESS</p>
             </a>
 
-            <a href="/Candidatos">
-              <p className="button-component">CANDIDATOS</p>
+            <a href="/CandidatosENG">
+              <p className="button-component">CANDIDATES</p>
             </a>
-            <a href="/faqs">
+            <a href="/faqsENG">
             <p className="button-component">FAQS</p>
             </a>
             <div className="contenedor-idiomas">
-              <a href="" className="contenedor-bandera">
+              <a href="/homeENG" className="contenedor-bandera">
                 <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
                 </a>
@@ -53,8 +53,8 @@ export default function Header() {
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
-              <button type="submit" className="contact-button-component">
-                CONTACTO
+              <button type="submit" className="contact-button-component" >
+                CONTACT
               </button>
           </div>
         </div>

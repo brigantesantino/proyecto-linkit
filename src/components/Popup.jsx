@@ -1,22 +1,18 @@
 import React from "react";
 import "../componentStyles/popup.css";
 
-export default function Popup() {
+export default function Popup({setPopup}) {
   return (
     <div className="popup">
-      <a  className="arrow" href="/candidatos">🠔</a>
+            <span className="close1" onClick={() => setPopup(false)}>&times;</span>
       <h2 className="designer">
-        UX Designer <span className="google">en Google</span>
+        UX Designer 
       </h2>
-      <div className="adress">
-        <h2 className="adress">
-          Ubicación: <span className="date">Buenos Aires,Argentina</span>
-        </h2>
-      </div>
+      
 
-      <h3>Description</h3>
+      <h3 className="color1">Description</h3>
       <div>
-        <p>
+        <p className="text">
           Hey there! We're looking for an Account Manager that has experience
           with managing clients, digital marketing strategies, and managing
           complex projects. Someone organized, detail-oriented, great at working
@@ -24,36 +20,19 @@ export default function Popup() {
           and project deliverable
         </p>
 
-        <p>Does this feel like you? Then go ahead and hit apply!</p>
-        <h3 className="location">
+        <p className="text">Does this feel like you? Then go ahead and hit apply!</p>
+        <h3 className="location color1">
           Location:{" "}
-          <span className="remote">100% Remote, reporting to Los Angeles</span>
+          <p className="negro">100% Remote, reporting to Los Angeles</p>
         </h3>
-        <h3 className="engagement">
+        <h3 className="engagement color1">
           Engagement:{" "}
           <span className="date">Full-time role (40 hours per week)</span>
         </h3>
+        <div></div>
         <div>
-          <h3>About us:</h3>
-          <p>Athyna is a remote recruitment agency.</p>
-          <p>
-            We exist to reimagine the workplace, by ethically sourcing highly
-            skilled employees from a global pool of talent and giving businesses
-            the tools they need to become successful, reinvest their time and
-            bring value to their communities.
-          </p>
-
-          <p>
-            We are also proudly carbon neutral and members of 1% for the Planet,
-            pledging 1% of our annual sales to fight for environmental causes.
-            We’re also keen on social impact - we truly care about everyone on
-            our team, and we want to make the world a better place for all of
-            us.
-          </p>
-        </div>
-        <div>
-          <h3>About the client:</h3>
-          <p>
+          <h3  className="color1">About the client:</h3>
+          <p >
             Our client is a rapidly growing Los Angeles based Digital Marketing
             Agency seeking hungry and ambitious candidates. They pride
             themselves on their work ethic, dedication to their clients, and
@@ -63,13 +42,13 @@ export default function Popup() {
           </p>
         </div>
         <div>
-          <h3>Day-to-Day Responsibilities:</h3>
+          <h3  className="color1">Day-to-Day Responsibilities:</h3>
           <p>
             In this position, you are responsible for maintaining happy,
             well-informed, clients. You are also responsible for:
           </p>
 
-          <p>
+          <p className="text">
             <h4>Creating Client Marketing Strategies</h4>
             <h4>Managing Client Projects through the CRM</h4>
             <h4>Maintaining all Communications with the Client</h4>
@@ -92,9 +71,6 @@ export default function Popup() {
           </p>
         </div>
       </div>
-      <button type="submit" className="apply">
-        Apply
-      </button>
       <form>
         <div className="inputs">
           <h3>Nombre</h3>

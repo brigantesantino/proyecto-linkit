@@ -19,9 +19,10 @@ import whatsApp from "../images/WhatsApp.svg";
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
-
+import USA from "../images/banderaUsa.png"
+import ARG from "../images/banderaArg.png"
 import { postFormAirtableCandidatos } from "../actions/candidatosActions";
-
+import Popup from "./Popup";
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ export default function Candidatos() {
   const [ofertas, setOfertas] = useState({});
 
   const [menu, setMenu] = useState(false);
-
+  const [popup, setPopup] = useState(false)
   const [errors, setErrors] = useState({});
 
   function validate(input) {
@@ -162,12 +163,11 @@ export default function Candidatos() {
         </div>
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
-          <div className="candidate-buttons">
+          <div className="candidate-buttons" onClick={() => setPopup(true)}>
             {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
                 <a
                   className="link-pupup"
-                  href="/popup"
                   key={oferta.fields.Codigo}
                 >
                   <button>
@@ -191,6 +191,7 @@ export default function Candidatos() {
               <h1>Cargando ofertas...</h1>
             )}
           </div>
+          {popup && <Popup setPopup={setPopup}/>}
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
@@ -352,9 +353,10 @@ export default function Candidatos() {
             Link<span>IT</span>
           </h4>
           <div className="social-media">
-            <a
+          <a
+              target="_blank"
               className="linkedin"
-              href="https://r.search.yahoo.com/_ylt=AwrCmnoYc0NiNFIAUBDX9wt.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1648616345/RO=10/RU=https%3a%2f%2far.linkedin.com%2f/RK=2/RS=NOL2bRj1EEkj6dfnPKWAHekJg74-"
+              href="https://www.linkedin.com/company/linkit-hr/"
             >
               <img alt="" src={vector} />
             </a>
@@ -382,7 +384,16 @@ export default function Candidatos() {
           <a href="/faqs">
           <p className="footer-button">FAQS</p>
           </a>
-
+          <div className="contenedor-idiomas">
+              <a href="/homeENG" className="contenedor-bandera">
+                <img className="emojiBandera" src={USA} alt="" />
+                <div className="idioma-component">ENG</div>
+                </a>
+              <a className="contenedor-bandera" href="/home">
+                <img className="emojiBandera" src={ARG} alt="" />
+                <div className="idioma-component">ESP</div>
+              </a>
+            </div>
         </div>
         <div className="rights-candidatos">
           <p>© 2022 LinkIT. All rights reserved.</p>

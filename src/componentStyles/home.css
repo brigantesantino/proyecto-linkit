@@ -11,6 +11,7 @@
   overflow-x: hidden;
   }
 .title{
+
   width: 100%;
   display: flex;
   align-items: center;
@@ -23,6 +24,7 @@ border-bottom: #63799E solid 1px;
 }
 
 .top-header{
+
   width: 85%;
   position: absolute;
   z-index: 1;
@@ -44,10 +46,11 @@ border-bottom: #63799E solid 1px;
     color: white;
   }
 .info{
+  
   display: flex;
   justify-content: flex-end;
   align-content: center;
-  width: 50%;
+  width: 60%;
 }
 
 .contenedorNav{
@@ -345,7 +348,7 @@ select{
 
   footer{
 
-    border-top: gray solid 2px;
+    border-top: #63799E solid 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -354,7 +357,8 @@ select{
     padding-top: 30px;
   }
  .footer-button{
-color: #000F25;
+color: #63799E;
+
  }
   .empresas-button{
     color: white;
@@ -362,14 +366,26 @@ color: #000F25;
   .empresas-button:visited{
     color: white;
   }
+
 .info-footer{
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
   width: 60%;
+}
+
+.social-media-home{
+  margin-top: 10px;
+  width: 8%;
+  display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+
 }
   /* Footer */
   @media (max-width:768px) {
@@ -513,6 +529,9 @@ color: #000F25;
     .info-footer{
     flex-direction: column;
     align-items: center;
+    }
+    .social-media-home{
+      width: 100px;
     }
   }
 
