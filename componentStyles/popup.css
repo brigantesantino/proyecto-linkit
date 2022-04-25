@@ -4,7 +4,9 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
+.text{
+  text-align: left;
+}
 .popup {
   background-color: white;
   position: absolute;
@@ -16,6 +18,7 @@
   border: 1px solid #63799e;
   border-radius: 8px;
   margin: 0 auto;
+  text-align: left;
 }
 .arrow{
   font-size: 50px;
@@ -29,12 +32,20 @@
   color: #6791d9;
   margin-left: 0.5rem;
 }
-
-.popup .designer {
+.color1{
+  color: #63799e;
+}
+.negro{
+  color: black;
+  font-weight: lighter;
+}
+.designer {
   width: 100%;
   display: flex;
-  justify-content: left;
-  color: #000f25;
+  justify-content: center;
+  color: #233c72;
+  margin: 0;
+  margin-bottom: 30px;
 }
 .popup div.adress {
   font-size: 0.6rem;
