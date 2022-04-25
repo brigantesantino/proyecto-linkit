@@ -153,6 +153,7 @@
   margin-top: 3.2rem;
   
 }
+
 .experience{
   background-color: white;
 }
@@ -277,6 +278,12 @@
   .candidatos .top-header {
     margin-left: 0;
   }
+  .adress{
+    color: #63799e;
+  }
+  .designer{
+    color: #233c72;
+  }
 .footer-button{
   color: #63799e;
 }
@@ -346,7 +353,7 @@
     display: flex;
     justify-content: left;
     margin: 1rem 0 0 2rem;
-    color: #000f25;
+    color: #233c72;
   }
   .candidatos .buttons span.google {
     color: #adadad;
@@ -358,7 +365,7 @@
     display: flex;
     justify-content: left;
     margin: 1rem 0 1rem 2rem;
-    color: #000f25;
+    color: #63799e;
   }
   .candidatos .buttons span.date {
     display: none;
@@ -368,6 +375,7 @@
     display: flex;
     justify-content: left;
     margin: 1rem 0 1rem 2rem;
+    color: #63799e;
   }
   .candidatos .buttons h3 .adress {
     width: 100%;
@@ -571,6 +579,12 @@
     border-radius: 16px;
     margin: 0.5rem 0;
   }
+  .adress{
+    color: #63799e;
+  }
+  .designer{
+    color: #233c72;
+  }
   .candidatos div.buttons div.candidate-buttons {
     width: 40%;
   }
@@ -594,7 +608,7 @@
     display: flex;
     justify-content: left;
     margin: 1rem 0 0 2rem;
-    color: #000f25;
+
   }
   .candidatos .buttons span.google {
     color: #adadad;
@@ -612,7 +626,7 @@
     display: flex;
     justify-content: left;
     margin: 1rem 0 1rem 2rem;
-    color: #000f25;
+
   }
   .candidatos .buttons h3 .adress {
     width: 100%;

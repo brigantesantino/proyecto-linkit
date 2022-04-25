@@ -18,7 +18,8 @@ import vectorFondo from "../images/vectorFondo.svg"
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-
+import USA from "../images/banderaUsa.png"
+import ARG from "../images/banderaArg.png"
 import Header from "./Header";
 
 export default function Empresas() {
@@ -397,8 +398,9 @@ export default function Empresas() {
           </h4>
           <div className="social-media">
             <a
+            target="_blank"
               className="linkedin"
-              href="https://r.search.yahoo.com/_ylt=AwrCmnoYc0NiNFIAUBDX9wt.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1648616345/RO=10/RU=https%3a%2f%2far.linkedin.com%2f/RK=2/RS=NOL2bRj1EEkj6dfnPKWAHekJg74-"
+              href="https://www.linkedin.com/company/linkit-hr/"
             >
               <img alt="" src={vector} />
             </a>
@@ -426,7 +428,16 @@ export default function Empresas() {
           <a href="/faqs">
           <p className="footer-button">FAQS</p>
           </a>
-
+          <div className="contenedor-idiomas">
+              <a href="/homeENG" className="contenedor-bandera">
+                <img className="emojiBandera" src={USA} alt="" />
+                <div className="idioma-component">ENG</div>
+                </a>
+              <a className="contenedor-bandera" href="/home">
+                <img className="emojiBandera" src={ARG} alt="" />
+                <div className="idioma-component">ESP</div>
+              </a>
+            </div>
         </div>
         <div className="rights-candidatos">
           <p>© 2022 LinkIT. All rights reserved.</p>

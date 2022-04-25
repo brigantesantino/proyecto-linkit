@@ -1,27 +1,27 @@
 import React, {useState} from "react";
-import Modal from "./Modal";
-import ModalEficiencia from "./ModalEficiencia"
-import ModalSeguridad from "./ModalSeguridad"
-import ModalVelocidad from "./ModalVelocidad"
-import ModalContacto from "./ModalContacto"
-import MenuHamburguesa from "./MenuHamburguesa";
-import vectorFondo from "../images/vectorFondo.svg";
-import carafeliz from "../images/carafeliz.svg";
-import eficiencia from "../images/eficiencia.svg";
-import velocidad from "../images/velocidad.svg";
-import seguridad from "../images/seguridad.svg";
-import logoTres from "../images/LogoTres.svg";
-import menuHamb from "../images/menuHamburguesaBlanco.png";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
-import vector from "../images/Vector.svg";
-import vector1 from "../images/Vector-1.svg";
-import whatsApp from "../images/WhatsApp.svg";
+import ModalENG from "../../components/eng/ModalENG";
+import ModalEficienciaENG from "./ModalEficienciaENG"
+import ModalSeguridadENG from "./ModalSeguridadENG"
+import ModalVelocidadENG from "./ModalVelocidadENG"
+import ModalContactoENG from "./ModalContactoENG"
+import MenuHamburguesaENG from "./MenuHamburguesaENG";
+import vectorFondo from "../../images/vectorFondo.svg";
+import carafeliz from "../../images/carafeliz.svg";
+import eficiencia from "../../images/eficiencia.svg";
+import velocidad from "../../images/velocidad.svg";
+import seguridad from "../../images/seguridad.svg";
+import logoTres from "../../images/LogoTres.svg";
+import menuHamb from "../../images/menuHamburguesaBlanco.png";
+import USA from "../../images/banderaUsa.png"
+import ARG from "../../images/banderaArg.png"
 
+import vector from "../../images/Vector.svg"
+import vector1 from "../../images/Vector-1.svg";
+import whatsApp from "../../images/WhatsApp.svg"
 
-import "../componentStyles/home.css";
+import "../../componentStyles/home.css";
 
-export default function Index() {
+export default function IndexENG() {
     const [isOpen, setIsOpen] = useState(false);
     const [modal2, setModal2] = useState(false);
     const [modal3, setModal3] = useState(false);
@@ -37,20 +37,20 @@ export default function Index() {
                 <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHamb} className="menuHamburguesaImagen" alt="" />
                 </div>
-                {menu && <MenuHamburguesa setMenu={setMenu}/>}
+                {menu && <MenuHamburguesaENG setMenu={setMenu}/>}
             </div>
             <div className="info">
                 <div className="contenedorNav">
-                    <a href="./home" className="empresas-button">
-                        <p className="home-button">INICIO</p>
+                    <a href="./homeENG" className="empresas-button">
+                        <p className="home-button">HOME</p>
                     </a>
-                    <a className="empresas-button" href="/empresas">
-                        <p className="business">EMPRESAS</p>
+                    <a className="empresas-button" href="/empresasENG">
+                        <p className="business">BUSINESS</p>
                     </a>                    
-                    <a className="empresas-button" href="/Candidatos">
-                        <p className="candidates">CANDIDATOS</p>
+                    <a className="empresas-button" href="/candidatoseng">
+                        <p className="candidates">CANDIDATES</p>
                     </a>
-                    <a href="./faqs" className="empresas-button">
+                    <a href="./faqsENG" className="empresas-button">
                         <p className="faqs"  >FAQS</p>
                     </a>
                     <div className="contenedor-idiomas">
@@ -63,8 +63,8 @@ export default function Index() {
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
-                        <button className="contact-button" onClick={() => setModalContacto(true)}>CONTACTO</button>
-                    {modalContacto && <ModalContacto setModalContacto={setModalContacto} />}
+                        <button className="contact-button" onClick={() => setModalContacto(true)}>CONTACT</button>
+                    {modalContacto && <ModalContactoENG setModalContacto={setModalContacto} />}
                 </div>
 
             </div>
@@ -79,11 +79,11 @@ export default function Index() {
         <div className="contenedorTitle_main">
             <div className ="contenedor_main" >
                 <div className="contenedorText_main">
-                    <div className="atention_main">Estamos Contratando!</div>
-                    <div className="preg_main">¿Estás buscando servicio de <span>selección de talento</span> en el mundo TECH?</div>
-                    <div className="service_main">En Linkit tanto a empresas que buscan nuevos empleados capacitados, como candidatos que quieren crecer profesionalmente</div>
+                    <div className="atention_main">We Are Hiring!</div>
+                    <div className="preg_main">Are you looking for <span>talent selection </span> services in the tech world?</div>
+                    <div className="service_main">At Linkit, both companies looking for new trained employees, as well as candidates who want to grow professionally</div>
                     <a href="#section" className="bMasInfo" id="colorBlanco">
-                        Más información
+                        More Information
                     </a>
                 </div>
                 <div className="cont_ilustration">
@@ -100,45 +100,45 @@ export default function Index() {
                     <img src={carafeliz} alt="" />
                 </div>
                 <div>
-                    <div className="confianza_about">Confianza</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <div className="confianza_about">Trust</div>
+                    <div className="detalles_about">See more</div>
                 </div>
             </div>
-            {isOpen && <Modal setIsOpen={setIsOpen} />}
+            {isOpen && <ModalENG setIsOpen={setIsOpen} />}
 
             <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={() => setModal4(true)}>
                 <div>
                     <img src={velocidad} alt=""/>
                 </div>
                 <div>
-                    <div className="confianza_about">Velocidad</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <div className="confianza_about">Velocity</div>
+                    <div className="detalles_about">See more</div>
                 </div>
             </div>
-            {modal4 && <ModalVelocidad setModal4={setModal4} />}
+            {modal4 && <ModalVelocidadENG setModal4={setModal4} />}
 
             <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={() => setModal2(true)}>
                 <div>
                     <img src={eficiencia} alt=""/>
                 </div>
                 <div>
-                    <div className="confianza_about">Eficiencia</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <div className="confianza_about">Efficiency</div>
+                    <div className="detalles_about">See more</div>
                 </div>
             </div>
-            {modal2 && <ModalEficiencia setModal2={setModal2} />}
+            {modal2 && <ModalEficienciaENG setModal2={setModal2} />}
 
             <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={() => setModal3(true)}>
                 <div>
                     <img src={seguridad} alt=""/>
                 </div>
                 <div >
-                    <div className="confianza_about">Seguridad</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <div className="confianza_about">Security</div>
+                    <div className="detalles_about">See more</div>
                 </div>
             </div>
         </div>
-        {modal3 && <ModalSeguridad setModal3={setModal3} />}
+        {modal3 && <ModalSeguridadENG setModal3={setModal3} />}
         <div className="contenedorContratoAbout">
             <div className="contenedorContrato">
                 <div>
@@ -146,8 +146,8 @@ export default function Index() {
                 </div>
             </div>
             <div className="contenedorAboutUs_about">
-                <div className="about_about">SOBRE NOSOTROS</div>
-                <div className="preg_about">Qué hacemos?</div>
+                <div className="about_about">About Us</div>
+                <div className="preg_about">What do we do?</div>
                 <ol>
                     <li><span>Entendemos tus necesidades tecnicas</span></li>
                     <li><span>Source and vet all the market during 72hs.</span></li>
@@ -160,8 +160,8 @@ export default function Index() {
     </section>
 
         <div className="titulo_confianza">
-            <h1>NUESTROS CLIENTES</h1>
-            <h3>Confían en nosotros</h3>
+            <h1>OUR CLIENTS</h1>
+            <h3>Trust us</h3>
         </div>
     <section className="contenedor_confianza">
         <div className="cardClientes_confianza" >
@@ -205,33 +205,33 @@ export default function Index() {
         <div className="social-media-home">
             <a
             target="_blank"
-              className="linkedin"
+              className="boton-rr"
               href="https://www.linkedin.com/company/linkit-hr/"
             >
               <img alt="" src={vector} />
             </a>
             <a
-              className="gmail"
+              className="boton-rr"
               href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
             >
               <img alt="" src={vector1} />
             </a>
-            <a className="wpp" href="https://web.whatsapp.com/">
+            <a className="boton-rr" href="https://web.whatsapp.com/">
               <img alt="" src={whatsApp} />
             </a>
           </div>
         <div className="info-footer">
-            <a href="./home">
-                <p className="footer-button">INICIO</p>
+            <a href="./homeENG">
+                <p className="footer-button-home">HOME</p>
             </a>
-            <a  href="/empresas">
-                <p className="footer-button">EMPRESAS</p>
+            <a  href="/empresasENG">
+                <p className="footer-button-home">BUSINESS</p>
             </a>
-            <a href="/Candidatos">
-                <p className="footer-button" >CANDIDATOS</p>
+            <a href="/CandidatosENG">
+                <p className="footer-button-home" >CANDIDATES</p>
             </a>
             <a href="./faqs">
-                <p className="footer-button"  >FAQS</p>
+                <p className="footer-button-home"  >FAQS</p>
             </a>
             <div className="contenedor-idiomas">
               <a href="/homeENG" className="contenedor-bandera">
