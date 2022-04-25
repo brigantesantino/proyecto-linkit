@@ -25,6 +25,7 @@ ReactDOM.render(
         <Route exact path="/candidatosENG" element={<CandidatosIngles/>}/>
         <Route exact path="/empresas" element={<Empresas/>}/> 
         <Route exact path="/popup" element={<Popup/>}/>
+        <Route exact path="/popup/:id" element={<Popup/>}/>
         <Route exact path="/faqs" element={<FAQs/>}/>
         <Route exact path="/header" element={<Header/>}/>
         <Route exact path="/home" element={<Index/>}/>

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "../componentStyles/candidatos.css";
 import { useTranslation } from "react-i18next";
 import image17 from "../images/image 17.svg";
@@ -165,11 +167,14 @@ export default function Candidatos() {
           <div className="candidate-buttons">
             {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
-                <a
-                  className="link-pupup"
-                  href="/popup"
-                  key={oferta.fields.Codigo}
-                >
+                
+                <Link to={{
+                  pathname: `/popup/${oferta.fields.Codigo}`,
+                  state: {
+                    codigo: oferta.fields.Codigo,
+                    nombre: oferta.fields.Nombre,
+                  }
+                }}> 
                   <button>
                     <h2 className="designer">
                       {oferta.fields.Nombre}
@@ -185,7 +190,7 @@ export default function Candidatos() {
                       Fecha de creacion:{oferta.fields.fechaDeCreacion}
                     </h3>
                   </button>
-                </a>
+                  </Link>
               ))
             ) : (
               <h1>Cargando ofertas...</h1>
@@ -258,7 +263,6 @@ export default function Candidatos() {
             <select
             className="fondo-blanco"
               name="info"
-              className="experience"
               onChange={(e) => setExperiencia(e.target.value)}
             >
               <option value="0"> </option>

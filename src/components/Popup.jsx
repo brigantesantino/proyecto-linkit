@@ -1,10 +1,99 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "../componentStyles/popup.css";
+import { postFormAirtableCandidatos } from "../actions/candidatosActions";
 
 export default function Popup() {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [experiencia, setExperiencia] = useState("");
+  /*   const [cv, setCv] = useState(""); */
+  const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
+  const [comoNosConociste, setComoNosConociste] = useState("");
+  const [tecnologias, setTecnologias] = useState("");
+  const [condicionesLegales, setCondicionesLegales] = useState("");
+
+  const [errors, setErrors] = useState({});
+
+  const { state } = useLocation();
+  console.log('state',state);
+
+  function validate(input) {
+    console.log("input", input);
+    let errorsObj = {};
+    let contadorErrores = 0;
+    if (input.nombre === "") {
+      errorsObj.nombre = "El nombre es requerido";
+      contadorErrores++;
+    }
+    if (input.email === "") {
+      errorsObj.email = "El email es requerido";
+      contadorErrores++;
+    }
+    if (input.linkedIn === "") {
+      errorsObj.linkedin = "El linkedin es requerido";
+      contadorErrores++;
+    }
+    if (input.experiencia === "") {
+      errorsObj.experiencia = "La experiencia es requerida";
+      contadorErrores++;
+    }
+    if (input.condicionesLegales === "") {
+      errorsObj.condicionesLegales = "Debes aceptar las condiciones legales";
+      contadorErrores++;
+    }
+    if (input.tecnologias === "") {
+      errorsObj.tecnologias = "Las tecnologias son requeridas";
+      contadorErrores++;
+    }
+    if (input.direccion === "") {
+      errorsObj.direccion = "La direccion es requerida";
+      contadorErrores++;
+    }
+    if (contadorErrores === 0) {
+      console.log("no hay errores");
+      postFormAirtableCandidatos(
+        input.nombre,
+        input.email,
+        input.direccion,
+        input.linkedIn,
+        input.experiencia,
+        input.monedaRemuneracion,
+        input.remuneracionPretendida,
+        input.comoNosConociste,
+        input.tecnologias,
+        input.condicionesLegales,
+        input.ofertas
+      );
+    } else {
+      setErrors(errorsObj);
+      console.log("hay errores no se hizo el post", errorsObj);
+    }
+  }
+  function handleSubmit(event) {
+    console.log("handleSubmit");
+    const objetoAVerificar = {
+      nombre,
+      email,
+      direccion,
+      linkedIn,
+      experiencia,
+      condicionesLegales,
+      tecnologias,
+      comoNosConociste,
+      remuneracionPretendida,
+    };
+    validate(objetoAVerificar);
+    event.preventDefault();
+  }
+
   return (
     <div className="popup">
-      <a  className="arrow" href="/candidatos">🠔</a>
+      <a className="arrow" href="/candidatos">
+        🠔
+      </a>
       <h2 className="designer">
         UX Designer <span className="google">en Google</span>
       </h2>
@@ -69,7 +158,7 @@ export default function Popup() {
             well-informed, clients. You are also responsible for:
           </p>
 
-          <p>
+          
             <h4>Creating Client Marketing Strategies</h4>
             <h4>Managing Client Projects through the CRM</h4>
             <h4>Maintaining all Communications with the Client</h4>
@@ -89,69 +178,90 @@ export default function Popup() {
               You’ve worked remotely or with clients in other countries and are
               comfortable being your own manager
             </h4>
-          </p>
+          
         </div>
       </div>
       <button type="submit" className="apply">
         Apply
       </button>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className="inputs">
           <h3>Nombre</h3>
-          <input type="text" />
+          {errors.nombre ? <p className="alertaForm">{errors.nombre}</p> : null}
+          <input type="text" onChange={(e) => setNombre(e.target.value)} />
           <h3>Email</h3>
-          <input type="email" />
+          {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
+          <input type="email" onChange={(e) => setEmail(e.target.value)} />
           <h3>Dirección</h3>
-          <input type="text" />
+          {errors.direccion ? (
+            <p className="alertaForm">{errors.direccion}</p>
+          ) : null}
+          <input type="text" onChange={(e) => setDireccion(e.target.value)} />
           <h3>Linkedin*</h3>
-          <input type="text" />
+          {errors.linkedin ? (
+            <p className="alertaForm">{errors.linkedin}</p>
+          ) : null}
+          <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
           <h3>Experiencia</h3>
-          <select name="info" className="experience">
-            <option value="0"></option>
-            <option value="1">xxxxxx</option>
-            <option value="2">xxxxxx</option>
-            <option value="3">xxxxxx</option>
-            <option value="4">xxxxxx</option>
+          <select
+            name="info"
+            className="experience"
+            onChange={(e) => setExperiencia(e.target.value)}
+          >
+            <option value="0"> </option>
+            <option value="0-1"> 0-1 año </option>
+            <option value="1-2"> 1-2 años </option>
+            <option value="2-3"> 2-3 años </option>
+            <option value="3+">3 o mas años </option>
           </select>
         </div>
         <div className="details">
           <h3>Carga tu CV</h3>
           <div className="file">
-            <label for="archive">
+            <label form="archive">
               +
               <input type="file" id="archive" />
             </label>
           </div>
           <h3>Remuneracion pretendida</h3>
-          <select name="info">
+          <select
+            name="info"
+            onChange={(e) => setRemuneracionPretendida(e.target.value)}
+          >
             <option value="0"></option>
-            <option value="1">xxxxxx</option>
-            <option value="2">xxxxxx</option>
-            <option value="3">xxxxxx</option>
-            <option value="4">xxxxxx</option>
+            <option value="400-600">400-600</option>
+            <option value="600-800">600-800</option>
+            <option value="800-1000">800-1000</option>
+            <option value="1000 + ">800-1000</option>
           </select>
           <h3>Cómo nos conociste</h3>
-          <select name="info">
+          <select
+            name="info"
+            onChange={(e) => setComoNosConociste(e.target.value)}
+          >
             <option value="0"></option>
-            <option value="1">xxxxxx</option>
-            <option value="2">xxxxxx</option>
-            <option value="3">xxxxxx</option>
-            <option value="4">xxxxxx</option>
+            <option value="Recruiter">Recruiter</option>
+            <option value="Conocido">Conocido</option>
+            <option value="Google">Google</option>
+            <option value="Otros">Otros</option>
           </select>
           <h3>Tecnologías</h3>
-          <select name="info">
+          <select name="info" onChange={(e) => setTecnologias(e.target.value)}>
             <option value="0"></option>
-            <option value="1">xxxxxx</option>
-            <option value="2">xxxxxx</option>
-            <option value="3">xxxxxx</option>
-            <option value="4">xxxxxx</option>
+            <option value="Node">Node</option>
+            <option value="React">React</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
           </select>
 
           <div className="condition">
             <div className="acept-conditions">
-              <input type="checkbox" className="terms" />
+              <input type="checkbox" className="terms" onClick={(e) => setCondicionesLegales(e.target.value)}/>
               <h3>Aceptar condiciones legales</h3>
             </div>
+            {errors.condicionesLegales ? (
+                <p className="alertaForm">{errors.condicionesLegales}</p>
+              ) : null}
             <button type="submit" className="send-button">
               Enviar
             </button>

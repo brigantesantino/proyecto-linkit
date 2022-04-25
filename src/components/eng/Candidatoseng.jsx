@@ -250,7 +250,7 @@ export default function Candidatos() {
           <div className="details">
             <h3>Load your CV</h3>
             <div className="file">
-              <label for="archive">
+              <label form="archive">
                 +
                 <input type="file" id="archive" />
               </label>
