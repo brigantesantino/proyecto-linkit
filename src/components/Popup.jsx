@@ -179,7 +179,7 @@ export default function Popup(props) {
                 <option value="USD">USD</option>
               </select>
           <h3>Remuneracion Pretendida</h3>
-          <input
+          <input className="remuneracion"
             type="text"
             onChange={(e) => setRemuneracionPretendida(e.target.value)}
           />

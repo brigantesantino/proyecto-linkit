@@ -178,6 +178,16 @@
 .popup form div.details h3.mensaje {
   margin-bottom: 15px;
 }
+.popup .remuneracion{
+  width: 100%;
+  padding: 7px 7px;
+  margin: 0.8rem 0;
+  border-radius: 10px;
+  border: 2px solid #63799e;
+  outline: none;
+  
+}
+
 .popup form div.details textarea {
   width: 100%;
   height: 15%;
@@ -185,10 +195,7 @@
   border: 2px solid #63799e;
   outline: none;
 }
-.popup form div.details input {
-  color: transparent;
-  border: none;
-}
+
 .popup form .condition {
   width: 100%;
   margin-top: 0.6rem;
@@ -242,3 +249,4 @@
     width: 20%;
   }
 }
+
