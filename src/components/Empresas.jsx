@@ -33,7 +33,7 @@ export default function Empresas() {
   const [mensaje, setMensaje] = useState("");
   const [errors, setErrors] = useState({});
 
-  async function validate(input) {
+  async function validate(input, event) {
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
@@ -75,7 +75,8 @@ export default function Empresas() {
         interesadoEnOtrosRoles,
         comoNosConociste,
         mensaje
-      );
+      ).then(event.target.reset())  
+      
     } else {
       console.log("hay errores");
     }
@@ -92,7 +93,7 @@ export default function Empresas() {
       comoNosConociste,
       mensaje,
     };
-    validate(objetoAVerificar);
+    validate(objetoAVerificar, event);
     event.preventDefault();
   }
   

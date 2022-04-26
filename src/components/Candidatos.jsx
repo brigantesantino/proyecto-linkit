@@ -46,7 +46,7 @@ export default function Candidatos() {
   const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
-  function validate(input) {
+  function validate(input, event) {
     console.log("input", input);
     let errorsObj = {};
     let contadorErrores = 0;
@@ -93,7 +93,7 @@ export default function Candidatos() {
         input.tecnologias,
         input.condicionesLegales,
         input.ofertas
-      );
+      ).then(event.target.reset())  
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -115,8 +115,8 @@ export default function Candidatos() {
       remuneracionPretendida,
       monedaRemuneracion,
     };
-    validate(objetoAVerificar);
-    event.preventDefault();
+    validate(objetoAVerificar, event);
+    
   }
   useEffect(() => {
     fetch(

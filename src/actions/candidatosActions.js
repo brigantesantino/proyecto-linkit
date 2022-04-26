@@ -75,7 +75,8 @@ export function postFormAirtableCandidatosEspecial(
   experiencia,
   remuneracionPretendida,
   comoNosConociste,
-  tecnologias
+  tecnologias,
+  monedaRemuneracion
 ) {
   base("Candidatos").create(
     [
@@ -87,6 +88,7 @@ export function postFormAirtableCandidatosEspecial(
           Direccion: direccion,
           Linkedin: linkedIn,
           Experiencia: [experiencia],
+          "Moneda": monedaRemuneracion,
           "Remuneracion pretendida": remuneracionPretendida,
           "Como nos conociste": comoNosConociste,
           Tecnologias: tecnologias,

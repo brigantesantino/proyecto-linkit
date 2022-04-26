@@ -14,17 +14,18 @@ export default function Popup(props) {
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
+  const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
 
   const [errors, setErrors] = useState({});
 
   const { state } = useLocation();
   //console.log('state',state);
- //
-  console.log("props", props.data);
-   
+  //
+  //console.log("props", props.data);
+
   const codigo = props.data.Codigo;
 
-  function validate(input) {
+  function validate(input, event) {
     console.log("input", input);
     let errorsObj = {};
     let contadorErrores = 0;
@@ -68,7 +69,8 @@ export default function Popup(props) {
         input.remuneracionPretendida,
         input.comoNosConociste,
         input.tecnologias,
-      );
+        input.monedaRemuneracion
+      ).then(event.target.reset())  
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -86,9 +88,11 @@ export default function Popup(props) {
       tecnologias,
       comoNosConociste,
       remuneracionPretendida,
+      monedaRemuneracion
     };
-    validate(objetoAVerificar);
-    event.preventDefault();
+    validate(objetoAVerificar, event);
+    //console.log("validate",validate(objetoAVerificar));
+    
   }
 
   return (
@@ -96,21 +100,20 @@ export default function Popup(props) {
       <a className="arrow" href="/candidatos">
         x
       </a>
-      <h2 className="designer">
-        {props.data.Nombre}
-      </h2>
-      
+      <h2 className="designer">{props.data.Nombre}</h2>
 
       <h3 className="color1">Description</h3>
       <div>
-        <p className="text">
-        {props.data.Descripcion}
-        </p>
+        <p className="text">{props.data.Descripcion}</p>
 
-        <p className="text">Does this feel like you? Then go ahead and hit apply!</p>
+        <p className="text">
+          Does this feel like you? Then go ahead and hit apply!
+        </p>
         <h3 className="location color1">
           Location:{" "}
-          <p className="negro">{props.data.ModalidadDeTrabajo}, {props.data.Ubicacion}</p>
+          <p className="negro">
+            {props.data.ModalidadDeTrabajo}, {props.data.Ubicacion}
+          </p>
         </h3>
         <h3 className="engagement color1">
           Engagement:{" "}
@@ -118,16 +121,12 @@ export default function Popup(props) {
         </h3>
         <div></div>
         <div>
-          <h3  className="color1">About the client:</h3>
-          <p >
-            {props.data.SobreElCliente}
-          </p>
+          <h3 className="color1">About the client:</h3>
+          <p>{props.data.SobreElCliente}</p>
         </div>
         <div>
-          <h3  className="color1">Day-to-Day Responsibilities:</h3>
-          <p>
-            {props.data.Responsabilidades}
-          </p>
+          <h3 className="color1">Day-to-Day Responsibilities:</h3>
+          <p>{props.data.Responsabilidades}</p>
         </div>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -169,17 +168,22 @@ export default function Popup(props) {
               <input type="file" id="archive" />
             </label>
           </div>
-          <h3>Remuneracion pretendida</h3>
+          <h3>Moneda</h3>
           <select
-            name="info"
+                className="fondo-blanco"
+                name="value"
+                onChange={(e) => setMonedaRemuneracion(e.target.value)}
+              >
+                <option value="0">Elegir</option>
+                <option value="ARS">ARS</option>
+                <option value="USD">USD</option>
+              </select>
+          <h3>Remuneracion Pretendida</h3>
+          <input
+            type="text"
             onChange={(e) => setRemuneracionPretendida(e.target.value)}
-          >
-            <option value="0"></option>
-            <option value="400-600">400-600</option>
-            <option value="600-800">600-800</option>
-            <option value="800-1000">800-1000</option>
-            <option value="1000 + ">800-1000</option>
-          </select>
+          />
+
           <h3>Cómo nos conociste</h3>
           <select
             name="info"
@@ -202,12 +206,16 @@ export default function Popup(props) {
 
           <div className="condition">
             <div className="acept-conditions">
-              <input type="checkbox" className="terms" onClick={(e) => setCondicionesLegales(e.target.value)}/>
+              <input
+                type="checkbox"
+                className="terms"
+                onClick={(e) => setCondicionesLegales(e.target.value)}
+              />
               <h3>Aceptar condiciones legales</h3>
             </div>
             {errors.condicionesLegales ? (
-                <p className="alertaForm">{errors.condicionesLegales}</p>
-              ) : null}
+              <p className="alertaForm">{errors.condicionesLegales}</p>
+            ) : null}
             <button type="submit" className="send-button">
               Enviar
             </button>
