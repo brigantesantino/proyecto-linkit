@@ -367,11 +367,11 @@ export default function Empresas() {
             name="info"
             onChange={(e) => setComoNosConociste(e.target.value)}
           >
-            <option value="opcion1">opcion1</option>
-            <option value="opcion2">opcion2</option>
-            <option value="opcion3">opcion3</option>
-            <option value="opcion4">opcion4</option>
-            <option value="opcion5">opcion5</option>
+            <option value="opcion1"></option>
+            <option value="opcion2">Recruiter</option>
+            <option value="opcion3">Conocido</option>
+            <option value="opcion4">Google</option>
+            <option value="opcion5">Otros</option>
           </select>
           <h3 className="mensaje">Mensaje</h3>
           <textarea

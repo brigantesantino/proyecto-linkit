@@ -264,7 +264,7 @@ export default function Candidatos() {
             <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
             <h3>Experiencia</h3>
             <select
-              className="fondo-blanco"
+              className="experience"
               name="info"
               onChange={(e) => setExperiencia(e.target.value)}
             >

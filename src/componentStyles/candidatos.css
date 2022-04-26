@@ -156,6 +156,7 @@
 
 .experience{
   background-color: white;
+  
 }
 .candidatos #idioma {
   outline: none;
@@ -196,6 +197,7 @@
 }
 .fondo-blanco{
   background-color: white;
+  
 }
 @keyframes movimiento {
   from{
@@ -274,6 +276,7 @@
   }
   .candidatos .sideNav{
     right: -250px;
+    display: none;
   }
   .candidatos .top-header {
     margin-left: 0;
@@ -288,7 +291,7 @@
   color: #63799e;
 }
   .candidatos #sideNav {
-    display: block;
+    display: none;
     width: 35%;
     height: 100vh;
     position: fixed;
@@ -450,6 +453,7 @@
   .candidatos main form div.inputs {
     width: 100%;
     margin: 2rem;
+    
   }
 
   .candidatos main form div.inputs input {
