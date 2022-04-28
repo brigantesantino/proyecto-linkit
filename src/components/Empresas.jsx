@@ -25,7 +25,12 @@ import Header from "./Header";
 
 import Select from "react-select";
 
-
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    width:"100%"
+  })}
+  
 export default function Empresas() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -324,8 +329,8 @@ export default function Empresas() {
         </div>
         <div className="details">
           <h3>Interesado en roles</h3>
-          <div className="checkboxes">
-          <Select options={valuesSelect} isMulti />
+          <div className="checkboxes xd">
+          <Select className="xd" options={valuesSelect} isMulti />
           </div>
           <input
             className="inp"

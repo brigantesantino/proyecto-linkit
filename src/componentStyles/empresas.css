@@ -115,7 +115,9 @@
 .empresas .menu-wrapper .menu-hmb {
   display: none;
 }
-
+.empresas .xd{
+  width: 100%;
+}
 .empresas .question {
   margin: 0 auto;
   color:#233c72;
@@ -300,11 +302,13 @@ main div.images div.logo {
   margin: 2.1rem 2rem 2rem 2rem;
 }
 .empresas main form div.details div.checkboxes {
+  width: 100% !important;
   display: flex;
   margin: 1.5rem 0 0rem 0;
   color: #63799e ;
-
 }
+
+  
 .empresas main form div.details div.checkboxes p {
   font-size: 0.7rem;
   font-weight: bolder;
@@ -331,6 +335,7 @@ main div.images div.logo {
 .empresas main form div.details div.checkboxes input {
   margin: 2px 4px 2px 0;
   cursor: pointer;
+  width: 100%;
 }
 .empresas main form div.details input.inp {
   width: 100%;
@@ -571,6 +576,7 @@ main div.images div.logo {
     width: 70%;
     padding: 1rem;
     height: 15.8rem;
+    overflow: scroll;
   }
 
   .empresas div.buttons-mobile {
@@ -580,14 +586,16 @@ main div.images div.logo {
     justify-content: center;
     gap: 8px;
     margin: 0;
+    
   }
   
   .empresas div.buttons-mobile button {
-
+    color: white;
     width: 100%;
-    background-color: white;
+    background: linear-gradient(36deg, rgb(51, 48, 121) 0%, rgb(60, 98, 185) 100%);;
     border: #63799e solid 1px;
     border-radius: 10px;
+    
   }
 
   .empresas div.buttons-mobile p {

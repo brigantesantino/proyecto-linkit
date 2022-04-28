@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../componentStyles/popup.css";
 import { postFormAirtableCandidatosEspecial } from "../actions/candidatosActions";
-
+import Select from "react-select";
 export default function Popup(props) {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -24,9 +24,9 @@ export default function Popup(props) {
   //console.log("props", props.data);
 
   const valuesSelect = [
-    { label: 'Shark', value: 'Shark' },
-    { label: 'Dolphin', value: 'Dolphin' },
-    { label: 'Whale', value: 'Whale' },
+    { label: 'Recruiter', value: 'Recruiter' },
+    { label: 'Conocido', value: 'Conocido' },
+    { label: 'Google', value: 'Google' },
     { label: 'Octopus', value: 'Octopus' },
     { label: 'Crab', value: 'Crab' },
     { label: 'Lobster', value: 'Lobster' },
@@ -201,17 +201,20 @@ export default function Popup(props) {
           />
 
           <h3>Cómo nos conociste</h3>
-
-          <select
+         
+          <Select className="xd" options={valuesSelect} isMulti />
+          
+         
+          {/* <select
             name="info"
             onChange={(e) => setComoNosConociste(e.target.value)}
-          >
-            <option value="0"></option>
+          > */}
+            {/* <option value="0"></option>
             <option value="Recruiter">Recruiter</option>
             <option value="Conocido">Conocido</option>
             <option value="Google">Google</option>
             <option value="Otros">Otros</option>
-          </select>
+          </select> */}
           <h3>Tecnologías</h3>
           <select name="info" onChange={(e) => setTecnologias(e.target.value)}>
             <option value="0"></option>
