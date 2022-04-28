@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../componentStyles/empresas.css";
 import { postFormAirtable } from "../actions/formActions";
+
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
 import image17 from "../images/image 17.svg";
@@ -21,6 +22,9 @@ import whatsApp from "../images/WhatsApp.svg";
 import USA from "../images/banderaUsa.png"
 import ARG from "../images/banderaArg.png"
 import Header from "./Header";
+
+import Select from "react-select";
+
 
 export default function Empresas() {
   const [nombre, setNombre] = useState("");
@@ -104,6 +108,18 @@ export default function Empresas() {
       setInteresadoEnRoles([...interesadoEnRoles, event]);
     }
   }
+  const valuesSelect = [
+    { label: 'Software Developer', value: 'SoftwareDeveloper' },
+    { label: 'QA', value: 'QA' },
+    { label: 'UX/UI Designer', value: 'UX/UIDesigner' },
+    { label: 'Proyect Manager', value: 'ProyectManager' },
+    { label: 'Team Lead', value: 'TeamLead' },
+    { label: 'Big Data', value: 'BigData' },
+    { label: 'Machine Learning', value: 'MachineLearning' },
+    { label: 'Web 3.0', value: 'Web3.0' },
+    { label: 'Blockchain', value: 'Blockchain' }
+  ];
+
 
   return (<>
     <div className="empresas">
@@ -309,84 +325,7 @@ export default function Empresas() {
         <div className="details">
           <h3>Interesado en roles</h3>
           <div className="checkboxes">
-            <div className="checkbox-1">
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Software Developers"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Software Developers</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="QA"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>QA</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="UX/UI Designers"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>UX/UI Designers</p>
-              </div>
-            </div>
-            <div className="checkbox-2">
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Project Managers"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Project Managers</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Team Lead"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Team Lead</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Big Data"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Big Data</p>
-              </div>
-            </div>
-            <div className="checkbox-3">
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Machine Learning"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Machine learning</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Web 3.0"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Web 3.0</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Blockchain"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Blockchain</p>
-              </div>
-            </div>
+          <Select options={valuesSelect} isMulti />
           </div>
           <input
             className="inp"

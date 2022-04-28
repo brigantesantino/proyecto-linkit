@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow-x: visible;
   font-family: "Manrope", sans-serif;
 }
 
@@ -220,6 +220,7 @@ div.buttons-mobile {
   position: relative;
   height: 200px;
   margin: 0 auto;
+  overflow-x: hidden;
   
 }
 

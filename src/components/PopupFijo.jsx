@@ -23,10 +23,18 @@ export default function Popup(props) {
   //
   //console.log("props", props.data);
 
+  const valuesSelect = [
+    { label: 'Shark', value: 'Shark' },
+    { label: 'Dolphin', value: 'Dolphin' },
+    { label: 'Whale', value: 'Whale' },
+    { label: 'Octopus', value: 'Octopus' },
+    { label: 'Crab', value: 'Crab' },
+    { label: 'Lobster', value: 'Lobster' },
+  ];
+
   const location = useLocation();
   const data = location.state;
-  console.log('data',data);
-
+  console.log("data", data);
 
   const codigo = data.Codigo;
 
@@ -75,7 +83,7 @@ export default function Popup(props) {
         input.comoNosConociste,
         input.tecnologias,
         input.monedaRemuneracion
-      ).then(event.target.reset())  
+      ).then(event.target.reset());
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -93,18 +101,20 @@ export default function Popup(props) {
       tecnologias,
       comoNosConociste,
       remuneracionPretendida,
-      monedaRemuneracion
+      monedaRemuneracion,
     };
     validate(objetoAVerificar, event);
     //console.log("validate",validate(objetoAVerificar));
-    
   }
+
+
 
   return (
     <div className="popup">
       <a className="arrow" href="/candidatos">
         x
       </a>
+
       <h2 className="designer">{data.Nombre}</h2>
 
       <h3 className="color1">Description</h3>
@@ -175,21 +185,23 @@ export default function Popup(props) {
           </div>
           <h3>Moneda</h3>
           <select
-                className="fondo-blanco"
-                name="value"
-                onChange={(e) => setMonedaRemuneracion(e.target.value)}
-              >
-                <option value="0">Elegir</option>
-                <option value="ARS">ARS</option>
-                <option value="USD">USD</option>
-              </select>
+            className="fondo-blanco"
+            name="value"
+            onChange={(e) => setMonedaRemuneracion(e.target.value)}
+          >
+            <option value="0">Elegir</option>
+            <option value="ARS">ARS</option>
+            <option value="USD">USD</option>
+          </select>
           <h3>Remuneracion Pretendida</h3>
-          <input className="remuneracion"
+          <input
+            className="remuneracion"
             type="text"
             onChange={(e) => setRemuneracionPretendida(e.target.value)}
           />
 
           <h3>Cómo nos conociste</h3>
+
           <select
             name="info"
             onChange={(e) => setComoNosConociste(e.target.value)}
