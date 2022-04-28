@@ -203,6 +203,7 @@ export default function Candidatos() {
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
           <div className="images-wrapper">
+            <span className="carrusel">
             <div className="logo google-img">
               <img alt="" src={image18} />
             </div>
@@ -235,7 +236,8 @@ export default function Candidatos() {
             </div>
             <div className="logo">
               <img alt="" src={image21} />
-            </div>
+            </div></span>
+            <span className="carrusel">
             <div className="logo google-img">
               <img alt="" src={image18} />
             </div>
@@ -268,7 +270,7 @@ export default function Candidatos() {
             </div>
             <div className="logo">
               <img alt="" src={image21} />
-            </div>
+            </div></span>
           </div>
         </div>
         <div>

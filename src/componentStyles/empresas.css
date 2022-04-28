@@ -214,12 +214,13 @@ div.buttons-mobile {
   display: none;
 }
 
-main div.images {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /*margin: 40px 0 30px 18%;*/
+.empresas main div.images {
+  width: 50%;
+  box-sizing: border-box;
+  position: relative;
+  height: 200px;
+  margin: 0 auto;
+  
 }
 
 main div.images div.logo {
@@ -228,10 +229,12 @@ main div.images div.logo {
   margin: 0 0.6rem;
 }
 
-.images-wrapper {
-  width: 50%;
-  overflow: auto;
+.empresas .images-wrapper {
+  width: fit-content;
+  overflow: hidden;
   white-space: nowrap;
+  animation: marquee 10s linear infinite;
+  position: absolute;
 }
 
 .empresas .google-img {
@@ -248,7 +251,7 @@ main div.images div.logo {
 }
 .empresas #contacto {
   margin: 0 auto;
-  margin-top: 4rem;
+  
   color: #233c72;
 }
 .empresas #technologies {
@@ -492,7 +495,10 @@ main div.images div.logo {
   color: #63799e;
   font-weight: bold;
 }
-
+@keyframes marquee {
+  0% { left: 0%; }
+  100% { left: -113%; }
+}
 @media (max-width: 768px) {
   .empresas .top-header {
     margin-left: 0;
@@ -593,21 +599,22 @@ main div.images div.logo {
     margin-left: 6%;
   }
 
+ 
   .empresas main div.images {
-    display: flex;
-    flex-direction: row;
-    margin: 40px 0 30px 0%;
-  }
-
-  .empresas .images-wrapper {
     width: 100%;
-    overflow: auto;
-    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    height: 200px;
+    margin: 0 auto;
+    
   }
+  @keyframes marquee {
+  0% { left: 0%; }
+  100% { left: -113%; }
+}
+  
 
-  .empresas .images {
-    display: flex;
-  }
+  
 
   .empresas main form {
     flex-direction: column;
