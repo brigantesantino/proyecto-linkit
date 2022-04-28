@@ -43,6 +43,7 @@
     transform: rotate(359deg);
   }
 } 
+
 .candidatos {
   display: flex;
   justify-content: center;
@@ -189,11 +190,13 @@
 }
 /*aca empieza el main*/
 .candidatos main div.images {
-  width: 100%;
-  display: flex;
+  width: 50%;
   justify-content: center;
   align-items: center;
-
+  box-sizing: border-box;
+  position: relative;
+  height: 200px;
+  margin: 0 auto;
 }
 .fondo-blanco{
   background-color: white;
@@ -214,10 +217,10 @@
 }
 
 .candidatos .images-wrapper {
-  width: 100%;
+  width: 400%;
   overflow: auto;
   white-space: nowrap;
-  
+  position: absolute;
 }
 
 .candidatos .google-img {
@@ -389,6 +392,7 @@
   .candidatos .scrollbox {
     width: 100%;
     height: 32rem;
+    animation: marquee 20s linear in;
   }
   .candidatos h2 {
     width: 90%;
@@ -398,6 +402,7 @@
     display: flex;
     flex-direction: row;
     margin: 40px 0 30px 0%;
+    
   }
   .candidatos main form {
     flex-direction: column;
@@ -496,10 +501,7 @@
     border: 2px solid #63799e;
     outline: none;
   }
-  .candidatos main form div.details input {
-    
-    
-  }
+  
   .candidatos main form .condition {
     width: 100%;
     margin-top: 0.6rem;
@@ -603,8 +605,13 @@
   }
   .candidatos .images-wrapper {
     width: 50%;
-    overflow: auto;
+    overflow: hidden;
     white-space: nowrap;
+    animation: marquee 10s linear infinite;
+  }
+  @keyframes marquee {
+    0% { left: 0; }
+    100% { left: -100%; }
   }
   .candidatos .buttons button .designer {
     width: 58%;
@@ -779,6 +786,7 @@
     align-content: center;
     text-align: center;
   }
+  
   .candidatos footer div.social-media {
     padding: 10px;
     display: flex;

@@ -236,6 +236,39 @@ export default function Candidatos() {
             <div className="logo">
               <img alt="" src={image21} />
             </div>
+            <div className="logo google-img">
+              <img alt="" src={image18} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image17} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image20} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image8} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image9} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image10} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image12} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image13} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image14} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image15} />
+            </div>
+            <div className="logo">
+              <img alt="" src={image21} />
+            </div>
           </div>
         </div>
         <div>
