@@ -93,7 +93,7 @@ export default function Candidatos() {
         input.tecnologias,
         input.condicionesLegales,
         input.ofertas
-      ).then(event.target.reset())  
+      ).then(event.target.reset());
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -116,7 +116,6 @@ export default function Candidatos() {
       monedaRemuneracion,
     };
     validate(objetoAVerificar, event);
-    
   }
   useEffect(() => {
     fetch(
@@ -167,110 +166,110 @@ export default function Candidatos() {
         </div>
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
-          <div className="candidate-buttons" >
+          <div className="candidate-buttons">
             {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
-                <a
-                  className="link-pupup"
-                  key={oferta.fields.Codigo}
-                  onClick={() => setPopup(true)}
-                >
-                <p onClick={() => setData(oferta.fields)}>
-                  <button>
-                    <h2 className="designer">
-                      {oferta.fields.Nombre}
-                      <span className="google">{oferta.fields.Codigo}</span>
-                    </h2>
-                    <h3 className="adress">
-                      Ubicación: {oferta.fields.Ubicacion}
-                      <span className="date">
-                        Fecha de creacion:{oferta.fields.FechaDeCreacion}
-                      </span>
-                    </h3>
-                    <h3 className="date-mobile">
-                      Fecha de creacion:{oferta.fields.fechaDeCreacion}
-                    </h3>
-                  </button>
-                </p>
+                <a className="link-pupup" key={oferta.fields.Codigo}>
+                  <Link to={`/popup/${oferta.fields.Codigo}`} state={oferta.fields}>
+                    <p onClick={() => setData(oferta.fields)}>
+                      <button>
+                        <h2 className="designer">
+                          {oferta.fields.Nombre}
+                          <span className="google">{oferta.fields.Codigo}</span>
+                        </h2>
+                        <h3 className="adress">
+                          Ubicación: {oferta.fields.Ubicacion}
+                          <span className="date">
+                            Fecha de creacion:{oferta.fields.FechaDeCreacion}
+                          </span>
+                        </h3>
+                        <h3 className="date-mobile">
+                          Fecha de creacion:{oferta.fields.fechaDeCreacion}
+                        </h3>
+                      </button>
+                    </p>
+                  </Link>
                 </a>
               ))
             ) : (
               <h1>Cargando ofertas...</h1>
             )}
           </div>
-          {popup && <Popup data={data}/>}
+          {popup && <Popup data={data} />}
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
           <div className="images-wrapper">
             <span className="carrusel">
-            <div className="logo google-img">
-              <img alt="" src={image18} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image17} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image20} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image8} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image9} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image10} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image12} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image13} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image14} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image15} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image21} />
-            </div></span>
+              <div className="logo google-img">
+                <img alt="" src={image18} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image17} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image20} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image8} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image9} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image10} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image12} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image13} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image14} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image15} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image21} />
+              </div>
+            </span>
             <span className="carrusel">
-            <div className="logo google-img">
-              <img alt="" src={image18} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image17} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image20} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image8} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image9} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image10} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image12} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image13} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image14} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image15} />
-            </div>
-            <div className="logo">
-              <img alt="" src={image21} />
-            </div></span>
+              <div className="logo google-img">
+                <img alt="" src={image18} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image17} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image20} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image8} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image9} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image10} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image12} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image13} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image14} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image15} />
+              </div>
+              <div className="logo">
+                <img alt="" src={image21} />
+              </div>
+            </span>
           </div>
         </div>
         <div>

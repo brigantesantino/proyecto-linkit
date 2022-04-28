@@ -13,6 +13,7 @@ import Header from "./components/Header"
 import Contacto from "./components/Contacto";
 import Index from "./components/Index"
 
+import PopupFijo from "./components/PopupFijo";
 import IndexENG from "./components/eng/IndexENG";
 import EmpresasENG from "./components/eng/Empresaseng";
 import FAQsENG from "./components/eng/FAQsENG";
@@ -31,7 +32,7 @@ ReactDOM.render(
         <Route exact path="/candidatoseng" element={<Candidatoseng/>}/>
         <Route exact path="/empresas" element={<Empresas/>}/> 
         <Route exact path="/popup" element={<Popup/>}/>
-        <Route exact path="/popup/:id" element={<Popup/>}/>
+        <Route exact path="/popup/:id" element={<PopupFijo/>}/>
         <Route exact path="/faqs" element={<FAQs/>}/>
         <Route exact path="/faqsENG" element={<FAQsENG/>}/>
         <Route exact path="/header" element={<Header/>}/>
