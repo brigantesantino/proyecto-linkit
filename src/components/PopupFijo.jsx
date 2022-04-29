@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../componentStyles/popup.css";
-import { postFormAirtableCandidatosEspecial } from "../actions/candidatosActions";
+import { postFormAirtableCandidatosEspecial } from "../functions/postCandidatosAirtable";
 import Select from "react-select";
 export default function Popup(props) {
   const [nombre, setNombre] = useState("");
@@ -17,8 +17,6 @@ export default function Popup(props) {
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
 
   const [errors, setErrors] = useState({});
-
-  const { state } = useLocation();
 
   const valuesSelectTecnologias = [
     { label: "React", value: "React" },

@@ -25,7 +25,9 @@ import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
 import USA from "../images/banderaUsa.png";
 import ARG from "../images/banderaArg.png";
-import { postFormAirtableCandidatos } from "../actions/candidatosActions";
+
+import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable"
+
 import Popup from "./Popup";
 
 const valuesSelect = [
