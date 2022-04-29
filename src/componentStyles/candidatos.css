@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  overflow-x: hidden;
   
 }
 
@@ -30,6 +29,9 @@
   z-index: -1;
   top: 100;
   
+}
+.antiCandidatos{
+  overflow-x: unset;
 }
 .img_back3{
   animation: rotation 120s infinite linear;
@@ -195,6 +197,7 @@
   position: relative;
   height: 200px;
   margin: 0 auto;
+  overflow-x: hidden;
   
 }
 .fondo-blanco{
@@ -213,6 +216,8 @@
   object-fit: cover;
   display: inline-block;
   margin: 0 0.6rem;
+  overflow-x: hidden;
+
 }
 
 .candidatos .images-wrapper {
@@ -221,6 +226,8 @@
   white-space: nowrap;
   animation: marquee 10s linear infinite;
   position: absolute;
+  overflow-x: hidden;
+
 }
 
 .candidatos .google-img {
@@ -236,8 +243,19 @@
 }
 .candidatos #technologies {
   margin: 0 auto;
-  margin-top: 4rem;
+  margin-top: 8rem;
   color: #233c72;
+  overflow-x: hidden;
+
+}
+
+.inputOtros{
+    width: 100%;
+    padding: 7px 7px;
+    margin: 1.6rem 0 1.2rem 0;
+    border-radius: 10px;
+    border: #233c72 solid 2px;
+    outline: none;
 }
 .candidatos #contacto {
   margin: 0 auto;
@@ -577,6 +595,8 @@
     position: relative;
     height: 200px;
     margin: 0 auto;
+    overflow-x: hidden;
+
     
   }
   @keyframes marquee {

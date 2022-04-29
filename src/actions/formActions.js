@@ -13,7 +13,7 @@ export function postFormAirtable(
   comoNosConociste,
   mensaje
 ) {
-  base("Table 1").create(
+  base("Empresas").create(
     [
       {
         fields: {
@@ -31,7 +31,7 @@ export function postFormAirtable(
     function (err, records) {
       if (err) {
         console.error(err);
-        console.log(nombre, email, linkedin, motivoDeContacto, mensaje);
+        console.log('inter',interesadoEnRoles);
         return;
       }
       records.forEach(function (record) {

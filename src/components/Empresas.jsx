@@ -36,13 +36,13 @@ export default function Empresas() {
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [motivoDeContacto, setMotivoDeContacto] = useState("");
-  const [interesadoEnRoles, setInteresadoEnRoles] = useState([""]);
+  const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
   const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [errors, setErrors] = useState({});
 
-  async function validate(input, event) {
+  async function validate(input, event, arrayConvertidoInteresadoEnRoles) {
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
@@ -61,18 +61,6 @@ export default function Empresas() {
       errorsObj.motivoDeContacto = "El motivo de contacto es requerido";
       contadorErrores++;
     }
-    /* if (input.interesadoEnRoles === "") {
-      errorsObj.interesadoEnRoles = "El rol es requerido";
-      contadorErrores++;
-    }
-    if (input.comoNosConociste === "") {
-      errorsObj.comoNosConociste = "El como nos conociste es requerido";
-      contadorErrores++;
-    }
-    if (input.mensaje === "") {
-      errorsObj.mensaje = "El mensaje es requerido";
-      contadorErrores++;
-    } */
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtable(
@@ -80,48 +68,58 @@ export default function Empresas() {
         email,
         linkedin,
         motivoDeContacto,
-        interesadoEnRoles,
+        arrayConvertidoInteresadoEnRoles,
         interesadoEnOtrosRoles,
         comoNosConociste,
         mensaje
-      ).then(event.target.reset())  
-      
+      )
+      window.location.reload(false);
     } else {
+      event.preventDefault();
       console.log("hay errores");
     }
     setErrors(errorsObj);
   }
 
+  function convertirArray(array) {
+    let arrayConvertido = [];
+    array.forEach(element => {
+      arrayConvertido.push(element.value);
+    });
+    //console.log('arr', arrayConvertido)
+    return arrayConvertido;
+  }
+
   async function handleSubmit(event) {
+    const arrayConvertidoInteresadoEnRoles = convertirArray(interesadoEnRoles);
     const objetoAVerificar = {
       nombre,
       email,
       linkedin,
       motivoDeContacto,
-      interesadoEnRoles,
+      arrayConvertidoInteresadoEnRoles,
       comoNosConociste,
       mensaje,
     };
-    validate(objetoAVerificar, event);
-    event.preventDefault();
+    validate(objetoAVerificar, event, arrayConvertidoInteresadoEnRoles);
   }
   
-  function appendInteresadoEnRoles(event) {
-    if (interesadoEnRoles[0] === "") {
-      interesadoEnRoles[0] = event;
-    } else {
-      setInteresadoEnRoles([...interesadoEnRoles, event]);
-    }
-  }
+  
+  console.log("int",interesadoEnRoles)
+  console.log("tipeof", typeof interesadoEnRoles)
+
+
+
+
   const valuesSelect = [
-    { label: 'Software Developer', value: 'SoftwareDeveloper' },
+    { label: 'Software Developer', value: 'Software Developer' },
     { label: 'QA', value: 'QA' },
-    { label: 'UX/UI Designer', value: 'UX/UIDesigner' },
-    { label: 'Proyect Manager', value: 'ProyectManager' },
-    { label: 'Team Lead', value: 'TeamLead' },
-    { label: 'Big Data', value: 'BigData' },
-    { label: 'Machine Learning', value: 'MachineLearning' },
-    { label: 'Web 3.0', value: 'Web3.0' },
+    { label: 'UX/UI Designer', value: 'UX/UI Designer' },
+    { label: 'Proyect Manager', value: 'Proyect Manager' },
+    { label: 'Team Lead', value: 'Team Lead' },
+    { label: 'Big Data', value: 'Big Data' },
+    { label: 'Machine Learning', value: 'Machine Learning' },
+    { label: 'Web 3.0', value: 'Web 3.0' },
     { label: 'Blockchain', value: 'Blockchain' }
   ];
 
@@ -330,7 +328,7 @@ export default function Empresas() {
         <div className="details">
           <h3>Interesado en roles</h3>
           <div className="checkboxes xd">
-          <Select className="xd" options={valuesSelect} isMulti />
+          <Select className="xd" options={valuesSelect} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
           </div>
           <input
             className="inp"
@@ -421,23 +419,6 @@ export default function Empresas() {
           <p>© 2022 LinkIT. All rights reserved.</p>
         </div>
       </footer>
-
-    {/* <script>
-      const $btn = document.querySelector(".menu-hmb");
-      const $sideNav  = document.getElementById('sideNav');
-
-      document.addEventListener('click', e=>{
-          $sideNav.style.right = "-250px"
-
-          if(e.target.matches('.menu-hmb')){
-              if ($sideNav.style.right == "-250px"){
-              
-                  $sideNav.style.right = "0";
-          
-              }
-          }
-      })
-  </script> */}
   </div>
 
     </>

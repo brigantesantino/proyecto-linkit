@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Select from "react-select";
+
 import "../componentStyles/candidatos.css";
 import { useTranslation } from "react-i18next";
 import image17 from "../images/image 17.svg";
@@ -26,6 +28,35 @@ import ARG from "../images/banderaArg.png";
 import { postFormAirtableCandidatos } from "../actions/candidatosActions";
 import Popup from "./Popup";
 
+const valuesSelect = [
+  { label: "Software Developer", value: "Software Developer" },
+  { label: "QA", value: "QA" },
+  { label: "UX/UI Designer", value: "UX/UI Designer" },
+  { label: "Proyect Manager", value: "Project Manager" },
+  { label: "Team Lead", value: "Team Lead" },
+  { label: "Big Data", value: "Big Data" },
+  { label: "Machine Learning", value: "Machine Learning" },
+  { label: "Web 3.0", value: "Web 3.0" },
+  { label: "Blockchain", value: "Blockchain" },
+];
+
+const valuesSelectComoNos = [
+  { label: "Facebook", value: "Facebook" },
+  { label: "Instagram", value: "Instagram" },
+  { label: "LinkedIn", value: "LinkedIn" },
+  { label: "Google", value: "Google" },
+  { label: "Recruiter", value: "Recruiter" }
+];
+
+const valuesSelectTecnologias = [
+  { label: "React", value: "React" },
+  { label: "Angular", value: "Angular" },
+  { label: "Vue", value: "Vue" },
+  { label: "Node", value: "Node" },
+  { label: "Python", value: "Python" },
+  { label: "C#", value: "C#" },
+];
+
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -35,8 +66,9 @@ export default function Candidatos() {
   /*   const [cv, setCv] = useState(""); */
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
-  const [interesadoEnRoles, setInteresadoEnRoles] = useState("");
-  const [comoNosConociste, setComoNosConociste] = useState("");
+  const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
+  const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
+  const [comoNosConociste, setComoNosConociste] = useState([]);
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
@@ -88,20 +120,39 @@ export default function Candidatos() {
         input.experiencia,
         input.monedaRemuneracion,
         input.remuneracionPretendida,
-        input.interesadoEnRoles,
-        input.comoNosConociste,
-        input.tecnologias,
+        input.arrayConvertidoInteresadoEnRoles,
+        input.arrayConvertidoComoNosConociste,
+        input.arrayConvertidoTecnologias,
         input.condicionesLegales,
         input.ofertas
-      ).then(event.target.reset());
+      );
+      //window.location.reload(false);
+      event.preventDefault()
+
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
+      event.preventDefault()
+
     }
   }
 
+  function convertirArray(array) {
+    let arrayConvertido = [];
+    array.forEach((element) => {
+      arrayConvertido.push(element.value);
+    });
+    console.log("arr", arrayConvertido);
+    return arrayConvertido;
+  }
+
   function handleSubmit(event) {
+    event.preventDefault()
+
     console.log("handleSubmit");
+    const arrayConvertidoInteresadoEnRoles = convertirArray(interesadoEnRoles);
+    const arrayConvertidoComoNosConociste = convertirArray(comoNosConociste);
+    const arrayConvertidoTecnologias = convertirArray(tecnologias);
     const objetoAVerificar = {
       nombre,
       email,
@@ -109,9 +160,9 @@ export default function Candidatos() {
       linkedIn,
       experiencia,
       condicionesLegales,
-      tecnologias,
-      comoNosConociste,
-      interesadoEnRoles,
+      arrayConvertidoTecnologias,
+      arrayConvertidoComoNosConociste,
+      arrayConvertidoInteresadoEnRoles,
       remuneracionPretendida,
       monedaRemuneracion,
     };
@@ -130,7 +181,6 @@ export default function Candidatos() {
         console.log(error);
       });
   }, []);
-  //console.log(ofertas)
 
   return (
     <div className="candidatos">
@@ -170,7 +220,10 @@ export default function Candidatos() {
             {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
                 <a className="link-pupup" key={oferta.fields.Codigo}>
-                  <Link to={`/popup/${oferta.fields.Codigo}`} state={oferta.fields}>
+                  <Link
+                    to={`/popup/${oferta.fields.Codigo}`}
+                    state={oferta.fields}
+                  >
                     <p onClick={() => setData(oferta.fields)}>
                       <button>
                         <h2 className="designer">
@@ -275,7 +328,7 @@ export default function Candidatos() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form className="formCandidatos" onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
             <h3>Nombre*</h3>
             {errors.nombre ? (
@@ -334,41 +387,29 @@ export default function Candidatos() {
               />
             </div>
             <h3>Interesado en roles</h3>
-            <select
-              className="fondo-blanco"
-              name="info"
-              onChange={(e) => setInteresadoEnRoles(e.target.value)}
-            >
-              <option value="0"></option>
-              <option value="Rol1">Rol1</option>
-              <option value="Rol2">Rol2</option>
-              <option value="Rol3">Rol3</option>
-              <option value="Rol4">Rol4</option>
-            </select>
+            <Select
+              className="xd"
+              options={valuesSelect}
+              isMulti
+              onChange={(opt) => setInteresadoEnRoles(opt)}
+            />
+
             <h3>Cómo nos conociste</h3>
-            <select
-              className="fondo-blanco"
-              name="info"
-              onChange={(e) => setComoNosConociste(e.target.value)}
-            >
-              <option value="0"></option>
-              <option value="Recruiter">Recruiter</option>
-              <option value="Conocido">Conocido</option>
-              <option value="Google">Google</option>
-              <option value="Otros">Otros</option>
-            </select>
+            <Select
+              className="xd"
+              options={valuesSelectComoNos}
+              isMulti
+              onChange={(opt) => setComoNosConociste(opt)}
+            />
+            
             <h3>Tecnologías</h3>
-            <select
-              className="fondo-blanco"
-              name="info"
-              onChange={(e) => setTecnologias(e.target.value)}
-            >
-              <option value="0"></option>
-              <option value="Node">Node</option>
-              <option value="React">React</option>
-              <option value="Python">Python</option>
-              <option value="C#">C#</option>
-            </select>
+            <Select
+              className="xd"
+              options={valuesSelectTecnologias}
+              isMulti
+              onChange={(opt) => setTecnologias(opt)}
+            />
+            
             <div className="condition">
               <div className="acept-conditions">
                 <input

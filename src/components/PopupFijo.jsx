@@ -11,25 +11,30 @@ export default function Popup(props) {
   const [experiencia, setExperiencia] = useState("");
   /*   const [cv, setCv] = useState(""); */
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
-  const [comoNosConociste, setComoNosConociste] = useState("");
-  const [tecnologias, setTecnologias] = useState("");
+  const [comoNosConociste, setComoNosConociste] = useState([]);
+  const [tecnologias, setTecnologias] = useState([]);
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
 
   const [errors, setErrors] = useState({});
 
   const { state } = useLocation();
-  //console.log('state',state);
-  //
-  //console.log("props", props.data);
 
-  const valuesSelect = [
-    { label: 'Recruiter', value: 'Recruiter' },
-    { label: 'Conocido', value: 'Conocido' },
-    { label: 'Google', value: 'Google' },
-    { label: 'Octopus', value: 'Octopus' },
-    { label: 'Crab', value: 'Crab' },
-    { label: 'Lobster', value: 'Lobster' },
+  const valuesSelectTecnologias = [
+    { label: "React", value: "React" },
+    { label: "Angular", value: "Angular" },
+    { label: "Vue", value: "Vue" },
+    { label: "Node", value: "Node" },
+    { label: "Python", value: "Python" },
+    { label: "C#", value: "C#" },
+  ];
+
+  const valuesSelectComoNos = [
+    { label: "Facebook", value: "Facebook" },
+    { label: "Instagram", value: "Instagram" },
+    { label: "LinkedIn", value: "LinkedIn" },
+    { label: "Google", value: "Google" },
+    { label: "Recruiter", value: "Recruiter" }
   ];
 
   const location = useLocation();
@@ -80,17 +85,36 @@ export default function Popup(props) {
         input.linkedIn,
         input.experiencia,
         input.remuneracionPretendida,
-        input.comoNosConociste,
-        input.tecnologias,
+        input.arrayConvertidoComoNosConociste,
+        input.arrayConvertidoTecnologias,
         input.monedaRemuneracion
-      ).then(event.target.reset());
+      )
+      event.preventDefault()
+
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
+      event.preventDefault()
+
     }
   }
+
+  function convertirArray(array) {
+    let arrayConvertido = [];
+    array.forEach((element) => {
+      arrayConvertido.push(element.value);
+    });
+    console.log("arr", arrayConvertido);
+    return arrayConvertido;
+  }
+
   function handleSubmit(event) {
     console.log("handleSubmit");
+    event.preventDefault()
+
+    const arrayConvertidoComoNosConociste = convertirArray(comoNosConociste);
+    const arrayConvertidoTecnologias = convertirArray(tecnologias);
+
     const objetoAVerificar = {
       nombre,
       email,
@@ -98,16 +122,15 @@ export default function Popup(props) {
       linkedIn,
       experiencia,
       condicionesLegales,
-      tecnologias,
-      comoNosConociste,
+      arrayConvertidoTecnologias,
+      arrayConvertidoComoNosConociste,
       remuneracionPretendida,
       monedaRemuneracion,
     };
     validate(objetoAVerificar, event);
+    event.preventDefault()
     //console.log("validate",validate(objetoAVerificar));
   }
-
-
 
   return (
     <div className="popup">
@@ -202,7 +225,7 @@ export default function Popup(props) {
 
           <h3>Cómo nos conociste</h3>
          
-          <Select className="xd" options={valuesSelect} isMulti />
+          <Select className="xd" options={valuesSelectComoNos} isMulti onChange={(opt) => setComoNosConociste(opt)}/>
           
          
           {/* <select
@@ -216,13 +239,12 @@ export default function Popup(props) {
             <option value="Otros">Otros</option>
           </select> */}
           <h3>Tecnologías</h3>
-          <select name="info" onChange={(e) => setTecnologias(e.target.value)}>
-            <option value="0"></option>
-            <option value="Node">Node</option>
-            <option value="React">React</option>
-            <option value="Python">Python</option>
-            <option value="C#">C#</option>
-          </select>
+          <Select
+              className="xd"
+              options={valuesSelectTecnologias}
+              isMulti
+              onChange={(opt) => setTecnologias(opt)}
+            />
 
           <div className="condition">
             <div className="acept-conditions">
