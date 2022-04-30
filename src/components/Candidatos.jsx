@@ -334,28 +334,28 @@ export default function Candidatos() {
             {errors.nombre ? (
               <p className="alertaForm">{errors.nombre}</p>
             ) : null}
-            <input type="text" onChange={(e) => setNombre(e.target.value)} />
+            <input placeholder=" Nombre"  type="text" onChange={(e) => setNombre(e.target.value)} />
 
             <h3>Email*</h3>
             {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-            <input type="email" onChange={(e) => setEmail(e.target.value)} />
+            <input placeholder=" Email" type="email" onChange={(e) => setEmail(e.target.value)} />
             <h3>Dirección*</h3>
             {errors.direccion ? (
               <p className="alertaForm">{errors.direccion}</p>
             ) : null}
-            <input type="text" onChange={(e) => setDireccion(e.target.value)} />
+            <input placeholder=" Direccion" type="text" onChange={(e) => setDireccion(e.target.value)} />
             <h3>LinkedIn*</h3>
             {errors.linkedin ? (
               <p className="alertaForm">{errors.linkedin}</p>
             ) : null}
-            <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
+            <input placeholder="*Linkedin" type="text" onChange={(e) => setLinkedIn(e.target.value)} />
             <h3>Experiencia</h3>
-            <select
+            <select 
               className="experience"
               name="info"
               onChange={(e) => setExperiencia(e.target.value)}
             >
-              <option value="0"> </option>
+              <option value="0">Experiencia </option>
               <option value="0-1"> 0-1 año </option>
               <option value="1-2"> 1-2 años </option>
               <option value="2-3"> 2-3 años </option>
@@ -381,13 +381,13 @@ export default function Candidatos() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input
+              <input placeholder="Remuneracion pretendida"
                 type="text"
                 onChange={(e) => setRemuneracionPretendida(e.target.value)}
               />
             </div>
             <h3>Interesado en roles</h3>
-            <Select
+            <Select 
               className="xd"
               options={valuesSelect}
               isMulti
@@ -403,7 +403,7 @@ export default function Candidatos() {
             />
             
             <h3>Tecnologías</h3>
-            <Select
+            <Select 
               className="xd"
               options={valuesSelectTecnologias}
               isMulti
