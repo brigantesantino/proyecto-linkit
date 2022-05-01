@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "../componentStyles/empresas.css";
 import { postFormAirtable } from "../functions/postEmpresasAirtable";
 
+import { valuesSelectRoles } from "../constants/selects";
+
+import { valuesSelectComoNosConociste } from "../constants/selects";
+
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
 import image17 from "../images/image 17.svg";
@@ -103,26 +107,6 @@ export default function Empresas() {
     };
     validate(objetoAVerificar, event, arrayConvertidoInteresadoEnRoles);
   }
-  
-  
-  console.log("int",interesadoEnRoles)
-  console.log("tipeof", typeof interesadoEnRoles)
-
-
-
-
-  const valuesSelect = [
-    { label: 'Software Developer', value: 'Software Developer' },
-    { label: 'QA', value: 'QA' },
-    { label: 'UX/UI Designer', value: 'UX/UI Designer' },
-    { label: 'Proyect Manager', value: 'Proyect Manager' },
-    { label: 'Team Lead', value: 'Team Lead' },
-    { label: 'Big Data', value: 'Big Data' },
-    { label: 'Machine Learning', value: 'Machine Learning' },
-    { label: 'Web 3.0', value: 'Web 3.0' },
-    { label: 'Blockchain', value: 'Blockchain' }
-  ];
-
 
   return (<>
     <div className="empresas">
@@ -328,7 +312,7 @@ export default function Empresas() {
         <div className="details">
           <h3>Interesado en roles</h3>
           <div className="checkboxes xd">
-          <Select className="xd" options={valuesSelect} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
+          <Select className="xd" options={valuesSelectRoles} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
           </div>
           <input
             className="inp"

@@ -30,9 +30,7 @@
   top: 100;
   
 }
-.antiCandidatos{
-  overflow-x: unset;
-}
+
 .img_back3{
   animation: rotation 120s infinite linear;
 }

@@ -30,34 +30,9 @@ import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable"
 
 import Popup from "./Popup";
 
-const valuesSelect = [
-  { label: "Software Developer", value: "Software Developer" },
-  { label: "QA", value: "QA" },
-  { label: "UX/UI Designer", value: "UX/UI Designer" },
-  { label: "Proyect Manager", value: "Project Manager" },
-  { label: "Team Lead", value: "Team Lead" },
-  { label: "Big Data", value: "Big Data" },
-  { label: "Machine Learning", value: "Machine Learning" },
-  { label: "Web 3.0", value: "Web 3.0" },
-  { label: "Blockchain", value: "Blockchain" },
-];
-
-const valuesSelectComoNos = [
-  { label: "Facebook", value: "Facebook" },
-  { label: "Instagram", value: "Instagram" },
-  { label: "LinkedIn", value: "LinkedIn" },
-  { label: "Google", value: "Google" },
-  { label: "Recruiter", value: "Recruiter" }
-];
-
-const valuesSelectTecnologias = [
-  { label: "React", value: "React" },
-  { label: "Angular", value: "Angular" },
-  { label: "Vue", value: "Vue" },
-  { label: "Node", value: "Node" },
-  { label: "Python", value: "Python" },
-  { label: "C#", value: "C#" },
-];
+import { valuesSelectRoles } from "../constants/selects"
+import { valuesSelectComoNosConociste } from "../constants/selects"
+import { valuesSelectTecnologias } from "../constants/selects"
 
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
@@ -65,7 +40,6 @@ export default function Candidatos() {
   const [direccion, setDireccion] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [experiencia, setExperiencia] = useState("");
-  /*   const [cv, setCv] = useState(""); */
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
@@ -391,7 +365,7 @@ export default function Candidatos() {
             <h3>Interesado en roles</h3>
             <Select
               className="xd"
-              options={valuesSelect}
+              options={valuesSelectRoles}
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
             />
@@ -399,7 +373,7 @@ export default function Candidatos() {
             <h3>Cómo nos conociste</h3>
             <Select
               className="xd"
-              options={valuesSelectComoNos}
+              options={valuesSelectComoNosConociste}
               isMulti
               onChange={(opt) => setComoNosConociste(opt)}
             />
