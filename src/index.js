@@ -31,7 +31,6 @@ ReactDOM.render(
         <Route exact path="/candidatos" element={<Candidatos/>}/>
         <Route exact path="/candidatoseng" element={<Candidatoseng/>}/>
         <Route exact path="/empresas" element={<Empresas/>}/> 
-        <Route exact path="/popup" element={<Popup/>}/>
         <Route exact path="/popup/:id" element={<PopupFijo/>}/>
         <Route exact path="/faqs" element={<FAQs/>}/>
         <Route exact path="/faqsENG" element={<FAQsENG/>}/>

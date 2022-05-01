@@ -77,7 +77,8 @@ export default function Empresas() {
         comoNosConociste,
         mensaje
       )
-      window.location.reload(false);
+      event.preventDefault();
+      setTimeout(() => window.location.reload(),1000)
     } else {
       event.preventDefault();
       console.log("hay errores");
@@ -87,11 +88,15 @@ export default function Empresas() {
 
   function convertirArray(array) {
     let arrayConvertido = [];
-    array.forEach(element => {
-      arrayConvertido.push(element.value);
-    });
-    //console.log('arr', arrayConvertido)
-    return arrayConvertido;
+    try {
+      array.forEach((element) => {
+        arrayConvertido.push(element.value);
+      });
+      console.log("arr", arrayConvertido);
+      return arrayConvertido;
+    } catch (error) {
+      console.log("error", error);
+    }
   }
 
   async function handleSubmit(event) {

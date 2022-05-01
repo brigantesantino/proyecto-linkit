@@ -8,7 +8,7 @@ import { valuesSelectTecnologias } from "../constants/selects"
 
 
 
-export default function Popup(props) {
+export default function PopupFijo(props) {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -73,8 +73,8 @@ export default function Popup(props) {
         input.arrayConvertidoTecnologias,
         input.monedaRemuneracion
       )
-      event.preventDefault()
-
+      event.preventDefault();
+      setTimeout(() => window.location.reload(),1000)
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);

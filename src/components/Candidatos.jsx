@@ -26,13 +26,13 @@ import Header from "./Header";
 import USA from "../images/banderaUsa.png";
 import ARG from "../images/banderaArg.png";
 
-import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable"
+import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable";
 
 import Popup from "./Popup";
 
-import { valuesSelectRoles } from "../constants/selects"
-import { valuesSelectComoNosConociste } from "../constants/selects"
-import { valuesSelectTecnologias } from "../constants/selects"
+import { valuesSelectRoles } from "../constants/selects";
+import { valuesSelectComoNosConociste } from "../constants/selects";
+import { valuesSelectTecnologias } from "../constants/selects";
 
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
@@ -102,28 +102,30 @@ export default function Candidatos() {
         input.condicionesLegales,
         input.ofertas
       );
-      //window.location.reload(false);
-      event.preventDefault()
-
+      event.preventDefault();
+      setTimeout(() => window.location.reload(),1000)
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
-      event.preventDefault()
-
+      event.preventDefault();
     }
   }
 
   function convertirArray(array) {
     let arrayConvertido = [];
-    array.forEach((element) => {
-      arrayConvertido.push(element.value);
-    });
-    console.log("arr", arrayConvertido);
-    return arrayConvertido;
+    try {
+      array.forEach((element) => {
+        arrayConvertido.push(element.value);
+      });
+      console.log("arr", arrayConvertido);
+      return arrayConvertido;
+    } catch (error) {
+      console.log("error", error);
+    }
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     console.log("handleSubmit");
     const arrayConvertidoInteresadoEnRoles = convertirArray(interesadoEnRoles);
@@ -377,7 +379,7 @@ export default function Candidatos() {
               isMulti
               onChange={(opt) => setComoNosConociste(opt)}
             />
-            
+
             <h3>Tecnologías</h3>
             <Select
               className="selectCandidatos"
@@ -385,7 +387,7 @@ export default function Candidatos() {
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
-            
+
             <div className="condition">
               <div className="acept-conditions">
                 <input

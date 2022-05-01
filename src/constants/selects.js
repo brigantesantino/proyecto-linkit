@@ -21,8 +21,4 @@ export const valuesSelectComoNosConociste = [
 export const valuesSelectTecnologias = [
   { label: "React", value: "React" },
   { label: "Angular", value: "Angular" },
-  { label: "Vue", value: "Vue" },
-  { label: "Node", value: "Node" },
-  { label: "Python", value: "Python" },
-  { label: "C#", value: "C#" },
 ];
