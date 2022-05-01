@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  overflow-x: hidden;
   
 }
 
@@ -15,14 +16,14 @@
   
   
 }
+
 .img_back1{
   position: absolute;
   animation: rotation 120s infinite linear;
     z-index: -1;
-    top: 100;
-    
-    
+    top: 100;   
 }
+
 .img_back2{
   position: absolute;
   animation: rotation 120s infinite linear;
@@ -30,12 +31,15 @@
   top: 100;
   
 }
-
 .img_back3{
   animation: rotation 120s infinite linear;
 }
 
- @keyframes rotation {
+.selectCandidatos{
+  overflow-x: visible;
+}
+
+@keyframes rotation {
   from {
     transform: rotate(0deg);
   }
@@ -196,7 +200,6 @@
   height: 200px;
   margin: 0 auto;
   overflow-x: hidden;
-  
 }
 .fondo-blanco{
   background-color: white;
@@ -224,8 +227,6 @@
   white-space: nowrap;
   animation: marquee 10s linear infinite;
   position: absolute;
-  overflow-x: hidden;
-
 }
 
 .candidatos .google-img {
@@ -241,19 +242,8 @@
 }
 .candidatos #technologies {
   margin: 0 auto;
-  margin-top: 8rem;
+  margin-top: 4rem;
   color: #233c72;
-  overflow-x: hidden;
-
-}
-
-.inputOtros{
-    width: 100%;
-    padding: 7px 7px;
-    margin: 1.6rem 0 1.2rem 0;
-    border-radius: 10px;
-    border: #233c72 solid 2px;
-    outline: none;
 }
 .candidatos #contacto {
   margin: 0 auto;
@@ -431,12 +421,14 @@
     margin: 0 auto;
     margin-top: 30px;
     border-radius: 10px;
+    overflow-x: visible;
   }
   .candidatos main form div.details div.value {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
+  
   .candidatos main form div.details div.value select {
     background-color: white;
     width: 30%;
@@ -468,7 +460,6 @@
   .candidatos main form div.inputs {
     width: 100%;
     margin: 2rem;
-    
   }
 
   .candidatos main form div.inputs input {
@@ -492,6 +483,7 @@
     width: 100%;
     margin: 2rem;
     margin: -1.8rem 0 1.8rem 0;
+    overflow-x: unset;
   }
   .candidatos main form div.details select {
     width: 100%;
@@ -593,8 +585,6 @@
     position: relative;
     height: 200px;
     margin: 0 auto;
-    overflow-x: hidden;
-
     
   }
   @keyframes marquee {

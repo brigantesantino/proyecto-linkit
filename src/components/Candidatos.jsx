@@ -364,7 +364,7 @@ export default function Candidatos() {
             </div>
             <h3>Interesado en roles</h3>
             <Select
-              className="xd"
+              className="selectCandidatos"
               options={valuesSelectRoles}
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
@@ -372,7 +372,7 @@ export default function Candidatos() {
 
             <h3>Cómo nos conociste</h3>
             <Select
-              className="xd"
+              className="selectCandidatos"
               options={valuesSelectComoNosConociste}
               isMulti
               onChange={(opt) => setComoNosConociste(opt)}
@@ -380,7 +380,7 @@ export default function Candidatos() {
             
             <h3>Tecnologías</h3>
             <Select
-              className="xd"
+              className="selectCandidatos"
               options={valuesSelectTecnologias}
               isMulti
               onChange={(opt) => setTecnologias(opt)}
