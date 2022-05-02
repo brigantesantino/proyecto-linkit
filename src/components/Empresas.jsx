@@ -294,14 +294,14 @@ export default function Empresas() {
           {errors.nombre ? (
             <p className="alertaForm">{errors.nombre}</p>
           ) : null}
-          <input
+          <input placeholder="Nombre"
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
           />
           <h3>Email*</h3>{" "}
           {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-          <input
+          <input placeholder="Email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -310,7 +310,7 @@ export default function Empresas() {
           {errors.linkedin ? (
             <p className="alertaForm">{errors.linkedin}</p>
           ) : null}
-          <input
+          <input placeholder="*Linkedin"
             type="text"
             value={linkedin}
             onChange={(e) => setLinkedin(e.target.value)}
@@ -319,7 +319,7 @@ export default function Empresas() {
           {errors.motivoDeContacto ? (
             <p className="alertaForm">{errors.motivoDeContacto}</p>
           ) : null}
-          <input
+          <input placeholder="¿Por qué nos contactaste?"
             type="text"
             value={motivoDeContacto}
             onChange={(e) => setMotivoDeContacto(e.target.value)}
@@ -328,16 +328,16 @@ export default function Empresas() {
         <div className="details">
           <h3>Interesado en roles</h3>
           <div className="checkboxes xd">
-          <Select className="xd" options={valuesSelect} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
+          <Select placeholder="Elige el/los roles" className="xd" options={valuesSelect} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
           </div>
-          <input
+          <input 
             className="inp"
             type="textarea"
             placeholder="Otros..."
             onChange={(e) => setInteresadoEnOtrosRoles(e.target.value)}
           />
           <h3>Cómo nos conociste</h3>
-          <select
+          <select placeholder="hola"
           className="background-blanco"
             name="info"
             onChange={(e) => setComoNosConociste(e.target.value)}
@@ -349,7 +349,7 @@ export default function Empresas() {
             <option value="opcion5">Otros</option>
           </select>
           <h3 className="mensaje">Mensaje</h3>
-          <textarea
+          <textarea 
             name="message"
             value={mensaje}
             onChange={(e) => setMensaje(e.target.value)}

@@ -387,7 +387,7 @@ export default function Candidatos() {
               />
             </div>
             <h3>Interesado en roles</h3>
-            <Select 
+            <Select placeholder="Elige lo/s rol/es"
               className="xd"
               options={valuesSelect}
               isMulti
@@ -395,7 +395,7 @@ export default function Candidatos() {
             />
 
             <h3>Cómo nos conociste</h3>
-            <Select
+            <Select  placeholder="Cómo nos conociste"
               className="xd"
               options={valuesSelectComoNos}
               isMulti
@@ -403,7 +403,7 @@ export default function Candidatos() {
             />
             
             <h3>Tecnologías</h3>
-            <Select 
+            <Select placeholder="Elige la/s tecnologia/s"
               className="xd"
               options={valuesSelectTecnologias}
               isMulti
