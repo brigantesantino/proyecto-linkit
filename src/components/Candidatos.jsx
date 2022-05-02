@@ -25,37 +25,14 @@ import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
 import USA from "../images/banderaUsa.png";
 import ARG from "../images/banderaArg.png";
-import { postFormAirtableCandidatos } from "../actions/candidatosActions";
+
+import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable";
+
 import Popup from "./Popup";
 
-const valuesSelect = [
-  { label: "Software Developer", value: "Software Developer" },
-  { label: "QA", value: "QA" },
-  { label: "UX/UI Designer", value: "UX/UI Designer" },
-  { label: "Proyect Manager", value: "Project Manager" },
-  { label: "Team Lead", value: "Team Lead" },
-  { label: "Big Data", value: "Big Data" },
-  { label: "Machine Learning", value: "Machine Learning" },
-  { label: "Web 3.0", value: "Web 3.0" },
-  { label: "Blockchain", value: "Blockchain" },
-];
-
-const valuesSelectComoNos = [
-  { label: "Facebook", value: "Facebook" },
-  { label: "Instagram", value: "Instagram" },
-  { label: "LinkedIn", value: "LinkedIn" },
-  { label: "Google", value: "Google" },
-  { label: "Recruiter", value: "Recruiter" }
-];
-
-const valuesSelectTecnologias = [
-  { label: "React", value: "React" },
-  { label: "Angular", value: "Angular" },
-  { label: "Vue", value: "Vue" },
-  { label: "Node", value: "Node" },
-  { label: "Python", value: "Python" },
-  { label: "C#", value: "C#" },
-];
+import { valuesSelectRoles } from "../constants/selects";
+import { valuesSelectComoNosConociste } from "../constants/selects";
+import { valuesSelectTecnologias } from "../constants/selects";
 
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
@@ -63,7 +40,6 @@ export default function Candidatos() {
   const [direccion, setDireccion] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [experiencia, setExperiencia] = useState("");
-  /*   const [cv, setCv] = useState(""); */
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
@@ -126,28 +102,30 @@ export default function Candidatos() {
         input.condicionesLegales,
         input.ofertas
       );
-      //window.location.reload(false);
-      event.preventDefault()
-
+      event.preventDefault();
+      setTimeout(() => window.location.reload(),1000)
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
-      event.preventDefault()
-
+      event.preventDefault();
     }
   }
 
   function convertirArray(array) {
     let arrayConvertido = [];
-    array.forEach((element) => {
-      arrayConvertido.push(element.value);
-    });
-    console.log("arr", arrayConvertido);
-    return arrayConvertido;
+    try {
+      array.forEach((element) => {
+        arrayConvertido.push(element.value);
+      });
+      console.log("arr", arrayConvertido);
+      return arrayConvertido;
+    } catch (error) {
+      console.log("error", error);
+    }
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     console.log("handleSubmit");
     const arrayConvertidoInteresadoEnRoles = convertirArray(interesadoEnRoles);
@@ -387,29 +365,31 @@ export default function Candidatos() {
               />
             </div>
             <h3>Interesado en roles</h3>
+
             <Select placeholder="Elige lo/s rol/es"
-              className="xd"
-              options={valuesSelect}
+              className="selectCandidatos"
+              options={valuesSelectRoles}
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
             />
 
             <h3>Cómo nos conociste</h3>
             <Select  placeholder="Cómo nos conociste"
-              className="xd"
-              options={valuesSelectComoNos}
+              className="selectCandidatos"
+              options={valuesSelectComoNosConociste}
               isMulti
               onChange={(opt) => setComoNosConociste(opt)}
             />
-            
+
             <h3>Tecnologías</h3>
+
             <Select placeholder="Elige la/s tecnologia/s"
-              className="xd"
+              className="selectCandidatos"
               options={valuesSelectTecnologias}
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
-            
+
             <div className="condition">
               <div className="acept-conditions">
                 <input

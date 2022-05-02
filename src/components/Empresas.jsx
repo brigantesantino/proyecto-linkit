@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "../componentStyles/empresas.css";
-import { postFormAirtable } from "../actions/formActions";
+import { postFormAirtable } from "../functions/postEmpresasAirtable";
+
+import { valuesSelectRoles } from "../constants/selects";
+
+import { valuesSelectComoNosConociste } from "../constants/selects";
 
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
@@ -73,7 +77,8 @@ export default function Empresas() {
         comoNosConociste,
         mensaje
       )
-      window.location.reload(false);
+      event.preventDefault();
+      setTimeout(() => window.location.reload(),1000)
     } else {
       event.preventDefault();
       console.log("hay errores");
@@ -83,11 +88,15 @@ export default function Empresas() {
 
   function convertirArray(array) {
     let arrayConvertido = [];
-    array.forEach(element => {
-      arrayConvertido.push(element.value);
-    });
-    //console.log('arr', arrayConvertido)
-    return arrayConvertido;
+    try {
+      array.forEach((element) => {
+        arrayConvertido.push(element.value);
+      });
+      console.log("arr", arrayConvertido);
+      return arrayConvertido;
+    } catch (error) {
+      console.log("error", error);
+    }
   }
 
   async function handleSubmit(event) {
@@ -103,26 +112,6 @@ export default function Empresas() {
     };
     validate(objetoAVerificar, event, arrayConvertidoInteresadoEnRoles);
   }
-  
-  
-  console.log("int",interesadoEnRoles)
-  console.log("tipeof", typeof interesadoEnRoles)
-
-
-
-
-  const valuesSelect = [
-    { label: 'Software Developer', value: 'Software Developer' },
-    { label: 'QA', value: 'QA' },
-    { label: 'UX/UI Designer', value: 'UX/UI Designer' },
-    { label: 'Proyect Manager', value: 'Proyect Manager' },
-    { label: 'Team Lead', value: 'Team Lead' },
-    { label: 'Big Data', value: 'Big Data' },
-    { label: 'Machine Learning', value: 'Machine Learning' },
-    { label: 'Web 3.0', value: 'Web 3.0' },
-    { label: 'Blockchain', value: 'Blockchain' }
-  ];
-
 
   return (<>
     <div className="empresas">
@@ -328,7 +317,7 @@ export default function Empresas() {
         <div className="details">
           <h3>Interesado en roles</h3>
           <div className="checkboxes xd">
-          <Select placeholder="Elige el/los roles" className="xd" options={valuesSelect} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
+          <Select placeholder="Elige el/los roles" className="xd" options={valuesSelectRoles} isMulti onChange={(opt) => setInteresadoEnRoles(opt)} />
           </div>
           <input 
             className="inp"

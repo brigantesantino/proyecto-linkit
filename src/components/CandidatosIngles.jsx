@@ -19,7 +19,7 @@ import whatsApp from "../images/WhatsApp.svg";
 
 import Header from "./Header";
 
-import { postFormAirtableCandidatos } from "../actions/candidatosActions";
+import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable";
 
 export default function CandidatosIngles() {
   const [nombre, setNombre] = useState("");

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../componentStyles/popup.css";
-import { postFormAirtableCandidatosEspecial } from "../actions/candidatosActions";
+import { postFormAirtableCandidatosEspecial } from "../functions/postCandidatosAirtable";
 import Select from "react-select";
-export default function Popup(props) {
+import { valuesSelectComoNosConociste } from "../constants/selects"
+import { valuesSelectTecnologias } from "../constants/selects"
+
+
+
+export default function PopupFijo(props) {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -15,31 +20,10 @@ export default function Popup(props) {
   const [tecnologias, setTecnologias] = useState([]);
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
-
   const [errors, setErrors] = useState({});
-
-  const { state } = useLocation();
-
-  const valuesSelectTecnologias = [
-    { label: "React", value: "React" },
-    { label: "Angular", value: "Angular" },
-    { label: "Vue", value: "Vue" },
-    { label: "Node", value: "Node" },
-    { label: "Python", value: "Python" },
-    { label: "C#", value: "C#" },
-  ];
-
-  const valuesSelectComoNos = [
-    { label: "Facebook", value: "Facebook" },
-    { label: "Instagram", value: "Instagram" },
-    { label: "LinkedIn", value: "LinkedIn" },
-    { label: "Google", value: "Google" },
-    { label: "Recruiter", value: "Recruiter" }
-  ];
 
   const location = useLocation();
   const data = location.state;
-  console.log("data", data);
 
   const codigo = data.Codigo;
 
@@ -89,8 +73,8 @@ export default function Popup(props) {
         input.arrayConvertidoTecnologias,
         input.monedaRemuneracion
       )
-      event.preventDefault()
-
+      event.preventDefault();
+      setTimeout(() => window.location.reload(),1000)
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -225,7 +209,7 @@ export default function Popup(props) {
 
           <h3>Cómo nos conociste</h3>
          
-          <Select className="xd" options={valuesSelectComoNos} isMulti onChange={(opt) => setComoNosConociste(opt)}/>
+          <Select className="xd" options={valuesSelectComoNosConociste} isMulti onChange={(opt) => setComoNosConociste(opt)}/>
           
          
           {/* <select

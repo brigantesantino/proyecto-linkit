@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../componentStyles/empresas.css";
-import { postFormAirtable } from "../../actions/formActions";
+import { postFormAirtable } from "../../functions/postEmpresasAirtable";
+
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./../MenuHamburguesa";
 import image17 from "../../images/image 17.svg";

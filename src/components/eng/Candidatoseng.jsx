@@ -22,8 +22,9 @@ import Header from "./../Header";
 import USA from "../../images/banderaUsa.png"
 import ARG from "../../images/banderaArg.png"
 
-import { postFormAirtableCandidatos } from "../../actions/candidatosActions";
 import HeaderENG from "./HeaderENG";
+
+import { postFormAirtableCandidatos } from "../../functions/postCandidatosAirtable";
 
 export default function Candidatoseng() {
   const [nombre, setNombre] = useState("");
@@ -31,7 +32,6 @@ export default function Candidatoseng() {
   const [direccion, setDireccion] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [experiencia, setExperiencia] = useState("");
-  /*   const [cv, setCv] = useState(""); */
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState("");
@@ -271,7 +271,6 @@ export default function Candidatoseng() {
             <select
             className="fondo-blanco"
               name="info"
-              className="experience"
               onChange={(e) => setExperiencia(e.target.value)}
             >
               <option value="0"> </option>
