@@ -370,6 +370,15 @@
     color: #adadad;
     margin-left: 0.5rem;
   }
+  .candidatos .css-yk16xz-control{
+    width: 100%;
+    margin: 0.8rem 0;
+    border-radius: 5px;
+    border: rgb(110, 110, 110) solid 2px;
+    background-color: rgba(210, 230, 242, 0.891);
+    outline: none;
+    border: 1px solid #abbcd8; ;
+  }
   .candidatos .buttons button .adress {
     width: 100%;
     font-size: 12px;
@@ -397,7 +406,7 @@
   .candidatos .scrollbox {
     width: 100%;
     height: 32rem;
-    
+    overflow: scroll;
   }
   .candidatos h2 {
     width: 90%;
@@ -433,12 +442,15 @@
     background-color: white;
     width: 30%;
     margin: 0.9rem 0.7rem 0.9rem 0;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
   }
   .candidatos main form div.details div.value input {
     padding: 7px 7px;
     margin: 0.9rem 0;
     border-radius: 10px;
-    border: 2px solid #63799e;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
     outline: none;
     width: 100%;
   }
@@ -452,7 +464,8 @@
     color: gray;
     display: block;
     padding: -5px 0 6px 0;
-    border: 2px solid #63799e;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
     margin: 1rem 0;
     width: 5rem;
     border-radius: 14px;
@@ -466,31 +479,36 @@
     width: 100%;
     padding: 7px 7px;
     margin: 1rem 0;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    border-radius: 5px;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
     outline: none;
+    
   }
   .candidatos main form div.inputs select {
     width: 100%;
     padding: 7px 7px;
     margin: 0.8rem 0;
-    border-radius: 10px;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
+    border-radius: 5px;
     outline: none;
-    border: 2px solid #63799e;
+    
   }
   .candidatos main form div.details {
     box-sizing: border-box;
     width: 100%;
     margin: 2rem;
-    margin: -1.8rem 0 1.8rem 0;
+    margin: -1.8rem 0 1.8rem 0;    
     overflow-x: unset;
   }
   .candidatos main form div.details select {
     width: 100%;
     padding: 7px 7px;
     margin: 0.8rem 0;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    border-radius: 5px;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
     outline: none;
   }
   .candidatos main form div.details h3.mensaje {
@@ -499,8 +517,9 @@
   .candidatos main form div.details textarea {
     width: 100%;
     height: 15%;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    border-radius: 5px;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
     outline: none;
   }
   
@@ -617,6 +636,7 @@
   .candidatos .scrollbox {
     width: 100%;
     height: 30rem;
+    overflow-y: scroll;
   }
   
   @keyframes marquee {
@@ -649,6 +669,15 @@
     margin: 1rem 0 1rem 2rem;
 
   }
+  .candidatos .css-yk16xz-control{
+    width: 100%;
+    margin: 0.8rem 0;
+    border-radius: 5px;
+    border: rgb(110, 110, 110) solid 2px;
+    background-color: rgba(210, 230, 242, 0.891);
+    outline: none;
+    border: 1px solid #abbcd8; ;
+  }
   .candidatos .buttons h3 .adress {
     width: 100%;
   }
@@ -656,7 +685,7 @@
     width: 37%;
   }
   .candidatos main form {
-    border: 2px solid #63799e;
+    border: 1px solid #abbcd8;
     display: flex;
     justify-content: space-around;
     width: 60%;
@@ -676,19 +705,21 @@
     width: 100%;
     padding: 7px 7px;
     margin: 0.9rem 0;
-    border-radius: 10px;
+    border-radius: 5px;
     border: rgb(110, 110, 110) solid 2px;
+    background-color: rgba(210, 230, 242, 0.891);
     outline: none;
-    border: 2px solid #63799e;
+    border: 1px solid #abbcd8;
+    
     
   }
   .candidatos .experience {
-    background-color: white;
+    background-color: rgba(210, 230, 242, 0.891);
     width: 100%;
     padding: 7px 7px;
     margin: 1rem 0;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    border-radius: 5px;
+    border: 1px solid #abbcd8;
     outline: none;
   }
   .candidatos .file input {
@@ -702,10 +733,11 @@
     color: gray;
     display: block;
     padding: -5px 0 6px 0;
-    border: 2px solid #63799e;
+    border: 1px solid #abbcd8;
     margin: 1rem 0;
     width: 5rem;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: rgba(210, 230, 242, 0.891);
   }
   .candidatos main form div.details {
     box-sizing: border-box;
@@ -716,26 +748,30 @@
     width: 100%;
     padding: 7px 7px;
     margin: 0.9rem 0;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    border-radius: 5px;
+    border: 1px solid #abbcd8;
     outline: none;
+    background-color: rgba(210, 230, 242, 0.891);
   }
   .candidatos main form div.details div.value {
     width: 100%;
     display: flex;
     flex-direction: row;
+    
   }
   .candidatos main form div.details div.value select {
     width: 20%;
     margin: 0.9rem 0.7rem 0.9rem 0;
+    
   }
   .candidatos main form div.details div.value input {
     padding: 7px 7px;
     margin: 0.9rem 0;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    border-radius: 5px;
+    border: 1px solid #abbcd8;
     outline: none;
     width: 100%;
+    background-color: rgba(210, 230, 242, 0.891); 
   }
   .candidatos main form div.details h3.mensaje {
     margin-bottom: 15px;
