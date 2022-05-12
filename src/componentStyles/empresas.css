@@ -117,6 +117,7 @@
 }
 .empresas .xd{
   width: 100%;
+  margin-top: 0px;
 }
 .empresas .question {
   margin: 0 auto;
@@ -278,6 +279,7 @@ main div.images div.logo {
 .empresas main form div.inputs {
   width: 100%;
   margin: 2.2rem 0 6rem 2rem;
+
 }
 .empresas main form div.inputs input {
   width: 100%;
@@ -287,20 +289,28 @@ main div.images div.logo {
   border: rgb(110, 110, 110) solid 1px;
   background-color: rgba(210, 230, 242, 0.891);
   outline: none;
+
 }
 .inputs h3{
   color: #63799e ;
   font-size: medium;
+
+  margin-bottom: 8px;
 }
+
 .details h3{
   color: #63799e;
   font-size: medium;
+
+
 }
 
 .empresas main form div.details {
   box-sizing: border-box;
   width: 100%;
   margin: 2.1rem 2rem 2rem 2rem;
+
+
 }
 .empresas main form div.details div.checkboxes {
   width: 100% !important;

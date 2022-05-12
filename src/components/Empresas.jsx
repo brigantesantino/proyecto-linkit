@@ -123,7 +123,7 @@ export default function Empresas() {
         </div>
     
     <main>
-      <h4 className="search">BUSQUEDA</h4>
+      <h4 className="search">BÚSQUEDA</h4>
       <div className="h1">
         <h1 className="question">
           ¿Estás buscando talento tech para tu empresa?

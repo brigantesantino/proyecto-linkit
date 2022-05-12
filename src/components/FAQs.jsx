@@ -16,7 +16,7 @@ export default function FAQs() {
             <header className="top">
       <div className="title-faqs">
             <div className="menu-wrapper">
-                <p className="logo-faqs">Link <span>IT</span></p>
+                <p className="logo-faqs">Link<span>IT</span></p>
                 <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHambNegro} className="menuHamburguesaImagen" alt="" />
                 </div>
@@ -128,7 +128,7 @@ export default function FAQs() {
     </main>
     <footer className="footer-faqs">
         <div className="footer">
-            <h4>Link <span>IT</span></h4>
+            <h4>Link<span>IT</span></h4>
         </div>
         <div className="info-footer">
             <a href="./home" className="footer-button">

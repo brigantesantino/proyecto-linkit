@@ -1,21 +1,23 @@
 export const valuesSelectRoles = [
-  { label: "Software Developer", value: "Software Developer" },
+  { label: "Software developers", value: "Software developers" },
   { label: "QA", value: "QA" },
-  { label: "UX/UI Designer", value: "UX/UI Designer" },
-  { label: "Proyect Manager", value: "Project Manager" },
-  { label: "Team Lead", value: "Team Lead" },
+  { label: "UX / UI Designers", value: "UX / UI Designer" },
+  { label: "Project Manager", value: "Project Manager" },
+  { label: "Team Leaders", value: "Team Leaders" },
   { label: "Big Data", value: "Big Data" },
   { label: "Machine Learning", value: "Machine Learning" },
-  { label: "Web 3.0", value: "Web 3.0" },
-  { label: "Blockchain", value: "Blockchain" },
+  { label: "Web 3.0 & Blockchain", value: "Web 3.0 & Blockchain" },
 ];
 
 export const valuesSelectComoNosConociste = [
-  { label: "Facebook", value: "Facebook" },
-  { label: "Instagram", value: "Instagram" },
+  { label: "Otras redes", value: "Otras redes" },
   { label: "LinkedIn", value: "LinkedIn" },
   { label: "Google", value: "Google" },
   { label: "Recruiter", value: "Recruiter" },
+  { label: "Agencia / consultora", value: "Agencia / consultora" },
+  { label: "Referido", value: "Referido" },
+  { label: "Mail recibido", value: "Mail recibido" },
+  { label: "Otros", value: "Otros" },
 ];
 
 export const valuesSelectTecnologias = [
