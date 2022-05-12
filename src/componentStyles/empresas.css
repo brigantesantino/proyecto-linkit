@@ -239,6 +239,7 @@ main div.images div.logo {
   white-space: nowrap;
   animation: marquee 10s linear infinite;
   position: absolute;
+  z-index: -1;
 }
 
 .empresas .google-img {

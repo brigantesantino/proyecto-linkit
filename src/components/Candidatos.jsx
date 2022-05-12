@@ -372,7 +372,13 @@ export default function Candidatos() {
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
             />
-
+            <h3>Otros</h3>
+          <input 
+            className="inp"
+            type="textarea"
+            placeholder="Otros..."
+            
+          />
             <h3>Cómo nos conociste</h3>
             <Select  placeholder="Cómo nos conociste"
               className="selectCandidatos"

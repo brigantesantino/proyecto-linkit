@@ -296,6 +296,7 @@ export default function CandidatosIngles() {
               <option value="Rol3">Rol3</option>
               <option value="Rol4">Rol4</option>
             </select>
+            
             <h3>Cómo nos conociste</h3>
             <select
               name="info"

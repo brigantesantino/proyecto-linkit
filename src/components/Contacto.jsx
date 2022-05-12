@@ -1,26 +1,33 @@
 import React from "react";
 import Header from "./Header";
 import "../componentStyles/contact.css";
-
+import vectorFondo from "../images/vectorFondo.svg"
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
+import USA from "../images/banderaUsa.png"
+import ARG from "../images/banderaArg.png"
 
 
 export default function Contacto() {
   return (
     <div className="contacto">
         <Header />
+        <div className="background">
+            <img className="img_back1" src={vectorFondo}/>
+            <img className="img_back2" src={vectorFondo}/>
+            
+        </div>
         <form>
-        <div className="inputs">
-          <h3>Nombre</h3>
-          <input type="text" />
-          <h3>Email</h3>
-          <input type="email" />
-          <h3>Dirección</h3>
-          <input type="text" />
-          <h3>Linkedin*</h3>
-          <input type="text" />
+        <div  className="inputs">
+          <h3>Nombre*</h3>
+          <input placeholder="Nombre"  type="text" />
+          <h3>Email*</h3>
+          <input placeholder="Email" type="email" />
+          <h3>Motivo de contacto</h3>
+          <input placeholder="¿Por qué nos contactaste?" type="text" />
+          <h3>Mensaje</h3>
+          <input placeholder="Mensaje" type="text" />
           
 
           <div className="condition">
@@ -35,6 +42,60 @@ export default function Contacto() {
         </div>
       </form>
       <footer>
+        <div className="footer">
+          
+          <h4>
+            Link<span>IT</span>
+          </h4>
+          <div className="social-media">
+            <a
+            target="_blank"
+              className="linkedin"
+              href="https://www.linkedin.com/company/linkit-hr/"
+            >
+              <img alt="" src={vector} />
+            </a>
+            <a
+              className="gmail"
+              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+            >
+              <img alt="" src={vector1} />
+            </a>
+            <a className="wpp" href="https://web.whatsapp.com/">
+              <img alt="" src={whatsApp} />
+            </a>
+          </div>
+        </div>
+        <div className="info-candidatos">
+          <a href="/home">
+          <p className="footer-button">INICIO</p>
+          </a>
+          <a className="empresas-button" href="/empresas">
+            <p className="footer-button">EMPRESAS</p>
+          </a>
+          <a href="/Candidatos">
+          <p className="footer-button">CANDIDATOS</p>
+          </a>
+          <a href="/faqs">
+          <p className="footer-button">FAQS</p>
+          </a>
+          <div className="contenedor-idiomas">
+              <a href="/homeENG" className="contenedor-bandera">
+                <img className="emojiBandera" src={USA} alt="" />
+                <div className="idioma-component">ENG</div>
+                </a>
+              <a className="contenedor-bandera" href="/home">
+                <img className="emojiBandera" src={ARG} alt="" />
+                <div className="idioma-component">ESP</div>
+              </a>
+            </div>
+        </div>
+        <div className="rights-candidatos">
+          <p>© 2022 LinkIT. All rights reserved.</p>
+        </div>
+      </footer>
+  
+      {/* <footer>
         <div className="footer">
           <h4>
             Link<span>IT</span>
@@ -82,7 +143,7 @@ export default function Contacto() {
           <p>Developed by IT-TECHGROUP</p>
         </div>
         
-      </footer>
+      </footer> */}
     </div>
   );
 }

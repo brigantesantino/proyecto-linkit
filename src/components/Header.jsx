@@ -53,9 +53,10 @@ export default function Header() {
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
+            <a href="/contacto">
               <button type="submit" className="contact-button-component">
                 CONTACTO
-              </button>
+              </button></a>
           </div>
         </div>
       </header>
