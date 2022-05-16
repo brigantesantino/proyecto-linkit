@@ -21,7 +21,7 @@ export default function Header() {
         <div className="title">
           <div className="menu-wrapper">
             <p className="logo-component">
-              Link <span> IT</span>
+              Link<span>IT</span>
             </p>
               <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHambNegro} className="menuHamburguesaImagen" alt="" />
@@ -45,11 +45,9 @@ export default function Header() {
             </a>
             <div className="contenedor-idiomas">
               <a href="" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
-                </a>
+              </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>

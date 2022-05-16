@@ -18,26 +18,33 @@ export default function Contacto() {
             <img className="img_back2" src={vectorFondo}/>
             
         </div>
+        <div className="contenedor-cuestion">
+          <h1 className="cuestion">¿Tenés alguna consulta?</h1>
+          <h2 className="exclamation">¡CONTÁCTANOS!</h2>
+        </div>
+
         <form>
         <div  className="inputs">
           <h3>Nombre*</h3>
-          <input placeholder="Nombre"  type="text" />
+          <input className="nuevo-input" placeholder="Nombre"  type="text" />
           <h3>Email*</h3>
-          <input placeholder="Email" type="email" />
+          <input className="nuevo-input" placeholder="Email" type="email" />
           <h3>Motivo de contacto</h3>
-          <input placeholder="¿Por qué nos contactaste?" type="text" />
+          <input className="nuevo-input" placeholder="¿Por qué nos contactaste?" type="text" />
           <h3>Mensaje</h3>
-          <input placeholder="Mensaje" type="text" />
+          <input className="nuevo-input" placeholder="Mensaje" type="text" />
           
 
-          <div className="condition">
+          <div className="conditionss">
             <div className="acept-conditions">
               <input type="checkbox" className="terms" />
-              <h3>Aceptar condiciones legales</h3>
+              <p className="acept-text">Aceptar condiciones legales</p>
             </div>
-            <button type="submit" className="send-button">
-              Enviar
-            </button>
+            <div className="contenedor-sumb">
+              <button type="submit" className="send-button">
+                Enviar
+              </button>
+            </div>
           </div>
         </div>
       </form>

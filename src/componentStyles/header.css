@@ -58,17 +58,18 @@
 .contenedor-idiomas{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 150px;
+  border: solid 1px red;
 }
 .contenedor-bandera{
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: solid green 1px;
 }
 .idioma-component{
   margin-left: 5px;
   color: #63799e;
+  border: solid 1px blue;
 }
 .select-component {
   color: #233c72;
