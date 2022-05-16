@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import MenuHamburguesa from "./MenuHamburguesa";
 import ModalContacto from "./ModalContacto"
-import menuHamb from "../images/menuHamburguesaBlanco.png";
+//import menuHamb from "../images/menuHamburguesaBlanco.png";
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import vectorFondo from "../images/vectorFondo.svg";
 import "../componentStyles/faqs.css"
@@ -24,7 +24,7 @@ export default function FAQs() {
             </div>
             <div className="info-nav">
                 <div className="contenedorNav">
-                    <a href="./home" className="empresas-button">
+                    <a href="/home" className="empresas-button">
                         <p className="options">INICIO</p>
                     </a>
                     <a className="empresas-button" href="/empresas">
@@ -33,11 +33,11 @@ export default function FAQs() {
                     <a className="empresas-button" href="/Candidatos">
                         <p className="options">CANDIDATOS</p>
                     </a>
-                    <a href="./FAQs" className="empresas-button">
+                    <a href="/FAQs" className="empresas-button">
                         <p className="options">FAQS</p>
                     </a>
                     <div className="contenedor-idiomas">
-              <a href="" className="contenedor-bandera">
+              <a className="contenedor-bandera" href="/home">
                 <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
                 </a>
@@ -144,7 +144,7 @@ export default function FAQs() {
                 <p className="options"  >FAQS</p>
             </a>
             <div className="contenedor-idiomas">
-              <a href="" className="contenedor-bandera">
+              <a href="/home" className="contenedor-bandera">
                 <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
                 </a>

@@ -1,43 +1,127 @@
 import React from "react";
 import Header from "./Header";
 import "../componentStyles/contact.css";
-import vectorFondo from "../images/vectorFondo.svg"
+import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
-
+import USA from "../images/banderaUsa.png";
+import ARG from "../images/banderaArg.png";
+import { postContactoAirtable } from "../functions/postContactoAirtable";
 
 export default function Contacto() {
+  const [nombre, setNombre] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [motivoDeContacto, setMotivoDeContacto] = React.useState("");
+  const [mensaje, setMensaje] = React.useState("");
+  const [condicionesLegales, setCondicionesLegales] = React.useState("");
+  const [errors, setErrors] = React.useState({});
+
+  function validate(input, event) {
+    console.log("input", input);
+    let errorsObj = {};
+    let contadorErrores = 0;
+    if (input.nombre === "") {
+      errorsObj.nombre = "El nombre es requerido";
+      contadorErrores++;
+    }
+    if (input.email === "") {
+      errorsObj.email = "El email es requerido";
+      contadorErrores++;
+    }
+    if (input.motivoDeContacto === "") {
+      errorsObj.direccion = "El motivo de contacto es requerido";
+      contadorErrores++;
+    }
+    if (input.mensaje === "") {
+      errorsObj.direccion = "La direccion es requerida";
+      contadorErrores++;
+    }
+    if (input.condicionesLegales === "") {
+      errorsObj.condicionesLegales = "Debes aceptar las condiciones legales";
+      contadorErrores++;
+    }
+
+    if (contadorErrores === 0) {
+      console.log("no hay errores");
+      postContactoAirtable(
+        input.nombre,
+        input.email,
+        input.motivoDeContacto,
+        input.mensaje
+      );
+      event.preventDefault();
+      setTimeout(() => window.location.reload(), 1000);
+    } else {
+      setErrors(errorsObj);
+      console.log("hay errores no se hizo el post", errorsObj);
+      event.preventDefault();
+    }
+  }
+
+  function handleSubmit(event) {
+    const objetoAVerificar = {
+      nombre,
+      email,
+      motivoDeContacto,
+      mensaje,
+      condicionesLegales,
+    };
+    validate(objetoAVerificar, event);
+  }
   return (
     <div className="contacto">
-        <Header />
-        <div className="background">
-            <img className="img_back1" src={vectorFondo}/>
-            <img className="img_back2" src={vectorFondo}/>
-            
-        </div>
-        <div className="contenedor-cuestion">
-          <h1 className="cuestion">¿Tenés alguna consulta?</h1>
-          <h2 className="exclamation">¡CONTÁCTANOS!</h2>
-        </div>
+      <Header />
+      <div className="background">
+        <img alt="" className="img_back1" src={vectorFondo} />
+        <img alt="" className="img_back2" src={vectorFondo} />
+      </div>
+      <div className="contenedor-cuestion">
+        <h1 className="cuestion">¿Tenés alguna consulta?</h1>
+        <h2 className="exclamation">¡CONTÁCTANOS!</h2>
+      </div>
 
-        <form>
-        <div  className="inputs">
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <div className="inputs">
           <h3>Nombre*</h3>
-          <input className="nuevo-input" placeholder="Nombre"  type="text" />
+          {errors.nombre ? <p className="alertaForm">{errors.nombre}</p> : null}
+          <input
+            className="nuevo-input"
+            placeholder="Nombre"
+            type="text"
+            onChange={(e) => setNombre(e.target.value)}
+          />
           <h3>Email*</h3>
-          <input className="nuevo-input" placeholder="Email" type="email" />
+          {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
+          <input
+            className="nuevo-input"
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <h3>Motivo de contacto</h3>
-          <input className="nuevo-input" placeholder="¿Por qué nos contactaste?" type="text" />
+          <input
+            className="nuevo-input"
+            placeholder="¿Por qué nos contactaste?"
+            type="text"
+            onChange={(e) => setMotivoDeContacto(e.target.value)}
+          />
+
           <h3>Mensaje</h3>
-          <input className="nuevo-input" placeholder="Mensaje" type="text" />
-          
+          <input
+            className="nuevo-input"
+            placeholder="Mensaje"
+            type="text"
+            onChange={(e) => setMensaje(e.target.value)}
+          />
 
           <div className="conditionss">
             <div className="acept-conditions">
-              <input type="checkbox" className="terms" />
+              <input
+                type="checkbox"
+                className="terms"
+                onClick={(e) => setCondicionesLegales(e.target.value)}
+              />
               <p className="acept-text">Aceptar condiciones legales</p>
             </div>
             <div className="contenedor-sumb">
@@ -50,15 +134,15 @@ export default function Contacto() {
       </form>
       <footer>
         <div className="footer">
-          
           <h4>
             Link<span>IT</span>
           </h4>
           <div className="social-media">
             <a
-            target="_blank"
+              target="_blank"
               className="linkedin"
               href="https://www.linkedin.com/company/linkit-hr/"
+              rel="noopener noreferrer"
             >
               <img alt="" src={vector} />
             </a>
@@ -75,33 +159,33 @@ export default function Contacto() {
         </div>
         <div className="info-candidatos">
           <a href="/home">
-          <p className="footer-button">INICIO</p>
+            <p className="footer-button">INICIO</p>
           </a>
           <a className="empresas-button" href="/empresas">
             <p className="footer-button">EMPRESAS</p>
           </a>
           <a href="/Candidatos">
-          <p className="footer-button">CANDIDATOS</p>
+            <p className="footer-button">CANDIDATOS</p>
           </a>
           <a href="/faqs">
-          <p className="footer-button">FAQS</p>
+            <p className="footer-button">FAQS</p>
           </a>
           <div className="contenedor-idiomas">
-              <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
-                </a>
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
-                <div className="idioma-component">ESP</div>
-              </a>
-            </div>
+            <a href="/homeENG" className="contenedor-bandera">
+              <img className="emojiBandera" src={USA} alt="" />
+              <div className="idioma-component">ENG</div>
+            </a>
+            <a className="contenedor-bandera" href="/home">
+              <img className="emojiBandera" src={ARG} alt="" />
+              <div className="idioma-component">ESP</div>
+            </a>
+          </div>
         </div>
         <div className="rights-candidatos">
           <p>© 2022 LinkIT. All rights reserved.</p>
         </div>
       </footer>
-  
+
       {/* <footer>
         <div className="footer">
           <h4>
@@ -154,4 +238,3 @@ export default function Contacto() {
     </div>
   );
 }
-    

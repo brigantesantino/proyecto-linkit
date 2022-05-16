@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 
 import "../componentStyles/candidatos.css";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 import image17 from "../images/image 17.svg";
 import image18 from "../images/image 18.png";
 import image20 from "../images/image 20.svg";
@@ -20,8 +20,8 @@ import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-import menuHambNegro from "../images/menuHamburguesa.svg";
-import MenuHamburguesa from "./MenuHamburguesa";
+//import menuHambNegro from "../images/menuHamburguesa.svg";
+//import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
 import USA from "../images/banderaUsa.png";
 import ARG from "../images/banderaArg.png";
@@ -43,19 +43,18 @@ export default function Candidatos() {
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
-  const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
+  //const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState([]);
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
 
-  const [menu, setMenu] = useState(false);
+  //const [menu, setMenu] = useState(false);
   const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
   function validate(input, event) {
-    console.log("input", input);
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
@@ -153,7 +152,6 @@ export default function Candidatos() {
       .then((res) => res.json())
       .then((data) => {
         setOfertas(data.records);
-        //console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -164,9 +162,9 @@ export default function Candidatos() {
     <div className="candidatos">
       <Header />
       <div className="background">
-        <img className="img_back1" src={vectorFondo} />
-        <img className="img_back2" src={vectorFondo} />
-        <img className="img_back3" src={vectorFondo} />
+        <img alt="" className="img_back1" src={vectorFondo} />
+        <img alt="" className="img_back2" src={vectorFondo} />
+        <img alt="" className="img_back3" src={vectorFondo} />
       </div>
       <nav id="sideNav">
         <ul className="side-menu">
@@ -226,7 +224,7 @@ export default function Candidatos() {
               <h1>Cargando ofertas...</h1>
             )}
           </div>
-          {popup && <Popup data={data} />}
+          {popup ? <Popup data={data}/> : null}
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
@@ -425,6 +423,7 @@ export default function Candidatos() {
               target="_blank"
               className="linkedin"
               href="https://www.linkedin.com/company/linkit-hr/"
+              rel="noopener noreferrer"
             >
               <img alt="" src={vector} />
             </a>

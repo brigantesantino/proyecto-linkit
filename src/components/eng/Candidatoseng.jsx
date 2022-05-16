@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../componentStyles/candidatos.css";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 import image17 from "../../images/image 17.svg";
 import image18 from "../../images/image 18.png";
 import image20 from "../../images/image 20.svg";
@@ -16,9 +16,9 @@ import vectorFondo from "../../images/vectorFondo.svg"
 import vector from "../../images/Vector.svg";
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg";
-import menuHambNegro from "../../images/menuHamburguesa.svg";
-import MenuHamburguesa from "./../MenuHamburguesa";
-import Header from "./../Header";
+//import menuHambNegro from "../../images/menuHamburguesa.svg";
+//import MenuHamburguesa from "./../MenuHamburguesa";
+//import Header from "./../Header";
 import USA from "../../images/banderaUsa.png"
 import ARG from "../../images/banderaArg.png"
 
@@ -40,7 +40,7 @@ export default function Candidatoseng() {
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
 
-  const [menu, setMenu] = useState(false);
+  //const [menu, setMenu] = useState(false);
 
   const [errors, setErrors] = useState({});
 
@@ -135,9 +135,9 @@ export default function Candidatoseng() {
     <div className="candidatos">
       <HeaderENG />
       <div className="background">
-            <img className="img_back1" src={vectorFondo}/>
-            <img className="img_back2" src={vectorFondo}/>
-            <img className="img_back3" src={vectorFondo}/>
+            <img alt="" className="img_back1" src={vectorFondo}/>
+            <img alt="" className="img_back2" src={vectorFondo}/>
+            <img alt="" className="img_back3" src={vectorFondo}/>
         </div>
       <nav id="sideNav">
         <ul className="side-menu">
@@ -368,6 +368,7 @@ export default function Candidatoseng() {
               target="_blank"
               className="linkedin"
               href="https://www.linkedin.com/company/linkit-hr/"
+              rel="noopener noreferrer"
             >
               <img alt="" src={vector} />
             </a>

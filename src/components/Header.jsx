@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 import "../componentStyles/header.css";
-import { useNavigate } from "react-router-dom";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
+//import { useNavigate } from "react-router-dom";
+//import USA from "../images/banderaUsa.png"
+//import ARG from "../images/banderaArg.png"
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
 
 export default function Header() {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/contacto`; 
-    navigate(path);
-  }
+  //let navigate = useNavigate(); 
+  //const routeChange = () =>{ 
+  //  let path = `/contacto`; 
+  //  navigate(path);
+  //}
 
   const [menu, setMenu] = useState(false);
 
@@ -44,7 +44,7 @@ export default function Header() {
             <p className="button-component">FAQS</p>
             </a>
             <div className="contenedor-idiomas">
-              <a href="" className="contenedor-bandera">
+              <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ENG</div>
               </a>
               <a className="contenedor-bandera" href="/home">

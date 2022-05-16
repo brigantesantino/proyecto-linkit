@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 import "../../componentStyles/header.css";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import USA from "../../images/banderaUsa.png"
 import ARG from "../../images/banderaArg.png"
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import MenuHamburguesa from "../MenuHamburguesa";
 
 export default function HeaderENG() {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/contacto`; 
-    navigate(path);
-  }
+  //let navigate = useNavigate(); 
+  //const routeChange = () =>{ 
+  //  let path = `/contacto`; 
+  //  navigate(path);
+  //}
 
   const [menu, setMenu] = useState(false);
 

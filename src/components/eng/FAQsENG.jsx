@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import MenuHamburguesa from "./../MenuHamburguesa";
 import ModalContacto from "./../ModalContacto"
-import menuHamb from "../../images/menuHamburguesaBlanco.png";
+//import menuHamb from "../../images/menuHamburguesaBlanco.png";
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import vectorFondo from "../../images/vectorFondo.svg";
 import "../../componentStyles/faqs.css"

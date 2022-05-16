@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../../componentStyles/empresas.css";
 import { postFormAirtable } from "../../functions/postEmpresasAirtable";
 
-import menuHambNegro from "../../images/menuHamburguesa.svg";
-import MenuHamburguesa from "./../MenuHamburguesa";
+//import menuHambNegro from "../../images/menuHamburguesa.svg";
+//import MenuHamburguesa from "./../MenuHamburguesa";
 import image17 from "../../images/image 17.svg";
 import image18 from "../../images/image 18.png";
 import image20 from "../../images/image 20.svg";
@@ -22,7 +22,7 @@ import whatsApp from "../../images/WhatsApp.svg";
 import USA from "../../images/banderaUsa.png"
 import ARG from "../../images/banderaArg.png"
 
-import Header from "./../Header";
+//import Header from "./../Header";
 import HeaderENG from "./HeaderENG";
 
 export default function Empresas() {
@@ -111,9 +111,9 @@ export default function Empresas() {
     <div className="empresas">
     <HeaderENG/>
     <div className="background">
-            <img className="img_back1" src={vectorFondo}/>
-            <img className="img_back2" src={vectorFondo}/>
-            <img className="img_back3" src={vectorFondo}/>
+            <img alt="" className="img_back1" src={vectorFondo}/>
+            <img alt="" className="img_back2" src={vectorFondo}/>
+            <img alt="" className="img_back3" src={vectorFondo}/>
         </div>
     
     <main>
@@ -404,6 +404,7 @@ export default function Empresas() {
               target="_blank"
               className="linkedin"
               href="https://www.linkedin.com/company/linkit-hr/"
+              rel="noopener noreferrer"
             >
               <img alt="" src={vector} />
             </a>

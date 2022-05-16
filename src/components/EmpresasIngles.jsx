@@ -108,9 +108,9 @@ export default function Empresas() {
     <div className="empresas">
     <Header/>
     <div className="background">
-            <img className="img_back1" src={vectorFondo}/>
-            <img className="img_back2" src={vectorFondo}/>
-            <img className="img_back3" src={vectorFondo}/>
+            <img alt="" className="img_back1" src={vectorFondo}/>
+            <img alt="" className="img_back2" src={vectorFondo}/>
+            <img alt="" className="img_back3" src={vectorFondo}/>
         </div>
     
     <main>
