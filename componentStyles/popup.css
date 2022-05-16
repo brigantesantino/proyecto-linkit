@@ -1,0 +1,347 @@
+.popup * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow-x: visible;
+}
+.text{
+  text-align: left;
+}
+.popup {
+  background-color: white;
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+  padding: 2rem;
+  border: 1px solid #63799e;
+  border-radius: 8px;
+  margin: 0 auto;
+  text-align: left;
+  
+}
+div.header-popup{
+  display: flex;
+  justify-content: space-between;
+}
+.arrow{
+  font-size: 50px;
+  text-decoration: none;
+  background-color: transparent;
+ border: none;
+ color: black;
+ width: 20%;
+ 
+}
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+ }
+ 
+ .cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #b1dae7;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+ }
+ 
+ .cta span {
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #234567;
+ }
+ 
+ .cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+ }
+ 
+ .cta:hover:before {
+  width: 100%;
+  background: #b1dae7;
+ }
+ 
+ .cta:hover svg {
+  transform: translateX(0);
+ }
+ 
+ .cta:active {
+  transform: scale(0.95);
+ }
+.popup span.google {
+  color: #6791d9;
+  margin-left: 0.5rem;
+}
+.color1{
+  color: #63799e;
+}
+.negro{
+  color: black;
+  font-weight: lighter;
+}
+.designer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #233c72;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.popup div.adress {
+  font-size: 0.6rem;
+}
+.popup div.adress h2 {
+  font-weight: lighter;
+}
+.popup div.adress span {
+  font-weight: bold;
+}
+.popup h3.location {
+  font-size: 1rem;
+}
+.popup h3.location h3 {
+  font-weight: bold;
+}
+.popup h3.location span.remote {
+  font-weight: lighter;
+}
+.popup h3.engagement {
+  font-size: 1rem;
+}
+.popup h3.engagement h3 {
+  font-weight: bold;
+}
+.popup h3.engagement span.date {
+  font-weight: lighter;
+}
+.popup p {
+  margin-bottom: 1.5rem;
+}
+.popup h3 {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+.popup h4 {
+  font-size: 1rem;
+  font-weight: 375;
+}
+.popup .xd{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+}
+.popup .checkboxes{
+  width: 100% !important;
+  display: flex;
+  margin: 1.5rem 0 0rem 0;
+  color: #63799e ;
+  flex-direction: column;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+}
+.popup .apply {
+  width: 40%;
+  border: #63799e solid 1px;
+  background-color: #63799e;
+  padding: 0.6rem 0.5rem;
+  color: white;
+  border-radius: 6px;
+  transition: 300ms;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.13);
+  border-radius: 17px;
+}
+.popup form div.condition button.send-button:hover {
+  background-color: transparent;
+  color: black;
+  transition: 300ms;
+}
+.popup footer {
+  border-top: gray solid 2px;
+  margin: 2.2rem auto;
+  width: 62%;
+  margin-top: 0px;
+}
+.popup form {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 0.7rem;
+}
+.popup form {
+ 
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 30%;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+.popup .file input {
+  display: none;
+}
+.popup .file label {
+  cursor: pointer;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  color: gray;
+  display: block;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+  margin: 1rem 0;
+  width: 5rem;
+  
+}
+.popup form div.inputs {
+  width: 100%;
+  margin: 2rem;
+  
+}
+
+.popup form div.inputs input {
+  width: 100%;
+  padding: 7px 7px;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+  outline: none;
+}
+.popup form div.inputs select {
+  width: 100%;
+  padding: 7px 7px;
+  margin: 0.8rem 0;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+}
+.popup form div.details {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2rem;
+  margin: -1.8rem 0 1.8rem 0;
+  
+}
+.popup form div.details select {
+  width: 100%;
+  padding: 7px 7px;
+  margin: 0.8rem 0;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+  outline: none;
+}
+.popup form div.details h3.mensaje {
+  margin-bottom: 15px;
+}
+.popup .remuneracion{
+  width: 100%;
+  padding: 7px 7px;
+  margin: 0.8rem 0;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+  outline: none;
+  
+}
+
+.popup form div.details textarea {
+  width: 100%;
+  height: 15%;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+  outline: none;
+
+}
+.popup .css-yk16xz-control{
+  width: 100%;
+  border-radius: 5px;
+  border: rgb(110, 110, 110) solid 1px;
+  background-color: rgba(210, 230, 242, 0.891);
+}
+.popup form .condition {
+  width: 100%;
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.popup form .acept-conditions {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.popup form div.condition h3 {
+  font-size: 15px;
+}
+.popup form div.condition input {
+  margin: 5px 5px 0 0;
+}
+.popup form div.condition h3 {
+  margin: 0 0 0 0;
+}
+.popup form div.condition button.send-button {
+  width: 20%;
+  border: #63799e solid 1px;
+  background-color: #63799e;
+  padding: 0.4rem 0.5rem;
+  color: white;
+  border-radius: 6px;
+  transition: 300ms;
+  outline: none;
+}
+.popup form div.condition button.send-button:hover {
+  background-color: transparent;
+  color: black;
+  transition: 300ms;
+}
+
+.popup .condition {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+@media screen and (min-width: 768px) {
+  .popup {
+    width: 768px;
+    margin: 1rem auto;
+  }
+  .popup .apply {
+    width: 20%;
+  }
+}
+

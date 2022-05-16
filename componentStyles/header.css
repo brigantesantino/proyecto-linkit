@@ -1,0 +1,120 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.top-header-component {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+
+}
+.header header div.info {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header header .menu-wrapper {
+  display: flex;
+  align-items: center;
+}
+.logo-component{
+  color: #233c72;
+  background-color: transparent;
+  display: flex;
+  font: bolder;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+
+}
+.logo-component span {
+  color: #63799e;
+  font-weight: bold;
+  margin-left: 3px;
+}
+.header header div.title {
+  padding: 0.6rem;
+  border-bottom: #63799e solid 2px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-component{
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+  justify-content: space-between;
+}
+.emojiBandera{
+  width: 17px;
+  margin-right: 5px;
+}
+.contenedor-idiomas{
+  display: flex;
+  flex-direction: row;
+  border: solid 1px red;
+}
+.contenedor-bandera{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: solid green 1px;
+}
+.idioma-component{
+  margin-left: 5px;
+  color: #63799e;
+  border: solid 1px blue;
+}
+.select-component {
+  color: #233c72;
+}
+.header header div.info select {
+  border: none;
+}
+.contact-button-component {
+  cursor: pointer;
+  height: 40px;
+  width: 140px;
+  border-radius: 7px;
+  background-color: #63799e;
+  color: white;
+  border: none;
+  transition: 300ms;
+}
+.button-component{
+  color: #63799e;
+}
+.header header button.contact-button:hover {
+  background-color: transparent;
+  color: black;
+  border: #63799e solid 1px;
+}
+.header header div.button {
+  border: none;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1024px){
+  .sideNav{
+    right: -250px;
+  }
+   .header .menu-wrapper .menu-hmb {
+    display: block;
+    font-size: 1.6rem;
+    margin: 0.7rem 0.8rem;
+    cursor: pointer;
+  } 
+}
+@media (max-width: 724px){
+  .info-component{
+    display: none;
+  }
+}
