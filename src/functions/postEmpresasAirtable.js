@@ -31,7 +31,7 @@ export function postFormAirtable(
     function (err, records) {
       if (err) {
         console.error(err);
-        console.log('inter',interesadoEnRoles);
+        console.log('inter',comoNosConociste);
         return;
       }
       records.forEach(function (record) {

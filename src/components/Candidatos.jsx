@@ -102,7 +102,7 @@ export default function Candidatos() {
         input.ofertas
       );
       event.preventDefault();
-      setTimeout(() => window.location.reload(),1000)
+      setTimeout(() => window.location.reload(),30000)
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);

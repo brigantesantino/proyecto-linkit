@@ -1,5 +1,8 @@
+// IMPORTANTE: SI SE CAMBIA ALGUN VALOR DE ACA HAY QUE CAMBIARLO EN EL AIRTABLE! 
+// Detalles:
+//  -Lo que se muestra es el label, y lo que se manda a airtable es el value
 export const valuesSelectRoles = [
-  { label: "Software developers", value: "Software developers" },
+  { label: "Software developer", value: "Software Developer" },
   { label: "QA", value: "QA" },
   { label: "UX / UI Designers", value: "UX / UI Designer" },
   { label: "Project Manager", value: "Project Manager" },
