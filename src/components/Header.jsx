@@ -43,9 +43,9 @@ export default function Header() {
             <a href="/faqs">
             <p className="button-component">FAQS</p>
             </a>
-            <div className="contenedor-idiomas">
+            <div className="contenedor-idiomas-header">
               <a className="contenedor-bandera" href="/home">
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
               </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>

@@ -1,39 +1,46 @@
 import React, {useState} from "react";
-import Modal from "./Modal";
-import ModalEficiencia from "./ModalEficiencia"
-import ModalSeguridad from "./ModalSeguridad"
-import ModalVelocidad from "./ModalVelocidad"
-import ModalContacto from "./ModalContacto"
 import MenuHamburguesa from "./MenuHamburguesa";
 import vectorFondo from "../images/vectorFondo.svg";
-import carafeliz from "../images/carafeliz.svg";
-import eficiencia from "../images/eficiencia.svg";
-import velocidad from "../images/velocidad.svg";
-import seguridad from "../images/seguridad.svg";
+import carafeliz from "../images/manos.png";
+import eficiencia from "../images/eficiencia.png";
+import velocidad from "../images/auto.png";
+import seguridad from "../images/candado.png";
 import logoTres from "../images/LogoTres.svg";
 import menuHamb from "../images/menuHamburguesaBlanco.png";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-
-
+import img3D from "../images/logo3d.svg"
+import contrato from "../images/contrato.png"
 import "../componentStyles/home.css";
 
 export default function Index() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [modal2, setModal2] = useState(false);
-    const [modal3, setModal3] = useState(false);
-    const [modal4, setModal4] = useState(false);
-    const [modalContacto, setModalContacto] = useState(false);
+    const [style, setStyle] = useState("style");
+    const [styleNormal2, setStyle2] = useState("style");
+    const [styleNormal3, setStyle3] = useState("style");
+    const [styleNormal4, setStyle4] = useState("style");
     const [menu, setMenu] = useState(false);
+    
+    const changeStyle = () => {
+        style === "styleDos" ? setStyle("style"):setStyle("styleDos")
+        };
+    const changeStyle2 = () => {
+        styleNormal2 === "style2" ? setStyle2("style"):setStyle2("style2")
+        };
+    const changeStyle3 = () => {
+        styleNormal3 === "style3" ? setStyle3("style"):setStyle3("style3")
+        };
+    const changeStyle4 = () => {
+        styleNormal4 === "style4" ? setStyle4("style"):setStyle4("style4")
+        };
+        
+
   return (
     <div className="body">
       <header className="top-header">
       <div className="title">
             <div className="menu-wrapper">
-                <p className="logo">Link <span>IT</span></p>
+                <p className="logo">Link<span>IT</span></p>
                 <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHamb} className="menuHamburguesaImagen" alt="" />
                 </div>
@@ -53,18 +60,17 @@ export default function Index() {
                     <a href="./faqs" className="empresas-button">
                         <p className="faqs"  >FAQS</p>
                     </a>
-                    <div className="contenedor-idiomas">
-              <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
+                <div className="contenedor-idiomas-home">
+                <a href="/homeENG" className="contenedor-bandera">
+                    <p className="idioma-component">ENG |</p>
                 </a>
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
-                <div className="idioma-component">ESP</div>
-              </a>
+                <a className="contenedor-bandera" href="/home">
+                    <p className="idioma-component">ESP</p>
+                </a>
             </div>
-                        <button className="contact-button" onClick={() => setModalContacto(true)}>CONTACTO</button>
-                    {modalContacto && <ModalContacto setModalContacto={setModalContacto} />}
+                <a href="/contacto">
+                        <button className="contact-button">CONTACTO</button>
+                </a>
                 </div>
 
             </div>
@@ -81,79 +87,92 @@ export default function Index() {
                 <div className="contenedorText_main">
                     <div className="atention_main">Estamos Contratando!</div>
                     <div className="preg_main">¿Estás buscando servicio de <span>selección de talento</span> en el mundo TECH?</div>
-                    <div className="service_main">En Linkit tanto a empresas que buscan nuevos empleados capacitados, como candidatos que quieren crecer profesionalmente</div>
+                    <div className="service_main">En un mundo tan grande, LinkIT conecta las mejores empresas con el mejor talento para potenciar su desarrollo.</div>
                     <a href="#section" className="bMasInfo" id="colorBlanco">
                         Más información
                     </a>
                 </div>
                 <div className="cont_ilustration">
-                    <img className="img_main"  alt=""/>
+                    <img className="img_main" src={img3D} alt=""/>
                 </div>
             </div>
         </div>
         </main> 
         <section className="section_abaut" >
         <div className="contenedorCards_about" id="section">
-
-            <div className="cardDetails_abaut" id="myBtn1" onClick={() => setIsOpen(true)}>
+            <div className="cardDetails_abaut" id="myBtn1" onClick={changeStyle}>
                 <div>
-                    <img src={carafeliz} alt="" />
+                    <img className="img-home" src={carafeliz} alt="" />
                 </div>
                 <div>
                     <div className="confianza_about">Confianza</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <p className={style}>Equipo de consultores especializados en el área TECH.</p>
                 </div>
             </div>
-            {isOpen && <Modal setIsOpen={setIsOpen} />}
 
-            <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={() => setModal4(true)}>
+
+            <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={changeStyle2}>
                 <div>
-                    <img src={velocidad} alt=""/>
+                    <img className="img-home" src={velocidad} alt=""/>
                 </div>
                 <div>
                     <div className="confianza_about">Velocidad</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <p className={styleNormal2}>2 Semanas de espera desde el cierre del perfil necesitado.</p>
                 </div>
             </div>
-            {modal4 && <ModalVelocidad setModal4={setModal4} />}
 
-            <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={() => setModal2(true)}>
+            <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={changeStyle3}>
                 <div>
-                    <img src={eficiencia} alt=""/>
+                    <img className="img-home" src={eficiencia} alt=""/>
                 </div>
                 <div>
                     <div className="confianza_about">Eficiencia</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <p className={styleNormal3}>Equipo de consultores especializados en el área TECH.</p>
                 </div>
             </div>
-            {modal2 && <ModalEficiencia setModal2={setModal2} />}
 
-            <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={() => setModal3(true)}>
+            <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={changeStyle4}>
                 <div>
-                    <img src={seguridad} alt=""/>
+                    <img className="img-home" src={seguridad} alt=""/>
                 </div>
                 <div >
                     <div className="confianza_about">Seguridad</div>
-                    <div className="detalles_about">Ver detalles</div>
+                    <p className={styleNormal4}>Equipo de consultores especializados en el área TECH.</p>
                 </div>
             </div>
         </div>
-        {modal3 && <ModalSeguridad setModal3={setModal3} />}
+    </section>
+    <section>
+
         <div className="contenedorContratoAbout">
             <div className="contenedorContrato">
                 <div>
-                    Contrato
+                    <img className="img_contrato" src={contrato} alt="" />
                 </div>
             </div>
             <div className="contenedorAboutUs_about">
                 <div className="about_about">SOBRE NOSOTROS</div>
                 <div className="preg_about">Qué hacemos?</div>
                 <ol>
-                    <li><span>Entendemos tus necesidades tecnicas</span></li>
-                    <li><span>Source and vet all the market during 72hs.</span></li>
-                    <li><span>Avanzamos con enrtevistas preeliminares</span></li>
-                    <li><span>Te presentamos los mejores perfiles que se alinean con tus necesidades técnicas, culturales e inclusive de habilidades blandas.</span></li>
-                    <li><span>Te brindamos soporte y nos adaptamos a tu proceso de selección interna.</span></li>
+                    <li>
+                        <div className="titulos">Asignación de rol</div>
+                        <span className="subt">Entendemos tus necesidades completas, técnicas, de cultura, habilidades blandas y demás.</span>
+                    </li>
+                    <li>
+                        <div className="titulos">Llamada de alineación</div>
+                        <span className="subt">Investigamos y sourceamos el mercado.</span>
+                    </li>
+                    <li>
+                        <div className="titulos">
+                            Búsqueda y reclutamiento
+                        </div>
+                        <span className="subt">Avanzamos con entrevistas preeliminares.</span></li>
+                    <li>
+                        <div className="titulos">Presentación de candidatos</div>
+                        <span className="subt">Te presentamos los mejores perfiles que se alinean con tus necesidades.</span></li>
+                    <li>
+                        <div className="titulos">Potenciamiento</div>
+                        <span className="subt">Te brindamos soporte y nos adaptamos a tu proceso de selección interno.</span></li>
                 </ol>
             </div>
         </div>
@@ -200,7 +219,7 @@ export default function Index() {
 
     <footer>
         <div className="footer">
-            <h4>Link <span>IT</span></h4>
+            <h4>Link<span>IT</span></h4>
         </div>
         <div className="social-media-home">
             <a
@@ -236,11 +255,9 @@ export default function Index() {
             </a>
             <div className="contenedor-idiomas">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>

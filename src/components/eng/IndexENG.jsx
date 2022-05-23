@@ -1,19 +1,14 @@
 import React, {useState} from "react";
-import ModalENG from "../../components/eng/ModalENG";
-import ModalEficienciaENG from "./ModalEficienciaENG"
-import ModalSeguridadENG from "./ModalSeguridadENG"
-import ModalVelocidadENG from "./ModalVelocidadENG"
+
 import ModalContactoENG from "./ModalContactoENG"
 import MenuHamburguesaENG from "./MenuHamburguesaENG";
 import vectorFondo from "../../images/vectorFondo.svg";
-import carafeliz from "../../images/carafeliz.svg";
-import eficiencia from "../../images/eficiencia.svg";
-import velocidad from "../../images/velocidad.svg";
-import seguridad from "../../images/seguridad.svg";
 import logoTres from "../../images/LogoTres.svg";
 import menuHamb from "../../images/menuHamburguesaBlanco.png";
-import USA from "../../images/banderaUsa.png"
-import ARG from "../../images/banderaArg.png"
+import carafeliz from "../../images/manos.png";
+import eficiencia from "../../images/eficiencia.png";
+import velocidad from "../../images/auto.png";
+import seguridad from "../../images/candado.png";
 
 import vector from "../../images/Vector.svg"
 import vector1 from "../../images/Vector-1.svg";
@@ -22,18 +17,31 @@ import whatsApp from "../../images/WhatsApp.svg"
 import "../../componentStyles/home.css";
 
 export default function IndexENG() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [modal2, setModal2] = useState(false);
-    const [modal3, setModal3] = useState(false);
-    const [modal4, setModal4] = useState(false);
+    const [style, setStyle] = useState("style");
+    const [styleNormal2, setStyle2] = useState("style");
+    const [styleNormal3, setStyle3] = useState("style");
+    const [styleNormal4, setStyle4] = useState("style");
     const [modalContacto, setModalContacto] = useState(false);
     const [menu, setMenu] = useState(false);
+
+    const changeStyle = () => {
+        style === "styleDos" ? setStyle("style"):setStyle("styleDos")
+        };
+    const changeStyle2 = () => {
+        styleNormal2 === "style2" ? setStyle2("style"):setStyle2("style2")
+        };
+    const changeStyle3 = () => {
+        styleNormal3 === "style3" ? setStyle3("style"):setStyle3("style3")
+        };
+    const changeStyle4 = () => {
+        styleNormal4 === "style4" ? setStyle4("style"):setStyle4("style4")
+        };
   return (
     <div className="body">
       <header className="top-header">
       <div className="title">
             <div className="menu-wrapper">
-                <p className="logo">Link <span>IT</span></p>
+                <p className="logo">Link<span>IT</span></p>
                 <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHamb} className="menuHamburguesaImagen" alt="" />
                 </div>
@@ -55,11 +63,9 @@ export default function IndexENG() {
                     </a>
                     <div className="contenedor-idiomas">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
@@ -80,7 +86,7 @@ export default function IndexENG() {
             <div className ="contenedor_main" >
                 <div className="contenedorText_main">
                     <div className="atention_main">We Are Hiring!</div>
-                    <div className="preg_main">Are you looking for <span>talent selection </span> services in the tech world?</div>
+                    <div className="preg_main">Are you looking for <span>top talent selection </span> services in the tech industry world?</div>
                     <div className="service_main">At Linkit, both companies looking for new trained employees, as well as candidates who want to grow professionally</div>
                     <a href="#section" className="bMasInfo" id="colorBlanco">
                         More Information
@@ -94,51 +100,50 @@ export default function IndexENG() {
         </main> 
         <section className="section_abaut" >
         <div className="contenedorCards_about" id="section">
-
-            <div className="cardDetails_abaut" id="myBtn1" onClick={() => setIsOpen(true)}>
+            <div className="cardDetails_abaut" id="myBtn1" onClick={changeStyle}>
                 <div>
-                    <img src={carafeliz} alt="" />
+                    <img className="img-home" src={carafeliz} alt="" />
                 </div>
                 <div>
-                    <div className="confianza_about">Trust</div>
-                    <div className="detalles_about">See more</div>
-                </div>
-            </div>
-            {isOpen && <ModalENG setIsOpen={setIsOpen} />}
-
-            <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={() => setModal4(true)}>
-                <div>
-                    <img src={velocidad} alt=""/>
-                </div>
-                <div>
-                    <div className="confianza_about">Velocity</div>
-                    <div className="detalles_about">See more</div>
+                    <div className="confianza_about">Confianza</div>
+                    <p className={style}>Equipo de consultores especializados en el área TECH.</p>
                 </div>
             </div>
-            {modal4 && <ModalVelocidadENG setModal4={setModal4} />}
 
-            <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={() => setModal2(true)}>
+
+            <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={changeStyle2}>
                 <div>
-                    <img src={eficiencia} alt=""/>
+                    <img className="img-home" src={velocidad} alt=""/>
                 </div>
                 <div>
-                    <div className="confianza_about">Efficiency</div>
-                    <div className="detalles_about">See more</div>
+                    <div className="confianza_about">Velocidad</div>
+                    <p className={styleNormal2}>2 Semanas de espera desde el cierre del perfil necesitado.</p>
                 </div>
             </div>
-            {modal2 && <ModalEficienciaENG setModal2={setModal2} />}
 
-            <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={() => setModal3(true)}>
+            <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={changeStyle3}>
                 <div>
-                    <img src={seguridad} alt=""/>
+                    <img className="img-home" src={eficiencia} alt=""/>
+                </div>
+                <div>
+                    <div className="confianza_about">Eficiencia</div>
+                    <p className={styleNormal3}>Equipo de consultores especializados en el área TECH.</p>
+                </div>
+            </div>
+
+            <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={changeStyle4}>
+                <div>
+                    <img className="img-home" src={seguridad} alt=""/>
                 </div>
                 <div >
-                    <div className="confianza_about">Security</div>
-                    <div className="detalles_about">See more</div>
+                    <div className="confianza_about">Seguridad</div>
+                    <p className={styleNormal4}>Equipo de consultores especializados en el área TECH.</p>
                 </div>
             </div>
         </div>
-        {modal3 && <ModalSeguridadENG setModal3={setModal3} />}
+    </section>
+    <section>
+
         <div className="contenedorContratoAbout">
             <div className="contenedorContrato">
                 <div>
@@ -200,7 +205,7 @@ export default function IndexENG() {
 
     <footer>
         <div className="footer">
-            <h4>Link <span>IT</span></h4>
+            <h4>Link<span>IT</span></h4>
         </div>
         <div className="social-media-home">
             <a
@@ -236,11 +241,9 @@ export default function IndexENG() {
             </a>
             <div className="contenedor-idiomas">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
                 <div className="idioma-component">ENG</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>

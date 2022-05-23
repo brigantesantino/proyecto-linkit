@@ -19,9 +19,13 @@
     border-bottom: #63799E 2px solid;
     width: 100%;
 }
+.contact-button:hover{
+  color: #63799E;
+}
 .info-nav{
-  border: solid red 1px;
   width: 60%;
+
+  
 }
   .img_back1-faqs{
     position: relative;
@@ -57,10 +61,10 @@
     color: #233c72;
     font-weight: bold;
 }
-.contenedor-idiomas{
+.contenedor-idiomas-faqs{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   width: 150px;
 }
 .contenedor-bandera{
@@ -88,8 +92,8 @@ color: #233c72;
 
 background-color: transparent;
 }
-.top{
-    margin-bottom: 100px;
+.top-faqs{
+    margin-bottom: 120px;
     width: 85%;
 }
 .mainFaqs{

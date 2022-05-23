@@ -8,12 +8,13 @@ import "../componentStyles/faqs.css"
 import USA from "../images/banderaUsa.png"
 import ARG from "../images/banderaArg.png"
 
+
 export default function FAQs() {
   const [modalContacto, setModalContacto] = useState(false);
   const [menu, setMenu] = useState(false);
   return (
     <div className="contenedorFaqs">
-            <header className="top">
+      <header className="top-faqs">
       <div className="title-faqs">
             <div className="menu-wrapper">
                 <p className="logo-faqs">Link<span>IT</span></p>
@@ -36,20 +37,18 @@ export default function FAQs() {
                     <a href="/FAQs" className="empresas-button">
                         <p className="options">FAQS</p>
                     </a>
-                    <div className="contenedor-idiomas">
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
-                </a>
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
-                <div className="idioma-component">ESP</div>
-              </a>
-            </div>
-                        <button className="contact-button" onClick={() => setModalContacto(true)}>CONTACTO</button>
-                    {modalContacto && <ModalContacto setModalContacto={setModalContacto} />}
+                    <div className="contenedor-idiomas-faqs">
+                        <a className="contenedor-bandera" href="/home">
+                            <div className="idioma-component">ENG |</div>
+                        </a>
+                        <a className="contenedor-bandera" href="/home">
+                            <div className="idioma-component">ESP</div>
+                        </a>
+                    </div>
+                    <a href="/contacto">
+                        <button className="contact-button">CONTACTO</button>
+                    </a>
                 </div>
-
             </div>
         </div>
         </header>

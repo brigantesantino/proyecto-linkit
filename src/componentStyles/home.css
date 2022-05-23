@@ -60,6 +60,14 @@ border-bottom: #63799E solid 1px;
   width: 100%;
   align-items: center;
 }
+.img_main{
+  width: 400px;
+  margin-right: 50px;
+  animation: movimiento 2s infinite linear;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
 .menuHamb{
   display: none;
@@ -84,7 +92,12 @@ select{
   background-color: transparent;
   color: white;
 }
-  
+.contenedor-idiomas-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
   .background-home{
     position: absolute;
     width: 100%;
@@ -206,9 +219,12 @@ select{
   #colorBlanco{
     color: white;
   }
+  .img-home{
+    width: 60px;
+  }
   /* Abaut us */
   .section_abaut{
-    height: 100vh;
+    height: 20vh;
     background-color: white;
   }
   .contenedorCards_about{
@@ -224,7 +240,8 @@ select{
     z-index: 0;
     background-color: white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     justify-content: space-around;
     padding: 0.5em 1.5em;
@@ -234,30 +251,77 @@ select{
     border: 2px solid #63799E;
     border-radius: 8px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     padding: 0.5em 1.5em;
   }
   .confianza_about{
     font-weight: bold;
+    text-align: center;
   }
-  .cardDetails_abaut img{
-    margin-right: 20px;
-  }
+
   .detalles_about{
     font-size: 0.8em;
-    color:#000F25;
+    color:white;
+  }
+  .style{
+    font-size: 0.8em;
+    color:white;
+    display: none;
+    transition: all 1s;
+    animation: 2s alternate;
+  }
+  .styleNormal2{
+    font-size: 0.8em;
+    color:white;
+    display: none;
+    transition: all 1s;
+    animation: 2s alternate;
+  }.styleNormal3{
+    font-size: 0.8em;
+    color:white;
+    display: none;
+    transition: all 1s;
+    animation: 2s alternate;
+  }.styleNormal4{
+    font-size: 0.8em;
+    color:white;
+    display: none;
+    transition: all 1s;
+    animation: 2s alternate;
+  }
+.styleDos{
+  color: #63799E;
+  display: block;
+}
+.style2{
+  color: #63799E;
+  display: block;
+}
+.style3{
+  color: #63799E;
+  display: block;
+}
+.style4{
+  color: #63799E;
+  display: block;
+}
+.detalles_about:hover{
+    color: #63799E;
   }
   .contenedorContrato{
-    border: #63799E 2px solid;
     margin-top: 30px;
     border-radius: 12px;
     width: 35%;
     height: 300px;
     padding: 10px;
   }
-  
+  .img_contrato{
+    width: 300px;
+    z-index: 1;
+    position: relative;
+  }
   .contenedorContratoAbout{
     display: flex;
     flex-direction: row;
@@ -293,6 +357,14 @@ select{
   }
   .fa-bars{
     display: none;
+  }
+  .titulos{
+    font-size: medium;
+    line-height: 0px;
+  }
+  .subt{
+    line-height: 0px;
+    
   }
   /* clientes */
   
@@ -338,6 +410,7 @@ select{
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 300px;
   }
   .titulo_confianza h1{
     color: #63799E;
@@ -556,4 +629,13 @@ justify-content: space-between;
     top: -180px;
   }
   
+}
+
+@keyframes movimiento {
+  from{
+    transform: translate(0px, -50px);
+  }
+  to{
+    transform: translate(0px, 80px);
+  }
 }
