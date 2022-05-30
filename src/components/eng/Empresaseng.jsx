@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../../componentStyles/empresas.css";
 import { postFormAirtable } from "../../functions/postEmpresasAirtable";
-
+import { valuesSelectRoles } from "../../constants/selects";
+import { valuesSelectComoNosConociste } from "../../constants/selects";
 //import menuHambNegro from "../../images/menuHamburguesa.svg";
 //import MenuHamburguesa from "./../MenuHamburguesa";
 import image17 from "../../images/image 17.svg";
@@ -19,54 +20,42 @@ import vectorFondo from "../../images/vectorFondo.svg"
 import vector from "../../images/Vector.svg";
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg";
-import USA from "../../images/banderaUsa.png"
-import ARG from "../../images/banderaArg.png"
+
 
 //import Header from "./../Header";
 import HeaderENG from "./HeaderENG";
+import Select from "react-select";
 
 export default function Empresas() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [motivoDeContacto, setMotivoDeContacto] = useState("");
-  const [interesadoEnRoles, setInteresadoEnRoles] = useState([""]);
+  const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
   const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [errors, setErrors] = useState({});
 
-  async function validate(input) {
+  async function validate(input, event, arrayConvertidoInteresadoEnRoles, arrayConvertidoComoNosConociste) {
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
-      errorsObj.nombre = "El nombre es requerido";
+      errorsObj.nombre = "Name is required";
       contadorErrores++;
     }
     if (input.email === "") {
-      errorsObj.email = "El email es requerido";
+      errorsObj.email = "Email is required";
       contadorErrores++;
     }
     if (input.linkedin === "") {
-      errorsObj.linkedin = "El linkedin es requerido";
+      errorsObj.linkedin = "Linkedin is required";
       contadorErrores++;
     }
     if (input.motivoDeContacto === "") {
-      errorsObj.motivoDeContacto = "El motivo de contacto es requerido";
+      errorsObj.motivoDeContacto = "The reason for contact is required";
       contadorErrores++;
     }
-    /* if (input.interesadoEnRoles === "") {
-      errorsObj.interesadoEnRoles = "El rol es requerido";
-      contadorErrores++;
-    }
-    if (input.comoNosConociste === "") {
-      errorsObj.comoNosConociste = "El como nos conociste es requerido";
-      contadorErrores++;
-    }
-    if (input.mensaje === "") {
-      errorsObj.mensaje = "El mensaje es requerido";
-      contadorErrores++;
-    } */
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtable(
@@ -74,37 +63,46 @@ export default function Empresas() {
         email,
         linkedin,
         motivoDeContacto,
-        interesadoEnRoles,
+        arrayConvertidoInteresadoEnRoles,
         interesadoEnOtrosRoles,
-        comoNosConociste,
+        arrayConvertidoComoNosConociste,
         mensaje
       );
+      event.preventDefault();
+      setTimeout(() => window.location.reload(), 3000);
     } else {
+      event.preventDefault();
       console.log("hay errores");
     }
     setErrors(errorsObj);
   }
 
+  function convertirArray(array) {
+    let arrayConvertido = [];
+    try {
+      array.forEach((element) => {
+        arrayConvertido.push(element.value);
+      });
+      console.log("arr", arrayConvertido);
+      return arrayConvertido;
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+
   async function handleSubmit(event) {
+    const arrayConvertidoInteresadoEnRoles = convertirArray(interesadoEnRoles);
+    const arrayConvertidoComoNosConociste = convertirArray(comoNosConociste);
     const objetoAVerificar = {
       nombre,
       email,
       linkedin,
       motivoDeContacto,
-      interesadoEnRoles,
-      comoNosConociste,
+      arrayConvertidoInteresadoEnRoles,
+      arrayConvertidoComoNosConociste,
       mensaje,
     };
-    validate(objetoAVerificar);
-    event.preventDefault();
-  }
-  
-  function appendInteresadoEnRoles(event) {
-    if (interesadoEnRoles[0] === "") {
-      interesadoEnRoles[0] = event;
-    } else {
-      setInteresadoEnRoles([...interesadoEnRoles, event]);
-    }
+    validate(objetoAVerificar, event, arrayConvertidoInteresadoEnRoles, arrayConvertidoComoNosConociste);
   }
 
   return (<>
@@ -117,7 +115,6 @@ export default function Empresas() {
         </div>
     
     <main>
-      <h4 className="search">SEARCH</h4>
       <div className="h1">
         <h1 className="question">
         Are you looking for tech talent for your company?
@@ -239,159 +236,93 @@ export default function Empresas() {
         <h2 id="contacto">Contact</h2>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="inputs">
-          <h3>Name*</h3>{" "}
-          {errors.nombre ? (
-            <p className="alertaForm">{errors.nombre}</p>
-          ) : null}
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-          <h3>Email*</h3>{" "}
-          {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <h3>LinkedIn*</h3>{" "}
-          {errors.linkedin ? (
-            <p className="alertaForm">{errors.linkedin}</p>
-          ) : null}
-          <input
-            type="text"
-            value={linkedin}
-            onChange={(e) => setLinkedin(e.target.value)}
-          />
-          <h3>Reason for contact*</h3>{" "}
-          {errors.motivoDeContacto ? (
-            <p className="alertaForm">{errors.motivoDeContacto}</p>
-          ) : null}
-          <input
-            type="text"
-            value={motivoDeContacto}
-            onChange={(e) => setMotivoDeContacto(e.target.value)}
-          />
-        </div>
-        <div className="details">
-          <h3>I am interested in the following roles</h3>
-          <div className="checkboxes">
-            <div className="checkbox-1">
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Software Developers"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
+            <div className="inputs">
+            <div>
+              <h3>Name*</h3>{" "}
+              {errors.nombre ? (
+                <p className="alertaForm">{errors.nombre}</p>
+              ) : null}
+              <input
+                placeholder="Name"
+                type="text"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+              />
+
+            </div>
+              <h3>Email*</h3>{" "}
+              {errors.email ? (
+                <p className="alertaForm">{errors.email}</p>
+              ) : null}
+              <input
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <h3>LinkedIn*</h3>{" "}
+              {errors.linkedin ? (
+                <p className="alertaForm">{errors.linkedin}</p>
+              ) : null}
+              <input
+                placeholder="*Linkedin"
+                type="text"
+                value={linkedin}
+                onChange={(e) => setLinkedin(e.target.value)}
+              />
+              <h3>Contact reason*</h3>{" "}
+              {errors.motivoDeContacto ? (
+                <p className="alertaForm">{errors.motivoDeContacto}</p>
+              ) : null}
+              <input
+                placeholder="Why did you contact us?"
+                type="text"
+                value={motivoDeContacto}
+                onChange={(e) => setMotivoDeContacto(e.target.value)}
+              />
+            </div>
+            <div className="details">
+              <h3>Interested in roles</h3>
+              <div className="checkboxes xd">
+                <Select
+                  placeholder="Choose the role(s)"
+                  className="xd"
+                  options={valuesSelectRoles}
+                  isMulti
+                  onChange={(opt) => setInteresadoEnRoles(opt)}
                 />
-                <p>Software Developers</p>
               </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="QA"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>QA</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="UX/UI Designers"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>UX/UI Designers</p>
+              <input
+                className="inp"
+                type="textarea"
+                placeholder="Oters..."
+                onChange={(e) => setInteresadoEnOtrosRoles(e.target.value)}
+              />
+              <h3>How did you meet us</h3>
+              <Select
+                placeholder="Choose how you met us"
+                className="xd"
+                isMulti
+                options={valuesSelectComoNosConociste}
+                onChange={(opt) => setComoNosConociste(opt)}
+              />
+              <h3 className="mensaje">Message</h3>
+              <textarea
+                name="message"
+                value={mensaje}
+                onChange={(e) => setMensaje(e.target.value)}
+              ></textarea>
+              <div className="condition">
+                <div className="acept-conditions">
+                  <input type="checkbox" className="terms" />
+                  <h3>Accept legal conditions</h3>
+                </div>
+                <button className="send-button" type="submit">
+                  Send
+                </button>
               </div>
             </div>
-            <div className="checkbox-2">
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Project Managers"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Project Managers</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Team Lead"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Team Lead</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Big Data"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Big Data</p>
-              </div>
-            </div>
-            <div className="checkbox-3">
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Machine Learning"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Machine learning</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Web 3.0"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Web 3.0</p>
-              </div>
-              <div style={{ display: "flex" }}>
-                <input
-                  type="checkbox"
-                  value="Blockchain"
-                  onChange={(e) => appendInteresadoEnRoles(e.target.value)}
-                />
-                <p>Blockchain</p>
-              </div>
-            </div>
-          </div>
-          <input
-            className="inp"
-            type="textarea"
-            placeholder="Otros..."
-            onChange={(e) => setInteresadoEnOtrosRoles(e.target.value)}
-          />
-          <h3>How did you meet us?</h3>
-          <select
-          className="background-blanco"
-            name="info"
-            onChange={(e) => setComoNosConociste(e.target.value)}
-          >
-            <option value="opcion1">opcion1</option>
-            <option value="opcion2">opcion2</option>
-            <option value="opcion3">opcion3</option>
-            <option value="opcion4">opcion4</option>
-            <option value="opcion5">opcion5</option>
-          </select>
-          <h3 className="mensaje">Message</h3>
-          <textarea
-            name="message"
-            value={mensaje}
-            onChange={(e) => setMensaje(e.target.value)}
-          ></textarea>
-          <div className="condition">
-            <div className="acept-conditions">
-              <input type="checkbox" className="terms" />
-              <h3>Accept legal conditions</h3>
-            </div>
-            <button className="send-button" type="submit">
-              Send
-            </button>
-          </div>
-        </div>
-      </form>
+          </form>
     </main>
     <footer>
         <div className="footer">
@@ -410,11 +341,11 @@ export default function Empresas() {
             </a>
             <a
               className="gmail"
-              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+              href="/contacto"
             >
               <img alt="" src={vector1} />
             </a>
-            <a className="wpp" href="https://web.whatsapp.com/">
+            <a className="wpp" href="https://wa.me/+5491165287429">
               <img alt="" src={whatsApp} />
             </a>
           </div>
@@ -430,15 +361,13 @@ export default function Empresas() {
           <p className="footer-button">Candidates</p>
           </a>
           <a href="/faqsENG">
-          <p className="footer-button">FAQS</p>
+          <p className="footer-button">FAQs</p>
           </a>
-          <div className="contenedor-idiomas">
+          <div className="contenedor-idiomas-emp">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>

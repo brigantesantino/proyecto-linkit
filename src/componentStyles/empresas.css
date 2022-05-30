@@ -119,8 +119,10 @@
   width: 100%;
   margin-top: 0px;
 }
-.empresas .question {
-  margin: 0 auto;
+
+.question {
+  width: 50%;
+  margin-top: 50px;
   color:#233c72;
 }
 .search {
@@ -131,12 +133,11 @@
   margin: 0 auto;
   margin-top: 3.2rem;
 }
-.empresas h1 {
-  width: 30%;
+.h1 {
+  width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-left: 33%;
   color: #233c72;
   
 }
@@ -284,8 +285,8 @@ main div.images div.logo {
 }
 .empresas main form div.inputs input {
   width: 100%;
-  padding: 7px 7px;
-  margin: 1rem 0;
+  padding: 10px 8px;
+  margin: 0.9rem 0;
   border-radius: 5px;
   border: rgb(110, 110, 110) solid 1px;
   background-color: rgba(210, 230, 242, 0.891);
@@ -521,6 +522,11 @@ main div.images div.logo {
   color: #63799e;
   font-weight: bold;
 }
+.contenedor-idiomas-emp{
+  display: flex;
+  flex-direction: row;
+}
+
 @keyframes marquee {
   0% { left: 0%; }
   100% { left: -113%; }
@@ -641,8 +647,6 @@ main div.images div.logo {
   0% { left: 0%; }
   100% { left: -113%; }
 }
-  
-
   
 
   .empresas main form {

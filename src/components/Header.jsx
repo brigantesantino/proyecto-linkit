@@ -21,7 +21,7 @@ export default function Header() {
         <div className="title">
           <div className="menu-wrapper">
             <p className="logo-component">
-              Link<span>IT</span>
+              Link<span id="it">IT</span>
             </p>
               <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHambNegro} className="menuHamburguesaImagen" alt="" />
@@ -41,10 +41,10 @@ export default function Header() {
               <p className="button-component">CANDIDATOS</p>
             </a>
             <a href="/faqs">
-            <p className="button-component">FAQS</p>
+            <p className="button-component">FAQs</p>
             </a>
             <div className="contenedor-idiomas-header">
-              <a className="contenedor-bandera" href="/home">
+              <a className="contenedor-bandera" href="/homeENG">
                 <div className="idioma-component">ENG |</div>
               </a>
               <a className="contenedor-bandera" href="/home">

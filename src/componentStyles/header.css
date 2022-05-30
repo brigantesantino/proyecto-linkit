@@ -4,6 +4,9 @@
   align-items: center;
 
 }
+#it{
+  margin: 0px;
+}
 .top-header-component {
   width: 85%;
   display: flex;

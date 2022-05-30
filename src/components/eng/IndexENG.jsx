@@ -9,6 +9,8 @@ import carafeliz from "../../images/manos.png";
 import eficiencia from "../../images/eficiencia.png";
 import velocidad from "../../images/auto.png";
 import seguridad from "../../images/candado.png";
+import img3D from "../../images/logo3d.svg";
+import contrato from "../../images/contrato.png"
 
 import vector from "../../images/Vector.svg"
 import vector1 from "../../images/Vector-1.svg";
@@ -61,9 +63,9 @@ export default function IndexENG() {
                     <a href="./faqsENG" className="empresas-button">
                         <p className="faqs"  >FAQS</p>
                     </a>
-                    <div className="contenedor-idiomas">
+                    <div className="contenedor-idiomas-home">
               <a href="/homeENG" className="contenedor-bandera">
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>
@@ -93,7 +95,7 @@ export default function IndexENG() {
                     </a>
                 </div>
                 <div className="cont_ilustration">
-                    <img className="img_main"  alt=""/>
+                    <img className="img_main" src={img3D} alt=""/>
                 </div>
             </div>
         </div>
@@ -105,8 +107,8 @@ export default function IndexENG() {
                     <img className="img-home" src={carafeliz} alt="" />
                 </div>
                 <div>
-                    <div className="confianza_about">Confianza</div>
-                    <p className={style}>Equipo de consultores especializados en el área TECH.</p>
+                    <div className="confianza_about">Trust</div>
+                    <p className={style}>Team of consultants specialized in the TECH area.</p>
                 </div>
             </div>
 
@@ -116,8 +118,8 @@ export default function IndexENG() {
                     <img className="img-home" src={velocidad} alt=""/>
                 </div>
                 <div>
-                    <div className="confianza_about">Velocidad</div>
-                    <p className={styleNormal2}>2 Semanas de espera desde el cierre del perfil necesitado.</p>
+                    <div className="confianza_about">Velocity</div>
+                    <p className={styleNormal2}>2 weeks of waiting from the closing of the needed profile.</p>
                 </div>
             </div>
 
@@ -126,8 +128,8 @@ export default function IndexENG() {
                     <img className="img-home" src={eficiencia} alt=""/>
                 </div>
                 <div>
-                    <div className="confianza_about">Eficiencia</div>
-                    <p className={styleNormal3}>Equipo de consultores especializados en el área TECH.</p>
+                    <div className="confianza_about">Efficiency</div>
+                    <p className={styleNormal3}>Recurring feedback with the client from the beginning of the process until its completion and subsequent incorporation.</p>
                 </div>
             </div>
 
@@ -136,29 +138,43 @@ export default function IndexENG() {
                     <img className="img-home" src={seguridad} alt=""/>
                 </div>
                 <div >
-                    <div className="confianza_about">Seguridad</div>
-                    <p className={styleNormal4}>Equipo de consultores especializados en el área TECH.</p>
+                    <div className="confianza_about">Security</div>
+                    <p className={styleNormal4}>Hiring fee and fee after successfully completing the trial period.</p>
                 </div>
             </div>
         </div>
     </section>
     <section>
 
-        <div className="contenedorContratoAbout">
+    <div className="contenedorContratoAbout">
             <div className="contenedorContrato">
                 <div>
-                    Contrato
+                    <img className="img_contrato" src={contrato} alt="" />
                 </div>
             </div>
             <div className="contenedorAboutUs_about">
-                <div className="about_about">About Us</div>
+                <div className="about_about">ABOUT US</div>
                 <div className="preg_about">What do we do?</div>
                 <ol>
-                    <li><span>Entendemos tus necesidades tecnicas</span></li>
-                    <li><span>Source and vet all the market during 72hs.</span></li>
-                    <li><span>Avanzamos con enrtevistas preeliminares</span></li>
-                    <li><span>Te presentamos los mejores perfiles que se alinean con tus necesidades técnicas, culturales e inclusive de habilidades blandas.</span></li>
-                    <li><span>Te brindamos soporte y nos adaptamos a tu proceso de selección interna.</span></li>
+                    <li>
+                        <div className="titulos">Role assignment</div>
+                        <span className="subt">We understand your complete needs, technical, culture, soft skills and more.</span>
+                    </li>
+                    <li>
+                        <div className="titulos">Alignment call</div>
+                        <span className="subt">We research and source the market.</span>
+                    </li>
+                    <li>
+                        <div className="titulos">
+                        Search and recruitment
+                        </div>
+                        <span className="subt">We move forward with preliminary interviews.</span></li>
+                    <li>
+                        <div className="titulos">Presentation of candidates</div>
+                        <span className="subt">We present the best profiles that align with your needs.</span></li>
+                    <li>
+                        <div className="titulos">Empowerment</div>
+                        <span className="subt">We provide you with support and adapt to your internal selection process.</span></li>
                 </ol>
             </div>
         </div>
@@ -218,11 +234,11 @@ export default function IndexENG() {
             </a>
             <a
               className="boton-rr"
-              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+              href="/contacto"
             >
               <img alt="" src={vector1} />
             </a>
-            <a className="boton-rr" href="https://web.whatsapp.com/">
+            <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
               <img alt="" src={whatsApp} />
             </a>
           </div>
@@ -239,9 +255,9 @@ export default function IndexENG() {
             <a href="./faqs">
                 <p className="footer-button-home"  >FAQS</p>
             </a>
-            <div className="contenedor-idiomas">
+            <div className="contenedor-idiomas-home">
               <a href="/homeENG" className="contenedor-bandera">
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>

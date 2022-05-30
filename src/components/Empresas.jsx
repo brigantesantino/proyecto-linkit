@@ -19,8 +19,6 @@ import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-import USA from "../images/banderaUsa.png";
-import ARG from "../images/banderaArg.png";
 import Header from "./Header";
 
 import Select from "react-select";
@@ -115,7 +113,6 @@ export default function Empresas() {
         </div>
 
         <main>
-          <h4 className="search">BÚSQUEDA</h4>
           <div className="h1">
             <h1 className="question">
               ¿Estás buscando talento tech para tu empresa?
@@ -271,6 +268,7 @@ export default function Empresas() {
           </div>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="inputs">
+            <div>
               <h3>Nombre*</h3>{" "}
               {errors.nombre ? (
                 <p className="alertaForm">{errors.nombre}</p>
@@ -281,6 +279,8 @@ export default function Empresas() {
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
               />
+
+            </div>
               <h3>Email*</h3>{" "}
               {errors.email ? (
                 <p className="alertaForm">{errors.email}</p>
@@ -371,11 +371,11 @@ export default function Empresas() {
               </a>
               <a
                 className="gmail"
-                href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+                href="/contacto"
               >
                 <img alt="" src={vector1} />
               </a>
-              <a className="wpp" href="https://web.whatsapp.com/">
+              <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
                 <img alt="" src={whatsApp} />
               </a>
             </div>
@@ -393,13 +393,11 @@ export default function Empresas() {
             <a href="/faqs">
               <p className="footer-button">FAQS</p>
             </a>
-            <div className="contenedor-idiomas">
-              <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
+            <div className="contenedor-idiomas-emp">
+              <a href="/empresasENG" className="contenedor-bandera">
+                <div className="idioma-component">ENG |</div>
               </a>
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
+              <a className="contenedor-bandera" href="/empresas">
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
