@@ -1,3 +1,4 @@
+
 const Airtable = require("airtable");
 var base = new Airtable({ apiKey: process.env.REACT_APP_APIKEY_AIRTABLE }).base(
   process.env.REACT_APP_BASE_AIRTABLE
@@ -9,12 +10,14 @@ export function postFormAirtableCandidatos(
   direccion,
   linkedIn,
   experiencia,
+  cv,
   moneda,
   remuneracionPretendida,
   roles,
   comoNosConociste,
   tecnologias
 ) {
+  console.log(`https://drive.google.com/u/1/uc?id=${cv.id}&export=download`)
   base("Candidatos").create(
     [
       {
@@ -24,6 +27,10 @@ export function postFormAirtableCandidatos(
           Direccion: direccion,
           Linkedin: linkedIn,
           Experiencia: [experiencia],
+          CV: [{
+            url: `https://drive.google.com/u/1/uc?id=${cv.id}&export=download`, 
+            filename: cv.filename // filename.pdf
+          }],
           Moneda: moneda,
           "Remuneracion pretendida": remuneracionPretendida,
           Roles: roles,

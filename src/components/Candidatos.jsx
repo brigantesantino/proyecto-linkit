@@ -34,6 +34,8 @@ import { valuesSelectRoles } from "../constants/selects";
 import { valuesSelectComoNosConociste } from "../constants/selects";
 import { valuesSelectTecnologias } from "../constants/selects";
 
+//import { callCreate } from "../functions/fileManagers/google";
+
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +51,8 @@ export default function Candidatos() {
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
-
+  const [googleObject, setGoogleObject] = useState({});
+  const [fileName, setFileName] = useState("");
   //const [menu, setMenu] = useState(false);
   const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
@@ -67,10 +70,6 @@ export default function Candidatos() {
     }
     if (input.linkedIn === "") {
       errorsObj.linkedin = "El linkedin es requerido";
-      contadorErrores++;
-    }
-    if (input.experiencia === "") {
-      errorsObj.experiencia = "La experiencia es requerida";
       contadorErrores++;
     }
     if (input.condicionesLegales === "") {
@@ -93,6 +92,7 @@ export default function Candidatos() {
         input.direccion,
         input.linkedIn,
         input.experiencia,
+        googleObject,
         input.monedaRemuneracion,
         input.remuneracionPretendida,
         input.arrayConvertidoInteresadoEnRoles,
@@ -102,7 +102,7 @@ export default function Candidatos() {
         input.ofertas
       );
       event.preventDefault();
-      setTimeout(() => window.location.reload(),30000)
+      setTimeout(() => window.location.reload(), 30000);
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -145,6 +145,37 @@ export default function Candidatos() {
     };
     validate(objetoAVerificar, event);
   }
+
+  function guardarArchivo(e) {
+    var file = e.target.files[0]; //the file
+    setFileName(file.name);
+    var reader = new FileReader(); //this for convert to Base64
+    reader.readAsDataURL(e.target.files[0]); //start conversion...
+    reader.onload = function (e) {
+      //.. once finished..
+      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
+      var dataSend = {
+        dataReq: { data: rawLog, name: file.name, type: file.type },
+        fname: "uploadFilesToGoogleDrive",
+      }; //preapre info to send to API
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
+        { method: "POST", body: JSON.stringify(dataSend) }
+      ) //send to Api
+        .then((res) => res.json())
+        .then((a) => {
+          console.log(a); //See response
+          console.log(a.id);
+          const object = {
+            id: a.id,
+            filename: file.name,
+          };
+          setGoogleObject(object);
+        })
+        .catch((e) => console.log(e)); // Or Error in console
+    };
+  }
+
   useEffect(() => {
     fetch(
       `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
@@ -224,7 +255,7 @@ export default function Candidatos() {
               <h1>Cargando ofertas...</h1>
             )}
           </div>
-          {popup ? <Popup data={data}/> : null}
+          {popup ? <Popup data={data} /> : null}
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
@@ -310,42 +341,63 @@ export default function Candidatos() {
             {errors.nombre ? (
               <p className="alertaForm">{errors.nombre}</p>
             ) : null}
-            <input placeholder=" Nombre"  type="text" onChange={(e) => setNombre(e.target.value)} />
+            <input
+              placeholder=" Nombre"
+              type="text"
+              onChange={(e) => setNombre(e.target.value)}
+            />
 
             <h3>Email*</h3>
             {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-            <input placeholder=" Email" type="email" onChange={(e) => setEmail(e.target.value)} />
+            <input
+              placeholder=" Email"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <h3>Dirección*</h3>
             {errors.direccion ? (
               <p className="alertaForm">{errors.direccion}</p>
             ) : null}
-            <input placeholder=" Direccion" type="text" onChange={(e) => setDireccion(e.target.value)} />
+            <input
+              placeholder=" Direccion"
+              type="text"
+              onChange={(e) => setDireccion(e.target.value)}
+            />
             <h3>LinkedIn*</h3>
             {errors.linkedin ? (
               <p className="alertaForm">{errors.linkedin}</p>
             ) : null}
-            <input placeholder="*Linkedin" type="text" onChange={(e) => setLinkedIn(e.target.value)} />
+            <input
+              placeholder="*Linkedin"
+              type="text"
+              onChange={(e) => setLinkedIn(e.target.value)}
+            />
             <h3>Experiencia</h3>
-            <select 
+            <select
               className="experience"
               name="info"
               onChange={(e) => setExperiencia(e.target.value)}
             >
-              <option value="0">Experiencia </option>
-              <option value="0-1"> 0-1 año </option>
-              <option value="1-2"> 1-2 años </option>
-              <option value="2-3"> 2-3 años </option>
-              <option value="3+">3 o mas años </option>
+              <option value=""> Experiencia </option>
+              <option value="0 a 1 año"> 0 - 1 año </option>
+              <option value="1 a 2 años"> 1 - 2 años </option>
+              <option value="2 a 3 años"> 2 - 3 años </option>
+              <option value="3 años o mas">3 o mas años </option>
             </select>
           </div>
           <div className="details">
-            <h3>Carga tu CV</h3>
+            <h3>Carga tu CV </h3>
             <div className="file">
               <label form="archive">
                 +
-                <input type="file" id="archive" />
+                <input
+                  type="file"
+                  id="archive"
+                  onChange={(e) => guardarArchivo(e)}
+                />
               </label>
             </div>
+            {fileName}<br></br>
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select
@@ -357,43 +409,38 @@ export default function Candidatos() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input placeholder="Remuneracion pretendida"
+              <input
+                placeholder="Remuneracion pretendida"
                 type="text"
                 onChange={(e) => setRemuneracionPretendida(e.target.value)}
               />
             </div>
             <h3>Interesado en roles</h3>
-
-            <Select placeholder="Elige lo/s rol/es"
+            <Select
+              placeholder="Elige lo/s rol/es"
               className="selectCandidatos"
               options={valuesSelectRoles}
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
             />
             <h3>Otros</h3>
-          <input 
-            className="inp"
-            type="textarea"
-            placeholder="Otros..."
-            
-          />
+            <input className="inp" type="textarea" placeholder="Otros..." />
             <h3>Cómo nos conociste</h3>
-            <Select  placeholder="Cómo nos conociste"
+            <Select
+              placeholder="Cómo nos conociste"
               className="selectCandidatos"
               options={valuesSelectComoNosConociste}
               isMulti
               onChange={(opt) => setComoNosConociste(opt)}
             />
-
-            <h3>Tecnologías</h3>
-
-            <Select placeholder="Elige la/s tecnologia/s"
+            <h3>Tecnologías*</h3>
+            <Select
+              placeholder="Elige la/s tecnologia/s"
               className="selectCandidatos"
               options={valuesSelectTecnologias}
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
-
             <div className="condition">
               <div className="acept-conditions">
                 <input
