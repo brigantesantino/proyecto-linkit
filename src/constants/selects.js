@@ -26,4 +26,16 @@ export const valuesSelectComoNosConociste = [
 export const valuesSelectTecnologias = [
   { label: "React", value: "React" },
   { label: "Angular", value: "Angular" },
+  { label: "Vue", value: "Vue" },
+  { label: "Node", value: "Node" },
+  { label: "Python", value: "Python" },
+  { label: "C#", value: "C#" },
 ];
+
+export const valuesExperience = [
+  { label: "0 a 1 año", value: "0 a 1 año" },
+  { label: "1 a 2 años", value: "1 a 2 años" },
+  { label: "2 a 3 años", value: "2 a 3 años" },
+  { label: "3 años o más", value: "3 años o más" },
+];
+

@@ -58,7 +58,7 @@ export default function Index() {
                         <p className="candidates">CANDIDATOS</p>
                     </a>
                     <a href="./faqs" className="empresas-button">
-                        <p className="faqs"  >FAQS</p>
+                        <p className="faqs"  >FAQs</p>
                     </a>
                 <div className="contenedor-idiomas-home">
                 <a href="/homeENG" className="contenedor-bandera">
@@ -127,7 +127,7 @@ export default function Index() {
                 </div>
                 <div>
                     <div className="confianza_about">Eficiencia</div>
-                    <p className={styleNormal3}>Equipo de consultores especializados en el área TECH.</p>
+                    <p className={styleNormal3}>Feedback recurrente con el cliente desde el inicio del proceso hasta su finalización y posterior incorporación.</p>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@ export default function Index() {
                 </div>
                 <div >
                     <div className="confianza_about">Seguridad</div>
-                    <p className={styleNormal4}>Equipo de consultores especializados en el área TECH.</p>
+                    <p className={styleNormal4}> Fee de contratación y fee luego de terminar exitosamente el período de prueba.</p>
                 </div>
             </div>
         </div>
@@ -232,30 +232,30 @@ export default function Index() {
             </a>
             <a
               className="gmail"
-              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+              href="/contacto"
             >
               <img alt="" src={vector1} />
             </a>
-            <a className="wpp" href="https://web.whatsapp.com/">
+            <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
               <img alt="" src={whatsApp} />
             </a>
           </div>
         <div className="info-footer">
             <a href="./home">
-                <p className="footer-button">INICIO</p>
+                <p className="footer-button-home">INICIO</p>
             </a>
             <a  href="/empresas">
-                <p className="footer-button">EMPRESAS</p>
+                <p className="footer-button-home">EMPRESAS</p>
             </a>
             <a href="/Candidatos">
-                <p className="footer-button" >CANDIDATOS</p>
+                <p className="footer-button-home" >CANDIDATOS</p>
             </a>
             <a href="./faqs">
-                <p className="footer-button"  >FAQS</p>
+                <p className="footer-button-home"  >FAQs</p>
             </a>
             <div className="contenedor-idiomas">
               <a href="/homeENG" className="contenedor-bandera">
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>

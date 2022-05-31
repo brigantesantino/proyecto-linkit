@@ -231,39 +231,34 @@ export default function CandidatosIngles() {
         <div>
           <h2 id="contacto">Contacto</h2>
         </div>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form className="formCandidatos" onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
             <h3>Nombre*</h3>
             {errors.nombre ? (
               <p className="alertaForm">{errors.nombre}</p>
             ) : null}
-            <input type="text" onChange={(e) => setNombre(e.target.value)} />
+            <input placeholder=" Nombre"  type="text" onChange={(e) => setNombre(e.target.value)} />
 
             <h3>Email*</h3>
             {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-            <input type="email" onChange={(e) => setEmail(e.target.value)} />
+            <input placeholder=" Email" type="email" onChange={(e) => setEmail(e.target.value)} />
             <h3>Dirección*</h3>
             {errors.direccion ? (
               <p className="alertaForm">{errors.direccion}</p>
             ) : null}
-            <input type="text" onChange={(e) => setDireccion(e.target.value)} />
+            <input placeholder=" Direccion" type="text" onChange={(e) => setDireccion(e.target.value)} />
             <h3>LinkedIn*</h3>
             {errors.linkedin ? (
               <p className="alertaForm">{errors.linkedin}</p>
             ) : null}
-            <input type="text" onChange={(e) => setLinkedIn(e.target.value)} />
+            <input placeholder="*Linkedin" type="text" onChange={(e) => setLinkedIn(e.target.value)} />
             <h3>Experiencia</h3>
-            <select
-              name="info"
-              className="experience"
-              onChange={(e) => setExperiencia(e.target.value)}
-            >
-              <option value="0"> </option>
-              <option value="0-1"> 0-1 año </option>
-              <option value="1-2"> 1-2 años </option>
-              <option value="2-3"> 2-3 años </option>
-              <option value="3+">3 o mas años </option>
-            </select>
+            <Select
+                  placeholder="Experiencia"
+                  className="selectCandidatos"
+                  options={valuesExperience}
+                  onChange={(opt) => setExperiencia(opt)}
+                />
           </div>
           <div className="details">
             <h3>Carga tu CV</h3>
@@ -276,6 +271,7 @@ export default function CandidatosIngles() {
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select
+                className="fondo-blanco"
                 name="value"
                 onChange={(e) => setMonedaRemuneracion(e.target.value)}
               >
@@ -283,42 +279,43 @@ export default function CandidatosIngles() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input type="text" onChange={(e) => setRemuneracionPretendida(e.target.value)}/>
+              <input placeholder="Remuneracion pretendida"
+                type="text"
+                onChange={(e) => setRemuneracionPretendida(e.target.value)}
+              />
             </div>
             <h3>Interesado en roles</h3>
-            <select
-              name="info"
-              onChange={(e) => setInteresadoEnRoles(e.target.value)}
-            >
-              <option value="0"></option>
-              <option value="Rol1">Rol1</option>
-              <option value="Rol2">Rol2</option>
-              <option value="Rol3">Rol3</option>
-              <option value="Rol4">Rol4</option>
-            </select>
+
+            <Select placeholder="Elige lo/s rol/es"
+              className="selectCandidatos"
+              options={valuesSelectRoles}
+              isMulti
+              onChange={(opt) => setInteresadoEnRoles(opt)}
+            />
+            <h3>Otros</h3>
+          <input 
+            className="inp"
+            type="textarea"
+            placeholder="Otros..."
             
+          />
             <h3>Cómo nos conociste</h3>
-            <select
-              name="info"
-              onChange={(e) => setComoNosConociste(e.target.value)}
-            >
-              <option value="0"></option>
-              <option value="Recruiter">Recruiter</option>
-              <option value="Conocido">Conocido</option>
-              <option value="Google">Google</option>
-              <option value="Otros">Otros</option>
-            </select>
+            <Select  placeholder="Cómo nos conociste"
+              className="selectCandidatos"
+              options={valuesSelectComoNosConociste}
+              isMulti
+              onChange={(opt) => setComoNosConociste(opt)}
+            />
+
             <h3>Tecnologías</h3>
-            <select
-              name="info"
-              onChange={(e) => setTecnologias(e.target.value)}
-            >
-              <option value="0"></option>
-              <option value="Node">Node</option>
-              <option value="React">React</option>
-              <option value="Python">Python</option>
-              <option value="C#">C#</option>
-            </select>
+
+            <Select placeholder="Elige la/s tecnologia/s"
+              className="selectCandidatos"
+              options={valuesSelectTecnologias}
+              isMulti
+              onChange={(opt) => setTecnologias(opt)}
+            />
+
             <div className="condition">
               <div className="acept-conditions">
                 <input
@@ -327,11 +324,10 @@ export default function CandidatosIngles() {
                   onClick={(e) => setCondicionesLegales(e.target.value)}
                 />
                 <h3>Aceptar condiciones legales</h3>
-                
               </div>
               {errors.condicionesLegales ? (
-                  <p className="alertaForm">{errors.condicionesLegales}</p>
-                ) : null}
+                <p className="alertaForm">{errors.condicionesLegales}</p>
+              ) : null}
               <button type="submit" className="send-button">
                 Enviar
               </button>
