@@ -80,6 +80,7 @@ export function postFormAirtableCandidatosEspecial(
   direccion,
   linkedIn,
   experiencia,
+  cv,
   remuneracionPretendida,
   comoNosConociste,
   tecnologias,
@@ -95,6 +96,10 @@ export function postFormAirtableCandidatosEspecial(
           Direccion: direccion,
           Linkedin: linkedIn,
           Experiencia: [experiencia],
+          CV: [{
+            url: `https://drive.google.com/u/1/uc?id=${cv.id}&export=download`, 
+            filename: cv.filename // filename.pdf
+          }],
           "Moneda": monedaRemuneracion,
           "Remuneracion pretendida": remuneracionPretendida,
           "Como nos conociste": comoNosConociste,

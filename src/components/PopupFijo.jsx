@@ -3,10 +3,9 @@ import { useLocation } from "react-router-dom";
 import "../componentStyles/popup.css";
 import { postFormAirtableCandidatosEspecial } from "../functions/postCandidatosAirtable";
 import Select from "react-select";
-import { valuesSelectComoNosConociste } from "../constants/selects"
-import { valuesSelectTecnologias } from "../constants/selects"
-
-
+import { valuesSelectComoNosConociste } from "../constants/selects";
+import { valuesSelectTecnologias } from "../constants/selects";
+import { valuesExperience } from "../constants/selects";
 
 export default function PopupFijo(props) {
   const [nombre, setNombre] = useState("");
@@ -21,11 +20,43 @@ export default function PopupFijo(props) {
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [errors, setErrors] = useState({});
+  const [fileName, setFileName] = useState("");
+  const [googleObject, setGoogleObject] = useState({});
 
   const location = useLocation();
   const data = location.state;
 
   const codigo = data.Codigo;
+
+  function guardarArchivo(e) {
+    var file = e.target.files[0]; //the file
+    setFileName(file.name);
+    var reader = new FileReader(); //this for convert to Base64
+    reader.readAsDataURL(e.target.files[0]); //start conversion...
+    reader.onload = function (e) {
+      //.. once finished..
+      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
+      var dataSend = {
+        dataReq: { data: rawLog, name: file.name, type: file.type },
+        fname: "uploadFilesToGoogleDrive",
+      }; //preapre info to send to API
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
+        { method: "POST", body: JSON.stringify(dataSend) }
+      ) //send to Api
+        .then((res) => res.json())
+        .then((a) => {
+          console.log(a); //See response
+          console.log(a.id);
+          const object = {
+            id: a.id,
+            filename: file.name,
+          };
+          setGoogleObject(object);
+        })
+        .catch((e) => console.log(e)); // Or Error in console
+    };
+  }
 
   function validate(input, event) {
     console.log("input", input);
@@ -67,19 +98,19 @@ export default function PopupFijo(props) {
         input.email,
         input.direccion,
         input.linkedIn,
-        input.experiencia,
+        input.experiencia.value,
+        googleObject,
         input.remuneracionPretendida,
         input.arrayConvertidoComoNosConociste,
         input.arrayConvertidoTecnologias,
         input.monedaRemuneracion
-      )
+      );
       event.preventDefault();
-      setTimeout(() => window.location.reload(),1000)
+      setTimeout(() => window.location.reload(), 30000);
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
-      event.preventDefault()
-
+      event.preventDefault();
     }
   }
 
@@ -94,7 +125,7 @@ export default function PopupFijo(props) {
 
   function handleSubmit(event) {
     console.log("handleSubmit");
-    event.preventDefault()
+    event.preventDefault();
 
     const arrayConvertidoComoNosConociste = convertirArray(comoNosConociste);
     const arrayConvertidoTecnologias = convertirArray(tecnologias);
@@ -112,24 +143,25 @@ export default function PopupFijo(props) {
       monedaRemuneracion,
     };
     validate(objetoAVerificar, event);
-    event.preventDefault()
+    event.preventDefault();
     //console.log("validate",validate(objetoAVerificar));
   }
 
   return (
     <div className="popup">
       <div className="header-popup">
-      <a className="arrow" href="/candidatos">
-      🠔
-      </a>
-      <a href="/home">
-      <button  class="cta">
-  <span>Volver al Home</span>
-  <svg viewBox="0 0 13 10" height="10px" width="15px">
-    <path d="M1,5 L11,5"></path>
-    <polyline points="8 1 12 5 8 9"></polyline>
-  </svg>
-</button></a>
+        <a className="arrow" href="/candidatos">
+          🠔
+        </a>
+        <a href="/home">
+          <button class="cta">
+            <span>Volver al Home</span>
+            <svg viewBox="0 0 13 10" height="10px" width="15px">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </button>
+        </a>
       </div>
       <h2 className="designer">{data.Nombre}</h2>
 
@@ -164,41 +196,59 @@ export default function PopupFijo(props) {
         <div className="inputs">
           <h3>Nombre</h3>
           {errors.nombre ? <p className="alertaForm">{errors.nombre}</p> : null}
-          <input placeholder="Nombre" type="text" onChange={(e) => setNombre(e.target.value)} />
+          <input
+            placeholder="Nombre"
+            type="text"
+            onChange={(e) => setNombre(e.target.value)}
+          />
           <h3>Email</h3>
           {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-          <input placeholder="Email" type="email" onChange={(e) => setEmail(e.target.value)} />
+          <input
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <h3>Dirección</h3>
           {errors.direccion ? (
             <p className="alertaForm">{errors.direccion}</p>
           ) : null}
-          <input placeholder="Direccion" type="text" onChange={(e) => setDireccion(e.target.value)} />
+          <input
+            placeholder="Direccion"
+            type="text"
+            onChange={(e) => setDireccion(e.target.value)}
+          />
           <h3>Linkedin*</h3>
           {errors.linkedin ? (
             <p className="alertaForm">{errors.linkedin}</p>
           ) : null}
-          <input placeholder="*Linkedin" type="text" onChange={(e) => setLinkedIn(e.target.value)} />
+          <input
+            placeholder="*Linkedin"
+            type="text"
+            onChange={(e) => setLinkedIn(e.target.value)}
+          />
           <h3>Experiencia</h3>
-          <select 
-            name="info"
-            className="experience"
-            onChange={(e) => setExperiencia(e.target.value)}
-          >
-            <option value="0">Experiencia </option>
-            <option value="0-1"> 0-1 año </option>
-            <option value="1-2"> 1-2 años </option>
-            <option value="2-3"> 2-3 años </option>
-            <option value="3+">3 o mas años </option>
-          </select>
+          <Select
+            placeholder="Experiencia"
+            className="selectCandidatos"
+            options={valuesExperience}
+            onChange={(opt) => setExperiencia(opt)}
+          />
         </div>
         <div className="details">
           <h3>Carga tu CV</h3>
           <div className="file">
             <label form="archive">
               +
-              <input type="file" id="archive" />
+              <input
+                type="file"
+                id="archive"
+                onChange={(e) => guardarArchivo(e)}
+              />
             </label>
           </div>
+          {fileName}
+          <br></br>
+
           <h3>Moneda</h3>
           <select
             className="fondo-blanco"
@@ -210,34 +260,39 @@ export default function PopupFijo(props) {
             <option value="USD">USD</option>
           </select>
           <h3>Remuneracion Pretendida</h3>
-          <input placeholder="Remuneracion pretendida"
+          <input
+            placeholder="Remuneracion pretendida"
             className="remuneracion"
             type="text"
             onChange={(e) => setRemuneracionPretendida(e.target.value)}
           />
 
           <h3>Cómo nos conociste</h3>
-         
-          <Select className="xd" options={valuesSelectComoNosConociste} isMulti onChange={(opt) => setComoNosConociste(opt)}/>
-          
-         
+
+          <Select
+            className="xd"
+            options={valuesSelectComoNosConociste}
+            isMulti
+            onChange={(opt) => setComoNosConociste(opt)}
+          />
+
           {/* <select
             name="info"
             onChange={(e) => setComoNosConociste(e.target.value)}
           > */}
-            {/* <option value="0"></option>
+          {/* <option value="0"></option>
             <option value="Recruiter">Recruiter</option>
             <option value="Conocido">Conocido</option>
             <option value="Google">Google</option>
             <option value="Otros">Otros</option>
           </select> */}
           <h3>Tecnologías</h3>
-          <Select 
-              className="xd"
-              options={valuesSelectTecnologias}
-              isMulti
-              onChange={(opt) => setTecnologias(opt)}
-            />
+          <Select
+            className="xd"
+            options={valuesSelectTecnologias}
+            isMulti
+            onChange={(opt) => setTecnologias(opt)}
+          />
 
           <div className="condition">
             <div className="acept-conditions">
