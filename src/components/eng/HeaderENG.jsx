@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../componentStyles/header.css";
 //import { useNavigate } from "react-router-dom";
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import MenuHamburguesa from "../MenuHamburguesa";
 
 export default function HeaderENG() {
-  //let navigate = useNavigate(); 
-  //const routeChange = () =>{ 
-  //  let path = `/contacto`; 
+  //let navigate = useNavigate();
+  //const routeChange = () =>{
+  //  let path = `/contacto`;
   //  navigate(path);
   //}
 
@@ -21,14 +21,18 @@ export default function HeaderENG() {
             <p className="logo-component">
               Link <span> IT</span>
             </p>
-              <div className="menuHamb" onClick={() => setMenu(true)}>
-                    <img src={menuHambNegro} className="menuHamburguesaImagen" alt="" />
-                </div>
-                {menu && <MenuHamburguesa setMenu={setMenu}/>}
+            <div className="menuHamb" onClick={() => setMenu(true)}>
+              <img
+                src={menuHambNegro}
+                className="menuHamburguesaImagen"
+                alt=""
+              />
+            </div>
+            {menu && <MenuHamburguesa setMenu={setMenu} />}
           </div>
           <div className="info-component">
             <a href="/homeENG">
-            <p className="button-component">HOME</p>
+              <p className="button-component">HOME</p>
             </a>
 
             <a href="/empresasENG">
@@ -39,19 +43,21 @@ export default function HeaderENG() {
               <p className="button-component">CANDIDATES</p>
             </a>
             <a href="/faqsENG">
-            <p className="button-component">FAQs</p>
+              <p className="button-component">FAQs</p>
             </a>
             <div className="contenedor-idiomas-header">
               <a href="/homeENG" className="contenedor-bandera">
                 <div className="idioma-component">ENG |</div>
-                </a>
+              </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
-              <button type="submit" className="contact-button-component" >
-                CONTACT
-              </button>
+            <button type="submit" className="contact-button-component" >
+              <a href="/contactoENG">
+              CONTACT
+              </a>
+            </button>
           </div>
         </div>
       </header>

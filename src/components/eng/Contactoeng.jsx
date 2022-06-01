@@ -1,16 +1,16 @@
 import React from "react";
-import Header from "./Header";
-import "../componentStyles/contact.css";
-import vectorFondo from "../images/vectorFondo.svg";
-import vector from "../images/Vector.svg";
-import vector1 from "../images/Vector-1.svg";
-import whatsApp from "../images/WhatsApp.svg";
-import USA from "../images/banderaUsa.png";
-import ARG from "../images/banderaArg.png";
-import { postContactoAirtable } from "../functions/postContactoAirtable";
+import Header from "../Header";
+import "../../componentStyles/contact.css";
+import vectorFondo from "../../images/vectorFondo.svg";
+import vector from "../../images/Vector.svg";
+import vector1 from "../../images/Vector-1.svg";
+import whatsApp from "../../images/WhatsApp.svg";
+import USA from "../../images/banderaUsa.png";
+import ARG from "../../images/banderaArg.png";
+import { postContactoAirtable } from "../../functions/postContactoAirtable";
 import ReCAPTCHA from "react-google-recaptcha";
 
-export default function Contacto() {
+export default function ContactoENG() {
   const [nombre, setNombre] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [motivoDeContacto, setMotivoDeContacto] = React.useState("");
@@ -24,11 +24,11 @@ export default function Contacto() {
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
-      errorsObj.nombre = "El nombre es requerido";
+      errorsObj.nombre = "Name is required";
       contadorErrores++;
     }
     if (input.email === "") {
-      errorsObj.email = "El email es requerido";
+      errorsObj.email = "email is required";
       contadorErrores++;
     }
     if (input.motivoDeContacto === "") {
@@ -88,17 +88,17 @@ export default function Contacto() {
         <img alt="" className="img_back2" src={vectorFondo} />
       </div>
       <div className="contenedor-cuestion">
-        <h1 className="cuestion">¿Tenés alguna consulta?</h1>
-        <h2 className="exclamation">¡CONTÁCTANOS!</h2>
+        <h1 className="cuestion">¿Any questions?</h1>
+        <h2 className="exclamation">¡CONTACT US!</h2>
       </div>
 
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="inputs">
-          <h3>Nombre*</h3>
+          <h3>Name*</h3>
           {errors.nombre ? <p className="alertaForm">{errors.nombre}</p> : null}
           <input
             className="nuevo-input"
-            placeholder="Nombre"
+            placeholder="Name"
             type="text"
             onChange={(e) => setNombre(e.target.value)}
           />
@@ -110,18 +110,18 @@ export default function Contacto() {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <h3>Motivo de contacto</h3>
+          <h3>Contact reason</h3>
           <input
             className="nuevo-input"
-            placeholder="¿Por qué nos contactaste?"
+            placeholder="¿Contact reason?"
             type="text"
             onChange={(e) => setMotivoDeContacto(e.target.value)}
           />
 
-          <h3>Mensaje</h3>
+          <h3>Message*</h3>
           <input
             className="nuevo-input"
-            placeholder="Mensaje"
+            placeholder="Message"
             type="text"
             onChange={(e) => setMensaje(e.target.value)}
           />
@@ -135,11 +135,11 @@ export default function Contacto() {
                 className="terms"
                 onClick={(e) => setCondicionesLegales(e.target.value)}
               />
-              <p className="acept-text">Aceptar condiciones legales</p>
+              <p className="acept-text">Accept legal conditions</p>
             </div>
             <div className="contenedor-sumb">
               <button type="submit" className="send-button">
-                Enviar
+                Send
               </button>
             </div>
           </div>

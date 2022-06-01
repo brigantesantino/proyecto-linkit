@@ -21,6 +21,8 @@ import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
 import Header from "./Header";
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 import Select from "react-select";
 
 export default function Empresas() {
@@ -33,8 +35,14 @@ export default function Empresas() {
   const [comoNosConociste, setComoNosConociste] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [errors, setErrors] = useState({});
+  const [captcha, setCaptcha] = useState("");
 
-  async function validate(input, event, arrayConvertidoInteresadoEnRoles, arrayConvertidoComoNosConociste) {
+  async function validate(
+    input,
+    event,
+    arrayConvertidoInteresadoEnRoles,
+    arrayConvertidoComoNosConociste
+  ) {
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
@@ -51,6 +59,10 @@ export default function Empresas() {
     }
     if (input.motivoDeContacto === "") {
       errorsObj.motivoDeContacto = "El motivo de contacto es requerido";
+      contadorErrores++;
+    }
+    if (input.captcha === "") {
+      errorsObj.captcha = "El captcha es requerido";
       contadorErrores++;
     }
     if (contadorErrores === 0) {
@@ -98,8 +110,18 @@ export default function Empresas() {
       arrayConvertidoInteresadoEnRoles,
       arrayConvertidoComoNosConociste,
       mensaje,
+      captcha,
     };
-    validate(objetoAVerificar, event, arrayConvertidoInteresadoEnRoles, arrayConvertidoComoNosConociste);
+    validate(
+      objetoAVerificar,
+      event,
+      arrayConvertidoInteresadoEnRoles,
+      arrayConvertidoComoNosConociste
+    );
+  }
+
+  function onChangeCaptcha(value) {
+    setCaptcha(value);
   }
 
   return (
@@ -268,19 +290,18 @@ export default function Empresas() {
           </div>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="inputs">
-            <div>
-              <h3>Nombre*</h3>{" "}
-              {errors.nombre ? (
-                <p className="alertaForm">{errors.nombre}</p>
-              ) : null}
-              <input
-                placeholder="Nombre"
-                type="text"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-              />
-
-            </div>
+              <div>
+                <h3>Nombre*</h3>{" "}
+                {errors.nombre ? (
+                  <p className="alertaForm">{errors.nombre}</p>
+                ) : null}
+                <input
+                  placeholder="Nombre"
+                  type="text"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+              </div>
               <h3>Email*</h3>{" "}
               {errors.email ? (
                 <p className="alertaForm">{errors.email}</p>
@@ -343,6 +364,16 @@ export default function Empresas() {
                 value={mensaje}
                 onChange={(e) => setMensaje(e.target.value)}
               ></textarea>
+              <br></br>
+              <br></br>
+
+              <ReCAPTCHA
+                sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw"
+                onChange={onChangeCaptcha}
+              />
+              {errors.captcha ? (
+                <p className="alertaForm">{errors.captcha}</p>
+              ) : null}
               <div className="condition">
                 <div className="acept-conditions">
                   <input type="checkbox" className="terms" />
@@ -369,13 +400,14 @@ export default function Empresas() {
               >
                 <img alt="" src={vector} />
               </a>
-              <a
-                className="gmail"
-                href="/contacto"
-              >
+              <a className="gmail" href="/contacto">
                 <img alt="" src={vector1} />
               </a>
-              <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
+              <a
+                className="wpp"
+                href="https://wa.me/+5491165287429"
+                target="_blank"
+              >
                 <img alt="" src={whatsApp} />
               </a>
             </div>

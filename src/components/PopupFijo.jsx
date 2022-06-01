@@ -6,6 +6,7 @@ import Select from "react-select";
 import { valuesSelectComoNosConociste } from "../constants/selects";
 import { valuesSelectTecnologias } from "../constants/selects";
 import { valuesExperience } from "../constants/selects";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function PopupFijo(props) {
   const [nombre, setNombre] = useState("");
@@ -22,6 +23,7 @@ export default function PopupFijo(props) {
   const [errors, setErrors] = useState({});
   const [fileName, setFileName] = useState("");
   const [googleObject, setGoogleObject] = useState({});
+  const [captcha, setCaptcha] = useState("");
 
   const location = useLocation();
   const data = location.state;
@@ -90,6 +92,10 @@ export default function PopupFijo(props) {
       errorsObj.direccion = "La direccion es requerida";
       contadorErrores++;
     }
+    if (input.captcha === "") {
+      errorsObj.captcha = "El captcha es requerido";
+      contadorErrores++;
+    }
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtableCandidatosEspecial(
@@ -141,12 +147,16 @@ export default function PopupFijo(props) {
       arrayConvertidoComoNosConociste,
       remuneracionPretendida,
       monedaRemuneracion,
+      captcha
     };
     validate(objetoAVerificar, event);
     event.preventDefault();
     //console.log("validate",validate(objetoAVerificar));
   }
 
+  function onChangeCaptcha(value) {
+    setCaptcha(value);
+  }
   return (
     <div className="popup">
       <div className="header-popup">
@@ -276,16 +286,6 @@ export default function PopupFijo(props) {
             onChange={(opt) => setComoNosConociste(opt)}
           />
 
-          {/* <select
-            name="info"
-            onChange={(e) => setComoNosConociste(e.target.value)}
-          > */}
-          {/* <option value="0"></option>
-            <option value="Recruiter">Recruiter</option>
-            <option value="Conocido">Conocido</option>
-            <option value="Google">Google</option>
-            <option value="Otros">Otros</option>
-          </select> */}
           <h3>Tecnologías</h3>
           <Select
             className="xd"
@@ -295,6 +295,13 @@ export default function PopupFijo(props) {
           />
 
           <div className="condition">
+            <ReCAPTCHA
+              sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw"
+              onChange={onChangeCaptcha}
+            />
+            {errors.captcha ? (
+              <p className="alertaForm">{errors.captcha}</p>
+            ) : null}
             <div className="acept-conditions">
               <input
                 type="checkbox"
