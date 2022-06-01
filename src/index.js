@@ -17,7 +17,7 @@ import PopupFijo from "./components/PopupFijo";
 import IndexENG from "./components/eng/IndexENG";
 import EmpresasENG from "./components/eng/Empresaseng";
 import FAQsENG from "./components/eng/FAQsENG";
-
+import ContactoENG from "./components/eng/Contactoeng";
 import MenuHamburguesa from "./components/MenuHamburguesa";
 
 
@@ -39,8 +39,7 @@ ReactDOM.render(
         <Route exact path="/homeENG" element={<IndexENG/>}/>
         <Route exact path="/modal" element={<MenuHamburguesa/>}/>
         <Route exact path="/empresasENG" element={<EmpresasENG/>}/>
-
-
+        <Route exact path="/contactoENG" element={<ContactoENG/>}/>
       </Routes>
     </Fragment>
   </Router>,
