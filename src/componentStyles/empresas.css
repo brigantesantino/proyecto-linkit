@@ -117,9 +117,12 @@
 }
 .empresas .xd{
   width: 100%;
+  margin-top: 0px;
 }
-.empresas .question {
-  margin: 0 auto;
+
+.question {
+  width: 50%;
+  margin-top: 50px;
   color:#233c72;
 }
 .search {
@@ -130,12 +133,11 @@
   margin: 0 auto;
   margin-top: 3.2rem;
 }
-.empresas h1 {
-  width: 30%;
+.h1 {
+  width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-left: 33%;
   color: #233c72;
   
 }
@@ -238,6 +240,7 @@ main div.images div.logo {
   white-space: nowrap;
   animation: marquee 10s linear infinite;
   position: absolute;
+  z-index: -1;
 }
 
 .empresas .google-img {
@@ -263,44 +266,53 @@ main div.images div.logo {
   color: #233c72;
 }
 .empresas main form {
-  border: #233c72 solid 2px;
+  
   display: flex;
-  box-shadow: 0px 20px 40px #eaeaea;
+  
   justify-content: space-around;
   width: 60%;
   height: 30%;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 4rem;
-  border-radius: 14px;
+  
   background-color: white;
 }
 .empresas main form div.inputs {
   width: 100%;
   margin: 2.2rem 0 6rem 2rem;
+
 }
 .empresas main form div.inputs input {
   width: 100%;
-  padding: 7px 7px;
-  margin: 1rem 0;
+  padding: 10px 8px;
+  margin: 0.9rem 0;
   border-radius: 5px;
   border: rgb(110, 110, 110) solid 1px;
   background-color: rgba(210, 230, 242, 0.891);
   outline: none;
+
 }
 .inputs h3{
   color: #63799e ;
   font-size: medium;
+
+  margin-bottom: 8px;
 }
+
 .details h3{
   color: #63799e;
   font-size: medium;
+
+
 }
 
 .empresas main form div.details {
   box-sizing: border-box;
   width: 100%;
   margin: 2.1rem 2rem 2rem 2rem;
+
+
 }
 .empresas main form div.details div.checkboxes {
   width: 100% !important;
@@ -510,6 +522,11 @@ main div.images div.logo {
   color: #63799e;
   font-weight: bold;
 }
+.contenedor-idiomas-emp{
+  display: flex;
+  flex-direction: row;
+}
+
 @keyframes marquee {
   0% { left: 0%; }
   100% { left: -113%; }
@@ -630,8 +647,6 @@ main div.images div.logo {
   0% { left: 0%; }
   100% { left: -113%; }
 }
-  
-
   
 
   .empresas main form {

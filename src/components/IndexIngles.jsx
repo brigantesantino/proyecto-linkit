@@ -165,7 +165,7 @@ export default function Index() {
         </div>
     <section className="contenedor_confianza">
         <div className="cardClientes_confianza" >
-            <a href="https://www.google.com/" className="card_clientes" target="_blank">
+            <a href="https://www.google.com/" className="card_clientes" target="_blank" rel="noopener noreferrer">
                 <div className="ContenedorNombreUser_clientes">
                     <img src={logoTres} alt="" width="80px"/>
                     <div >
@@ -175,7 +175,7 @@ export default function Index() {
                 </div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora laudantium </p>
             </a>
-            <a href="https://www.google.com/" className="card_clientes" target="_blank">
+            <a href="https://www.google.com/" className="card_clientes" target="_blank" rel="noopener noreferrer">
                 <div className="ContenedorNombreUser_clientes">
                     <img src={logoTres} alt="" width="80px"/>
                     <div >
@@ -185,7 +185,7 @@ export default function Index() {
                 </div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora laudantium </p>
             </a>
-            <a href="https://www.google.com/" className="card_clientes" target="_blank">
+            <a href="https://www.google.com/" className="card_clientes" target="_blank" rel="noopener noreferrer">
                 <div className="ContenedorNombreUser_clientes">
                     <img src={logoTres} alt="" width="80px"/>
                     <div >

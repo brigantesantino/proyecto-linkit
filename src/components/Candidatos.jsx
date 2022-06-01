@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 
 import "../componentStyles/candidatos.css";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 import image17 from "../images/image 17.svg";
 import image18 from "../images/image 18.png";
 import image20 from "../images/image 20.svg";
@@ -20,19 +20,19 @@ import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-import menuHambNegro from "../images/menuHamburguesa.svg";
-import MenuHamburguesa from "./MenuHamburguesa";
+//import menuHambNegro from "../images/menuHamburguesa.svg";
+//import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
-import USA from "../images/banderaUsa.png";
-import ARG from "../images/banderaArg.png";
 
 import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable";
 
 import Popup from "./Popup";
 
-import { valuesSelectRoles } from "../constants/selects";
+import { valuesExperience, valuesSelectRoles } from "../constants/selects";
 import { valuesSelectComoNosConociste } from "../constants/selects";
 import { valuesSelectTecnologias } from "../constants/selects";
+
+//import { callCreate } from "../functions/fileManagers/google";
 
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
@@ -43,19 +43,21 @@ export default function Candidatos() {
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
-  const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
+  //const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState([]);
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
+  
+  const [googleObject, setGoogleObject] = useState({});
+  const [fileName, setFileName] = useState("");
 
-  const [menu, setMenu] = useState(false);
+  //const [menu, setMenu] = useState(false);
   const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
   function validate(input, event) {
-    console.log("input", input);
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
@@ -70,10 +72,6 @@ export default function Candidatos() {
       errorsObj.linkedin = "El linkedin es requerido";
       contadorErrores++;
     }
-    if (input.experiencia === "") {
-      errorsObj.experiencia = "La experiencia es requerida";
-      contadorErrores++;
-    }
     if (input.condicionesLegales === "") {
       errorsObj.condicionesLegales = "Debes aceptar las condiciones legales";
       contadorErrores++;
@@ -83,7 +81,7 @@ export default function Candidatos() {
       contadorErrores++;
     }
     if (input.direccion === "") {
-      errorsObj.direccion = "La direccion es requerida";
+      errorsObj.direccion = "La dirección es requerida";
       contadorErrores++;
     }
     if (contadorErrores === 0) {
@@ -93,7 +91,8 @@ export default function Candidatos() {
         input.email,
         input.direccion,
         input.linkedIn,
-        input.experiencia,
+        input.experiencia.value,
+        googleObject,
         input.monedaRemuneracion,
         input.remuneracionPretendida,
         input.arrayConvertidoInteresadoEnRoles,
@@ -103,7 +102,7 @@ export default function Candidatos() {
         input.ofertas
       );
       event.preventDefault();
-      setTimeout(() => window.location.reload(),1000)
+      setTimeout(() => window.location.reload(), 30000);
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -146,27 +145,62 @@ export default function Candidatos() {
     };
     validate(objetoAVerificar, event);
   }
+
+  function guardarArchivo(e) {
+    var file = e.target.files[0]; //the file
+    setFileName(file.name);
+    var reader = new FileReader(); //this for convert to Base64
+    reader.readAsDataURL(e.target.files[0]); //start conversion...
+    reader.onload = function (e) {
+      //.. once finished..
+      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
+      var dataSend = {
+        dataReq: { data: rawLog, name: file.name, type: file.type },
+        fname: "uploadFilesToGoogleDrive",
+      }; //preapre info to send to API
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
+        { method: "POST", body: JSON.stringify(dataSend) }
+      ) //send to Api
+        .then((res) => res.json())
+        .then((a) => {
+          console.log(a); //See response
+          console.log(a.id);
+          const object = {
+            id: a.id,
+            filename: file.name,
+          };
+          setGoogleObject(object);
+        })
+        .catch((e) => console.log(e)); // Or Error in console
+    };
+  }
+
   useEffect(() => {
-    fetch(
-      `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setOfertas(data.records);
-        //console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_BASE_AIRTABLE}/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setOfertas(data.records);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (err){
+      console.log(err)
+    }
+    
   }, []);
 
   return (
     <div className="candidatos">
       <Header />
       <div className="background">
-        <img className="img_back1" src={vectorFondo} />
-        <img className="img_back2" src={vectorFondo} />
-        <img className="img_back3" src={vectorFondo} />
+        <img alt="" className="img_back1" src={vectorFondo} />
+        <img alt="" className="img_back2" src={vectorFondo} />
+        <img alt="" className="img_back3" src={vectorFondo} />
       </div>
       <nav id="sideNav">
         <ul className="side-menu">
@@ -194,7 +228,7 @@ export default function Candidatos() {
         </div>
         <h2 id="offers">Ofertas disponibles</h2>
         <div className="buttons buttons-desktop scrollbox">
-          <div className="candidate-buttons">
+          <div className="candidate-buttons" id="parche">
             {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
                 <a className="link-pupup" key={oferta.fields.Codigo}>
@@ -226,7 +260,7 @@ export default function Candidatos() {
               <h1>Cargando ofertas...</h1>
             )}
           </div>
-          {popup && <Popup data={data} />}
+          {popup ? <Popup data={data} /> : null}
         </div>
         <h2 id="technologies">En estas tecnologías</h2>
         <div className="images">
@@ -312,42 +346,54 @@ export default function Candidatos() {
             {errors.nombre ? (
               <p className="alertaForm">{errors.nombre}</p>
             ) : null}
-            <input placeholder=" Nombre"  type="text" onChange={(e) => setNombre(e.target.value)} />
+            <input
+              placeholder=" Nombre"
+              type="text"
+              onChange={(e) => setNombre(e.target.value)}
+            />
 
             <h3>Email*</h3>
             {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-            <input placeholder=" Email" type="email" onChange={(e) => setEmail(e.target.value)} />
+            <input
+              placeholder=" Email"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <h3>Dirección*</h3>
             {errors.direccion ? (
               <p className="alertaForm">{errors.direccion}</p>
             ) : null}
-            <input placeholder=" Direccion" type="text" onChange={(e) => setDireccion(e.target.value)} />
+            <input placeholder=" Dirección" type="text" onChange={(e) => setDireccion(e.target.value)} />
             <h3>LinkedIn*</h3>
             {errors.linkedin ? (
               <p className="alertaForm">{errors.linkedin}</p>
             ) : null}
-            <input placeholder="*Linkedin" type="text" onChange={(e) => setLinkedIn(e.target.value)} />
+            <input
+              placeholder="*Linkedin"
+              type="text"
+              onChange={(e) => setLinkedIn(e.target.value)}
+            />
             <h3>Experiencia</h3>
-            <select 
-              className="experience"
-              name="info"
-              onChange={(e) => setExperiencia(e.target.value)}
-            >
-              <option value="0">Experiencia </option>
-              <option value="0-1"> 0-1 año </option>
-              <option value="1-2"> 1-2 años </option>
-              <option value="2-3"> 2-3 años </option>
-              <option value="3+">3 o mas años </option>
-            </select>
+            <Select
+                  placeholder="Experiencia"
+                  className="selectCandidatos"
+                  options={valuesExperience}
+                  onChange={(opt) => setExperiencia(opt)}
+                />
           </div>
           <div className="details">
-            <h3>Carga tu CV</h3>
+            <h3>Carga tu CV </h3>
             <div className="file">
               <label form="archive">
                 +
-                <input type="file" id="archive" />
+                <input
+                  type="file"
+                  id="archive"
+                  onChange={(e) => guardarArchivo(e)}
+                />
               </label>
             </div>
+            {fileName}<br></br>
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select
@@ -359,22 +405,25 @@ export default function Candidatos() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input placeholder="Remuneracion pretendida"
+              <input
+                placeholder="Remuneracion pretendida"
                 type="text"
                 onChange={(e) => setRemuneracionPretendida(e.target.value)}
               />
             </div>
             <h3>Interesado en roles</h3>
-
-            <Select placeholder="Elige lo/s rol/es"
+            <Select
+              placeholder="Elige lo/s rol/es"
               className="selectCandidatos"
               options={valuesSelectRoles}
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
             />
-
+            <h3>Otros</h3>
+            <input className="inp" type="textarea" placeholder="Otros..." />
             <h3>Cómo nos conociste</h3>
-            <Select  placeholder="Cómo nos conociste"
+            <Select
+              placeholder="Cómo nos conociste"
               className="selectCandidatos"
               options={valuesSelectComoNosConociste}
               isMulti
@@ -383,13 +432,12 @@ export default function Candidatos() {
 
             <h3>Tecnologías</h3>
 
-            <Select placeholder="Elige la/s tecnologia/s"
+            <Select placeholder="Elige la/s tecnología/s"
               className="selectCandidatos"
               options={valuesSelectTecnologias}
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
-
             <div className="condition">
               <div className="acept-conditions">
                 <input
@@ -409,7 +457,7 @@ export default function Candidatos() {
           </div>
         </form>
       </main>
-      <footer>
+      <footer id="abajo">
         <div className="footer">
           <h4>
             Link<span>IT</span>
@@ -419,16 +467,17 @@ export default function Candidatos() {
               target="_blank"
               className="linkedin"
               href="https://www.linkedin.com/company/linkit-hr/"
+              rel="noopener noreferrer"
             >
               <img alt="" src={vector} />
             </a>
             <a
               className="gmail"
-              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+              href="/contacto"
             >
               <img alt="" src={vector1} />
             </a>
-            <a className="wpp" href="https://web.whatsapp.com/">
+            <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
               <img alt="" src={whatsApp} />
             </a>
           </div>
@@ -444,15 +493,13 @@ export default function Candidatos() {
             <p className="footer-button">CANDIDATOS</p>
           </a>
           <a href="/faqs">
-            <p className="footer-button">FAQS</p>
+            <p className="footer-button">FAQs</p>
           </a>
-          <div className="contenedor-idiomas">
+          <div className="contenedor-idiomas-cand">
             <a href="/homeENG" className="contenedor-bandera">
-              <img className="emojiBandera" src={USA} alt="" />
-              <div className="idioma-component">ENG</div>
+              <div className="idioma-component">ENG |</div>
             </a>
             <a className="contenedor-bandera" href="/home">
-              <img className="emojiBandera" src={ARG} alt="" />
               <div className="idioma-component">ESP</div>
             </a>
           </div>

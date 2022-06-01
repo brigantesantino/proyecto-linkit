@@ -4,6 +4,9 @@
   align-items: center;
 
 }
+#it{
+  margin: 0px;
+}
 .top-header-component {
   width: 85%;
   display: flex;
@@ -55,20 +58,17 @@
   width: 17px;
   margin-right: 5px;
 }
-.contenedor-idiomas{
+.contenedor-idiomas-header{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 150px;
-}
-.contenedor-bandera{
-  display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
+
 .idioma-component{
   margin-left: 5px;
   color: #63799e;
+
 }
 .select-component {
   color: #233c72;

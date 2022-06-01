@@ -1,17 +1,15 @@
 import React, {useState} from "react";
 import "../../componentStyles/header.css";
-import { useNavigate } from "react-router-dom";
-import USA from "../../images/banderaUsa.png"
-import ARG from "../../images/banderaArg.png"
+//import { useNavigate } from "react-router-dom";
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import MenuHamburguesa from "../MenuHamburguesa";
 
 export default function HeaderENG() {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/contacto`; 
-    navigate(path);
-  }
+  //let navigate = useNavigate(); 
+  //const routeChange = () =>{ 
+  //  let path = `/contacto`; 
+  //  navigate(path);
+  //}
 
   const [menu, setMenu] = useState(false);
 
@@ -41,15 +39,13 @@ export default function HeaderENG() {
               <p className="button-component">CANDIDATES</p>
             </a>
             <a href="/faqsENG">
-            <p className="button-component">FAQS</p>
+            <p className="button-component">FAQs</p>
             </a>
-            <div className="contenedor-idiomas">
+            <div className="contenedor-idiomas-header">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>

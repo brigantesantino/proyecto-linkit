@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow-x: visible;
   
 }
 
@@ -110,7 +110,12 @@
 .candidatos header div.info a.candidates-button {
   text-decoration: none;
   color: black;
+
 }
+div::-webkit-scrollbar{
+  display: none;
+}
+
 .candidatos header div.info p.candidates {
   margin: 0px 10px 0 10px;
 }
@@ -227,6 +232,7 @@
   white-space: nowrap;
   animation: marquee 10s linear infinite;
   position: absolute;
+  z-index: -1;
 }
 
 .candidatos .google-img {
@@ -249,6 +255,11 @@
   margin: 0 auto;
   margin-top: 4rem;
   color: #233c72;
+}
+
+
+#abajo{
+  width: 100%;
 }
 .candidatos footer h4 {
   color: black;
@@ -275,6 +286,11 @@
 .footer-button{
   color: #63799e;
   margin-top: 6px;
+}
+.contenedor-idiomas-cand{
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
 }
 @media (max-width: 1024px) {
   .info-candidatos{
@@ -333,6 +349,7 @@
     align-content: center;
     width: 100%;
     top: 0%;
+    
   }
   .candidatos .menu-wrapper .menu-hmb {
     display: block;
@@ -374,7 +391,7 @@
     width: 100%;
     margin: 0.8rem 0;
     border-radius: 5px;
-    border: rgb(110, 110, 110) solid 2px;
+    border: #abbcd8 solid 2px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
     border: 1px solid #abbcd8; ;
@@ -407,7 +424,12 @@
     width: 100%;
     height: 32rem;
     overflow: scroll;
+    scrollbar-width: none;
+    background-color: red;
   }
+.scrollbox::-webkit-scrollbar{
+  display: none;
+}
   .candidatos h2 {
     width: 90%;
     margin-left: 6%;
@@ -419,17 +441,18 @@
     width: 90%;
     padding: 0 0.7rem;
     background-color: white;
+    
   }
   
   .candidatos main form {
-    border: 2px solid #63799e;
+    
     display: flex;
     justify-content: space-around;
     width: 85%;
     height: 30%;
     margin: 0 auto;
     margin-top: 30px;
-    border-radius: 10px;
+    
     overflow-x: visible;
   }
   .candidatos main form div.details div.value {
@@ -442,14 +465,14 @@
     background-color: white;
     width: 30%;
     margin: 0.9rem 0.7rem 0.9rem 0;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
   }
   .candidatos main form div.details div.value input {
     padding: 7px 7px;
     margin: 0.9rem 0;
     border-radius: 10px;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
     width: 100%;
@@ -464,7 +487,7 @@
     color: gray;
     display: block;
     padding: -5px 0 6px 0;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
     margin: 1rem 0;
     width: 5rem;
@@ -480,16 +503,25 @@
     padding: 7px 7px;
     margin: 1rem 0;
     border-radius: 5px;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
     
+  }
+  .candidatos input.inp{
+    width: 100%;
+    padding: 7px 7px;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border: #abbcd8 solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
+    outline: none;
   }
   .candidatos main form div.inputs select {
     width: 100%;
     padding: 7px 7px;
     margin: 0.8rem 0;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
     border-radius: 5px;
     outline: none;
@@ -507,7 +539,7 @@
     padding: 7px 7px;
     margin: 0.8rem 0;
     border-radius: 5px;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
   }
@@ -518,7 +550,7 @@
     width: 100%;
     height: 15%;
     border-radius: 5px;
-    border: rgb(110, 110, 110) solid 1px;
+    border: #abbcd8 solid 1px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
   }
@@ -673,7 +705,7 @@
     width: 100%;
     margin: 0.8rem 0;
     border-radius: 5px;
-    border: rgb(110, 110, 110) solid 2px;
+    border: #abbcd8 solid 2px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
     border: 1px solid #abbcd8; ;
@@ -685,7 +717,7 @@
     width: 37%;
   }
   .candidatos main form {
-    border: 1px solid #abbcd8;
+    /* border: 1px solid #abbcd8; */
     display: flex;
     justify-content: space-around;
     width: 60%;
@@ -693,7 +725,7 @@
     margin: 0 auto;
     margin-top: 30px;
     border-radius: 10px;
-    box-shadow: 0px 20px 40px #eaeaea;
+    /* box-shadow: 0px 20px 40px #eaeaea; */
     margin-bottom: 4rem;
     background-color: white;
   }
@@ -706,12 +738,21 @@
     padding: 7px 7px;
     margin: 0.9rem 0;
     border-radius: 5px;
-    border: rgb(110, 110, 110) solid 2px;
+    border: #abbcd8 solid 2px;
     background-color: rgba(210, 230, 242, 0.891);
     outline: none;
     border: 1px solid #abbcd8;
     
     
+  }
+  .candidatos input.inp{
+    width: 100%;
+    padding: 7px 7px;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border: #abbcd8 solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
+    outline: none;
   }
   .candidatos .experience {
     background-color: rgba(210, 230, 242, 0.891);
@@ -780,7 +821,7 @@
     width: 100%;
     height: 15%;
     border-radius: 10px;
-    border: rgb(110, 110, 110) solid 2px;
+    border: #abbcd8 solid 2px;
     outline: none;
   }
   .candidatos main form .condition {
@@ -818,7 +859,7 @@
     color: black;
     transition: 300ms;
   }
-  .candidatos footer {
+ #abajo{
     border-top: #63799e solid 2px;
     margin: 2.2rem auto;
     width: 62%;

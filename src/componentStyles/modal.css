@@ -6,9 +6,8 @@
     width: 100vw; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-
   }
- 
+
 
   .modal-content {
     background-color: #fefefe;
@@ -18,8 +17,8 @@
     width: 300px;
     height: 40px;
     position: fixed;
-    top: -180px;
-    left: 30px;
+    top: 0px;
+    left: 0px;
     border-radius: 10px;
     border: solid #63799E 1.5px;
     box-shadow: 2px 2px 43px -9px rgba(0,0,0,0.58);
@@ -28,8 +27,6 @@
     align-items: center;
     font-size: small;
     animation: transition 1s;
-
-
   }
   .modal-content-contacto{
     background-color: #fefefe;

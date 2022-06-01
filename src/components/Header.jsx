@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 import "../componentStyles/header.css";
-import { useNavigate } from "react-router-dom";
-import USA from "../images/banderaUsa.png"
-import ARG from "../images/banderaArg.png"
+//import { useNavigate } from "react-router-dom";
+//import USA from "../images/banderaUsa.png"
+//import ARG from "../images/banderaArg.png"
 import menuHambNegro from "../images/menuHamburguesa.svg";
 import MenuHamburguesa from "./MenuHamburguesa";
 
 export default function Header() {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/contacto`; 
-    navigate(path);
-  }
+  //let navigate = useNavigate(); 
+  //const routeChange = () =>{ 
+  //  let path = `/contacto`; 
+  //  navigate(path);
+  //}
 
   const [menu, setMenu] = useState(false);
 
@@ -21,7 +21,7 @@ export default function Header() {
         <div className="title">
           <div className="menu-wrapper">
             <p className="logo-component">
-              Link <span> IT</span>
+              Link<span id="it">IT</span>
             </p>
               <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHambNegro} className="menuHamburguesaImagen" alt="" />
@@ -41,21 +41,20 @@ export default function Header() {
               <p className="button-component">CANDIDATOS</p>
             </a>
             <a href="/faqs">
-            <p className="button-component">FAQS</p>
+            <p className="button-component">FAQs</p>
             </a>
-            <div className="contenedor-idiomas">
-              <a href="" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
-                </a>
+            <div className="contenedor-idiomas-header">
+              <a className="contenedor-bandera" href="/homeENG">
+                <div className="idioma-component">ENG |</div>
+              </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
+            <a href="/contacto">
               <button type="submit" className="contact-button-component">
                 CONTACTO
-              </button>
+              </button></a>
           </div>
         </div>
       </header>

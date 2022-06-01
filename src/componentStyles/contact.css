@@ -4,6 +4,29 @@ body{
     flex-direction: column;
     font-family: 'Manrope', sans-serif;
 }
+.contenedor-cuestion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.cuestion{
+  color: #63799e;
+  font-size: xx-large;
+  text-align: center;
+}
+.exclamation{
+  color: #233c72;
+  font-size: x-large;
+  margin-top: 20px;
+}
+.contacto form{
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.31); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.31);
+  margin-top: 30px;
+}
 .contacto form {
     flex-direction: column;
     align-items: center;
@@ -11,31 +34,35 @@ body{
     padding: 0 0.7rem;
   }
   .contacto form {
-    box-shadow: 0px 20px 40px #EAEAEA;
-    border: 2px solid #63799e;
+   background-color: white;
     display: flex;
     justify-content: space-around;
     width: 40%;
     height: 30%;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 30px;
     border-radius: 10px;
   }
-  .contacto form div.inputs {
-    width: 80%;
+.inputs-contact{
+    width: 90%;
     margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
-  .contacto form div.inputs input {
+.nuevo-input {
     width: 100%;
     padding: 7px 7px;
-    margin: 1rem 0;
-    border-radius: 10px;
-    border: 2px solid #63799e;
+    margin: 1.3rem 0;
+    border-radius: 5px;
+    border: rgb(110, 110, 110) solid 1px;
+    background-color: rgba(210, 230, 242, 0.891);
     outline: none;
   }
-  .contacto form div.inputs select {
+.inputs select {
     width: 100%;
     padding: 7px 7px;
     margin: 0.8rem 0;
@@ -43,11 +70,11 @@ body{
     outline: none;
     border: 2px solid #63799e;
   }
-  .contacto form div.details {
+.details {
     box-sizing: border-box;
     width: 100%;
     margin: 2rem;
-    margin: -1.8rem 0 1.8rem 0;
+
   }
   .contacto form div.details select {
     width: 100%;
@@ -57,58 +84,46 @@ body{
     border: 2px solid #63799e;
     outline: none;
   }
-  .contacto form div.details h3.mensaje {
+.mensaje {
     margin-bottom: 15px;
   }
-  .contacto form div.details textarea {
+
+  
+.conditionss {
     width: 100%;
-    height: 15%;
-    border-radius: 10px;
-    border: 2px solid #63799e;
-    outline: none;
-  }
-  .contacto form div.details input {
-    color: transparent;
-    border: none;
-  }
-  .contacto form div.condition{
-      display: flex;
-      justify-content: center;
-  }
-  .contacto form .condition {
-    width: 100%;
-    margin-top: 0.6rem;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
   }
-  .contacto form .terms{
+.terms{
       border: #63799e solid 3px;
-      cursor: pointer ;
-      
+      cursor: pointer ; 
+      margin: 0px;  
   }
-
-  .contacto form .acept-conditions {
+.acept-text{
+  color: #63799e;
+  margin-left: 5px;
+  font-weight: bold;
+}
+.acept-conditions{
     display: flex;
     justify-content: center;
-    gap: 6px;
+    align-items: center;
     flex-direction: row;
-    margin: 0 0 0 27%;
   }
-  .contacto form div.condition h3 {
+.condition h3{
     font-size: 15px;
     width: 100%;
   }
-  .contacto form div.condition input {
-      margin: 0.3rem 0 0.7rem 0;
-    width: 1rem;
-  }
-  .contacto form div.condition h3 {
-    margin: 0 0 0 0;
-  }
-  .contacto form div.condition button.send-button {
-    width: 20%;
+.contenedor-sumb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+ .send-button {
+    width: 30%;
     border: #63799e solid 1px;
     background-color: #63799e;
     padding: 0.4rem 0.5rem;
@@ -116,11 +131,14 @@ body{
     border-radius: 6px;
     transition: 300ms;
     outline: none;
-    margin: 0 0 0 39%;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
   }
-  .contacto form div.condition button.send-button:hover {
+.send-button:hover {
     background-color: transparent;
     color: black;
     transition: 300ms;
@@ -161,7 +179,7 @@ body{
     margin-bottom: 20px;
     margin-left: 35px;
   }
-  .contacto footer div.title {
+ zz.title {
     border-bottom: black solid 1px;
     display: flex;
     flex-direction: row;
@@ -223,13 +241,17 @@ body{
 
 
   @media (max-width: 768px){
+    .cuestion{
+      font-size: x-large;
+    }
     .contacto form{
       width: 70%;
     }
-    .contacto form .acept-conditions{
+    .acept-conditions{
       width: 100%;
-      
+
     }
+  
     .contacto footer div.info {
         display: none;
       }

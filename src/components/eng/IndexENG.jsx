@@ -1,39 +1,52 @@
 import React, {useState} from "react";
-import ModalENG from "../../components/eng/ModalENG";
-import ModalEficienciaENG from "./ModalEficienciaENG"
-import ModalSeguridadENG from "./ModalSeguridadENG"
-import ModalVelocidadENG from "./ModalVelocidadENG"
+
 import ModalContactoENG from "./ModalContactoENG"
 import MenuHamburguesaENG from "./MenuHamburguesaENG";
 import vectorFondo from "../../images/vectorFondo.svg";
-import carafeliz from "../../images/carafeliz.svg";
-import eficiencia from "../../images/eficiencia.svg";
-import velocidad from "../../images/velocidad.svg";
-import seguridad from "../../images/seguridad.svg";
 import logoTres from "../../images/LogoTres.svg";
 import menuHamb from "../../images/menuHamburguesaBlanco.png";
-import USA from "../../images/banderaUsa.png"
-import ARG from "../../images/banderaArg.png"
+import carafeliz from "../../images/manos.png";
+import eficiencia from "../../images/eficiencia.png";
+import velocidad from "../../images/auto.png";
+import seguridad from "../../images/candado.png";
+import img3D from "../../images/logo3d.svg";
+import contrato from "../../images/contrato.png"
 
 import vector from "../../images/Vector.svg"
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg"
+import cliente1 from "../../images/cliente1.png"
+import cliente2 from "../../images/cliente2.png"
+import cliente3 from "../../images/cliente3.png"
 
 import "../../componentStyles/home.css";
 
 export default function IndexENG() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [modal2, setModal2] = useState(false);
-    const [modal3, setModal3] = useState(false);
-    const [modal4, setModal4] = useState(false);
+    const [style, setStyle] = useState("style");
+    const [styleNormal2, setStyle2] = useState("style");
+    const [styleNormal3, setStyle3] = useState("style");
+    const [styleNormal4, setStyle4] = useState("style");
     const [modalContacto, setModalContacto] = useState(false);
     const [menu, setMenu] = useState(false);
+
+    const changeStyle = () => {
+        style === "styleDos" ? setStyle("style"):setStyle("styleDos")
+        };
+    const changeStyle2 = () => {
+        styleNormal2 === "style2" ? setStyle2("style"):setStyle2("style2")
+        };
+    const changeStyle3 = () => {
+        styleNormal3 === "style3" ? setStyle3("style"):setStyle3("style3")
+        };
+    const changeStyle4 = () => {
+        styleNormal4 === "style4" ? setStyle4("style"):setStyle4("style4")
+        };
   return (
     <div className="body">
       <header className="top-header">
       <div className="title">
             <div className="menu-wrapper">
-                <p className="logo">Link <span>IT</span></p>
+                <p className="logo">Link<span>IT</span></p>
                 <div className="menuHamb" onClick={() => setMenu(true)}>
                     <img src={menuHamb} className="menuHamburguesaImagen" alt="" />
                 </div>
@@ -53,13 +66,11 @@ export default function IndexENG() {
                     <a href="./faqsENG" className="empresas-button">
                         <p className="faqs"  >FAQS</p>
                     </a>
-                    <div className="contenedor-idiomas">
+                    <div className="contenedor-idiomas-home">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>
@@ -80,80 +91,93 @@ export default function IndexENG() {
             <div className ="contenedor_main" >
                 <div className="contenedorText_main">
                     <div className="atention_main">We Are Hiring!</div>
-                    <div className="preg_main">Are you looking for <span>talent selection </span> services in the tech world?</div>
+                    <div className="preg_main">Are you looking for <span>top talent selection </span> services in the tech industry world?</div>
                     <div className="service_main">At Linkit, both companies looking for new trained employees, as well as candidates who want to grow professionally</div>
                     <a href="#section" className="bMasInfo" id="colorBlanco">
                         More Information
                     </a>
                 </div>
                 <div className="cont_ilustration">
-                    <img className="img_main"  alt=""/>
+                    <img className="img_main" src={img3D} alt=""/>
                 </div>
             </div>
         </div>
         </main> 
         <section className="section_abaut" >
         <div className="contenedorCards_about" id="section">
-
-            <div className="cardDetails_abaut" id="myBtn1" onClick={() => setIsOpen(true)}>
+            <div className="cardDetails_abaut" id="myBtn1" onClick={changeStyle}>
                 <div>
-                    <img src={carafeliz} alt="" />
+                    <img className="img-home" src={carafeliz} alt="" />
                 </div>
                 <div>
                     <div className="confianza_about">Trust</div>
-                    <div className="detalles_about">See more</div>
+                    <p className={style}>Team of consultants specialized in the TECH area.</p>
                 </div>
             </div>
-            {isOpen && <ModalENG setIsOpen={setIsOpen} />}
 
-            <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={() => setModal4(true)}>
+
+            <div className="cardDetails_abaut" id="myBtnVelocidad" onClick={changeStyle2}>
                 <div>
-                    <img src={velocidad} alt=""/>
+                    <img className="img-home" src={velocidad} alt=""/>
                 </div>
                 <div>
                     <div className="confianza_about">Velocity</div>
-                    <div className="detalles_about">See more</div>
+                    <p className={styleNormal2}>2 weeks of waiting from the closing of the needed profile.</p>
                 </div>
             </div>
-            {modal4 && <ModalVelocidadENG setModal4={setModal4} />}
 
-            <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={() => setModal2(true)}>
+            <div className="cardDetails_abaut" id="myBtnEficiencia" onClick={changeStyle3}>
                 <div>
-                    <img src={eficiencia} alt=""/>
+                    <img className="img-home" src={eficiencia} alt=""/>
                 </div>
                 <div>
                     <div className="confianza_about">Efficiency</div>
-                    <div className="detalles_about">See more</div>
+                    <p className={styleNormal3}>Recurring feedback with the client from the beginning of the process until its completion and subsequent incorporation.</p>
                 </div>
             </div>
-            {modal2 && <ModalEficienciaENG setModal2={setModal2} />}
 
-            <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={() => setModal3(true)}>
+            <div className="cardDetails_abaut" id="myBtnSeguridad" onClick={changeStyle4}>
                 <div>
-                    <img src={seguridad} alt=""/>
+                    <img className="img-home" src={seguridad} alt=""/>
                 </div>
                 <div >
                     <div className="confianza_about">Security</div>
-                    <div className="detalles_about">See more</div>
+                    <p className={styleNormal4}>Hiring fee and fee after successfully completing the trial period.</p>
                 </div>
             </div>
         </div>
-        {modal3 && <ModalSeguridadENG setModal3={setModal3} />}
-        <div className="contenedorContratoAbout">
+    </section>
+    <section>
+
+    <div className="contenedorContratoAbout">
             <div className="contenedorContrato">
                 <div>
-                    Contrato
+                    <img className="img_contrato" src={contrato} alt="" />
                 </div>
             </div>
             <div className="contenedorAboutUs_about">
-                <div className="about_about">About Us</div>
+                <div className="about_about">ABOUT US</div>
                 <div className="preg_about">What do we do?</div>
                 <ol>
-                    <li><span>Entendemos tus necesidades tecnicas</span></li>
-                    <li><span>Source and vet all the market during 72hs.</span></li>
-                    <li><span>Avanzamos con enrtevistas preeliminares</span></li>
-                    <li><span>Te presentamos los mejores perfiles que se alinean con tus necesidades técnicas, culturales e inclusive de habilidades blandas.</span></li>
-                    <li><span>Te brindamos soporte y nos adaptamos a tu proceso de selección interna.</span></li>
+                    <li>
+                        <div className="titulos">Role assignment</div>
+                        <span className="subt">We understand your complete needs, technical, culture, soft skills and more.</span>
+                    </li>
+                    <li>
+                        <div className="titulos">Alignment call</div>
+                        <span className="subt">We research and source the market.</span>
+                    </li>
+                    <li>
+                        <div className="titulos">
+                        Search and recruitment
+                        </div>
+                        <span className="subt">We move forward with preliminary interviews.</span></li>
+                    <li>
+                        <div className="titulos">Presentation of candidates</div>
+                        <span className="subt">We present the best profiles that align with your needs.</span></li>
+                    <li>
+                        <div className="titulos">Empowerment</div>
+                        <span className="subt">We provide you with support and adapt to your internal selection process.</span></li>
                 </ol>
             </div>
         </div>
@@ -163,60 +187,52 @@ export default function IndexENG() {
             <h1>OUR CLIENTS</h1>
             <h3>Trust us</h3>
         </div>
-    <section className="contenedor_confianza">
+        <section className="contenedor_confianza">
         <div className="cardClientes_confianza" >
-            <a href="https://www.google.com/" className="card_clientes" target="_blank">
+            <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
                 <div className="ContenedorNombreUser_clientes">
-                    <img src={logoTres} alt="" width="80px"/>
-                    <div >
-                        <p>nombre</p>
-                        <p>user</p>
-                    </div>
+                    <img src={cliente1} alt="" width="100px"/>
                 </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora laudantium </p>
+                <p className="testimonio">"The synergy with LinkIT as a partner was immediate, after 2 weeks we already had qualified profiles ready to be interviewed by us, without a doubt we will continue to trust them."</p>
             </a>
-            <a href="https://www.google.com/" className="card_clientes" target="_blank">
+            <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
                 <div className="ContenedorNombreUser_clientes">
-                    <img src={logoTres} alt="" width="80px"/>
+                    <img src={cliente2} alt="" width="80px"/>
                     <div >
-                        <p>nombre</p>
-                        <p>user</p>
+                        <p>Geotec</p>
                     </div>
                 </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora laudantium </p>
+                <p className="testimonio">"The speed and professionalism with which we are working together with LinkIT is what allows us to trust them and continue betting on growing, the partners when it comes to climbing are inflatables, without a doubt, here we find one"</p>
             </a>
-            <a href="https://www.google.com/" className="card_clientes" target="_blank">
+            <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
                 <div className="ContenedorNombreUser_clientes">
-                    <img src={logoTres} alt="" width="80px"/>
-                    <div >
-                        <p>nombre</p>
-                        <p>user</p>
-                    </div>
+                    <img src={cliente3} alt="" width="100px"  />
                 </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora laudantium </p>
+                <p className="testimonio">"In the crypto world it is necessary to have knowledge of all the parts that make it up, obtaining profiles in technologies such as solidity is not easy, LinkIT has proven to have in-depth knowledge of the skills and technical qualities that talents need"</p>
             </a>
         </div>
     </section>
 
     <footer>
         <div className="footer">
-            <h4>Link <span>IT</span></h4>
+            <h4>Link<span>IT</span></h4>
         </div>
         <div className="social-media-home">
             <a
             target="_blank"
               className="boton-rr"
               href="https://www.linkedin.com/company/linkit-hr/"
+              rel="noopener noreferrer"
             >
               <img alt="" src={vector} />
             </a>
             <a
               className="boton-rr"
-              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+              href="/contacto"
             >
               <img alt="" src={vector1} />
             </a>
-            <a className="boton-rr" href="https://web.whatsapp.com/">
+            <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
               <img alt="" src={whatsApp} />
             </a>
           </div>
@@ -231,15 +247,13 @@ export default function IndexENG() {
                 <p className="footer-button-home" >CANDIDATES</p>
             </a>
             <a href="./faqs">
-                <p className="footer-button-home"  >FAQS</p>
+                <p className="footer-button-home"  >FAQs</p>
             </a>
-            <div className="contenedor-idiomas">
+            <div className="contenedor-idiomas-home">
               <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
+                <div className="idioma-component">ENG |</div>
                 </a>
               <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
                 <div className="idioma-component">ESP</div>
               </a>
             </div>

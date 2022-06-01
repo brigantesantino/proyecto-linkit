@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Candidatos from "./components/Candidatos";
 import Candidatoseng from "./components/eng/Candidatoseng";
 import Empresas from "./components/Empresas";
-import Popup from "./components/Popup";
+//import Popup from "./components/Popup";
 import FAQs from "./components/FAQs";
 import Header from "./components/Header"
 import Contacto from "./components/Contacto";
@@ -38,7 +38,6 @@ ReactDOM.render(
         <Route exact path="/home" element={<Index/>}/>
         <Route exact path="/homeENG" element={<IndexENG/>}/>
         <Route exact path="/modal" element={<MenuHamburguesa/>}/>
-
         <Route exact path="/empresasENG" element={<EmpresasENG/>}/>
 
 
