@@ -178,38 +178,8 @@ export default function Candidatoseng() {
         })
         .catch((e) => console.log(e)); // Or Error in console
     };
-    validate(objetoAVerificar, event);
   }
 
-  function guardarArchivo(e) {
-    var file = e.target.files[0]; //the file
-    setFileName(file.name);
-    var reader = new FileReader(); //this for convert to Base64
-    reader.readAsDataURL(e.target.files[0]); //start conversion...
-    reader.onload = function (e) {
-      //.. once finished..
-      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
-      var dataSend = {
-        dataReq: { data: rawLog, name: file.name, type: file.type },
-        fname: "uploadFilesToGoogleDrive",
-      }; //preapre info to send to API
-      fetch(
-        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
-        { method: "POST", body: JSON.stringify(dataSend) }
-      ) //send to Api
-        .then((res) => res.json())
-        .then((a) => {
-          console.log(a); //See response
-          console.log(a.id);
-          const object = {
-            id: a.id,
-            filename: file.name,
-          };
-          setGoogleObject(object);
-        })
-        .catch((e) => console.log(e)); // Or Error in console
-    };
-  }
 
   function onChangeCaptcha(value) {
     setCaptcha(value);

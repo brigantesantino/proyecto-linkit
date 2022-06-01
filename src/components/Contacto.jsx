@@ -203,6 +203,6 @@ export default function Contacto() {
           <p>© 2022 LinkIT. All rights reserved.</p>
         </div>
       </footer>
-
+      </div>
       )
 }

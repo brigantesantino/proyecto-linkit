@@ -20,10 +20,7 @@ import vectorFondo from "../../images/vectorFondo.svg";
 import vector from "../../images/Vector.svg";
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg";
-
-
 import ReCAPTCHA from "react-google-recaptcha";
-
 
 //import Header from "./../Header";
 import HeaderENG from "./HeaderENG";
@@ -47,7 +44,6 @@ export default function Empresas() {
     arrayConvertidoInteresadoEnRoles,
     arrayConvertidoComoNosConociste
   ) {
-
     let errorsObj = {};
     let contadorErrores = 0;
     if (input.nombre === "") {
@@ -70,7 +66,6 @@ export default function Empresas() {
       errorsObj.captcha = "El captcha es requerido";
       contadorErrores++;
     }
-
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtable(
@@ -116,61 +111,7 @@ export default function Empresas() {
       arrayConvertidoInteresadoEnRoles,
       arrayConvertidoComoNosConociste,
       mensaje,
-      captcha,
     };
-    validate(objetoAVerificar, event, arrayConvertidoInteresadoEnRoles, arrayConvertidoComoNosConociste);
-  }
-
-  return (<>
-    <div className="empresas">
-    <HeaderENG/>
-    <div className="background">
-            <img alt="" className="img_back1" src={vectorFondo}/>
-            <img alt="" className="img_back2" src={vectorFondo}/>
-            <img alt="" className="img_back3" src={vectorFondo}/>
-        </div>
-    
-    <main>
-      <div className="h1">
-        <h1 className="question">
-        Are you looking for tech talent for your company?
-        </h1>
-      </div>
-      <h2 id="rubros">Available roles</h2>
-      <div className="buttons-desktop">
-        <div className="buttons">
-          <button className="puestos-gradiente">
-            <p>Software Developers</p>
-          </button>
-          <button className="puestos-gradiente">
-            <p>QA (automation & manual)</p>
-          </button>
-          <button className="puestos-gradiente">
-            <p>UX/UI Designers</p>
-          </button>
-          <button className="puestos-gradiente">
-            <p>Proyect Managers</p>
-          </button>
-        </div>
-        <div className="buttons2">
-          <button className="puestos-gradiente">
-            <p>Team Lead</p>
-          </button>
-          <button className="puestos-gradiente">
-            <p>Big Data</p>
-          </button>
-          <button className="puestos-gradiente">
-            <p>Web 3.0</p>
-          </button>
-        </div>
-        <div className="buttons3">
-          <button className="puestos-gradiente">
-            <p>Machine learning</p>
-          </button>
-          <button className="puestos-gradiente">
-            <p>Blockchain</p>
-          </button>
-
     validate(
       objetoAVerificar,
       event,
@@ -182,6 +123,7 @@ export default function Empresas() {
   function onChangeCaptcha(value) {
     setCaptcha(value);
   }
+
   return (
     <>
       <div className="empresas">
@@ -190,7 +132,6 @@ export default function Empresas() {
           <img alt="" className="img_back1" src={vectorFondo} />
           <img alt="" className="img_back2" src={vectorFondo} />
           <img alt="" className="img_back3" src={vectorFondo} />
-
         </div>
 
         <main>
@@ -390,7 +331,6 @@ export default function Empresas() {
                 value={mensaje}
                 onChange={(e) => setMensaje(e.target.value)}
               ></textarea>
-
               <ReCAPTCHA
                 sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw"
                 onChange={onChangeCaptcha}
@@ -409,51 +349,46 @@ export default function Empresas() {
               </div>
             </div>
           </form>
-    </main>
-    <footer>
-        <div className="footer">
-          
-          <h4>
-            Link<span>IT</span>
-          </h4>
-          <div className="social-media">
-            <a
-              target="_blank"
-              className="linkedin"
-              href="https://www.linkedin.com/company/linkit-hr/"
-              rel="noopener noreferrer"
-            >
-              <img alt="" src={vector} />
-            </a>
-            <a
-              className="gmail"
-              href="/contacto"
-            >
-              <img alt="" src={vector1} />
-            </a>
-            <a className="wpp" href="https://wa.me/+5491165287429">
-              <img alt="" src={whatsApp} />
-            </a>
+        </main>
+        <footer>
+          <div className="footer">
+            <h4>
+              Link<span>IT</span>
+            </h4>
+            <div className="social-media">
+              <a
+                target="_blank"
+                className="linkedin"
+                href="https://www.linkedin.com/company/linkit-hr/"
+                rel="noopener noreferrer"
+              >
+                <img alt="" src={vector} />
+              </a>
+              <a className="gmail" href="/contacto">
+                <img alt="" src={vector1} />
+              </a>
+              <a className="wpp" href="https://wa.me/+5491165287429">
+                <img alt="" src={whatsApp} />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="info-candidatos">
-          <a href="/homeENG">
-          <p className="footer-button">Home</p>
-          </a>
-          <a className="empresas-button" href="/empresasENG">
-            <p className="footer-button">Business</p>
-          </a>
-          <a href="/CandidatosENG">
-          <p className="footer-button">Candidates</p>
-          </a>
-          <a href="/faqsENG">
-          <p className="footer-button">FAQs</p>
-          </a>
-          <div className="contenedor-idiomas-emp">
+          <div className="info-candidatos">
+            <a href="/homeENG">
+              <p className="footer-button">Home</p>
+            </a>
+            <a className="empresas-button" href="/empresasENG">
+              <p className="footer-button">Business</p>
+            </a>
+            <a href="/CandidatosENG">
+              <p className="footer-button">Candidates</p>
+            </a>
+            <a href="/faqsENG">
+              <p className="footer-button">FAQs</p>
+            </a>
+            <div className="contenedor-idiomas-emp">
               <a href="/homeENG" className="contenedor-bandera">
                 <div className="idioma-component">ENG |</div>
-                </a>
-
+              </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>
               </a>
@@ -463,23 +398,6 @@ export default function Empresas() {
             <p>© 2022 LinkIT. All rights reserved.</p>
           </div>
         </footer>
-
-        {/* <script>
-      const $btn = document.querySelector(".menu-hmb");
-      const $sideNav  = document.getElementById('sideNav');
-
-      document.addEventListener('click', e=>{
-          $sideNav.style.right = "-250px"
-
-          if(e.target.matches('.menu-hmb')){
-              if ($sideNav.style.right == "-250px"){
-              
-                  $sideNav.style.right = "0";
-          
-              }
-          }
-      })
-  </script> */}
       </div>
     </>
   );
