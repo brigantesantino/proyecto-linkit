@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+
 import MenuHamburguesa from ".././MenuHamburguesa";
 
 //import menuHamb from "../images/menuHamburguesaBlanco.png";
+
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import vectorFondo from "../../images/vectorFondo.svg";
 import "../../componentStyles/faqs.css"

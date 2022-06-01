@@ -22,7 +22,8 @@ import whatsApp from "../../images/WhatsApp.svg";
 //import Header from "./../Header";
 import USA from "../../images/banderaUsa.png"
 import ARG from "../../images/banderaArg.png"
-
+import ReCAPTCHA from "react-google-recaptcha";
+import { Link } from "react-router-dom";
 import HeaderENG from "./HeaderENG";
 
 import { postFormAirtableCandidatos } from "../../functions/postCandidatosAirtable";
@@ -45,10 +46,13 @@ export default function Candidatoseng() {
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
 
+  const [captcha, setCaptcha] = useState("");
+
   const [googleObject, setGoogleObject] = useState({});
   const [fileName, setFileName] = useState("");
-  //const [menu, setMenu] = useState(false);
 
+  //const [menu, setMenu] = useState(false);
+  const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
   function validate(input, event) {
@@ -66,10 +70,6 @@ export default function Candidatoseng() {
       errorsObj.linkedin = "El linkedin es requerido";
       contadorErrores++;
     }
-    if (input.experiencia === "") {
-      errorsObj.experiencia = "La experiencia es requerida";
-      contadorErrores++;
-    }
     if (input.condicionesLegales === "") {
       errorsObj.condicionesLegales = "Debes aceptar las condiciones legales";
       contadorErrores++;
@@ -79,7 +79,11 @@ export default function Candidatoseng() {
       contadorErrores++;
     }
     if (input.direccion === "") {
-      errorsObj.direccion = "La direccion es requerida";
+      errorsObj.direccion = "La dirección es requerida";
+      contadorErrores++;
+    }
+    if (input.captcha === "") {
+      errorsObj.captcha = "El captcha es requerido";
       contadorErrores++;
     }
     if (contadorErrores === 0) {
@@ -100,7 +104,8 @@ export default function Candidatoseng() {
         input.ofertas
       );
       event.preventDefault();
-      setTimeout(() => window.location.reload(),30000)
+
+      setTimeout(() => window.location.reload(), 3000);
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -140,6 +145,38 @@ export default function Candidatoseng() {
       arrayConvertidoInteresadoEnRoles,
       remuneracionPretendida,
       monedaRemuneracion,
+      captcha,
+    };
+    validate(objetoAVerificar, event);
+  }
+
+  function guardarArchivo(e) {
+    var file = e.target.files[0]; //the file
+    setFileName(file.name);
+    var reader = new FileReader(); //this for convert to Base64
+    reader.readAsDataURL(e.target.files[0]); //start conversion...
+    reader.onload = function (e) {
+      //.. once finished..
+      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
+      var dataSend = {
+        dataReq: { data: rawLog, name: file.name, type: file.type },
+        fname: "uploadFilesToGoogleDrive",
+      }; //preapre info to send to API
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
+        { method: "POST", body: JSON.stringify(dataSend) }
+      ) //send to Api
+        .then((res) => res.json())
+        .then((a) => {
+          console.log(a); //See response
+          console.log(a.id);
+          const object = {
+            id: a.id,
+            filename: file.name,
+          };
+          setGoogleObject(object);
+        })
+        .catch((e) => console.log(e)); // Or Error in console
     };
     validate(objetoAVerificar, event);
   }
@@ -174,6 +211,10 @@ export default function Candidatoseng() {
     };
   }
 
+  function onChangeCaptcha(value) {
+    setCaptcha(value);
+  }
+
   useEffect(() => {
     try {
       fetch(
@@ -186,11 +227,12 @@ export default function Candidatoseng() {
         .catch((error) => {
           console.log(error);
         });
-    } catch (err){
-      console.log(err)
+
+    } catch (err) {
+      console.log(err);
     }
-    
   }, []);
+
 
   return (
     <div className="candidatos">
@@ -237,32 +279,35 @@ export default function Candidatoseng() {
         <h2 id="offers">Available offers</h2>
         <div className="buttons buttons-desktop scrollbox">
           <div className="candidate-buttons">
-            {ofertas.length > 0 ? (
+          {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
-                <a
-                  className="link-pupup"
-                  href="/popup"
-                  key={oferta.fields.Codigo}
-                >
-                  <button>
-                    <h2 className="designer">
-                      {oferta.fields.Nombre}
-                      <span className="google">{oferta.fields.Codigo}</span>
-                    </h2>
-                    <h3 className="adress">
-                      Ubication: {oferta.fields.Ubicacion}
-                      <span className="date">
-                      Creation date: {oferta.fields.FechaDeCreacion}
-                      </span>
-                    </h3>
-                    <h3 className="date-mobile">
-                    Creation date: {oferta.fields.fechaDeCreacion}
-                    </h3>
-                  </button>
+                <a className="link-pupup" key={oferta.fields.Codigo}>
+                  <Link
+                    to={`/popup/${oferta.fields.Codigo}`}
+                    state={oferta.fields}
+                  >
+                    <p onClick={() => setData(oferta.fields)}>
+                      <button>
+                        <h2 className="designer">
+                          {oferta.fields.Nombre}
+                          <span className="google">{oferta.fields.Codigo}</span>
+                        </h2>
+                        <h3 className="adress">
+                          Ubicación: {oferta.fields.Ubicacion}
+                          <span className="date">
+                            Fecha de creacion:{oferta.fields.FechaDeCreacion}
+                          </span>
+                        </h3>
+                        <h3 className="date-mobile">
+                          Fecha de creacion:{oferta.fields.fechaDeCreacion}
+                        </h3>
+                      </button>
+                    </p>
+                  </Link>
                 </a>
               ))
             ) : (
-              <h1>Wait...</h1>
+              <h1>Cargando ofertas...</h1>
             )}
           </div>
         </div>
@@ -305,7 +350,7 @@ export default function Candidatoseng() {
           </div>
         </div>
         <div>
-          <h2 id="contacto">Contacto</h2>
+          <h2 id="contacto">Contact</h2>
         </div>
         <form className="formCandidatos" onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
@@ -341,7 +386,7 @@ export default function Candidatoseng() {
             <div className="file">
               <label form="archive">
                 +
-                <input type="file" id="archive" />
+                <input type="file" id="archive" onChange={(e) => guardarArchivo(e)}/>
               </label>
             </div>
             {fileName}<br></br>
@@ -373,7 +418,8 @@ export default function Candidatoseng() {
           <input 
             className="inp"
             type="textarea"
-            placeholder="Oters..."
+            placeholder="Others..."
+
             
           />
             <h3>How did you meet us</h3>
@@ -392,6 +438,9 @@ export default function Candidatoseng() {
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
+
+<ReCAPTCHA sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw" onChange={onChangeCaptcha} />
+            {errors.captcha ? <p className="alertaForm">{errors.captcha}</p> : null}
 
             <div className="condition">
               <div className="acept-conditions">

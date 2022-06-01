@@ -8,6 +8,7 @@ import "../componentStyles/faqs.css"
 
 
 
+
 export default function FAQs() {
 
   const [menu, setMenu] = useState(false);
@@ -212,9 +213,11 @@ Los tipos de relaciones laborales más frecuentes pueden ser:
             <a href="./faqs" className="footer-button">
                 <p className="options"  >FAQS</p>
             </a>
+
             <div className="contenedor-idiomas-faqs">
               <a href="/home" className="contenedor-bandera">
                 <div className="idioma-component">ENG |</div>
+
                 </a>
               <a className="contenedor-bandera" href="/home">
                 <div className="idioma-component">ESP</div>

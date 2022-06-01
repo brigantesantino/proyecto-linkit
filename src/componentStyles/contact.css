@@ -15,7 +15,9 @@ body{
 .cuestion{
   color: #63799e;
   font-size: xx-large;
+
   text-align: center;
+
 }
 .exclamation{
   color: #233c72;
@@ -44,6 +46,7 @@ body{
     margin-bottom: 30px;
     border-radius: 10px;
   }
+
 .inputs-contact{
     width: 90%;
     margin: 2rem;
@@ -249,7 +252,6 @@ body{
     }
     .acept-conditions{
       width: 100%;
-
     }
   
     .contacto footer div.info {

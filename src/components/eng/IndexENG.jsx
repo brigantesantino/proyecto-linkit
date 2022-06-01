@@ -190,12 +190,15 @@ export default function IndexENG() {
         <section className="contenedor_confianza">
         <div className="cardClientes_confianza" >
             <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
+
                 <div className="ContenedorNombreUser_clientes">
                     <img src={cliente1} alt="" width="100px"/>
                 </div>
                 <p className="testimonio">"The synergy with LinkIT as a partner was immediate, after 2 weeks we already had qualified profiles ready to be interviewed by us, without a doubt we will continue to trust them."</p>
             </a>
+
             <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
+
                 <div className="ContenedorNombreUser_clientes">
                     <img src={cliente2} alt="" width="80px"/>
                     <div >
@@ -204,7 +207,9 @@ export default function IndexENG() {
                 </div>
                 <p className="testimonio">"The speed and professionalism with which we are working together with LinkIT is what allows us to trust them and continue betting on growing, the partners when it comes to climbing are inflatables, without a doubt, here we find one"</p>
             </a>
+
             <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
+
                 <div className="ContenedorNombreUser_clientes">
                     <img src={cliente3} alt="" width="100px"  />
                 </div>

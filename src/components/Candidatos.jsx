@@ -25,7 +25,7 @@ import whatsApp from "../images/WhatsApp.svg";
 import Header from "./Header";
 
 import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable";
-
+import ReCAPTCHA from "react-google-recaptcha";
 import Popup from "./Popup";
 
 import { valuesExperience, valuesSelectRoles } from "../constants/selects";
@@ -49,7 +49,9 @@ export default function Candidatos() {
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
-  
+
+  const [captcha, setCaptcha] = useState("");
+
   const [googleObject, setGoogleObject] = useState({});
   const [fileName, setFileName] = useState("");
 
@@ -84,6 +86,10 @@ export default function Candidatos() {
       errorsObj.direccion = "La dirección es requerida";
       contadorErrores++;
     }
+    if (input.captcha === "") {
+      errorsObj.captcha = "El captcha es requerido";
+      contadorErrores++;
+    }
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtableCandidatos(
@@ -102,7 +108,7 @@ export default function Candidatos() {
         input.ofertas
       );
       event.preventDefault();
-      setTimeout(() => window.location.reload(), 30000);
+      setTimeout(() => window.location.reload(), 3000);
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -142,6 +148,7 @@ export default function Candidatos() {
       arrayConvertidoInteresadoEnRoles,
       remuneracionPretendida,
       monedaRemuneracion,
+      captcha,
     };
     validate(objetoAVerificar, event);
   }
@@ -176,6 +183,11 @@ export default function Candidatos() {
     };
   }
 
+
+  function onChangeCaptcha(value) {
+    setCaptcha(value);
+  }
+
   useEffect(() => {
     try {
       fetch(
@@ -191,7 +203,7 @@ export default function Candidatos() {
     } catch (err){
       console.log(err)
     }
-    
+   
   }, []);
 
   return (
@@ -363,7 +375,13 @@ export default function Candidatos() {
             {errors.direccion ? (
               <p className="alertaForm">{errors.direccion}</p>
             ) : null}
-            <input placeholder=" Dirección" type="text" onChange={(e) => setDireccion(e.target.value)} />
+
+            <input
+              placeholder=" Dirección"
+              type="text"
+              onChange={(e) => setDireccion(e.target.value)}
+            />
+
             <h3>LinkedIn*</h3>
             {errors.linkedin ? (
               <p className="alertaForm">{errors.linkedin}</p>
@@ -380,6 +398,7 @@ export default function Candidatos() {
                   options={valuesExperience}
                   onChange={(opt) => setExperiencia(opt)}
                 />
+
           </div>
           <div className="details">
             <h3>Carga tu CV </h3>
@@ -393,7 +412,9 @@ export default function Candidatos() {
                 />
               </label>
             </div>
+
             {fileName}<br></br>
+
             <h3>Remuneracion pretendida</h3>
             <div className="value">
               <select
@@ -429,15 +450,18 @@ export default function Candidatos() {
               isMulti
               onChange={(opt) => setComoNosConociste(opt)}
             />
-
             <h3>Tecnologías</h3>
-
-            <Select placeholder="Elige la/s tecnología/s"
+            <Select
+              placeholder="Elige la/s tecnología/s"
               className="selectCandidatos"
               options={valuesSelectTecnologias}
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
+
+            <ReCAPTCHA sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw" onChange={onChangeCaptcha} />
+            {errors.captcha ? <p className="alertaForm">{errors.captcha}</p> : null}
+
             <div className="condition">
               <div className="acept-conditions">
                 <input
@@ -471,13 +495,16 @@ export default function Candidatos() {
             >
               <img alt="" src={vector} />
             </a>
-            <a
-              className="gmail"
-              href="/contacto"
-            >
+
+            <a className="gmail" href="/contacto">
               <img alt="" src={vector1} />
             </a>
-            <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
+            <a
+              className="wpp"
+              href="https://wa.me/+5491165287429"
+              target="_blank"
+            >
+
               <img alt="" src={whatsApp} />
             </a>
           </div>

@@ -1,3 +1,8 @@
+
+To do:
+- Modularizar todas las funciones internas de cada componente, reutilizar componentes, y modularizar estados! (no hubo tiempo para hacer esto desde un principio debido a deadlines)
+- Emprolijar y normalizar codigo
+
 Estructura de ramas ahora: 
 - main = rama principal, esta tiene que ser siempre la que tenga una version estable de la app
 - develop = rama para desarrollo, a partir de esta se hacen ramas/o se labura directamente en esta y se desarrollan nuevas funcionalidades

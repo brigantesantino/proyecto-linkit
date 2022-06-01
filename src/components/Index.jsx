@@ -17,6 +17,7 @@ import cliente1 from "../images/cliente1.png"
 import cliente2 from "../images/cliente2.png"
 import cliente3 from "../images/cliente3.png"
 
+
 import "../componentStyles/home.css";
 
 export default function Index() {
@@ -190,12 +191,14 @@ export default function Index() {
     <section className="contenedor_confianza">
         <div className="cardClientes_confianza" >
             <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
+
                 <div className="ContenedorNombreUser_clientes">
                     <img src={cliente1} alt="" width="100px"/>
                 </div>
                 <p className="testimonio">"La sinergia con LinkIT como partner fue inmediata, al cabo de 2 semanas ya teníamos perfiles cualificados y listos para ser entrevistados por nosotros, sin duda seguiremos confiando en ellos".</p>
             </a>
             <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
+
                 <div className="ContenedorNombreUser_clientes">
                     <img src={cliente2} alt="" width="80px"/>
                     <div >
@@ -204,7 +207,9 @@ export default function Index() {
                 </div>
                 <p className="testimonio">"La velocidad y el profesionalismo con el que estamos trabajando junto a LinkIT es lo que nos permite confiar en ellos y seguir apostando por crecer, los partners a la hora de escalar son inflatables sin duda aquí encontramos a uno"</p>
             </a>
+
             <a href="" className="card_clientes" target="_blank" rel="noopener noreferrer">
+
                 <div className="ContenedorNombreUser_clientes">
                     <img src={cliente3} alt="" width="100px"  />
                 </div>
