@@ -175,16 +175,21 @@ export default function Candidatos() {
   }
 
   useEffect(() => {
-    fetch(
-      `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setOfertas(data.records);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_BASE_AIRTABLE}/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setOfertas(data.records);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (err){
+      console.log(err)
+    }
+    
   }, []);
 
   return (
