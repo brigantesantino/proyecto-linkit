@@ -314,7 +314,7 @@ export default function Empresas() {
               <input
                 className="inp"
                 type="textarea"
-                placeholder="Oters..."
+                placeholder="Others..."
                 onChange={(e) => setInteresadoEnOtrosRoles(e.target.value)}
               />
               <h3>How did you meet us</h3>
