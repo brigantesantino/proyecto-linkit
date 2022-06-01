@@ -13,6 +13,7 @@
     "jquery": "^3.6.0",
     "react": "^16.14.0",
     "react-dom": "^16.8.6",
+    "react-google-recaptcha": "^2.1.0",
     "react-i18next": "^11.16.7",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^3.3.0",

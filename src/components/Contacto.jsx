@@ -8,6 +8,7 @@ import whatsApp from "../images/WhatsApp.svg";
 import USA from "../images/banderaUsa.png";
 import ARG from "../images/banderaArg.png";
 import { postContactoAirtable } from "../functions/postContactoAirtable";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contacto() {
   const [nombre, setNombre] = React.useState("");
@@ -16,6 +17,7 @@ export default function Contacto() {
   const [mensaje, setMensaje] = React.useState("");
   const [condicionesLegales, setCondicionesLegales] = React.useState("");
   const [errors, setErrors] = React.useState({});
+  const [captcha, setCaptcha] = React.useState("");
 
   function validate(input, event) {
     console.log("input", input);
@@ -41,7 +43,10 @@ export default function Contacto() {
       errorsObj.condicionesLegales = "Debes aceptar las condiciones legales";
       contadorErrores++;
     }
-
+    if (input.captcha === "") {
+      errorsObj.captcha = "El captcha es requerido";
+      contadorErrores++;
+    }
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postContactoAirtable(
@@ -51,7 +56,7 @@ export default function Contacto() {
         input.mensaje
       );
       event.preventDefault();
-      setTimeout(() => window.location.reload(), 1000);
+      setTimeout(() => window.location.reload(), 3000);
     } else {
       setErrors(errorsObj);
       console.log("hay errores no se hizo el post", errorsObj);
@@ -66,9 +71,15 @@ export default function Contacto() {
       motivoDeContacto,
       mensaje,
       condicionesLegales,
+      captcha
     };
     validate(objetoAVerificar, event);
   }
+
+  function onChangeCaptcha(value) {
+    setCaptcha(value);
+  }
+  
   return (
     <div className="contacto">
       <Header />
@@ -116,6 +127,8 @@ export default function Contacto() {
           />
 
           <div className="conditionss">
+          <ReCAPTCHA sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw" onChange={onChangeCaptcha} />
+            {errors.captcha ? <p className="alertaForm">{errors.captcha}</p> : null}
             <div className="acept-conditions">
               <input
                 type="checkbox"
@@ -185,56 +198,6 @@ export default function Contacto() {
           <p>© 2022 LinkIT. All rights reserved.</p>
         </div>
       </footer>
-
-      {/* <footer>
-        <div className="footer">
-          <h4>
-            Link<span>IT</span>
-          </h4>
-          <div className="social-media">
-            <a
-              className="linkedin"
-              href="https://r.search.yahoo.com/_ylt=AwrCmnoYc0NiNFIAUBDX9wt.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1648616345/RO=10/RU=https%3a%2f%2far.linkedin.com%2f/RK=2/RS=NOL2bRj1EEkj6dfnPKWAHekJg74-"
-            >
-              <img alt="" src={vector} />
-            </a>
-            <a
-              className="gmail"
-              href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
-            >
-              <img alt="" src={vector1} />
-            </a>
-            <a className="wpp" href="https://web.whatsapp.com/">
-              <img alt="" src={whatsApp} />
-            </a>
-          </div>
-        </div>
-        <div className="info">
-          <p className="home-button">INICIO</p>
-          <a className="empresas-button" href="/empresas.html">
-            <p className="business">EMPRESAS</p>
-          </a>
-          <p className="candidates">CANDIDATOS</p>
-          <p className="faqs">FAQS</p>
-          <div className="select">
-            <a href="/eng/Candidates.html">
-              <select name="language" id="">
-                IDIOMA
-                <option value="1">ESPAÑOL</option>
-                <option value="2">INGLÉS</option>
-              </select>
-            </a>
-          </div>
-        </div>
-        <div className="rights">
-          <p>© 2022 LinkIT. All rights reserved...</p>
-          <div className="linea">
-            <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
-          </div>
-          <p>Developed by IT-TECHGROUP</p>
-        </div>
-        
-      </footer> */}
     </div>
   );
 }
