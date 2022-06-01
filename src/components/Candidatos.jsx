@@ -49,8 +49,10 @@ export default function Candidatos() {
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
+  
   const [googleObject, setGoogleObject] = useState({});
   const [fileName, setFileName] = useState("");
+
   //const [menu, setMenu] = useState(false);
   const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});

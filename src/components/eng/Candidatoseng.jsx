@@ -45,6 +45,8 @@ export default function Candidatoseng() {
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
 
+  const [googleObject, setGoogleObject] = useState({});
+  const [fileName, setFileName] = useState("");
   //const [menu, setMenu] = useState(false);
 
   const [errors, setErrors] = useState({});
@@ -88,6 +90,7 @@ export default function Candidatoseng() {
         input.direccion,
         input.linkedIn,
         input.experiencia.value,
+        googleObject,
         input.monedaRemuneracion,
         input.remuneracionPretendida,
         input.arrayConvertidoInteresadoEnRoles,
@@ -140,17 +143,53 @@ export default function Candidatoseng() {
     };
     validate(objetoAVerificar, event);
   }
+
+  function guardarArchivo(e) {
+    var file = e.target.files[0]; //the file
+    setFileName(file.name);
+    var reader = new FileReader(); //this for convert to Base64
+    reader.readAsDataURL(e.target.files[0]); //start conversion...
+    reader.onload = function (e) {
+      //.. once finished..
+      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
+      var dataSend = {
+        dataReq: { data: rawLog, name: file.name, type: file.type },
+        fname: "uploadFilesToGoogleDrive",
+      }; //preapre info to send to API
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
+        { method: "POST", body: JSON.stringify(dataSend) }
+      ) //send to Api
+        .then((res) => res.json())
+        .then((a) => {
+          console.log(a); //See response
+          console.log(a.id);
+          const object = {
+            id: a.id,
+            filename: file.name,
+          };
+          setGoogleObject(object);
+        })
+        .catch((e) => console.log(e)); // Or Error in console
+    };
+  }
+
   useEffect(() => {
-    fetch(
-      `https://api.airtable.com/v0/appwkq4vBeLzCktu2/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setOfertas(data.records);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_BASE_AIRTABLE}/Roles%20disponibles?api_key=${process.env.REACT_APP_APIKEY_AIRTABLE}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setOfertas(data.records);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (err){
+      console.log(err)
+    }
+    
   }, []);
 
   return (
@@ -305,6 +344,7 @@ export default function Candidatoseng() {
                 <input type="file" id="archive" />
               </label>
             </div>
+            {fileName}<br></br>
             <h3>Intended remuneration</h3>
             <div className="value">
               <select
