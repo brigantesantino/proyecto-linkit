@@ -106,6 +106,10 @@ export default function PopupFijo(props) {
       errorsObj.captcha = "El captcha es requerido";
       contadorErrores++;
     }
+    if (isLoading && greenTick === false) {
+      errorsObj.isLoading = "El formulario se está enviando";
+      contadorErrores++;
+    }
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtableCandidatosEspecial(
@@ -281,6 +285,9 @@ export default function PopupFijo(props) {
               </div>
             ) : null}
           </div>
+          {errors.isLoading ? (
+            <p className="alertaForm">{errors.isLoading}</p>
+          ) : null}
           {fileName}
           <br></br>
 

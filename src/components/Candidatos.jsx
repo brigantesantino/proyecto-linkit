@@ -89,6 +89,11 @@ export default function Candidatos() {
       errorsObj.captcha = "El captcha es requerido";
       contadorErrores++;
     }
+    if (isLoading && greenTick === false) {
+      errorsObj.isLoading = "El formulario se está enviando";
+      contadorErrores++;
+    }
+
     if (contadorErrores === 0) {
       console.log("no hay errores");
       postFormAirtableCandidatos(
@@ -410,17 +415,20 @@ export default function Candidatos() {
                 />
               </label>
               {isLoading ? (
-                <div style={{paddingLeft: 10}}>
-                <ThreeDots
-                  height="50"
-                  width="50"
-                  ariaLabel="loading"
-                  color="blue"
-                />
+                <div style={{ paddingLeft: 10 }}>
+                  <ThreeDots
+                    height="50"
+                    width="50"
+                    ariaLabel="loading"
+                    color="blue"
+                  />
                 </div>
               ) : null}
-              {greenTick ? <Checkmark size="medium"/> : null}
+              {greenTick ? <Checkmark size="medium" /> : null}
             </div>
+            {errors.isLoading ? (
+              <p className="alertaForm">{errors.isLoading}</p>
+            ) : null}
 
             {fileName}
             <br></br>
