@@ -8,7 +8,9 @@ import { valuesSelectTecnologias } from "../constants/selects";
 import { valuesExperience } from "../constants/selects";
 
 import ReCAPTCHA from "react-google-recaptcha";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { ThreeDots } from "react-loader-spinner";
+import { Checkmark } from "react-checkmark";
 
 export default function PopupFijo(props) {
   const [nombre, setNombre] = useState("");
@@ -27,7 +29,8 @@ export default function PopupFijo(props) {
   const [googleObject, setGoogleObject] = useState({});
 
   const [captcha, setCaptcha] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [greenTick, setGreenTick] = useState(false);
 
   const location = useLocation();
   const data = location.state;
@@ -35,6 +38,7 @@ export default function PopupFijo(props) {
   const codigo = data.Codigo;
 
   function guardarArchivo(e) {
+    setIsLoading(true);
     var file = e.target.files[0]; //the file
     setFileName(file.name);
     var reader = new FileReader(); //this for convert to Base64
@@ -59,6 +63,8 @@ export default function PopupFijo(props) {
             filename: file.name,
           };
           setGoogleObject(object);
+          setIsLoading(false);
+          setGreenTick(true);
         })
         .catch((e) => console.log(e)); // Or Error in console
     };
@@ -151,7 +157,7 @@ export default function PopupFijo(props) {
       arrayConvertidoComoNosConociste,
       remuneracionPretendida,
       monedaRemuneracion,
-      captcha
+      captcha,
     };
     validate(objetoAVerificar, event);
     event.preventDefault();
@@ -259,6 +265,21 @@ export default function PopupFijo(props) {
                 onChange={(e) => guardarArchivo(e)}
               />
             </label>
+            {isLoading ? (
+              <div style={{ paddingLeft: 20 }}>
+                <ThreeDots
+                  height="50"
+                  width="50"
+                  ariaLabel="loading"
+                  color="blue"
+                />
+              </div>
+            ) : null}
+            {greenTick ? (
+              <div style={{ paddingLeft: 20 }}>
+                <Checkmark size="medium" />
+              </div>
+            ) : null}
           </div>
           {fileName}
           <br></br>

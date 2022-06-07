@@ -480,6 +480,11 @@ div::-webkit-scrollbar{
   .candidatos .file input {
     display: none;
   }
+  .candidatos .file {
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
+  }
   .candidatos .file label {
     text-align: center;
     font-weight: bolder;
@@ -765,6 +770,11 @@ div::-webkit-scrollbar{
   }
   .candidatos .file input {
     display: none;
+  }
+  .candidatos .file  {
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
   }
   .candidatos .file label {
     cursor: pointer;
