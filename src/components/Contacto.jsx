@@ -8,7 +8,6 @@ import whatsApp from "../images/WhatsApp.svg";
 import { postContactoAirtable } from "../functions/postContactoAirtable";
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 export default function Contacto() {
   const [nombre, setNombre] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -16,7 +15,6 @@ export default function Contacto() {
   const [mensaje, setMensaje] = React.useState("");
   const [condicionesLegales, setCondicionesLegales] = React.useState("");
   const [errors, setErrors] = React.useState({});
-
   const [captcha, setCaptcha] = React.useState("");
 
 
