@@ -5,6 +5,10 @@ To do:
 
 Si necesitas ayuda para entender el codigo avisame, fue algo hecho muy a las apuradas por demoras. Hablar a fran massello
 
+Resumen de que hace este proyecto:
+Pagina web que hace GETs y POSTs a Airtable, mandando datos por formularios html. El manejo de subida de archivos se hace con Google Drive y Google Appscript. Despues los datos de los formularios se suben a airtable. 
+ 
+
 Estructura de ramas ahora: 
 - main = rama principal, esta tiene que ser siempre la que tenga una version estable de la app
 - develop = rama para desarrollo, a partir de esta se hacen ramas/o se labura directamente en esta y se desarrollan nuevas funcionalidades

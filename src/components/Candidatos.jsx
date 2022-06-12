@@ -99,7 +99,7 @@ export default function Candidatos() {
         input.arrayConvertidoTecnologias,
         input.condicionesLegales,
         input.ofertas
-      );
+      )
       event.preventDefault();
       setTimeout(() => window.location.reload(), 3000);
     } else {
@@ -147,9 +147,6 @@ export default function Candidatos() {
   }
 
   function guardarArchivo(e) {
-    console.log(
-      `https://script.google.com/macros/s/${process.env.REACT_APP_KEY_APPSCRIPT}/exec`
-    );
     setIsLoading(true);
     var file = e.target.files[0]; //the file
     setFileName(file.name);
