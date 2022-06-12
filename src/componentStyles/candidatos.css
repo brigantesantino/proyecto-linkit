@@ -433,7 +433,6 @@ div::-webkit-scrollbar{
   .candidatos main form {
     flex-direction: column;
     align-items: center;
-    width: 90%;
     padding: 0 0.7rem;
     background-color: white;
     display: flex;

@@ -27,17 +27,15 @@ body {
 .contacto form {
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.31);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.31);
-  margin-top: 30px;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   padding: 0 0.7rem;
   background-color: white;
   display: flex;
   justify-content: space-around;
   width: 40%;
   height: 30%;
-  margin: 0 auto;
+  margin: auto;
   margin-top: 40px;
   margin-bottom: 30px;
   border-radius: 10px;
