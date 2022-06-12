@@ -4,7 +4,7 @@
   box-sizing: border-box;
   overflow-x: visible;
 }
-.text{
+.text {
   text-align: left;
 }
 .popup {
@@ -19,20 +19,18 @@
   border-radius: 8px;
   margin: 0 auto;
   text-align: left;
-  
 }
-div.header-popup{
+div.header-popup {
   display: flex;
   justify-content: space-between;
 }
-.arrow{
+.arrow {
   font-size: 50px;
   text-decoration: none;
   background-color: transparent;
- border: none;
- color: black;
- width: 20%;
- 
+  border: none;
+  color: black;
+  width: 20%;
 }
 .cta {
   position: relative;
@@ -42,9 +40,9 @@ div.header-popup{
   border: none;
   background: none;
   cursor: pointer;
- }
- 
- .cta:before {
+}
+
+.cta:before {
   content: "";
   position: absolute;
   top: 0;
@@ -55,18 +53,18 @@ div.header-popup{
   width: 45px;
   height: 45px;
   transition: all 0.3s ease;
- }
- 
- .cta span {
+}
+
+.cta span {
   position: relative;
   font-family: "Ubuntu", sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #234567;
- }
- 
- .cta svg {
+}
+
+.cta svg {
   position: relative;
   top: 0;
   margin-left: 10px;
@@ -77,28 +75,28 @@ div.header-popup{
   stroke-width: 2;
   transform: translateX(-5px);
   transition: all 0.3s ease;
- }
- 
- .cta:hover:before {
+}
+
+.cta:hover:before {
   width: 100%;
   background: #b1dae7;
- }
- 
- .cta:hover svg {
+}
+
+.cta:hover svg {
   transform: translateX(0);
- }
- 
- .cta:active {
+}
+
+.cta:active {
   transform: scale(0.95);
- }
+}
 .popup span.google {
   color: #6791d9;
   margin-left: 0.5rem;
 }
-.color1{
+.color1 {
   color: #63799e;
 }
-.negro{
+.negro {
   color: black;
   font-weight: lighter;
 }
@@ -148,7 +146,7 @@ div.header-popup{
   font-size: 1rem;
   font-weight: 375;
 }
-.popup .xd{
+.popup .xd {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -156,11 +154,11 @@ div.header-popup{
   border: rgb(110, 110, 110) solid 1px;
   background-color: rgba(210, 230, 242, 0.891);
 }
-.popup .checkboxes{
+.popup .checkboxes {
   width: 100% !important;
   display: flex;
   margin: 1.5rem 0 0rem 0;
-  color: #63799e ;
+  color: #63799e;
   flex-direction: column;
   border-radius: 5px;
   border: rgb(110, 110, 110) solid 1px;
@@ -172,7 +170,6 @@ div.header-popup{
   background-color: #63799e;
   padding: 0.6rem 0.5rem;
   color: white;
-  border-radius: 6px;
   transition: 300ms;
   outline: none;
   font-size: 1rem;
@@ -193,11 +190,7 @@ div.header-popup{
 .popup form {
   flex-direction: column;
   align-items: center;
-  width: 100%;
   padding: 0 0.7rem;
-}
-.popup form {
- 
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -206,11 +199,12 @@ div.header-popup{
   margin-top: 30px;
   border-radius: 10px;
 }
+
 .popup .file input {
   display: none;
 }
 .popup .file {
-  display: flex;  
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
@@ -226,12 +220,10 @@ div.header-popup{
   background-color: rgba(210, 230, 242, 0.891);
   margin: 1rem 0;
   width: 5rem;
-  
 }
 .popup form div.inputs {
   width: 100%;
   margin: 2rem;
-  
 }
 
 .popup form div.inputs input {
@@ -256,7 +248,6 @@ div.header-popup{
   width: 100%;
   margin: 2rem;
   margin: -1.8rem 0 1.8rem 0;
-  
 }
 .popup form div.details select {
   width: 100%;
@@ -270,7 +261,7 @@ div.header-popup{
 .popup form div.details h3.mensaje {
   margin-bottom: 15px;
 }
-.popup .remuneracion{
+.popup .remuneracion {
   width: 100%;
   padding: 7px 7px;
   margin: 0.8rem 0;
@@ -278,7 +269,6 @@ div.header-popup{
   border: rgb(110, 110, 110) solid 1px;
   background-color: rgba(210, 230, 242, 0.891);
   outline: none;
-  
 }
 
 .popup form div.details textarea {
@@ -288,9 +278,8 @@ div.header-popup{
   border: rgb(110, 110, 110) solid 1px;
   background-color: rgba(210, 230, 242, 0.891);
   outline: none;
-
 }
-.popup .css-yk16xz-control{
+.popup .css-yk16xz-control {
   width: 100%;
   border-radius: 5px;
   border: rgb(110, 110, 110) solid 1px;
@@ -311,12 +300,10 @@ div.header-popup{
 }
 .popup form div.condition h3 {
   font-size: 15px;
+  margin: 0 0 0 0;
 }
 .popup form div.condition input {
   margin: 5px 5px 0 0;
-}
-.popup form div.condition h3 {
-  margin: 0 0 0 0;
 }
 .popup form div.condition button.send-button {
   width: 20%;
@@ -327,11 +314,6 @@ div.header-popup{
   border-radius: 6px;
   transition: 300ms;
   outline: none;
-}
-.popup form div.condition button.send-button:hover {
-  background-color: transparent;
-  color: black;
-  transition: 300ms;
 }
 
 .popup .condition {
@@ -348,6 +330,4 @@ div.header-popup{
   .popup .apply {
     width: 20%;
   }
-  
 }
-

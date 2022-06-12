@@ -35,20 +35,14 @@ export default function Candidatoseng() {
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
-  //const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState([]);
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
   const [data, setData] = useState("");
-
   const [captcha, setCaptcha] = useState("");
-
   const [googleObject, setGoogleObject] = useState({});
   const [fileName, setFileName] = useState("");
-
-  //const [menu, setMenu] = useState(false);
-  const [popup, setPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
   function validate(input, event) {
