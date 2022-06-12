@@ -39,7 +39,6 @@ export default function Candidatoseng() {
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
   const [ofertas, setOfertas] = useState({});
-  const [data, setData] = useState("");
   const [captcha, setCaptcha] = useState("");
   const [googleObject, setGoogleObject] = useState({});
   const [fileName, setFileName] = useState("");
@@ -246,7 +245,7 @@ export default function Candidatoseng() {
                     to={`/popup/${oferta.fields.Codigo}`}
                     state={oferta.fields}
                   >
-                    <p onClick={() => setData(oferta.fields)}>
+                    <p>
                       <button>
                         <h2 className="designer">
                           {oferta.fields.Nombre}

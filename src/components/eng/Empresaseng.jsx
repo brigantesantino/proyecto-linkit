@@ -107,6 +107,7 @@ export default function Empresas() {
       arrayConvertidoInteresadoEnRoles,
       arrayConvertidoComoNosConociste,
       mensaje,
+      captcha
     };
     validate(
       objetoAVerificar,
