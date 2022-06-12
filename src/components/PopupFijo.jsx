@@ -264,6 +264,7 @@ export default function PopupFijo(props) {
               <input
                 type="file"
                 id="archive"
+                accept=".pdf, .doc, .docx" 
                 onChange={(e) => guardarArchivo(e)}
               />
             </label>

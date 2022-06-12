@@ -27,7 +27,6 @@ import { valuesExperience, valuesSelectRoles } from "../constants/selects";
 import { valuesSelectComoNosConociste } from "../constants/selects";
 import { valuesSelectTecnologias } from "../constants/selects";
 
-
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -148,6 +147,9 @@ export default function Candidatos() {
   }
 
   function guardarArchivo(e) {
+    console.log(
+      `https://script.google.com/macros/s/${process.env.REACT_APP_KEY_APPSCRIPT}/exec`
+    );
     setIsLoading(true);
     var file = e.target.files[0]; //the file
     setFileName(file.name);
@@ -166,8 +168,8 @@ export default function Candidatos() {
       ) //send to Api
         .then((res) => res.json())
         .then((a) => {
-          console.log(a); //See response
-          console.log(a.id);
+          //console.log(a); //See response
+          //console.log(a.id);
           const object = {
             id: a.id,
             filename: file.name,
@@ -401,7 +403,11 @@ export default function Candidatos() {
                 <input
                   type="file"
                   id="archive"
-                  onChange={(e) => guardarArchivo(e)}
+                  accept=".pdf, .doc, .docx"
+                  onChange={(e) => {
+                    setGreenTick(false);
+                    guardarArchivo(e);
+                  }}
                 />
               </label>
               {isLoading ? (

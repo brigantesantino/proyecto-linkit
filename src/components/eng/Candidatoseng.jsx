@@ -12,12 +12,12 @@ import image13 from "../../images/image 13.svg";
 import image14 from "../../images/image 14.svg";
 import image15 from "../../images/image 15.png";
 import image21 from "../../images/image 21.png";
-import vectorFondo from "../../images/vectorFondo.svg"
+import vectorFondo from "../../images/vectorFondo.svg";
 import vector from "../../images/Vector.svg";
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg";
-import USA from "../../images/banderaUsa.png"
-import ARG from "../../images/banderaArg.png"
+import USA from "../../images/banderaUsa.png";
+import ARG from "../../images/banderaArg.png";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import HeaderENG from "./HeaderENG";
@@ -169,7 +169,6 @@ export default function Candidatoseng() {
     };
   }
 
-
   function onChangeCaptcha(value) {
     setCaptcha(value);
   }
@@ -186,21 +185,19 @@ export default function Candidatoseng() {
         .catch((error) => {
           console.log(error);
         });
-
     } catch (err) {
       console.log(err);
     }
   }, []);
 
-
   return (
     <div className="candidatos">
       <HeaderENG />
       <div className="background">
-            <img alt="" className="img_back1" src={vectorFondo}/>
-            <img alt="" className="img_back2" src={vectorFondo}/>
-            <img alt="" className="img_back3" src={vectorFondo}/>
-        </div>
+        <img alt="" className="img_back1" src={vectorFondo} />
+        <img alt="" className="img_back2" src={vectorFondo} />
+        <img alt="" className="img_back3" src={vectorFondo} />
+      </div>
       <nav id="sideNav">
         <ul className="side-menu">
           <li>
@@ -217,28 +214,28 @@ export default function Candidatoseng() {
           </li>
         </ul>
         <div className="contenedor-idiomas">
-              <a href="/homeENG" className="contenedor-bandera">
-                <img className="emojiBandera" src={USA} alt="" />
-                <div className="idioma-component">ENG</div>
-                </a>
-              <a className="contenedor-bandera" href="/home">
-                <img className="emojiBandera" src={ARG} alt="" />
-                <div className="idioma-component">ESP</div>
-              </a>
-            </div>
+          <a href="/homeENG" className="contenedor-bandera">
+            <img className="emojiBandera" src={USA} alt="" />
+            <div className="idioma-component">ENG</div>
+          </a>
+          <a className="contenedor-bandera" href="/home">
+            <img className="emojiBandera" src={ARG} alt="" />
+            <div className="idioma-component">ESP</div>
+          </a>
+        </div>
       </nav>
       <main>
         <h4 className="puestos">OPEN ROLES</h4>
-        
+
         <div className="h1">
           <h1 className="question">
-          Are you looking for a change in your professional path?
+            Are you looking for a change in your professional path?
           </h1>
         </div>
         <h2 id="offers">Available offers</h2>
         <div className="buttons buttons-desktop scrollbox">
           <div className="candidate-buttons">
-          {ofertas.length > 0 ? (
+            {ofertas.length > 0 ? (
               ofertas.map((oferta) => (
                 <a className="link-pupup" key={oferta.fields.Codigo}>
                   <Link
@@ -317,38 +314,60 @@ export default function Candidatoseng() {
             {errors.nombre ? (
               <p className="alertaForm">{errors.nombre}</p>
             ) : null}
-            <input placeholder="Name"  type="text" onChange={(e) => setNombre(e.target.value)} />
+            <input
+              placeholder="Name"
+              type="text"
+              onChange={(e) => setNombre(e.target.value)}
+            />
 
             <h3>Email*</h3>
             {errors.email ? <p className="alertaForm">{errors.email}</p> : null}
-            <input placeholder=" Email" type="email" onChange={(e) => setEmail(e.target.value)} />
+            <input
+              placeholder=" Email"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <h3>Address*</h3>
             {errors.direccion ? (
               <p className="alertaForm">{errors.direccion}</p>
             ) : null}
-            <input placeholder="Address" type="text" onChange={(e) => setDireccion(e.target.value)} />
+            <input
+              placeholder="Address"
+              type="text"
+              onChange={(e) => setDireccion(e.target.value)}
+            />
             <h3>LinkedIn*</h3>
             {errors.linkedin ? (
               <p className="alertaForm">{errors.linkedin}</p>
             ) : null}
-            <input placeholder="*Linkedin" type="text" onChange={(e) => setLinkedIn(e.target.value)} />
+            <input
+              placeholder="*Linkedin"
+              type="text"
+              onChange={(e) => setLinkedIn(e.target.value)}
+            />
             <h3>Experience</h3>
             <Select
-                  placeholder="Experience"
-                  className="selectCandidatos"
-                  options={valuesExperience}
-                  onChange={(opt) => setExperiencia(opt)}
-                />
+              placeholder="Experience"
+              className="selectCandidatos"
+              options={valuesExperience}
+              onChange={(opt) => setExperiencia(opt)}
+            />
           </div>
           <div className="details">
             <h3>Upload your CV</h3>
             <div className="file">
               <label form="archive">
                 +
-                <input type="file" id="archive" onChange={(e) => guardarArchivo(e)}/>
+                <input
+                  accept=".pdf, .doc, .docx"
+                  type="file"
+                  id="archive"
+                  onChange={(e) => guardarArchivo(e)}
+                />
               </label>
             </div>
-            {fileName}<br></br>
+            {fileName}
+            <br></br>
             <h3>Intended remuneration</h3>
             <div className="value">
               <select
@@ -360,29 +379,26 @@ export default function Candidatoseng() {
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
               </select>
-              <input placeholder="Intended remuneration"
+              <input
+                placeholder="Intended remuneration"
                 type="text"
                 onChange={(e) => setRemuneracionPretendida(e.target.value)}
               />
             </div>
             <h3>Interested in roles</h3>
 
-            <Select placeholder="Choose the role(s)"
+            <Select
+              placeholder="Choose the role(s)"
               className="selectCandidatos"
               options={valuesSelectRoles}
               isMulti
               onChange={(opt) => setInteresadoEnRoles(opt)}
             />
             <h3>Otros</h3>
-          <input 
-            className="inp"
-            type="textarea"
-            placeholder="Others..."
-
-            
-          />
+            <input className="inp" type="textarea" placeholder="Others..." />
             <h3>How did you meet us</h3>
-            <Select  placeholder="How did you meet us"
+            <Select
+              placeholder="How did you meet us"
               className="selectCandidatos"
               options={valuesSelectComoNosConociste}
               isMulti
@@ -391,15 +407,21 @@ export default function Candidatoseng() {
 
             <h3>Technologies</h3>
 
-            <Select placeholder="Choose the technology(s)"
+            <Select
+              placeholder="Choose the technology(s)"
               className="selectCandidatos"
               options={valuesSelectTecnologias}
               isMulti
               onChange={(opt) => setTecnologias(opt)}
             />
 
-<ReCAPTCHA sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw" onChange={onChangeCaptcha} />
-            {errors.captcha ? <p className="alertaForm">{errors.captcha}</p> : null}
+            <ReCAPTCHA
+              sitekey="6Lc2oTcgAAAAAPR8ONUY_0RU52exoKd4f45VPtmw"
+              onChange={onChangeCaptcha}
+            />
+            {errors.captcha ? (
+              <p className="alertaForm">{errors.captcha}</p>
+            ) : null}
 
             <div className="condition">
               <div className="acept-conditions">
@@ -422,7 +444,6 @@ export default function Candidatoseng() {
       </main>
       <footer id="abajo">
         <div className="footer">
-          
           <h4>
             Link<span>IT</span>
           </h4>
@@ -435,38 +456,39 @@ export default function Candidatoseng() {
             >
               <img alt="" src={vector} />
             </a>
-            <a
-              className="gmail"
-              href="/contacto"
-            >
+            <a className="gmail" href="/contacto">
               <img alt="" src={vector1} />
             </a>
-            <a className="wpp" href="https://wa.me/+5491165287429" target="_blank">
+            <a
+              className="wpp"
+              href="https://wa.me/+5491165287429"
+              target="_blank"
+            >
               <img alt="" src={whatsApp} />
             </a>
           </div>
         </div>
         <div className="info-candidatos">
           <a href="/homeENG">
-          <p className="footer-button">HOME</p>
+            <p className="footer-button">HOME</p>
           </a>
           <a className="empresas-button" href="/empresasENG">
             <p className="footer-button">BUSINESS</p>
           </a>
           <a href="/CandidatosENG">
-          <p className="footer-button">CANDIDATES</p>
+            <p className="footer-button">CANDIDATES</p>
           </a>
           <a href="/faqsENG">
-          <p className="footer-button">FAQs</p>
+            <p className="footer-button">FAQs</p>
           </a>
           <div className="contenedor-idiomas-cand">
-              <a href="/homeENG" className="contenedor-bandera">
-                <div className="idioma-component">ENG |</div>
-                </a>
-              <a className="contenedor-bandera" href="/home">
-                <div className="idioma-component">ESP</div>
-              </a>
-            </div>
+            <a href="/homeENG" className="contenedor-bandera">
+              <div className="idioma-component">ENG |</div>
+            </a>
+            <a className="contenedor-bandera" href="/home">
+              <div className="idioma-component">ESP</div>
+            </a>
+          </div>
         </div>
         <div className="rights-candidatos">
           <p>© 2022 LinkIT. All rights reserved.</p>
