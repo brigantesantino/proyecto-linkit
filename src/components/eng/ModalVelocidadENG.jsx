@@ -2,8 +2,6 @@ import React from "react";
 import velocidad from "../../images/velocidad.svg";
 import "../../componentStyles/modal.css"
 
-
-
 const ModalVelocidadENG = ({setModal4}) => {
   return (
     <div>

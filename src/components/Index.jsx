@@ -1,12 +1,10 @@
 import React, {useState} from "react";
 import MenuHamburguesa from "./MenuHamburguesa";
-
 import vectorFondo from "../images/vectorFondo.svg";
 import carafeliz from "../images/manos.png";
 import eficiencia from "../images/eficiencia.png";
 import velocidad from "../images/auto.png";
 import seguridad from "../images/candado.png";
-import logoTres from "../images/LogoTres.svg";
 import menuHamb from "../images/menuHamburguesaBlanco.png";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";

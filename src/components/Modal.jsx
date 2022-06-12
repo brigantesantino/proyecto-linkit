@@ -2,8 +2,6 @@ import React from "react";
 import carafeliz from "../images/carafeliz.svg";
 import "../componentStyles/modal.css"
 
-
-
 const Modal = ({setIsOpen}) => {
   return (
     <div>

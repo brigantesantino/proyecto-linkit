@@ -2,8 +2,6 @@ import React from "react";
 import eficiencia from "../images/eficiencia.svg";
 import "../componentStyles/modal.css"
 
-
-
 const ModalEficiencia = ({setModal2}) => {
   return (
     <div>

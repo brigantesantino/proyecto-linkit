@@ -3,8 +3,6 @@ import "../../componentStyles/empresas.css";
 import { postFormAirtable } from "../../functions/postEmpresasAirtable";
 import { valuesSelectRoles } from "../../constants/selects";
 import { valuesSelectComoNosConociste } from "../../constants/selects";
-//import menuHambNegro from "../../images/menuHamburguesa.svg";
-//import MenuHamburguesa from "./../MenuHamburguesa";
 import image17 from "../../images/image 17.svg";
 import image18 from "../../images/image 18.png";
 import image20 from "../../images/image 20.svg";
@@ -21,8 +19,6 @@ import vector from "../../images/Vector.svg";
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg";
 import ReCAPTCHA from "react-google-recaptcha";
-
-//import Header from "./../Header";
 import HeaderENG from "./HeaderENG";
 import Select from "react-select";
 

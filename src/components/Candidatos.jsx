@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import Select from "react-select";
-
 import "../componentStyles/candidatos.css";
-//import { useTranslation } from "react-i18next";
 import image17 from "../images/image 17.svg";
 import image18 from "../images/image 18.png";
 import image20 from "../images/image 20.svg";
@@ -20,20 +17,16 @@ import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-//import menuHambNegro from "../images/menuHamburguesa.svg";
-//import MenuHamburguesa from "./MenuHamburguesa";
 import Header from "./Header";
 import { Checkmark } from "react-checkmark";
 import { postFormAirtableCandidatos } from "../functions/postCandidatosAirtable";
 import ReCAPTCHA from "react-google-recaptcha";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ThreeDots } from "react-loader-spinner";
-
 import { valuesExperience, valuesSelectRoles } from "../constants/selects";
 import { valuesSelectComoNosConociste } from "../constants/selects";
 import { valuesSelectTecnologias } from "../constants/selects";
 
-//import { callCreate } from "../functions/fileManagers/google";
 
 export default function Candidatos() {
   const [nombre, setNombre] = useState("");
@@ -44,7 +37,6 @@ export default function Candidatos() {
   const [monedaRemuneracion, setMonedaRemuneracion] = useState("");
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [interesadoEnRoles, setInteresadoEnRoles] = useState([]);
-  //const [interesadoEnOtrosRoles, setInteresadoEnOtrosRoles] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState([]);
   const [tecnologias, setTecnologias] = useState("");
   const [condicionesLegales, setCondicionesLegales] = useState("");
@@ -53,7 +45,6 @@ export default function Candidatos() {
   const [captcha, setCaptcha] = useState("");
   const [googleObject, setGoogleObject] = useState({});
   const [fileName, setFileName] = useState("");
-  //const [menu, setMenu] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [greenTick, setGreenTick] = useState(false);

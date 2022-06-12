@@ -6,7 +6,6 @@ import Select from "react-select";
 import { valuesSelectComoNosConociste } from "../constants/selects";
 import { valuesSelectTecnologias } from "../constants/selects";
 import { valuesExperience } from "../constants/selects";
-
 import ReCAPTCHA from "react-google-recaptcha";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ThreeDots } from "react-loader-spinner";
@@ -18,7 +17,6 @@ export default function PopupFijo(props) {
   const [direccion, setDireccion] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [experiencia, setExperiencia] = useState("");
-  /*   const [cv, setCv] = useState(""); */
   const [remuneracionPretendida, setRemuneracionPretendida] = useState("");
   const [comoNosConociste, setComoNosConociste] = useState([]);
   const [tecnologias, setTecnologias] = useState([]);

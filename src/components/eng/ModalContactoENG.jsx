@@ -4,8 +4,6 @@ import logoMail from "../../images/LogoMail.svg"
 import logoWs from "../../images/LogoWs.svg"
 import "../../componentStyles/modal.css"
 
-
-
 const ModalContactoENG = ({setModalContacto}) => {
   return (
     <div>

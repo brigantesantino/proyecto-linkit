@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import "../../componentStyles/candidatos.css";
-//import { useTranslation } from "react-i18next";
 import image17 from "../../images/image 17.svg";
 import image18 from "../../images/image 18.png";
 import image20 from "../../images/image 20.svg";
@@ -17,19 +16,16 @@ import vectorFondo from "../../images/vectorFondo.svg"
 import vector from "../../images/Vector.svg";
 import vector1 from "../../images/Vector-1.svg";
 import whatsApp from "../../images/WhatsApp.svg";
-//import menuHambNegro from "../../images/menuHamburguesa.svg";
-//import MenuHamburguesa from "./../MenuHamburguesa";
-//import Header from "./../Header";
 import USA from "../../images/banderaUsa.png"
 import ARG from "../../images/banderaArg.png"
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import HeaderENG from "./HeaderENG";
-
 import { postFormAirtableCandidatos } from "../../functions/postCandidatosAirtable";
 import { valuesExperience, valuesSelectRoles } from "../../constants/selects";
 import { valuesSelectComoNosConociste } from "../../constants/selects";
 import { valuesSelectTecnologias } from "../../constants/selects";
+
 export default function Candidatoseng() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");

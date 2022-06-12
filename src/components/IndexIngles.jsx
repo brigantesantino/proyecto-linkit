@@ -12,13 +12,6 @@ import velocidad from "../images/velocidad.svg";
 import seguridad from "../images/seguridad.svg";
 import logoTres from "../images/LogoTres.svg";
 import menuHamb from "../images/menuHamburguesaBlanco.png";
-import logoCuatro from "../images/LogoCuatro.svg";
-import logoCinco from "../images/LogoCinco.svg";
-import logoSeis from "../images/LogoSeis.svg";
-import logoSiete from "../images/LogoSiete.svg";
-import logoOcho from "../images/LogoOcho.svg";
-import logoNueve from "../images/LogoNueve.svg";
-
 
 import "../componentStyles/home.css";
 

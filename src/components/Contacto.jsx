@@ -5,9 +5,6 @@ import vectorFondo from "../images/vectorFondo.svg";
 import vector from "../images/Vector.svg";
 import vector1 from "../images/Vector-1.svg";
 import whatsApp from "../images/WhatsApp.svg";
-
-import USA from "../images/banderaUsa.png";
-import ARG from "../images/banderaArg.png";
 import { postContactoAirtable } from "../functions/postContactoAirtable";
 import ReCAPTCHA from "react-google-recaptcha";
 

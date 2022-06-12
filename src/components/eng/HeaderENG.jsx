@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../componentStyles/header.css";
-//import { useNavigate } from "react-router-dom";
 import menuHambNegro from "../../images/menuHamburguesa.svg";
 import MenuHamburguesa from "../MenuHamburguesa";
 

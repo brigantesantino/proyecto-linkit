@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import ModalContactoENG from "./ModalContactoENG"
 import MenuHamburguesaENG from "./MenuHamburguesaENG";
 import vectorFondo from "../../images/vectorFondo.svg";
-import logoTres from "../../images/LogoTres.svg";
 import menuHamb from "../../images/menuHamburguesaBlanco.png";
 import carafeliz from "../../images/manos.png";
 import eficiencia from "../../images/eficiencia.png";

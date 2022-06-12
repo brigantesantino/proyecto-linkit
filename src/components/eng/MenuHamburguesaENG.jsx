@@ -1,9 +1,5 @@
-
 import React from "react";
-
 import "../../componentStyles/menuHamburguesa.css"
-
-
 
 const MenuHamburguesaENG = ({setMenu}) => {
   return (
