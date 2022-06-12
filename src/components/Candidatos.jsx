@@ -161,7 +161,7 @@ export default function Candidatos() {
         fname: "uploadFilesToGoogleDrive",
       }; //preapre info to send to API
       fetch(
-        "https://script.google.com/macros/s/AKfycbzt2CUhi-h-rH167FECS9F_MTGT9lAObcT5aseQvg_KxZ5PbAyIF8dmCVUgIoxR4pUVMw/exec", //your AppsScript URL
+        `https://script.google.com/macros/s/${process.env.REACT_APP_KEY_APPSCRIPT}/exec`, //your AppsScript URL
         { method: "POST", body: JSON.stringify(dataSend) }
       ) //send to Api
         .then((res) => res.json())
